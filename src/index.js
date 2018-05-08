@@ -13,23 +13,21 @@ import 'amfe-flexible';
 const store = configureStore();
 
 const { locale, messages } = setLang();
-// import './index.css';
-// import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-	// <App />,
-	// <div>{routes}</div>,
-	<IntlProvider locale={locale} messages={messages}>
-		<Provider store={store}>{routes}</Provider>
-	</IntlProvider>,
-	document.getElementById('root')
+      <IntlProvider locale={locale} messages={messages}>
+        <Provider store={store}>
+          { routes }
+        </Provider>
+      </IntlProvider>,
+    document.getElementById('root')
 );
 
 if (module.hot) {
-	module.hot.accept('./routes', () => {
-		const newRoutes = require('./routes').default;
-		render(newRoutes);
-	});
-}
-// registerServiceWorker();
+    module.hot.accept('./routes', () => {
+      const newRoutes = require('./routes').default;
+      render(newRoutes);
+    });
+  }
+
+

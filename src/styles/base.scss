@@ -4,6 +4,8 @@ $golden: #DCB276;
     background: linear-gradient(to bottom, #FEDF97, #CEA366);
 }
 
+// $orange: #DCB276;
+$gray: #969696;
 .button-active:active {
     background: #dab075;
 }
@@ -12,10 +14,21 @@ $golden: #DCB276;
     font-size: 18PX;
 }
 
+.font-active:active {
+    color: #eac287;
+}
+
 .fz15 {
     font-size: 15PX;
 }
 
 .fz12 {
     font-size: 12PX;
+}
+
+// .fz15{
+//   font-size: 15px;
+// }
+.fz30 {
+    font-size: 30px;
 }

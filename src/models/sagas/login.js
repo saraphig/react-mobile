@@ -8,17 +8,20 @@ import * as login from 'api/login';
 
 
 export const actionType = {
-    setToken: 'login/setToken'
+    setToken: 'login/setToken',
+    setInfo: 'login/setInfo'
 }
 
 export function* setToken({ payload }) {
-    console.log(888)
-    yield put({ type: loginReducer.setToken, payload: payload });
+    yield put({ type: loginReducer.token, payload: payload });
+}
+export function* setInfo({ payload }) {
 }
 
 
 export default function* root() {
     yield [
       takeLatest(actionType.setToken, setToken),
+      takeLatest(actionType.setInfo, setInfo),
     ]
 }
