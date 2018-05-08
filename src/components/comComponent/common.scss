@@ -1,135 +1,125 @@
 @import '../../styles/base';
-.button {
-    width: 316px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    margin: 0 auto;
-    color: $black;
-    @extend .button-active;
-    @extend .fz18;
-    @extend .gradient;
-}
 
-.input {
-    @extend .fz15;
-    width: 100%;
-    box-sizing: border-box;
-    padding-bottom: 14px;
-    margin-top: 30px;
-    outline: none;
-    background-color: transparent;
-    border-width: 1px;
-    border-style: solid;
-    border-color: transparent transparent $golden;
+.button {
+  width: 316px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  margin: 0 auto;
+  color: $black;
+  @extend .button-active;
+  @extend .fz18;
+  @extend .gradient;
 }
 
 .midText {
-    font-size: 24px;
-    color: $golden;
-    text-align: center;
-    font-weight: 100;
+  font-size: 24px;
+  color: $golden;
+  text-align: center;
+  font-weight: 100;
 }
 
 .BottomTips {
-    font-weight: 200;
-    @extend .fz15;
-    text-align: center;
-    color: #fff;
-    .BottomTips-right {
-        color: $golden;
-    }
+  font-weight: 200;
+  @extend .fz15;
+  text-align: center;
+  color: #fff;
+  .BottomTips-right {
+    color: $golden;
+  }
 }
 
 .ServerTips {
-    font-weight: 200;
-    @extend .fz12;
-    color: #fff;
-    .ServerTips-right {
-        color: $golden;
+  font-weight: 200;
+  @extend .fz12;
+  color: #fff;
+  .ServerTips-right {
+    color: $golden;
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $golden;
+  padding-bottom: 14px;
+  margin-top: 30px;
+  @extend .fz15;
+  .input {
+    flex: 1;
+    box-sizing: border-box;
+    outline: none;
+    background-color: transparent;
+    border: none;
+  }
+  // 不写伪类是防止点击了线也发送验证码
+  .input-send {
+    color: $golden;
+    @extend .font-active;
+  }
+  .input-sended {
+    color: $gray;
+  }
+  .line {
+    width: 2px;
+    background-color: $golden;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+}
+.validate {
+  input {
+    position: absolute;
+    border: none;
+    left: 0;
+    -webkit-appearance: none;
+    margin: 16px auto;
+    display: block;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    outline: none;
+    opacity: .01;
+    text-size-adjust: none;
+    padding: 0;
+    box-sizing: content-box;
+    background-clip: padding-box;
+    overflow: hidden;
+    cursor: auto;
+  }
+  ul {
+    margin: 16px auto;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    font-size: 0;
+    display: flex;
+    position: relative;
+    li {
+      flex: 1;
+      color: #fff;
+      height: 44px;
+      box-sizing: border-box;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      @extend .fz30;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
-    .input-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid $golden;
-        padding-bottom: 14px;
-        margin-top: 30px;
-        @extend .fz15;
-        .input {
-            flex: 1;
-            box-sizing: border-box;
-            outline: none;
-            background-color: transparent;
-            border: none;
-        } // 不写伪类是防止点击了线也发送验证码
-        .input-send {
-            color: $golden;
-            @extend .font-active;
-        }
-        .input-sended {
-            color: $gray;
-        }
-        .line {
-            width: 2px;
-            background-color: $golden;
-            height: 16px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 12px;
-        }
+    .number {
+      width: 100%;
+      height: 3px;
+      background-color: $golden;
     }
-    .validate {
-        input {
-            position: absolute;
-            border: none;
-            left: 0;
-            -webkit-appearance: none;
-            margin: 16px auto;
-            display: block;
-            width: 100%;
-            height: 44px;
-            line-height: 44px;
-            outline: none;
-            opacity: .01;
-            text-size-adjust: none;
-            padding: 0;
-            box-sizing: content-box;
-            background-clip: padding-box;
-            overflow: hidden;
-            cursor: auto;
-        }
-        ul {
-            margin: 16px auto;
-            width: 100%;
-            height: 44px;
-            line-height: 44px;
-            box-sizing: border-box;
-            background-clip: padding-box;
-            font-size: 0;
-            display: flex;
-            position: relative;
-            li {
-                flex: 1;
-                color: #fff;
-                height: 44px;
-                box-sizing: border-box;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                @extend .fz30;
-                margin-right: 16px;
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
-            .number {
-                width: 100%;
-                height: 3px;
-                background-color: $golden;
-            }
-        }
-    }
+  }
 }
