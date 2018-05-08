@@ -6,27 +6,36 @@ import { actionType as loginSaga } from 'models/sagas/login.js';
 class Index extends React.Component{
     constructor(props) {
         super(props)
+        this.props.dispatch({
+            type: loginSaga.setToken,
+            payload: '3245353'
+        }) 
         
     }
 
     componentDidMount(){
-        // this.props.dispatch({
-        //     type: loginSaga.setToken,
-        //     paylod: '3245353'
-        // })
-        console.log(this.props.token)
+        // 挂载完成
     }
+    
+    componentWillReceiveProps(nextprops){
+        // 接收到nextprops触发
+        console.log('==',nextprops.token)
+    }
+
     test () {
        this.props.dispatch({
             type: loginSaga.setToken,
-            paylod: '3245353'
+            payload: '3245353'
         }) 
     }
 
     render(){
+        const {
+            intl: { formatMessage }
+        } = this.props;
         return (
             <div>
-                <button onClick={() => this.test()}>按钮</button>
+                <button onClick={() => this.test()}>{formatMessage({id: 'login.login'})}</button>
                 <p onClick={() => this.props.history.push('/login')}>首页</p>
             </div>
         )
@@ -35,7 +44,7 @@ class Index extends React.Component{
 
 const mapStateToProps = state => ({
     token: state.login.token,
-  });
+});
 
 // export default Index;
 export default connect(mapStateToProps)(injectIntl(Index));

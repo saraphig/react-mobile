@@ -1,15 +1,15 @@
 import createReducer from './createReducer';
 
 const initState = {
-    token: '99999'
+    token: ''
 };
 
 export const actionType = {
-    setToken: 'login/setToken'
+    token: 'login/token'
 };
 
 const reducer = {
-    [actionType.setToken]: (state, { payload }) => {
+    [actionType.token]: (state, { payload }) => {
         return {...state, token: payload}
     },
 }
