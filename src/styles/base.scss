@@ -1,5 +1,6 @@
 $black: #000;
 $orange: #DCB276;
+$gray: #969696;
 
 .gradient{
   background: linear-gradient(to bottom, #FEDF97, #CEA366);
@@ -8,10 +9,16 @@ $orange: #DCB276;
 .button-active:active{
   background: #dab075;
 }
+.font-active:active{
+  color: #eac287;
+}
 
 .fz18{
   font-size: 18px;
 }
 .fz15{
   font-size: 15px;
+}
+.fz30{
+  font-size: 30px;
 }

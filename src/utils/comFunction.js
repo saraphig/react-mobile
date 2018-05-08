@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loading from '../components/comComponent/loading'
 
 
 // 按需加载组件
@@ -23,7 +24,7 @@ export function asyncComponent(importComponent) {
       render() {
         const C = this.state.component;
   
-        return C ? <C {...this.props} /> : <p>Loading...</p>;
+        return C ? <C {...this.props} /> : <Loading />;
       }
     }
   
