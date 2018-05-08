@@ -22,7 +22,7 @@ class RegisterEmailComp extends React.Component {
 		return (
 			<div className="registerEmail">
 				<Header />
-				<div className="middleContent">
+				<div className="registerEmail-middleContent">
 					<MidText
 						text="邮箱注册"
 						style={{

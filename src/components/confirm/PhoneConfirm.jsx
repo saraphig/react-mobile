@@ -22,7 +22,7 @@ class ConfirmG2FComp extends React.Component {
 		return (
 			<div className="phoneConfirm">
 				<Header />
-				<div className="middleContent">
+				<div className="phoneConfirm-middleContent">
 					<MidText
 						text="手机验证"
 						style={{

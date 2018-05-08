@@ -78,7 +78,7 @@ export const Input = props => {
 					>
 						{props.disabled
 							? `已发送(${props.time})`
-							: props.text}
+							: props.text || '发送验证码'}
 					</span>
 				</div>
 			)}
@@ -114,30 +114,47 @@ export const Validate = props => {
 	);
 };
 
-export const TopTabs = (props) => {
-  const tabs = [
-    { title: props.firstTitle || '谷歌验证' },
-    { title: props.secondTitle || '邮箱验证' },
-  ];
+export const TopTabs = props => {
+	const tabs = [
+		{ title: props.firstTitle || '谷歌验证' },
+		{ title: props.secondTitle || '邮箱验证' }
+	];
 
-  return (
-    <div>
-      <Tabs tabs={tabs}
-            initialPage={props.initialPage || 1}
-            tabBarBackgroundColor='#1A1A1A'
-            tabBarActiveTextColor='#DCB276'
-            tabBarInactiveTextColor='#646464'
-            tabBarUnderlineStyle={{ borderColor:'#DCB276', width: '30%', marginLeft: '10%'}}
-            tabBarTextStyle={{fontSize: '15px'}}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-          Content of first tab
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-          Content of second tab
-        </div>
-      </Tabs>
-      <WhiteSpace />
-    </div>
-  )
+	return (
+		<div>
+			<Tabs
+				tabs={tabs}
+				initialPage={props.initialPage || 1}
+				tabBarBackgroundColor="#1A1A1A"
+				tabBarActiveTextColor="#DCB276"
+				tabBarInactiveTextColor="#646464"
+				tabBarUnderlineStyle={{
+					borderColor: '#DCB276',
+					width: '22%',
+					marginLeft: '14%'
+				}}
+				tabBarTextStyle={{ fontSize: '15px' }}
+			>
+				<div
+					style={{
+						margin: '0 30px'
+					}}
+				>
+					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
+					{/* <div style={{ visibility: 'hidden' }}>
+						<Input style={{ visibility: 'hidden' }} />
+					</div> */}
+				</div>
+				<div
+					style={{
+						margin: '0 30px'
+					}}
+				>
+					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
+					<Input placeholder="输入验证码" types={1} />
+				</div>
+			</Tabs>
+			<WhiteSpace />
+		</div>
+	);
 };

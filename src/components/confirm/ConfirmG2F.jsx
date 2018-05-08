@@ -22,7 +22,7 @@ class ConfirmG2FComp extends React.Component {
 		return (
 			<div className="confirmG2f">
 				<Header />
-				<div className="middleContent">
+				<div className="confirmG2f-middleContent">
 					<MidText
 						text="谷歌验证"
 						style={{

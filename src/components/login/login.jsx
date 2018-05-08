@@ -15,7 +15,7 @@ class LoginComp extends React.Component {
 		return (
 			<div className="login">
 				<Header />
-				<div className="middleContent">
+				<div className="login-middleContent">
 					<p className="middleContent-img-logo">
 						<img
 							className="middleContent-logo"

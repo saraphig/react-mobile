@@ -22,7 +22,7 @@ class ConfirmEmailComp extends React.Component {
 		return (
 			<div className="confirmEmail">
 				<Header />
-				<div className="middleContent">
+				<div className="confirmEmail-middleContent">
 					<MidText
 						text="邮箱验证"
 						style={{

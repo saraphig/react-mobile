@@ -9,7 +9,7 @@ import {
 	BottomTips,
 	ServerTips,
 	Validate,
-	Tabs
+	TopTabs
 } from '../comComponent/common';
 
 class ConfirmG2FComp extends React.Component {
@@ -21,9 +21,9 @@ class ConfirmG2FComp extends React.Component {
 
 	render() {
 		return (
-			<div className="confirmG2f">
+			<div className="DoubleConfirm">
 				<Header />
-				<div className="middleContent">
+				<div className="doubleConfirm-middleContent">
 					<MidText
 						text="二次验证"
 						style={{
@@ -31,7 +31,7 @@ class ConfirmG2FComp extends React.Component {
 							marginBottom: 45
 						}}
 					/>
-					<Input placeholder="谷歌验证码" />
+					<TopTabs />
 					<Button style={{ marginTop: 30 }} buttonText="提交" />
 				</div>
 			</div>

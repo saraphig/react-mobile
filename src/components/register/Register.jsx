@@ -16,7 +16,7 @@ class RegisterComp extends React.Component {
 		return (
 			<div className="register">
 				<Header />
-				<div className="middleContent">
+				<div className="register-middleContent">
 					<MidText
 						text="手机绑定"
 						style={{
