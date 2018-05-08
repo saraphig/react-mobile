@@ -9,8 +9,8 @@ export const actionType = {
 };
 
 const reducer = {
-    [actionType.setToken]: (state, { data }) => {
-        return {...state, token: data}
+    [actionType.setToken]: (state, { payload }) => {
+        return {...state, token: payload}
     },
 }
 

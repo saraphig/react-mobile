@@ -12,7 +12,7 @@ export const actionType = {
 }
 
 export function* setToken({ payload }) {
-    yield put({ type: loginReducer.setToken, data: payload });
+    yield put({ type: loginReducer.setToken, payload: payload });
 }
 
 
