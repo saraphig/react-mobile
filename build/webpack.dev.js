@@ -20,16 +20,16 @@ module.exports = Object.assign({}, baseConfig, {
     rules: [
       ...baseConfig.module.rules,
 
+     //  {
+     //    test: /\.css$/,
+     //    use: [ 'style-loader', 'css-loader' ]
+     // },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-     },
-      {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
             {loader: 'style-loader'},
             {loader: 'css-loader'},
-            {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")("last 100 versions")]}},
+            {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")("last 100 versions"),require('postcss-px2rem')({'remUnit': 37.5, 'baseDpr': 2})]}},
             {loader: 'sass-loader'}
         ]
       },

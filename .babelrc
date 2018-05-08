@@ -6,6 +6,7 @@
       "stage-0"
     ],
     "plugins": [
+      ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": "css" }],
       "transform-object-rest-spread",
       "transform-class-properties",
       "react-hot-loader/babel"
