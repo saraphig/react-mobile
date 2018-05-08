@@ -83,3 +83,19 @@ export const Validate = (props) => {
     </div>
   )
 };
+
+export const Tabs = (props) => {
+  return (
+    <div className='validate' style={props.style}>
+      <input type="number" maxLength="6" autoComplete="off"/>
+      <ul className="code-display">
+        <li><span>6</span></li>
+        <li><span>1</span></li>
+        <li><span>2</span></li>
+        <li><span>1</span></li>
+        <li><span className='number'></span></li>
+        <li><span className='number'></span></li>
+      </ul>
+    </div>
+  )
+};
