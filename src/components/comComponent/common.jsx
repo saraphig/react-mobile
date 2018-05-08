@@ -47,39 +47,68 @@ export const BottomTips = props => {
 export const ServerTips = props => {
 	return (
 		<p className="ServerTips" style={props.style}>
-			<input type="checkbox" style={{ background: '#dab075' }} />
+			<input
+				type="checkbox"
+				style={{ background: '#dab075', marginRight: 7 }}
+			/>
 			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
 				<span className="ServerTips-right">{props.ServerTips2}</span>
 			</Link>
 		</p>
 	);
 };
-export const Input = (props) => {
 
-    return (
-      <div className="input-container">
-        <input className="input" style={props.style} placeholder={props.placeholder || '您的邮箱'} value={props.value}/>
-        {props.type === 1 && <div>
-          <span className="line"></span>
-          <span className={props.disabled ? 'input-sended' : 'input-send'}>{props.disabled ? `已发送(${props.time})` : '发送验证码'}</span>
-        </div>}
-      </div>
-
-    )
+export const Input = props => {
+	return (
+		<div className="input-container">
+			<input
+				className="input"
+				style={props.style}
+				placeholder={props.placeholder || '您的邮箱'}
+				value={props.value}
+			/>
+			{props.type === 1 && (
+				<div>
+					<span className="line" />
+					<span
+						className={
+							props.disabled ? 'input-sended' : 'input-send'
+						}
+					>
+						{props.disabled
+							? `已发送(${props.time})`
+							: '发送验证码'}
+					</span>
+				</div>
+			)}
+		</div>
+	);
 };
 
-export const Validate = (props) => {
-  return (
-    <div className='validate' style={props.style}>
-        <input type="number" maxLength="6" autoComplete="off"/>
-      <ul className="code-display">
-        <li><span>6</span></li>
-        <li><span>1</span></li>
-        <li><span>2</span></li>
-        <li><span>1</span></li>
-        <li><span className='number'></span></li>
-        <li><span className='number'></span></li>
-      </ul>
-    </div>
-  )
+export const Validate = props => {
+	return (
+		<div className="validate" style={props.style}>
+			<input type="number" maxLength="6" autoComplete="off" />
+			<ul className="code-display">
+				<li>
+					<span>6</span>
+				</li>
+				<li>
+					<span>1</span>
+				</li>
+				<li>
+					<span>2</span>
+				</li>
+				<li>
+					<span>1</span>
+				</li>
+				<li>
+					<span className="number" />
+				</li>
+				<li>
+					<span className="number" />
+				</li>
+			</ul>
+		</div>
+	);
 };

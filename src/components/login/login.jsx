@@ -34,7 +34,7 @@ class LoginComp extends React.Component {
 					<Input placeholder="您的密码" />
 					<Button style={{ marginTop: 30 }} buttonText="确定" />
 					<BottomTips
-						BottomTips1="已有账号?"
+						BottomTips1="已有账号"
 						BottomTips2="马上登录"
 						style={{ marginTop: 138 }}
 						pathName="/register"
