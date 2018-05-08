@@ -72,6 +72,7 @@
     margin-right: 12px;
   }
 }
+
 .validate {
   input {
     position: absolute;
@@ -122,4 +123,8 @@
       background-color: $golden;
     }
   }
+}
+
+.am-tabs-default-bar-top, .am-tabs-default-bar-bottom{
+  padding: 0 64px;
 }
