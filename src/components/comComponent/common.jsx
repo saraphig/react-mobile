@@ -67,7 +67,7 @@ export const Input = props => {
 				placeholder={props.placeholder || '您的邮箱'}
 				value={props.value}
 			/>
-			{props.type === 1 && (
+			{props.types === 1 && (
 				<div>
 					<span className="line" />
 					<span
@@ -77,7 +77,7 @@ export const Input = props => {
 					>
 						{props.disabled
 							? `已发送(${props.time})`
-							: '发送验证码'}
+							: props.text}
 					</span>
 				</div>
 			)}
@@ -113,18 +113,30 @@ export const Validate = props => {
 	);
 };
 
-export const Tabs = (props) => {
-  return (
-    <div className='validate' style={props.style}>
-      <input type="number" maxLength="6" autoComplete="off"/>
-      <ul className="code-display">
-        <li><span>6</span></li>
-        <li><span>1</span></li>
-        <li><span>2</span></li>
-        <li><span>1</span></li>
-        <li><span className='number'></span></li>
-        <li><span className='number'></span></li>
-      </ul>
-    </div>
-  )
+export const Tabs = props => {
+	return (
+		<div className="validate" style={props.style}>
+			<input type="number" maxLength="6" autoComplete="off" />
+			<ul className="code-display">
+				<li>
+					<span>6</span>
+				</li>
+				<li>
+					<span>1</span>
+				</li>
+				<li>
+					<span>2</span>
+				</li>
+				<li>
+					<span>1</span>
+				</li>
+				<li>
+					<span className="number" />
+				</li>
+				<li>
+					<span className="number" />
+				</li>
+			</ul>
+		</div>
+	);
 };

@@ -4,6 +4,10 @@ import Index from 'views/index/index';
 // import Login from 'views/login/index';
 import Register from 'views/register/Register';
 import RegisterEmail from 'views/register/RegisterEmail';
+import ConfirmEmail from 'views/register/ConfirmEmail';
+import ConfirmG2f from 'views/confirm/ConfirmG2f';
+import PhoneConfirm from 'views/confirm/PhoneConfirm';
+import DoubleConfirm from 'views/confirm/DoubleConfirm';
 import { asyncComponent } from 'utils/comFunction.js';
 
 // 加载组件
@@ -27,6 +31,22 @@ const routes = [
 	{
 		path: '/registerEmail',
 		component: RegisterEmail
+	},
+	{
+		path: '/confirmEmail',
+		component: ConfirmEmail
+	},
+	{
+		path: '/confirmG2f',
+		component: ConfirmG2f
+	},
+	{
+		path: '/phoneConfirm',
+		component: PhoneConfirm
+	},
+	{
+		path: '/doubleConfirm',
+		component: DoubleConfirm
 	}
 ];
 

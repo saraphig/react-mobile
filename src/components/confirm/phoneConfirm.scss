@@ -1,0 +1,11 @@
+.middleContent {
+    flex-direction: column;
+    margin: 0 30px 0 30px;
+    .middleContent-img-logo {
+        margin: 70px 63px 0 63px;
+        .middleContent-logo {
+            width: 190px;
+            height: 65px;
+        }
+    }
+}

@@ -1,17 +1,17 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './registerEmail.scss';
+import './confirmEmail.scss';
 import Header from 'components/comComponent/header/Header';
-import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import {
 	MidText,
 	Input,
 	Button,
 	BottomTips,
-	ServerTips
+	ServerTips,
+	Validate
 } from '../comComponent/common';
 
-class RegisterEmailComp extends React.Component {
+class ConfirmEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -20,30 +20,38 @@ class RegisterEmailComp extends React.Component {
 
 	render() {
 		return (
-			<div className="registerEmail">
+			<div className="confirmEmail">
 				<Header />
 				<div className="middleContent">
 					<MidText
-						text="邮箱注册"
+						text="邮箱验证"
 						style={{
 							marginTop: 64,
 							marginBottom: 10
 						}}
 					/>
-					<Input placeholder="您的邮箱" />
+					<Validate
+						style={{
+							marginLeft: 30,
+							marginRight: 30,
+							marginTop: 32,
+							marginBottom: 34
+						}}
+					/>
+					{/* <Input placeholder="您的邮箱" />
 					<Input placeholder="您的密码" />
-					<Input placeholder="重复密码" />
-					<ServerTips
+					<Input placeholder="重复密码" /> */}
+					{/* <ServerTips
 						ServerTips1="我已阅读并同意TOP.ONE"
 						ServerTips2="服务条款"
 						pathName="/login"
 						style={{ marginBottom: 17, marginTop: 17 }}
-					/>
-					<Button style={{ marginTop: 0 }} buttonText="下一步" />
+					/> */}
+					<Button style={{ marginTop: 0 }} buttonText="完成" />
 					<BottomTips
-						BottomTips1="尚未注册"
-						BottomTips2="立即注册"
-						style={{ marginTop: 138 }}
+						BottomTips1="没收到验证码"
+						BottomTips2="重新发送"
+						style={{ marginTop: 40 }}
 						pathName="/login"
 					/>
 				</div>
@@ -52,4 +60,4 @@ class RegisterEmailComp extends React.Component {
 	}
 }
 
-export default injectIntl(RegisterEmailComp);
+export default injectIntl(ConfirmEmailComp);

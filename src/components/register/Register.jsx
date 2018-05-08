@@ -14,7 +14,7 @@ class RegisterComp extends React.Component {
 
 	render() {
 		return (
-			<div className="login">
+			<div className="register">
 				<Header />
 				<div className="middleContent">
 					<MidText
@@ -25,7 +25,7 @@ class RegisterComp extends React.Component {
 						}}
 					/>
 					<Input placeholder="手机号码" />
-					<Input placeholder="输入验证码" />
+					<Input placeholder="输入验证码" types={1} text='发送验证码'/>
 					<Input placeholder="推荐码(选填)" />
 					<Button style={{ marginTop: 30 }} buttonText="下一步" />
 					<BottomTips
