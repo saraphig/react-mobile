@@ -9,9 +9,7 @@ import sagaMiddleware from './middleware';
 //     const DevTools = require('../../tools/DevTools').default;
 //     return compose(applyMiddleware(sagaMiddleware), DevTools.instrument());
 //   })();
-const enhancer = (process.env.NODE_ENV === 'production') ?
-  applyMiddleware(sagaMiddleware) :
-  applyMiddleware(sagaMiddleware);
+const enhancer = applyMiddleware(sagaMiddleware)
 
 const configureStore = () => {
   const store = createStore(rootReducer, undefined, enhancer);

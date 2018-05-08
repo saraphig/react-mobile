@@ -12,6 +12,7 @@ export const actionType = {
 }
 
 export function* setToken({ payload }) {
+    console.log(888)
     yield put({ type: loginReducer.setToken, payload: payload });
 }
 
