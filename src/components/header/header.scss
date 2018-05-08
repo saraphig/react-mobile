@@ -1,9 +1,14 @@
 .main {
+    flex-direction: row;
     margin: 32px 18px 12px 11px;
     .main-left {
-
+        display: inline-block;
+        width: 60px;
+        height: 20px;
     }
     .main-right {
+        display: inline-block;
         font-size: 15px;
+        height: 20px;
     }
 }
