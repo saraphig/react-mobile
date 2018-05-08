@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import Header from 'components/comComponent/header/Header';
+import RegisterComp from 'components/register/Register';
 
-class Index extends React.Component {
+class Register extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -20,7 +20,7 @@ class Index extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header />
+				<RegisterComp />
 			</div>
 		);
 	}
@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
 });
 
 // export default Index;
-export default connect(mapStateToProps)(injectIntl(Index));
+export default connect(mapStateToProps)(injectIntl(Register));

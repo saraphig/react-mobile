@@ -1,17 +1,21 @@
 $black: #000;
-$orange: #DCB276;
-
-.gradient{
-  background: linear-gradient(to bottom, #FEDF97, #CEA366);
+$golden: #DCB276;
+.gradient {
+    background: linear-gradient(to bottom, #FEDF97, #CEA366);
 }
 
-.button-active:active{
-  background: #dab075;
+.button-active:active {
+    background: #dab075;
 }
 
-.fz18{
-  font-size: 18px;
+.fz18 {
+    font-size: 18PX;
 }
-.fz15{
-  font-size: 15px;
+
+.fz15 {
+    font-size: 15PX;
+}
+
+.fz12 {
+    font-size: 12PX;
 }

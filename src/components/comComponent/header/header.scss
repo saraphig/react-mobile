@@ -1,38 +1,39 @@
+@import '../../../styles/base';
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 18px 0 11px;
-	height: 58px;
-	border-bottom: 1px solid #646464;
-	.header-left {
-		width: 60px;
-		height: 20px;
-		.header-topone {
-			width: 60px; 
-			height: 20px;
-		}
-	}
-	.header-right {
-		display: flex;
-		align-items: center;
-		.header-login {
-			color: #dcb276;
-			font-size: 15px;
-			margin-right: 23px;
-		}
-		.header-register {
-			color: #fff;
-			font-size: 15px;
-			margin-right: 23px;
-		}
-		.header-menus {
-			width: 18px;
-			height: 18px;
-			.header-menu {
-				width: 18px;
-				height: 18px;
-			}
-		}
-	}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px 0 11px;
+    height: 58px;
+    border-bottom: 1px solid #646464;
+    .header-left {
+        width: 60px;
+        height: 20px;
+        .header-topone {
+            width: 60px;
+            height: 20px;
+        }
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+        font-weight: 100;
+        @extend .fz15;
+        .header-login {
+            color: #dcb276;
+            margin-right: 23px;
+        }
+        .header-register {
+            color: #fff;
+            margin-right: 23px;
+        }
+        .header-menus {
+            width: 18px;
+            height: 18px;
+            .header-menu {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
 }
