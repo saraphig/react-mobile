@@ -6,6 +6,9 @@ import { IntlProvider } from 'react-intl';
 import routes from './routes';
 import { setLang, defaultConfig } from './config';
 import configureStore from 'models/store/configureStore';
+import 'src/styles/reset.css'
+import 'amfe-flexible'
+
 const store = configureStore();
 
 const { locale, messages } = setLang();
