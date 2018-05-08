@@ -10,10 +10,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "antd-mobile": "^2.1.8",
->>>>>>> 22ca61aedb28fb4f3fa40525a5b9fe648cb77e62
     "autoprefixer": "^8.3.0",
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
