@@ -1,0 +1,28 @@
+@import "../../styles/base";
+
+.button{
+  width: 316px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  margin: 0 auto;
+  color: $black;
+  @extend .button-active;
+  @extend .fz18;
+  @extend .gradient;
+}
+
+.input{
+  @extend .fz15;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 14px;
+  margin-top: 30px;
+  outline: none;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent transparent $orange;
+}
