@@ -15,24 +15,24 @@ module.exports = Object.assign({}, baseConfig, {
     rules: [
       ...baseConfig.module.rules,
 
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?minimize&sourceMap&importLoaders=1&module&camelCase&localIdentName=[hash:base64:5]',
-            'postcss-loader',
-          ],
-          publicPath: '../',
-        }),
-      },
+      // {
+      //   test: /\.css$/,
+      //   loader: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     use: [
+      //       'css-loader?minimize&sourceMap&importLoaders=1&module&camelCase&localIdentName=[hash:base64:5]',
+      //       'postcss-loader',
+      //     ],
+      //     publicPath: '../',
+      //   }),
+      // },
 
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
             {loader: 'style-loader'},
             {loader: 'css-loader'},
-            {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")("last 100 versions")]}},
+            {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")("last 100 versions"),require('postcss-px2rem')({'remUnit': 37.5, 'baseDpr': 2})]}},
             {loader: 'sass-loader'}
         ]
       },
@@ -64,11 +64,11 @@ module.exports = Object.assign({}, baseConfig, {
       // sourceMap: true,
     }),
 
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, '../lib'),
-      to: path.resolve(__dirname, '../dist/lib'),
-      toType: 'dir',
-    }]),
+    // new CopyWebpackPlugin([{
+    //   from: path.resolve(__dirname, '../lib'),
+    //   to: path.resolve(__dirname, '../dist/lib'),
+    //   toType: 'dir',
+    // }]),
 
     // new ExtractTextPlugin('css/app.css'),
     new ExtractTextPlugin({

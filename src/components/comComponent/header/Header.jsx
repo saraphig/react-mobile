@@ -23,11 +23,11 @@ class Header extends React.Component {
 						/>
 					</span>
 					<span className="header-right">
-						<Link to="/login">
-							<span className="header-login">登录</span>
+						<Link to="/login" className="header-login">
+							登录
 						</Link>
-						<Link to="/register">
-							<span className="header-register">注册</span>
+						<Link to="/register" className="header-register">
+							注册
 						</Link>
 						<span className="header-menus">
 							<img

@@ -12,8 +12,10 @@ export const actionType = {
     setInfo: 'login/setInfo'
 }
 
-export function* setToken({ payload }) {
-    yield put({ type: loginReducer.token, payload: payload });
+export function* setToken({ payload: {query} }) {
+   const { data } = yield call(login.login,query)
+   yield put({ type: loginReducer.token, payload: data.status });
+   console.log(data)
 }
 export function* setInfo({ payload }) {
 }
