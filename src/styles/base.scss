@@ -1,21 +1,30 @@
 $black: #000;
 $golden: #DCB276;
+$gray: #969696;
+$grayBlack: #505050;
+
 .gradient {
     background: linear-gradient(to bottom, #FEDF97, #CEA366);
 }
 
-// $orange: #DCB276;
-$gray: #969696;
 .button-active:active {
     background: #dab075;
 }
 
-.fz18 {
-    font-size: 18PX;
-}
-
 .font-active:active {
     color: #eac287;
+}
+
+.gray-bg-active:active{
+  background-color: #e8e5e5;
+}
+
+.fz30 {
+  font-size: 30px;
+}
+
+.fz18 {
+  font-size: 18PX;
 }
 
 .fz15 {
@@ -24,11 +33,4 @@ $gray: #969696;
 
 .fz12 {
     font-size: 12PX;
-}
-
-// .fz15{
-//   font-size: 15px;
-// }
-.fz30 {
-    font-size: 30px;
 }
