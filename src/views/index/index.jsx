@@ -11,11 +11,13 @@ class Index extends React.Component {
 			type: loginSaga.setToken,
 			payload: '3245353'
 		});
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
 		// 挂载完成
-
 	}
 
 	componentWillReceiveProps(nextprops) {
@@ -30,17 +32,23 @@ class Index extends React.Component {
 		});
 	}
 
-	_onClickMenu = () => {
-		console.log(32452)
+	_onOpenChange = () => {
+		console.log(5434);
+		this.setState({ open: !this.state.open }, () => {
+			console.log(this.state.open);
+		});
+		console.log(123123);
 	};
 
 	render() {
 		const {
 			intl: { formatMessage }
 		} = this.props;
+		const { open } = this.state;
+		console.log(open)
 		return (
 			<div>
-				<IndexComp _onClickMenu={this._onClickMenu} />
+				<IndexComp _onOpenChange={this._onOpenChange} _open={open} />
 			</div>
 		);
 	}
