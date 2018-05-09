@@ -6,7 +6,7 @@ import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import {
 	MidText,
 	Input,
-	Button,
+	Buttons,
 	BottomTips,
 	ServerTips
 } from '../comComponent/common';
@@ -14,11 +14,15 @@ import {
 class RegisterEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			pathName: ''
+		};
 	}
 
 	componentDidMount() {}
 
 	render() {
+		const { pathName } = this.state;
 		return (
 			<div className="registerEmail">
 				<Header />
@@ -39,10 +43,14 @@ class RegisterEmailComp extends React.Component {
 						pathName="/login"
 						style={{ marginBottom: 17, marginTop: 17 }}
 					/>
-					<Button style={{ marginTop: 0 }} buttonText="下一步" />
+					<Buttons
+						style={{ marginTop: 0 }}
+						buttonText="下一步"
+						_onClick={this.props._onClickBTn}
+					/>
 					<BottomTips
-						BottomTips1="尚未注册"
-						BottomTips2="立即注册"
+						BottomTips1="已有账号"
+						BottomTips2="马上登录"
 						style={{ marginTop: 138 }}
 						pathName="/login"
 					/>

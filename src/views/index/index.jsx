@@ -2,49 +2,47 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import Header from 'components/comComponent/header/Header';
+import IndexComp from 'components/index/Index';
 
-class Index extends React.Component{
-    constructor(props) {
-        super(props)
-        this.props.dispatch({
-            type: loginSaga.setToken,
-            payload: '3245353'
-        }) 
-        
-    }
+class Index extends React.Component {
+	constructor(props) {
+		super(props);
+		this.props.dispatch({
+			type: loginSaga.setToken,
+			payload: '3245353'
+		});
+	}
 
-    componentDidMount(){
-        // 挂载完成
-    }
-    
-    componentWillReceiveProps(nextprops){
-        // 接收到nextprops触发
-        console.log('==',nextprops.token)
-    }
+	componentDidMount() {
+		// 挂载完成
+	}
 
-    test () {
-       this.props.dispatch({
-            type: loginSaga.setToken,
-            payload: '3245353'
-        }) 
-    }
+	componentWillReceiveProps(nextprops) {
+		// 接收到nextprops触发
+		// console.log('==',nextprops.token)
+	}
 
-    render(){
-        const {
-            intl: { formatMessage }
-        } = this.props;
-        return (
-            <div>
-                <button onClick={() => this.test()}>{formatMessage({id: 'login.login'})}</button>
-                <p onClick={() => this.props.history.push('/login')}>首页</p>
-            </div>
-        )
-    }
+	test() {
+		this.props.dispatch({
+			type: loginSaga.setToken,
+			payload: '3245353'
+		});
+	}
+
+	render() {
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		return (
+			<div>
+				<IndexComp />
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = state => ({
-    token: state.login.token,
+	token: state.login.token
 });
 
 // export default Index;

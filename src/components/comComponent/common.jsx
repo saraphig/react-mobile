@@ -1,26 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
-import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { Tabs, WhiteSpace, Badge, Button } from 'antd-mobile';
 
-export const Button = props => {
+export const Buttons = props => {
+	console.log(props);
 	return (
-		<a href="javascript:;" className="button" style={props.style}>
+		<Button className="button" style={props.style} onClick={props._onClick}>
 			{props.buttonText}
-		</a>
+		</Button>
 	);
 };
-
-// export const Input = props => {
-// 	return (
-// 		<input
-// 			className="input"
-// 			style={props.style}
-// 			placeholder={props.placeholder}
-// 			value={props.value}
-// 		/>
-// 	);
-// };
 
 //页面中部的大文字
 export const MidText = props => {
@@ -116,8 +106,8 @@ export const Validate = props => {
 
 export const TopTabs = props => {
 	const tabs = [
-		{ title: props.firstTitle || '谷歌验证' },
-		{ title: props.secondTitle || '邮箱验证' }
+		{ title: props.secondTitle || '手机验证' },
+		{ title: props.firstTitle || '谷歌验证' }
 	];
 
 	return (
@@ -140,7 +130,9 @@ export const TopTabs = props => {
 						margin: '0 30px'
 					}}
 				>
-					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
+					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
+					<Input placeholder="输入验证码" types={1} />
+
 					{/* <div style={{ visibility: 'hidden' }}>
 						<Input style={{ visibility: 'hidden' }} />
 					</div> */}
@@ -150,8 +142,7 @@ export const TopTabs = props => {
 						margin: '0 30px'
 					}}
 				>
-					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
-					<Input placeholder="输入验证码" types={1} />
+					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
 				</div>
 			</Tabs>
 			<WhiteSpace />

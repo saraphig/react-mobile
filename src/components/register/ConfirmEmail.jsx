@@ -5,7 +5,7 @@ import Header from 'components/comComponent/header/Header';
 import {
 	MidText,
 	Input,
-	Button,
+	Buttons,
 	BottomTips,
 	ServerTips,
 	Validate
@@ -47,12 +47,16 @@ class ConfirmEmailComp extends React.Component {
 						pathName="/login"
 						style={{ marginBottom: 17, marginTop: 17 }}
 					/> */}
-					<Button style={{ marginTop: 0 }} buttonText="完成" />
+					<Buttons
+						style={{ marginTop: 0 }}
+						buttonText="完成"
+						_onClick={this.props._onClickBTn}
+					/>
 					<BottomTips
 						BottomTips1="没收到验证码"
 						BottomTips2="重新发送"
 						style={{ marginTop: 40 }}
-						pathName="/login"
+						pathName="/#"
 					/>
 				</div>
 			</div>

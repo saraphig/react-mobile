@@ -17,10 +17,17 @@ class RegisterEmail extends React.Component {
 		// console.log(this.props.token);
 	}
 
+	//按钮提交跳转事件
+	_onClickBTn = () => {
+		console.log(this.props);
+		//TODO: for the featrue
+		this.props.history.push('/confirmEmail');
+	};
+
 	render() {
 		return (
 			<div>
-				<RegisterEmailComp />
+				<RegisterEmailComp _onClickBTn={this._onClickBTn}/>
 			</div>
 		);
 	}
