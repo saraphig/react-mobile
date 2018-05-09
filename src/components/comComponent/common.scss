@@ -130,3 +130,42 @@
 .am-tabs-default-bar-tab:after {
     background-color: rgba(0, 0, 0, 1) !important;
 }
+
+.user-top{
+  padding: 24px 0 16px;
+  text-align: center;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  .head{
+    width: 34px;
+    height: 50px;
+  }
+  .title{
+    @extend .fz18;
+    color: $grayBlack;
+    padding-top: 16px;
+  }
+  .text{
+    @extend .fz12;
+    color: $gray;
+    padding-top: 10px;
+  }
+}
+
+.listItem{
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #E6E6E6;
+  overflow: hidden;
+  @extend .fz15;
+  @extend .gray-bg-active;
+  .right{
+    color: #DCDCDC;
+    width: 24px;
+    height: 18px;
+  }
+}

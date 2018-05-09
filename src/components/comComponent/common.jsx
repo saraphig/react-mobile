@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
 import { Tabs, WhiteSpace, Badge, Button } from 'antd-mobile';
+import defaultUserImg from '../../assets/images/user_head_img@2x.png'
 
 export const Buttons = props => {
 	console.log(props);
@@ -148,4 +149,35 @@ export const TopTabs = props => {
 			<WhiteSpace />
 		</div>
 	);
+};
+
+export const UserTop = props => {
+  return(
+    <div className='user-top'>
+      <img src={defaultUserImg} className='head' />
+      {props.user ?
+        <div>
+          <p className='title'>topcoin1234@gmail.com</p>
+          <p className='text'>最后登陆时间：2018-03-12 11:48:00</p>
+          <p className='text'>IP: 45.32.255.166</p>
+        </div> :
+        <div>
+          <p className='title'>未登录</p>
+          <p className='text'>马上登录，体验极速交易</p>
+        </div>
+      }
+    </div>
+  )
+};
+
+export const ListItem = props => {
+  return(
+    <div className='listItem' style={props.style}>
+      {props.icon}
+      使用TOPCOIN支付交易手续费（50%折扣）
+      <svg className="right" aria-hidden="true">
+        <use xlinkHref="#icon-arrow-right"></use>
+      </svg>
+    </div>
+  )
 };
