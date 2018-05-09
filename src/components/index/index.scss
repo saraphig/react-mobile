@@ -1,0 +1,28 @@
+.index-middleContent {
+	flex-direction: column;
+	margin: 0 30px 0 30px;
+	.middleContent-img-logo {
+		margin: 70px 63px 0 63px;
+		.middleContent-logo {
+			width: 190px;
+			height: 65px;
+		}
+	}
+}
+
+.my-drawer {
+	position: relative;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.my-drawer .am-drawer-sidebar {
+	background-color: #fff;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.my-drawer .am-drawer-sidebar .am-list {
+	width: 300px;
+	padding: 0;
+}

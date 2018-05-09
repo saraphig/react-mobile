@@ -5,7 +5,7 @@ import Header from 'components/comComponent/header/Header';
 import {
 	MidText,
 	Input,
-	Button,
+	Buttons,
 	BottomTips,
 	ServerTips,
 	Validate,
@@ -32,7 +32,7 @@ class ConfirmG2FComp extends React.Component {
 						}}
 					/>
 					<TopTabs />
-					<Button style={{ marginTop: 30 }} buttonText="提交" />
+					<Buttons style={{ marginTop: 30 }} buttonText="提交" />
 				</div>
 			</div>
 		);

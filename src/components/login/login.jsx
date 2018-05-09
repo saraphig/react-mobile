@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './login.scss';
 import Header from 'components/comComponent/header/Header';
-import { MidText, Input, Button, BottomTips } from '../comComponent/common';
+import { MidText, Input, Buttons, BottomTips } from '../comComponent/common';
 
 class LoginComp extends React.Component {
 	constructor(props) {
@@ -32,10 +32,14 @@ class LoginComp extends React.Component {
 					/>
 					<Input placeholder="您的邮箱" />
 					<Input placeholder="您的密码" />
-					<Button style={{ marginTop: 30 }} buttonText="确定" />
+					<Buttons
+						style={{ marginTop: 30 }}
+						buttonText="确定"
+						_onClick={this.props._onClickBTn}
+					/>
 					<BottomTips
-						BottomTips1="已有账号"
-						BottomTips2="马上登录"
+						BottomTips1="尚未注册"
+						BottomTips2="立即注册"
 						style={{ marginTop: 138 }}
 						pathName="/register"
 					/>

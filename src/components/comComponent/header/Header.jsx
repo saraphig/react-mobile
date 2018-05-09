@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Drawer, List, NavBar, Icon } from 'antd-mobile';
 import './header.scss';
@@ -22,13 +23,18 @@ class Header extends React.Component {
 						/>
 					</span>
 					<span className="header-right">
-						<span className="header-login">登录</span>
-						<span className="header-register">注册</span>
+						<Link to="/login" className="header-login">
+							登录
+						</Link>
+						<Link to="/register" className="header-register">
+							注册
+						</Link>
 						<span className="header-menus">
 							<img
 								className="header-menu"
 								src={require('assets/images/menu@2x.png')}
 								alt="menu"
+								onClick={this.props._onClick}
 							/>
 						</span>
 					</span>

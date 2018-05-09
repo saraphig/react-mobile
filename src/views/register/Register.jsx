@@ -9,18 +9,19 @@ class Register extends React.Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		// this.props.dispatch({
-		//     type: loginSaga.setToken,
-		//     paylod: '3245353'
-		// })
-		console.log(this.props.token);
-	}
+	componentDidMount() {}
+
+	//按钮提交跳转事件
+	_onClickBTn = () => {
+		console.log(this.props);
+		//TODO: for the featrue
+		this.props.history.push('/registerEmail');
+	};
 
 	render() {
 		return (
 			<div>
-				<RegisterComp />
+				<RegisterComp _onClickBTn={this._onClickBTn} />
 			</div>
 		);
 	}
