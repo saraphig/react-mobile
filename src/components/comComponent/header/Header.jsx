@@ -34,6 +34,7 @@ class Header extends React.Component {
 								className="header-menu"
 								src={require('assets/images/menu@2x.png')}
 								alt="menu"
+								onClick={this.props._onClick}
 							/>
 						</span>
 					</span>

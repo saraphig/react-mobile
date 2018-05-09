@@ -18,10 +18,14 @@ class IndexComp extends React.Component {
 
 	componentDidMount() {}
 
+	// onClickMenu = () => {
+	// 	console.log(34);
+	// };
+
 	render() {
 		return (
 			<div className="indexPage">
-				<Header />
+				<Header _onClick={this.props._onClickMenu} />
 				<div className="index-middleContent">
 					<MidText
 						text="谷歌验证"

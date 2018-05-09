@@ -15,6 +15,7 @@ class Index extends React.Component {
 
 	componentDidMount() {
 		// 挂载完成
+
 	}
 
 	componentWillReceiveProps(nextprops) {
@@ -29,13 +30,17 @@ class Index extends React.Component {
 		});
 	}
 
+	_onClickMenu = () => {
+		console.log(32452)
+	};
+
 	render() {
 		const {
 			intl: { formatMessage }
 		} = this.props;
 		return (
 			<div>
-				<IndexComp />
+				<IndexComp _onClickMenu={this._onClickMenu} />
 			</div>
 		);
 	}
