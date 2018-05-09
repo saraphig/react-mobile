@@ -2,7 +2,7 @@ $black: #000;
 $golden: #DCB276;
 $gray: #969696;
 $grayBlack: #505050;
-
+$grayDrawer: #787878;
 .gradient {
     background: linear-gradient(to bottom, #FEDF97, #CEA366);
 }
@@ -15,16 +15,16 @@ $grayBlack: #505050;
     color: #eac287;
 }
 
-.gray-bg-active:active{
-  background-color: #e8e5e5;
+.gray-bg-active:active {
+    background-color: #e8e5e5;
 }
 
 .fz30 {
-  font-size: 30px;
+    font-size: 30PX;
 }
 
 .fz18 {
-  font-size: 18PX;
+    font-size: 18PX;
 }
 
 .fz15 {
@@ -34,19 +34,60 @@ $grayBlack: #505050;
 .fz12 {
     font-size: 12PX;
 }
+
 .fz30 {
     font-size: 30px;
 }
 
-.my-drawer .am-drawer-sidebar .am-list {
-    width: 240px;
+.my-drawer {
+    position: relative;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.am-list-item {
-    padding-left: 16px;
+.my-drawer .am-drawer-sidebar .am-list {
+    width: 240px;
+    padding: 0;
 }
 
 .am-list-item img {
     width: 15px;
     height: 23px;
+}
+
+.my-drawer .am-drawer-sidebar {
+    background-color: #fff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.am-list-item:first-child {
+    padding-left: 16px !important;
+}
+
+.am-list-item {
+    background: #1b1b1b !important;
+    padding-left: 40px !important;
+    font-weight: 100;
+}
+
+.am-list-item:first-child .am-list-content {
+    @extend .fz15;
+    color: $grayDrawer !important;
+    padding-top: 13px !important;
+}
+
+.am-list-content {
+    @extend .fz15;
+    color: #fff !important;
+    padding-top: 13px !important;
+    font-weight: 100;
+}
+
+.am-list-line:after {
+    height: 0px !important;
+}
+
+.am-list-body:after {
+    height: 0px !important;
 }
