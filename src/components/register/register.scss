@@ -1,24 +1,46 @@
 .register-middleContent {
-	flex-direction: column;
-	margin: 0 30px 0 30px;
-	.middleContent-img-logo {
-		margin: 70px 63px 0 63px;
-		.middleContent-logo {
-			width: 190px;
-			height: 65px;
-		}
-	}
+    flex-direction: column;
+    margin: 0 30px 0 30px;
+    .middleContent-img-logo {
+        margin: 70px 63px 0 63px;
+        .middleContent-logo {
+            width: 190px;
+            height: 65px;
+        }
+    }
 }
 
 .midText-register-transfrom {
-	margin-top: 64px;
-	margin-bottom: 10px;
+    margin-top: 64px;
+    margin-bottom: 10px;
 }
 
 .buttons-register-transfrom {
-	margin-top: 30px;
+    margin-top: 30px;
 }
 
 .bottomTips-register-transfrom {
-	margin-top: 138px;
+    margin-top: 138px;
+}
+
+.iti-mobile .intl-tel-input.iti-container {
+    top: 213px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    position: fixed;
+}
+
+.iti-mobile .intl-tel-input .country-list {
+    max-height: 50%;
+    width: 100%;
+    font-size: 15px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #dcb276;
+    font-weight: 100;
+}
+
+.iti-mobile .intl-tel-input .country-list .country {
+    padding: 5px 8px;
 }
