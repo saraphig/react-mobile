@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
-import { Tabs, WhiteSpace, Badge, Button, List, Switch } from 'antd-mobile';
+import {
+	Tabs,
+	WhiteSpace,
+	Badge,
+	Button,
+	List,
+	Switch,
+	NavBar
+} from 'antd-mobile';
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
+import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
 
 //按钮
 export const Buttons = props => {
@@ -52,8 +61,6 @@ export const ServerTips = props => {
 	);
 };
 
-
-
 //输入框
 export const Input = props => {
 	return (
@@ -83,45 +90,47 @@ export const Input = props => {
 };
 
 // 输入框
-export class Input2 extends React.Component{
-	constructor(props){
-		super(props)
-		this.state={
+export class Input2 extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			val: props.value
-		}
+		};
 	}
-	onChange(e){
-	   console.log(e.target.value)
-	   this.props.onChange(e)
+	onChange(e) {
+		console.log(e.target.value);
+		this.props.onChange(e);
 	}
-	render(){
-	   return (
-		   <div className="input-container">
-			   <input
-				   className="input"
-				   style={this.props.style}
-				   placeholder={this.props.placeholder || '您的邮箱'}
-				   value={this.state.value}
-				   onChange={this.onChange.bind(this)}
-			   />
-			   {this.props.types === 1 && (
-				   <div>
-					   <span className="line" />
-					   <span
-						   className={
-							this.props.disabled ? 'input-sended' : 'input-send'
-						   }
-					   >
-						   {this.props.disabled
-							   ? `已发送(${this.props.time})`
-							   : this.props.text || '发送验证码'}
-					   </span>
-				   </div>
-			   )}
-		   </div>
-	   );
-   }
-};
+	render() {
+		return (
+			<div className="input-container">
+				<input
+					className="input"
+					style={this.props.style}
+					placeholder={this.props.placeholder || '您的邮箱'}
+					value={this.state.value}
+					onChange={this.onChange.bind(this)}
+				/>
+				{this.props.types === 1 && (
+					<div>
+						<span className="line" />
+						<span
+							className={
+								this.props.disabled
+									? 'input-sended'
+									: 'input-send'
+							}
+						>
+							{this.props.disabled
+								? `已发送(${this.props.time})`
+								: this.props.text || '发送验证码'}
+						</span>
+					</div>
+				)}
+			</div>
+		);
+	}
+}
 
 //验证码
 export const Validate = props => {
@@ -213,31 +222,48 @@ export const UserTop = props => {
 
 //个人中心列表
 export const ListItem = props => {
-  return(
-    <div className='list-item'>
-      <div className='list-item-line'>
-        <div className='item-left'>
-        <span className='left-icon'>
-          <svg style={{width:'30px', height:'26px',marginRight: '8px'}} aria-hidden="true">
-            <use xlinkHref="#icon-friend"></use>
-          </svg>
-        </span>
-          <span className='title'>{props.title || 'enter title'}</span>
-        </div>
-        <div className='item-right'>
+	return (
+		<div className="list-item">
+			<div className="list-item-line">
+				<div className="item-left">
+					<span className="left-icon">
+						<svg
+							style={{
+								width: '30px',
+								height: '26px',
+								marginRight: '8px'
+							}}
+							aria-hidden="true"
+						>
+							<use xlinkHref="#icon-friend" />
+						</svg>
+					</span>
+					<span className="title">
+						{props.title || 'enter title'}
+					</span>
+				</div>
+				<div className="item-right">
+					{/*通过传值改变字体颜色*/}
+					{props.user ? (
+						props.user.isOpen ? (
+							<span className="text-active">已开启</span>
+						) : (
+							<span className="text">未认证</span>
+						)
+					) : null}
 
-          {/*通过传值改变字体颜色*/}
-          {props.user ? props.user.isOpen ? <span className='text-active'>已开启</span> : <span className='text'>未认证</span> : null}
-
-          {/*默认显示右箭头可以通过传值设置是否显示*/}
-          {(props.isShowRightIcon === undefined || props.isShowRightIcon) &&
-          <svg className="right-icon" aria-hidden="true">
-            <use xlinkHref="#icon-youjiantou"></use>
-          </svg>}
-        </div>
-      </div>
-    </div>
-  )};
+					{/*默认显示右箭头可以通过传值设置是否显示*/}
+					{(props.isShowRightIcon === undefined ||
+						props.isShowRightIcon) && (
+						<svg className="right-icon" aria-hidden="true">
+							<use xlinkHref="#icon-youjiantou" />
+						</svg>
+					)}
+				</div>
+			</div>
+		</div>
+	);
+};
 
 //侧栏内容框
 export const sidebars = (
@@ -526,26 +552,33 @@ export const InformItem = props => {
 
 //留白
 export const WhiteBlock = props => {
-  return (
-    <div className='white-block' style={props.style}></div>
-  )
+	return <div className="white-block" style={props.style} />;
+};
+
+//导航栏
+export const Navbars = props => {
+	return <NavBar className={props.className} leftContent={props.title} />;
 };
 
 export const AlertModal = props => {
-  return(
-    <div>
-      {props.isOpen && (<div className='alertModal'>
-        <div className='container'>
-          <div className='top'><i className='email-icon'></i></div>
-          <p className='content'>
-            请前往top.one官网进行验证设置
-            请前往top.one官网进行验证设置
-          </p>
-          <div className='sure'>
-            <a href='javascript:;'>确定</a>
-          </div>
-        </div>
-      </div>)}
-    </div>
-  )
-}
+	return (
+		<div>
+			{props.isOpen && (
+				<div className="alertModal">
+					<div className="container">
+						<div className="top">
+							<i className="email-icon" />
+						</div>
+						<p className="content">
+							请前往top.one官网进行验证设置
+							请前往top.one官网进行验证设置
+						</p>
+						<div className="sure">
+							<a href="javascript:;">确定</a>
+						</div>
+					</div>
+				</div>
+			)}
+		</div>
+	);
+};
