@@ -31,10 +31,10 @@ module.exports = Object.assign({}, baseConfig, {
         test: /\.(css|scss)$/,
         use: [
             {loader: 'style-loader'},
-            {loader: 'css-loader'},
+            {loader: 'css-loader?minimize'},
             {loader: 'postcss-loader',options:{plugins:[require("autoprefixer")("last 100 versions"),require('postcss-px2rem')({'remUnit': 37.5, 'baseDpr': 2})]}},
             {loader: 'sass-loader'}
-        ]
+        ],
       },
     ],
   },

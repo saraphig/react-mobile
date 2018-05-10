@@ -15,48 +15,56 @@ class Index extends React.Component {
 		// })
 		this.state = {
 			open: false
-		};
-	}
+        };
+        
+        this.dataWs = null;
+        
+    }
 
-	componentDidMount() {
-		// 挂载完成
-		// this.openSocket()
-	}
+    componentDidMount(){
+        // 挂载完成
+        this.openSocket()
+    }
+    
+    componentWillReceiveProps(nextprops){
+        // 接收到nextprops触发
+        console.log('==',nextprops.token)
+    }
 
-	componentWillReceiveProps(nextprops) {
-		// 接收到nextprops触发
-		console.log('==', nextprops.token);
-	}
+    componentWillUnmount(){
+        this.dataWs.close()
+    }
 
-	openSocket = () => {
-		this.props.dispatch({
-			type: tradeSaga.tradeApi,
-			payload: {
-				query: {
-					method: 'market.list',
-					params: [],
-					id: 0
-				},
-				success: result => {
-					const dataWs = [
-						{ method: 'server.ping', params: ['coinKind'], id: 1 }
-					];
-					this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
-				},
-				fail: err => {
-					console.log(err);
-				}
-			}
-		});
-	};
+    openSocket = () => {
+       this.props.dispatch({
+           type: tradeSaga.tradeApi,
+           payload: {
+               query: {
+                   method: 'market.list',
+                   params: [],
+                   id: 0
+               },
+               success: result => {
+                const dataWs = [{ method: 'server.ping', params: ['coinKind'], id: 1 }];
+                this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
+                // console.log('8888',this.dataWs)
+               },
+               fail: err => {
+                   console.log(err)
+               }
+           }
+       })
+    }
 
-	wsMessage(data) {
-		console.log(data);
-		const { method, params, id, result, error } = data;
-		if (id === 1) {
-			this.dataWs.send();
-		}
-	}
+    wsMessage = (data) => {
+     console.log(data, this.dataWs)
+     const { method, params, id, result, error } = data;
+     if (id === 1) {
+         
+         let query = { method: 'status.subscribe', params: ["HOP/ETH","TOP/ETH", "SEER/ETH", "KEY/ETH"], id: 3 }
+         this.dataWs.send(JSON.stringify(query))
+     }
+    }
 
 	test() {
 		this.props.dispatch({

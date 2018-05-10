@@ -56,6 +56,7 @@ export default function soket(arg, onmessage, err, reconnect) {
 
     // 关闭事件
     socket.onclose = () => {
+        console.log('closed')
         interval = setInterval(() => {
             if (reconnect) {
               reconnect()
@@ -66,4 +67,6 @@ export default function soket(arg, onmessage, err, reconnect) {
             }
         }, reconnectTime)
     }
+
+    return socket
 }
