@@ -172,18 +172,17 @@ export const UserTop = props => {
 	);
 };
 
-export const ListItem = props => {
-	return (
-		<div className="listItem" style={props.style}>
-			{props.icon}
-			使用TOPCOIN支付交易手续费（50%折扣）
-			<svg className="right" aria-hidden="true">
-				<use xlinkHref="#icon-arrow-right" />
-			</svg>
-		</div>
-	);
-};
+export const ListItemWithButton = props => {
+  return(
+    <div className='listItem' style={props.style}>
+      <div className='listItem-left'>
+        <span className='title'>使用TOPCOIN支付交易手续费（50%折扣）</span>
+      </div>
+      <div className='listItem-right'>
 
+      </div>
+    </div>
+  )};
 //侧栏内容框
 export const sidebars = (
 	<List>
