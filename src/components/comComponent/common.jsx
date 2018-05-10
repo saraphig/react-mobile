@@ -79,6 +79,47 @@ export const Input = props => {
 	);
 };
 
+// 输入框
+export class Input2 extends React.Component{
+	constructor(props){
+		super(props)
+		this.state={
+			val: props.value
+		}
+	}
+	onChange(e){
+	   console.log(e.target.value)
+	   this.props.onChange(e)
+	}
+	render(){
+	   return (
+		   <div className="input-container">
+			   <input
+				   className="input"
+				   style={this.props.style}
+				   placeholder={this.props.placeholder || '您的邮箱'}
+				   value={this.state.value}
+				   onChange={this.onChange.bind(this)}
+			   />
+			   {this.props.types === 1 && (
+				   <div>
+					   <span className="line" />
+					   <span
+						   className={
+							this.props.disabled ? 'input-sended' : 'input-send'
+						   }
+					   >
+						   {this.props.disabled
+							   ? `已发送(${this.props.time})`
+							   : this.props.text || '发送验证码'}
+					   </span>
+				   </div>
+			   )}
+		   </div>
+	   );
+   }
+};
+
 //验证码
 export const Validate = props => {
 	return (

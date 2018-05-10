@@ -86,7 +86,8 @@ const localeList = [
 ];
 
 const dun = {
-	captchaId: 'c56143bb571042b99cf5fcdaeae74b89'
+  // "captchaId": "4031f970621b463d8ff091f86fbdaa44", // 有感知
+	captchaId: 'c56143bb571042b99cf5fcdaeae74b89' // 无感知
 };
 
 const key = '-----BEGIN PUBLIC KEY-----'+
