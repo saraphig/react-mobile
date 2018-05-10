@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './common.scss';
 import { Tabs, WhiteSpace, Badge, Button, List } from 'antd-mobile';
 import defaultUserImg from '../../assets/images/user_head_img@2x.png';
+import ListView from './ListView';
 
 export const Buttons = props => {
 	console.log(props);
@@ -225,11 +226,11 @@ export const CoinTabs = props => {
 				}}
 				tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
 			>
-				<div>
+				<div className='inform-height'>
 					<InformItem />
 				</div>
 				<div>
-					<InformItem />
+					{/* <InformItem /> */}
 				</div>
 			</Tabs>
 			<p className="tab-bar">
@@ -245,7 +246,7 @@ export const CoinTabs = props => {
 export const InformItem = props => {
 	return (
 		<div className="inform">
-			<div className="inform-items">
+			{/* <div className="inform-items">
 				<span className="inform-item one">
 					<p>
 						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
@@ -464,7 +465,8 @@ export const InformItem = props => {
 						-585.74%
 					</Button>
 				</span>
-			</div>
+			</div> */}
+			<ListView />
 		</div>
 	);
 };

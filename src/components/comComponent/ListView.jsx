@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ListView } from 'antd-mobile';
+import { ListView, Button } from 'antd-mobile';
 import ReactDOM from 'react-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import './listView.scss'
 
 function MyBody(props) {
 	return (
@@ -33,8 +34,8 @@ const data = [
 		des: '不是所有的兼职汪都需要风吹日晒'
 	}
 ];
-const NUM_SECTIONS = 5;
-const NUM_ROWS_PER_SECTION = 5;
+const NUM_SECTIONS = 10;
+const NUM_ROWS_PER_SECTION = 10;
 let pageIndex = 0;
 
 const dataBlobs = {};
@@ -147,91 +148,104 @@ class ListViewComp extends React.Component {
 		// );
 		let index = data.length - 1;
 		const row = (rowData, sectionID, rowID) => {
-			if (index < 0) {
-				index = data.length - 1;
-			}
-			const obj = data[index--];
+			// if (index < 0) {
+			// 	index = data.length - 1;
+			// }
+			// const obj = data[index--];
 			return (
-				<div key={rowID} style={{ padding: '0 15px' }}>
-					<div
-						style={{
-							lineHeight: '50px',
-							color: '#888',
-							fontSize: 18,
-							borderBottom: '1px solid #F6F6F6'
-						}}
-					>
-						{obj.title}
-					</div>
-					<div
-						style={{
-							display: '-webkit-box',
-							display: 'flex',
-							padding: '15px 0'
-						}}
-					>
-						<img
-							style={{ height: '64px', marginRight: '15px' }}
-							src={obj.img}
-							alt=""
-						/>
-						<div style={{ lineHeight: 1 }}>
-							<div
-								style={{
-									marginBottom: '8px',
-									fontWeight: 'bold'
-								}}
-							>
-								{obj.des}
-							</div>
-							<div>
-								<span
-									style={{
-										fontSize: '30px',
-										color: '#FF6E27'
-									}}
-								>
-									35
-								</span>¥ {rowID}
-							</div>
-						</div>
-					</div>
+				// <div key={rowID} style={{ padding: '0 15px' }}>
+				// 	<div
+				// 		style={{
+				// 			lineHeight: '50px',
+				// 			color: '#888',
+				// 			fontSize: 18,
+				// 			borderBottom: '1px solid #F6F6F6'
+				// 		}}
+				// 	>
+				// 		{obj.title}
+				// 	</div>
+				// 	<div
+				// 		style={{
+				// 			display: '-webkit-box',
+				// 			display: 'flex',
+				// 			padding: '15px 0'
+				// 		}}
+				// 	>
+				// 		<img
+				// 			style={{ height: '64px', marginRight: '15px' }}
+				// 			src={obj.img}
+				// 			alt=""
+				// 		/>
+				// 		<div style={{ lineHeight: 1 }}>
+				// 			<div
+				// 				style={{
+				// 					marginBottom: '8px',
+				// 					fontWeight: 'bold'
+				// 				}}
+				// 			>
+				// 				{obj.des}
+				// 			</div>
+				// 			<div>
+				// 				<span
+				// 					style={{
+				// 						fontSize: '30px',
+				// 						color: '#FF6E27'
+				// 					}}
+				// 				>
+				// 					35
+				// 				</span>¥ {rowID}
+				// 			</div>
+				// 		</div>
+				// 	</div>
+				// </div>
+				// <div className="inform">
+				<div className="inform-items">
+					<span className="inform-item one">
+						<p>
+							TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
+						</p>
+						<p className="inform-item-small">12345675.22</p>
+					</span>
+					<span className="inform-item two">
+						<p>23423141</p>
+						<p className="inform-item-small">¥2342525.3342</p>
+					</span>
+					<span className="inform-item three">
+						<Button className="inform-item-middle">+585.74%</Button>
+					</span>
 				</div>
+				// </div>
 			);
 		};
 
 		return (
-			<div>
-				<div style={{ color: '#fff' }}>gapogapoga</div>
-
-				<ListView
-					ref={el => (this.lv = el)}
-					dataSource={this.state.dataSource}
-					// renderHeader={() => <span>header</span>}
-					// renderFooter={() => (
-					// 	<div style={{ padding: 30, textAlign: 'center' }}>
-					// 		{this.state.isLoading ? 'Loading...' : 'Loaded'}
-					// 	</div>
-					// )}
-					// renderSectionHeader={sectionData => (
-					// 	<div>{`Task ${sectionData.split(' ')[1]}`}</div>
-					// )}
-					// renderBodyComponent={() => <MyBody />}
-					renderRow={row}
-					// renderSeparator={separator}
-					style={{
-						height: this.state.height,
-						overflow: 'auto'
-					}}
-					pageSize={4}
-					// onScroll={() => {
-					// 	console.log('scroll');
-					// }}
-					scrollRenderAheadDistance={500}
-					// onEndReached={this.onEndReached}
-					onEndReachedThreshold={10}
-				/>
-			</div>
+			<ListView
+				ref={el => (this.lv = el)}
+				dataSource={this.state.dataSource}
+				// renderHeader={() => <span>header</span>}
+				// renderFooter={() => (
+				// 	<div style={{ padding: 30, textAlign: 'center' }}>
+				// 		{this.state.isLoading ? 'Loading...' : 'Loaded'}
+				// 	</div>
+				// )}
+				// renderSectionHeader={sectionData => (
+				// 	<div>{`Task ${sectionData.split(' ')[1]}`}</div>
+				// )}
+				renderBodyComponent={() => <MyBody />}
+				renderRow={row}
+				// renderSeparator={separator}
+				style={{
+					height: this.state.height,
+					overflow: 'hidden'
+				}}
+				// pageSize={10}
+				// onScroll={() => {
+				// 	console.log('scroll');
+				// }}
+				// scrollRenderAheadDistance={500}
+				// onEndReached={this.onEndReached}
+				onEndReachedThreshold={10}
+			/>
 		);
 	}
 }
