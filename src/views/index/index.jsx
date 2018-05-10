@@ -15,56 +15,60 @@ class Index extends React.Component {
 		// })
 		this.state = {
 			open: false
-        };
-        
-        this.dataWs = null;
-        
-    }
+		};
 
-    componentDidMount(){
-        // 挂载完成
-        this.openSocket()
-    }
-    
-    componentWillReceiveProps(nextprops){
-        // 接收到nextprops触发
-        console.log('==',nextprops.token)
-    }
+		this.dataWs = null;
+	}
 
-    componentWillUnmount(){
-        this.dataWs.close()
-    }
+	componentDidMount() {
+		// 挂载完成
+		this.openSocket();
+	}
 
-    openSocket = () => {
-       this.props.dispatch({
-           type: tradeSaga.tradeApi,
-           payload: {
-               query: {
-                   method: 'market.list',
-                   params: [],
-                   id: 0
-               },
-               success: result => {
-                const dataWs = [{ method: 'server.ping', params: ['coinKind'], id: 1 }];
-                this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
-                // console.log('8888',this.dataWs)
-               },
-               fail: err => {
-                   console.log(err)
-               }
-           }
-       })
-    }
+	componentWillReceiveProps(nextprops) {
+		// 接收到nextprops触发
+		console.log('==', nextprops.token);
+	}
 
-    wsMessage = (data) => {
-     console.log(data, this.dataWs)
-     const { method, params, id, result, error } = data;
-     if (id === 1) {
-         
-         let query = { method: 'status.subscribe', params: ["HOP/ETH","TOP/ETH", "SEER/ETH", "KEY/ETH"], id: 3 }
-         this.dataWs.send(JSON.stringify(query))
-     }
-    }
+	componentWillUnmount() {
+		this.dataWs.close();
+	}
+
+	openSocket = () => {
+		this.props.dispatch({
+			type: tradeSaga.tradeApi,
+			payload: {
+				query: {
+					method: 'market.list',
+					params: [],
+					id: 0
+				},
+				success: result => {
+					const dataWs = [
+						{ method: 'server.ping', params: ['coinKind'], id: 1 }
+					];
+					this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
+					// console.log('8888',this.dataWs)
+				},
+				fail: err => {
+					console.log(err);
+				}
+			}
+		});
+	};
+
+	wsMessage = data => {
+		console.log(data, this.dataWs);
+		const { method, params, id, result, error } = data;
+		if (id === 1) {
+			let query = {
+				method: 'status.subscribe',
+				params: ['HOP/ETH', 'TOP/ETH', 'SEER/ETH', 'KEY/ETH'],
+				id: 3
+			};
+			this.dataWs.send(JSON.stringify(query));
+		}
+	};
 
 	test() {
 		this.props.dispatch({
@@ -78,11 +82,7 @@ class Index extends React.Component {
 		});
 	}
 	_onOpenChange = () => {
-		console.log(5434);
-		this.setState({ open: !this.state.open }, () => {
-			console.log(this.state.open);
-		});
-		console.log(123123);
+		this.setState({ open: !this.state.open });
 	};
 
 	render() {
@@ -90,7 +90,7 @@ class Index extends React.Component {
 			intl: { formatMessage }
 		} = this.props;
 		const { open } = this.state;
-		console.log(open);
+
 		return (
 			<div>
 				<IndexComp _onOpenChange={this._onOpenChange} _open={open} />

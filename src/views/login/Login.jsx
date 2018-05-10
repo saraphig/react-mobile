@@ -7,6 +7,9 @@ import LoginComp from 'components/login/Login';
 class Login extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -18,18 +21,26 @@ class Login extends React.Component {
 
 	//按钮提交跳转事件
 	_onClickBTn = () => {
-		console.log(this.props);
-        //TODO: for the featrue
-        // either C has the G2F go to the ConfrimG2F
-        // or go to the PhoneConfirm
-        //or has the double conditions
+		//TODO: for the featrue
+		// either C has the G2F go to the ConfrimG2F
+		// or go to the PhoneConfirm
+		//or has the double conditions
 		this.props.history.push('/confirmG2F');
 	};
 
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
-				<LoginComp _onClickBTn={this._onClickBTn} />
+				<LoginComp
+					_onClickBTn={this._onClickBTn}
+					_onOpenChange={this._onOpenChange}
+					_open={open}
+				/>
 			</div>
 		);
 	}

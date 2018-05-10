@@ -6,7 +6,6 @@ import defaultUserImg from '../../assets/images/user_head_img@2x.png';
 import ListView from './ListView';
 
 export const Buttons = props => {
-	console.log(props);
 	return (
 		<Button className="button" style={props.style} onClick={props._onClick}>
 			{props.buttonText}
@@ -17,7 +16,7 @@ export const Buttons = props => {
 //页面中部的大文字
 export const MidText = props => {
 	return (
-		<p className="midText" style={props.style}>
+		<p className={`midText ${props.className}`}  style={props.style}>
 			{props.text}
 		</p>
 	);
@@ -173,16 +172,17 @@ export const UserTop = props => {
 };
 
 export const ListItemWithButton = props => {
-  return(
-    <div className='listItem' style={props.style}>
-      <div className='listItem-left'>
-        <span className='title'>使用TOPCOIN支付交易手续费（50%折扣）</span>
-      </div>
-      <div className='listItem-right'>
-
-      </div>
-    </div>
-  )};
+	return (
+		<div className="listItem" style={props.style}>
+			<div className="listItem-left">
+				<span className="title">
+					使用TOPCOIN支付交易手续费（50%折扣）
+				</span>
+			</div>
+			<div className="listItem-right" />
+		</div>
+	);
+};
 //侧栏内容框
 export const sidebars = (
 	<List>
@@ -225,12 +225,10 @@ export const CoinTabs = props => {
 				}}
 				tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
 			>
-				<div className='inform-height'>
+				<div className="inform-height">
 					<InformItem />
 				</div>
-				<div>
-					{/* <InformItem /> */}
-				</div>
+				<div>{/* <InformItem /> */}</div>
 			</Tabs>
 			<p className="tab-bar">
 				<span className="tab-item one">交易量</span>
