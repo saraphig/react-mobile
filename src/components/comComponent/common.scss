@@ -155,17 +155,34 @@
 
 .listItem{
   display: flex;
-  align-self: center;
+  align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 0 20px;
   background-color: #fff;
   border-bottom: 1px solid #E6E6E6;
+  height: 46px;
   overflow: hidden;
   @extend .fz15;
   @extend .gray-bg-active;
-  .right{
-    color: #DCDCDC;
-    width: 24px;
-    height: 18px;
+  .listItem-left{
+    flex: 1;
+  }
+  .listItem-right{
+    display: flex;
+    align-items: center;
+    .text, .text-active{
+      @extend .fz15;
+      margin-right: 4px;
+    }
+    .text{
+      color: #BEBEBE;
+    }
+    .text-active{
+      color: $golden;
+    }
+    .right-icon{
+      width: 16px;
+      height: 28px;
+    }
   }
 }

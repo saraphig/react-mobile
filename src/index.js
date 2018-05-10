@@ -9,6 +9,7 @@ import configureStore from 'models/store/configureStore';
 import 'src/styles/reset.css';
 import 'src/styles/globle.css';
 import 'amfe-flexible';
+import 'src/assets/js/iconfont'
 
 const store = configureStore();
 
