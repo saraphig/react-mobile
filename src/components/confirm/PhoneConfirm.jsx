@@ -25,14 +25,15 @@ class ConfirmG2FComp extends React.Component {
 				<div className="phoneConfirm-middleContent">
 					<MidText
 						text="手机验证"
-						style={{
-							marginTop: 64,
-							marginBottom: 41
-						}}
+						className="midText-phoneConfirm-transfrom"
 					/>
 					<Input placeholder="手机号码" />
-                    <Input placeholder="输入验证码" types={1} text='发送验证码'/>
-					<Buttons style={{ marginTop: 30 }} buttonText="提交" />
+					<Input
+						placeholder="输入验证码"
+						types={1}
+						text="发送验证码"
+					/>
+					<Buttons  className="buttons-phoneConfirm-transform"  buttonText="提交" />
 				</div>
 			</div>
 		);

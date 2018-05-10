@@ -8,7 +8,11 @@ import ListView from './ListView';
 //按钮
 export const Buttons = props => {
 	return (
-		<Button className="button" style={props.style} onClick={props._onClick}>
+		<Button
+			className={`button ${props.className}`}
+			style={props.style}
+			onClick={props._onClick}
+		>
 			{props.buttonText}
 		</Button>
 	);
@@ -39,17 +43,16 @@ export const BottomTips = props => {
 //服务条款
 export const ServerTips = props => {
 	return (
-		<p className="ServerTips" style={props.style}>
-			<input
-				type="checkbox"
-				style={{ background: '#dab075', marginRight: 7 }}
-			/>
+		<p className={`ServerTips ${props.className}`} style={props.style}>
+			<input type="checkbox" className="ServerTips-checkbox" />
 			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
 				<span className="ServerTips-right">{props.ServerTips2}</span>
 			</Link>
 		</p>
 	);
 };
+
+
 
 //输入框
 export const Input = props => {
@@ -79,10 +82,51 @@ export const Input = props => {
 	);
 };
 
+// 输入框
+export class Input2 extends React.Component{
+	constructor(props){
+		super(props)
+		this.state={
+			val: props.value
+		}
+	}
+	onChange(e){
+	   console.log(e.target.value)
+	   this.props.onChange(e)
+	}
+	render(){
+	   return (
+		   <div className="input-container">
+			   <input
+				   className="input"
+				   style={this.props.style}
+				   placeholder={this.props.placeholder || '您的邮箱'}
+				   value={this.state.value}
+				   onChange={this.onChange.bind(this)}
+			   />
+			   {this.props.types === 1 && (
+				   <div>
+					   <span className="line" />
+					   <span
+						   className={
+							this.props.disabled ? 'input-sended' : 'input-send'
+						   }
+					   >
+						   {this.props.disabled
+							   ? `已发送(${this.props.time})`
+							   : this.props.text || '发送验证码'}
+					   </span>
+				   </div>
+			   )}
+		   </div>
+	   );
+   }
+};
+
 //验证码
 export const Validate = props => {
 	return (
-		<div className="validate" style={props.style}>
+		<div className={`validate ${props.className}`} style={props.style}>
 			<input type="number" maxLength="6" autoComplete="off" />
 			<ul className="code-display">
 				<li>
@@ -131,22 +175,13 @@ export const TopTabs = props => {
 				tabBarTextStyle={{ fontSize: '15px' }}
 			>
 				<div
-					style={{
-						margin: '0 30px'
-					}}
+					//
+					className="tabs-content"
 				>
 					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
 					<Input placeholder="输入验证码" types={1} />
-
-					{/* <div style={{ visibility: 'hidden' }}>
-						<Input style={{ visibility: 'hidden' }} />
-					</div> */}
 				</div>
-				<div
-					style={{
-						margin: '0 30px'
-					}}
-				>
+				<div className="tabs-content">
 					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
 				</div>
 			</Tabs>

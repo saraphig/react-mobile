@@ -1,6 +1,5 @@
 .doubleConfirm-middleContent {
     flex-direction: column;
-
     .middleContent-img-logo {
         // margin: 70px 63px 0 63px;
         .middleContent-logo {
@@ -8,4 +7,13 @@
             height: 65px;
         }
     }
+}
+
+.midText-doubleConfirm-transfrom {
+    margin-top: 43px;
+    margin-bottom: 45px;
+}
+
+.buttons-doubleConfirm-transform {
+    margin-top: 30px;
 }

@@ -23,15 +23,9 @@ class ConfirmG2FComp extends React.Component {
 			<div className="confirmG2f">
 				<Header />
 				<div className="confirmG2f-middleContent">
-					<MidText
-						text="谷歌验证"
-						style={{
-							marginTop: 64,
-							marginBottom: 41
-						}}
-					/>
+					<MidText text="谷歌验证" className="midText-transfrom" />
 					<Input placeholder="谷歌验证码" />
-					<Buttons style={{ marginTop: 30 }} buttonText="提交" />
+					<Buttons className="buttons-transform" buttonText="提交" />
 				</div>
 			</div>
 		);

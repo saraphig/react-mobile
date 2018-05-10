@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import './login.scss';
 import Header from 'components/comComponent/header/Header';
 import { Drawer, List, NavBar, Icon } from 'antd-mobile';
-import { dun } from '../../config';
+import { dun } from 'src/config';
 import {
 	MidText,
 	Input,

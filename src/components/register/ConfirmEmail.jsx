@@ -25,37 +25,18 @@ class ConfirmEmailComp extends React.Component {
 				<div className="confirmEmail-middleContent">
 					<MidText
 						text="邮箱验证"
-						style={{
-							marginTop: 64,
-							marginBottom: 10
-						}}
+						className="midText-confirmEmail-transfrom"
 					/>
-					<Validate
-						style={{
-							marginLeft: 30,
-							marginRight: 30,
-							marginTop: 32,
-							marginBottom: 34
-						}}
-					/>
-					{/* <Input placeholder="您的邮箱" />
-					<Input placeholder="您的密码" />
-					<Input placeholder="重复密码" /> */}
-					{/* <ServerTips
-						ServerTips1="我已阅读并同意TOP.ONE"
-						ServerTips2="服务条款"
-						pathName="/login"
-						style={{ marginBottom: 17, marginTop: 17 }}
-					/> */}
+					<Validate className="validate-confirmEmail-transfrom" />
 					<Buttons
-						style={{ marginTop: 0 }}
+						className="buttons-confirmEmail-transfrom"
 						buttonText="完成"
 						_onClick={this.props._onClickBTn}
 					/>
 					<BottomTips
+						className="bottomTips-confirmEmail-transfrom"
 						BottomTips1="没收到验证码"
 						BottomTips2="重新发送"
-						style={{ marginTop: 40 }}
 						pathName="/#"
 					/>
 				</div>

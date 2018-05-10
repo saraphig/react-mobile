@@ -9,3 +9,38 @@
         }
     }
 }
+
+.midText-register-transfrom {
+    margin-top: 64px;
+    margin-bottom: 10px;
+}
+
+.buttons-register-transfrom {
+    margin-top: 30px;
+}
+
+.bottomTips-register-transfrom {
+    margin-top: 138px;
+}
+
+.iti-mobile .intl-tel-input.iti-container {
+    top: 213px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    position: fixed;
+}
+
+.iti-mobile .intl-tel-input .country-list {
+    max-height: 50%;
+    width: 100%;
+    font-size: 15px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #dcb276;
+    font-weight: 200;
+}
+
+.iti-mobile .intl-tel-input .country-list .country {
+    padding: 5px 8px;
+}

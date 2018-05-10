@@ -26,13 +26,10 @@ class ConfirmG2FComp extends React.Component {
 				<div className="doubleConfirm-middleContent">
 					<MidText
 						text="二次验证"
-						style={{
-							marginTop: 43,
-							marginBottom: 45
-						}}
+						className="midText-doubleConfirm-transfrom"
 					/>
 					<TopTabs />
-					<Buttons style={{ marginTop: 30 }} buttonText="提交" />
+					<Buttons  className="buttons-doubleConfirm-transform"  buttonText="提交" />
 				</div>
 			</div>
 		);
