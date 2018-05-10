@@ -41,49 +41,68 @@ export const BottomTips = props => {
 };
 
 //服务条款
-export const ServerTips = props => {
-	return (
-		<p className={`ServerTips ${props.className}`} style={props.style}>
-			<input type="checkbox" className="ServerTips-checkbox" />
-			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
-				<span className="ServerTips-right">{props.ServerTips2}</span>
-			</Link>
-		</p>
-	);
+// export const ServerTips = props => {
+// 	return (
+// 		<p className={`ServerTips ${props.className}`} style={props.style}>
+// 			<input type="checkbox" className="ServerTips-checkbox" />
+// 			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
+// 				<span className="ServerTips-right">{props.ServerTips2}</span>
+// 			</Link>
+// 		</p>
+// 	);
+// };
+export class ServerTips extends React.Component {
+	constructor(props){
+		super(props)
+	}
+	onChange(e){
+		// console.log('同意协议：', e.target.checked)
+		this.props.onChange(e.target.checked)
+	}
+	render(){
+		return (
+			<p className={`ServerTips ${this.props.className}`} style={this.props.style}>
+				<input type="checkbox" className="ServerTips-checkbox" onChange={this.onChange.bind(this)}/>
+				<span>{this.props.ServerTips1}</span>&nbsp;<Link to={this.props.pathName}>
+					<span className="ServerTips-right">{this.props.ServerTips2}</span>
+				</Link>
+			</p>
+		);
+    }
 };
 
 
 
 //输入框
-export const Input = props => {
-	return (
-		<div className="input-container">
-			<input
-				className="input"
-				style={props.style}
-				placeholder={props.placeholder || '您的邮箱'}
-				value={props.value}
-			/>
-			{props.types === 1 && (
-				<div>
-					<span className="line" />
-					<span
-						className={
-							props.disabled ? 'input-sended' : 'input-send'
-						}
-					>
-						{props.disabled
-							? `已发送(${props.time})`
-							: props.text || '发送验证码'}
-					</span>
-				</div>
-			)}
-		</div>
-	);
-};
+// export const Input = props => {
+// 	return (
+// 		<div className="input-container">
+// 			<input
+// 				className="input"
+// 				style={props.style}
+// 				placeholder={props.placeholder || '您的邮箱'}
+// 				value={props.value}
+// 			/>
+// 			{props.types === 1 && (
+// 				<div>
+// 					<span className="line" />
+// 					<span
+// 						className={
+// 							props.disabled ? 'input-sended' : 'input-send'
+// 						}
+// 					>
+// 						{props.disabled
+// 							? `已发送(${props.time})`
+// 							: props.text || '发送验证码'}
+// 					</span>
+// 				</div>
+// 			)}
+// 		</div>
+// 	);
+// };
 
 // 输入框
-export class Input2 extends React.Component{
+export class Input extends React.Component{
 	constructor(props){
 		super(props)
 		this.state={
@@ -91,8 +110,7 @@ export class Input2 extends React.Component{
 		}
 	}
 	onChange(e){
-	   console.log(e.target.value)
-	   this.props.onChange(e)
+	   this.props.onChange(e.target.value)
 	}
 	render(){
 	   return (
@@ -103,6 +121,7 @@ export class Input2 extends React.Component{
 				   placeholder={this.props.placeholder || '您的邮箱'}
 				   value={this.state.value}
 				   onChange={this.onChange.bind(this)}
+				   id={this.props.comId}
 			   />
 			   {this.props.types === 1 && (
 				   <div>

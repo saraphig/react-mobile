@@ -12,16 +12,21 @@ class RegisterComp extends React.Component {
 		super(props);
 		this.state = {
 			pathName: '',
-			phone: ''
+			phone: '', // 手机号
+			nationCode: '86', // 区号
+			validate: '', // 易盾验证码
+			verifyCode: '', // 手机验证码
+			inviterCode: '' // 邀请码
 		};
 	}
 
 	componentDidMount() {
 		this.initNeCaptcha()
-		$(this.phone).intlTelInput({
+		// $(this.phone).intlTelInput({
+		$("#test").intlTelInput({
 			initialCountry: 'cn'
 		});
-		$(this.phone).on('countrychange', (e, countryData) => {
+		$("#test").on('countrychange', (e, countryData) => {
 			this.setState({
 				nationCode: countryData.dialCode
 			});
@@ -37,7 +42,7 @@ class RegisterComp extends React.Component {
 	// 	return false;
 	// };
 
-	// 只能无感知（易盾）
+	// 智能无感知（易盾）
 	initNeCaptcha = () => {
 		const {
 			intl: { formatMessage }
@@ -68,7 +73,7 @@ class RegisterComp extends React.Component {
 					let that = this;
 					if (data) {
 						that.setState({ validate: data.validate });
-						console.log(data.validate)
+						that.props.getPhoneCode(this.state.phone, this.state.nationCode, data.validate)
 					}
 				},
 				onError: (err, data) => {
@@ -82,6 +87,12 @@ class RegisterComp extends React.Component {
 			}
 		);
 	};
+	
+	// 手机验证码输入后下一步
+	phoneNext(){
+	  alert(99)
+      this.props.phoneNext(this.state.phone, this.state.nationCode, this.state.verifyCode, this.state.inviterCode)
+	}
 
 	render() {
 		const { pathName } = this.state;
@@ -93,25 +104,20 @@ class RegisterComp extends React.Component {
 						text="手机绑定"
 						className="midText-register-transfrom"
 					/>
-					<Input2 placeholder="手机号码" onChange={(val) => {this.setState({phone: val})}} ref={phone => (this.phone = phone)}/>
-					{/* <div className="input-container">
-						<input
-							className="input"
-							placeholder="手机号码"
-							ref={phone => (this.phone = phone)}
-						/>
-					</div> */}
+					<Input placeholder="手机号码" onChange={(val) => this.setState({phone: val})} comId= "test"/>
 					<Input
 						placeholder="输入验证码"
 						types={1}
 						text="发送验证码"
+						onChange={(val) => this.setState({verifyCode: val})}
 					/>
 					<span id="dun"></span>
-					<Input placeholder="推荐码(选填)" />
+					<Input placeholder="推荐码(选填)" onChange={(val) => this.setState({inviterCode: val})}/>
 					<Buttons
 						className="buttons-register-transfrom"
 						buttonText="下一步"
-						_onClick={this.props._onClickBTn}
+						// _onClick={this.props._onClickBTn}
+						_onClick={() => this.phoneNext()}
 					/>
 					<BottomTips
 						className="bottomTips-register-transfrom"

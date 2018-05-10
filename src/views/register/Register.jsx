@@ -10,7 +10,8 @@ class Register extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			phoneCode: ''
+			phoneCode: '',
+			mail_auth_token: ''
 		}
 	}
 
@@ -26,11 +27,12 @@ class Register extends React.Component {
 	};
 
 	// 获取手机验证码
-	getPhoneCode = (phone, nationCode, verifyCode) => {
+	getPhoneCode = (phone, nationCode, validate) => {
+		// console.log(phone, nationCode, validate)
 		let query = {
 			phone,
 			nationCode,
-			verifyCode
+			validate
 		}
 		this.props.dispatch({
 			type: registerSaga.getPhoneCode,
@@ -47,6 +49,31 @@ class Register extends React.Component {
 		})
 	}
 
+	// 提交手机验证码
+	phoneNext = (phone, nationCode, verifyCode, inviterCode) => {
+		let query = {
+			phone,
+			nationCode,
+			verifyCode,
+			inviterCode
+		}
+		this.props.dispatch({
+			type: registerSaga.phoneNext,
+			payload: { 
+				query, 
+				success: (data) => {
+					console.log(data)
+					this.setState({
+						mail_auth_token: data.mail_auth_token
+					})
+					this.history.push({pathname:'/registerEmail', state: { mail_auth_token: data.mail_auth_token }})
+				},
+				fail: this.fail,
+				error: this.error
+			}
+		})
+	}
+
 	//请求返回失败code
 	fail = (err_code) => {
 		alert(err_code)
@@ -54,7 +81,7 @@ class Register extends React.Component {
 	
 	// 网络异常，请求失败
 	error = (err) => {
-		alert('网络异常，请求失败')
+		alert('网络异常，请求失败',err)
 	}
 
 	render() {
@@ -63,6 +90,7 @@ class Register extends React.Component {
 				<RegisterComp 
 				  _onClickBTn={this._onClickBTn}
 				  getPhoneCode={this.getPhoneCode}
+				  phoneNext={this.phoneNext}
 				/>
 			</div>
 		);

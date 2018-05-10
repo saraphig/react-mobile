@@ -7,6 +7,11 @@ import RegisterEmailComp from 'components/register/RegisterEmail';
 class RegisterEmail extends React.Component {
 	constructor(props) {
 		super(props);
+		// let mail_auth_token = props.location.state.mail_auth_token || ''
+		this.state = {
+			// mail_auth_token: mail_auth_token
+			mail_auth_token: '7907'
+		}
 	}
 
 	componentDidMount() {
@@ -18,9 +23,10 @@ class RegisterEmail extends React.Component {
 	}
 
 	//按钮提交跳转事件
-	_onClickBTn = () => {
-		console.log(this.props);
+	_onClickBTn = (email, pwd, confirm_pwd) => {
+		console.log(email, pwd, confirm_pwd);
 		//TODO: for the featrue
+		
 		this.props.history.push('/confirmEmail');
 	};
 
