@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
-import { Tabs, WhiteSpace, Badge, Button, List, Switch } from 'antd-mobile';
+import {
+	Tabs,
+	WhiteSpace,
+	Badge,
+	Button,
+	List,
+	Switch,
+	NavBar
+} from 'antd-mobile';
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
+import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
 
 //按钮
 export const Buttons = props => {
@@ -71,8 +80,6 @@ export class ServerTips extends React.Component {
     }
 };
 
-
-
 //输入框
 // export const Input = props => {
 // 	return (
@@ -107,7 +114,7 @@ export class Input extends React.Component{
 		super(props)
 		this.state={
 			val: props.value
-		}
+		};
 	}
 	onChange(e){
 	   this.props.onChange(e.target.value)
@@ -233,22 +240,45 @@ export const UserTop = props => {
 //个人中心列表
 export const ListItem = props => {
 	return (
-		<List renderHeader={() => 'Icon in the left'}>
-			<Item
-				thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-				arrow="horizontal"
-				onClick={() => {}}
-			>
-				My wallet
-			</Item>
-			<Item
-				thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-				onClick={() => {}}
-				arrow="horizontal"
-			>
-				My Cost Ratio
-			</Item>
-		</List>
+		<div className="list-item">
+			<div className="list-item-line">
+				<div className="item-left">
+					<span className="left-icon">
+						<svg
+							style={{
+								width: '30px',
+								height: '26px',
+								marginRight: '8px'
+							}}
+							aria-hidden="true"
+						>
+							<use xlinkHref="#icon-friend" />
+						</svg>
+					</span>
+					<span className="title">
+						{props.title || 'enter title'}
+					</span>
+				</div>
+				<div className="item-right">
+					{/*通过传值改变字体颜色*/}
+					{props.user ? (
+						props.user.isOpen ? (
+							<span className="text-active">已开启</span>
+						) : (
+							<span className="text">未认证</span>
+						)
+					) : null}
+
+					{/*默认显示右箭头可以通过传值设置是否显示*/}
+					{(props.isShowRightIcon === undefined ||
+						props.isShowRightIcon) && (
+						<svg className="right-icon" aria-hidden="true">
+							<use xlinkHref="#icon-youjiantou" />
+						</svg>
+					)}
+				</div>
+			</div>
+		</div>
 	);
 };
 
@@ -533,6 +563,39 @@ export const InformItem = props => {
 				</span>
 			</div> */}
 			<ListView />
+		</div>
+	);
+};
+
+//留白
+export const WhiteBlock = props => {
+	return <div className="white-block" style={props.style} />;
+};
+
+//导航栏
+export const Navbars = props => {
+	return <NavBar className={props.className} leftContent={props.title} />;
+};
+
+export const AlertModal = props => {
+	return (
+		<div>
+			{props.isOpen && (
+				<div className="alertModal">
+					<div className="container">
+						<div className="top">
+							<i className="email-icon" />
+						</div>
+						<p className="content">
+							请前往top.one官网进行验证设置
+							请前往top.one官网进行验证设置
+						</p>
+						<div className="sure">
+							<a href="javascript:;">确定</a>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
