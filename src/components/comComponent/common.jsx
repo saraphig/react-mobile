@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
-import { Tabs, WhiteSpace, Badge, Button, List } from 'antd-mobile';
-import defaultUserImg from '../../assets/images/user_head_img@2x.png';
+import { Tabs, WhiteSpace, Badge, Button, List, Switch } from 'antd-mobile';
+import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
 
+//按钮
 export const Buttons = props => {
 	console.log(props);
 	return (
@@ -51,6 +52,7 @@ export const ServerTips = props => {
 	);
 };
 
+//输入框
 export const Input = props => {
 	return (
 		<div className="input-container">
@@ -78,6 +80,7 @@ export const Input = props => {
 	);
 };
 
+//验证码
 export const Validate = props => {
 	return (
 		<div className="validate" style={props.style}>
@@ -106,6 +109,7 @@ export const Validate = props => {
 	);
 };
 
+//滑动tabs
 export const TopTabs = props => {
 	const tabs = [
 		{ title: props.secondTitle || '手机验证' },
@@ -152,6 +156,7 @@ export const TopTabs = props => {
 	);
 };
 
+//个人中心头部
 export const UserTop = props => {
 	return (
 		<div className="user-top">
@@ -172,17 +177,25 @@ export const UserTop = props => {
 	);
 };
 
-export const ListItemWithButton = props => {
+//个人中心列表
+export const ListItem = props => {
   return(
-    <div className='listItem' style={props.style}>
-      <div className='listItem-left'>
-        <span className='title'>使用TOPCOIN支付交易手续费（50%折扣）</span>
-      </div>
-      <div className='listItem-right'>
-
-      </div>
-    </div>
+    <List renderHeader={() => 'Icon in the left'}>
+      <Item
+        thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+        arrow="horizontal"
+        onClick={() => {}}
+      >My wallet</Item>
+      <Item
+        thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+        onClick={() => {}}
+        arrow="horizontal"
+      >
+        My Cost Ratio
+      </Item>
+    </List>
   )};
+
 //侧栏内容框
 export const sidebars = (
 	<List>
