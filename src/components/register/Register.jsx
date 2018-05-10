@@ -18,6 +18,14 @@ class RegisterComp extends React.Component {
 
 	componentDidMount() {
 		this.initNeCaptcha()
+		$(this.phone).intlTelInput({
+			initialCountry: 'cn'
+		});
+		$(this.phone).on('countrychange', (e, countryData) => {
+			this.setState({
+				nationCode: countryData.dialCode
+			});
+		});
 	}
 
 	// _onClickBTn = e => {
@@ -83,12 +91,16 @@ class RegisterComp extends React.Component {
 				<div className="register-middleContent">
 					<MidText
 						text="手机绑定"
-						style={{
-							marginTop: 64,
-							marginBottom: 10
-						}}
+						className="midText-register-transfrom"
 					/>
-					<Input2 placeholder="手机号码" onChange={(val) => {this.setState({phone: val})}}/>
+					<Input2 placeholder="手机号码" onChange={(val) => {this.setState({phone: val})}} ref={phone => (this.phone = phone)}/>
+					{/* <div className="input-container">
+						<input
+							className="input"
+							placeholder="手机号码"
+							ref={phone => (this.phone = phone)}
+						/>
+					</div> */}
 					<Input
 						placeholder="输入验证码"
 						types={1}
@@ -97,14 +109,14 @@ class RegisterComp extends React.Component {
 					<span id="dun"></span>
 					<Input placeholder="推荐码(选填)" />
 					<Buttons
-						style={{ marginTop: 30 }}
+						className="buttons-register-transfrom"
 						buttonText="下一步"
 						_onClick={this.props._onClickBTn}
 					/>
 					<BottomTips
+						className="bottomTips-register-transfrom"
 						BottomTips1="已有账号"
 						BottomTips2="马上登录"
-						style={{ marginTop: 138 }}
 						pathName="/login"
 					/>
 				</div>

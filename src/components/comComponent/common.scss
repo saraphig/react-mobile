@@ -1,6 +1,6 @@
 @import '../../styles/base';
 .button {
-    width: 316px;
+    width: 315px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -124,6 +124,11 @@
     }
 }
 
+.ServerTips-checkbox {
+    background: #dab075;
+    margin-right: 7px;
+}
+
 // .am-tabs-default-bar-top, .am-tabs-default-bar-bottom{
 //   padding: 0 64px;
 // }
@@ -174,6 +179,10 @@
 }
 
 /**交易条的三个信息对**start**/
+
+.tabs-content {
+    margin: 0 30px;
+}
 
 .tab-bar {
     width: 90%;
