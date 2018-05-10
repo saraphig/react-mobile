@@ -36,13 +36,7 @@ class LoginComp extends React.Component {
 				lang: 'zh-CN',
 				onReady: instance => {
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
-					// 验证码的整个背景色
-					// document
-					// 	.getElementsByClassName('yidun_intelli-control')[0]
-					// 	.setAttribute(
-					// 		'style',
-					// 		'background:#dcb276;border:1px solid #dcb276;height:50px;line-height:50px;font-size:18px;'
-					// 	);
+
 					//验证码logo的去除
 					if (
 						document.getElementsByClassName('yidun_intelli-icon')[0]
@@ -57,23 +51,6 @@ class LoginComp extends React.Component {
 						'yidun_intelli-text'
 					)[0].innerText =
 						'确 定';
-					// //移入移出验证码的样式效果
-					// document.getElementsByClassName(
-					// 	'yidun_intelli-control'
-					// )[0].onmouseover = function() {
-					// 	document.getElementsByClassName(
-					// 		'yidun_intelli-text'
-					// 	)[0].style.color =
-					// 		'#fff';
-					// };
-					// document.getElementsByClassName(
-					// 	'yidun_intelli-control'
-					// )[0].onmouseout = function() {
-					// 	document.getElementsByClassName(
-					// 		'yidun_intelli-text'
-					// 	)[0].style.color =
-					// 		'#000';
-					// };
 
 					// if (
 					// 	document.getElementsByClassName('yidun_tips__text')[0]
@@ -100,15 +77,8 @@ class LoginComp extends React.Component {
 				},
 				onVerify: (err, data) => {
 					let that = this;
-					// if (!email) {
-					//
-					//   });
-					// }
-					console.log(35352);
 					if (data) {
 						that.setState({ validate: data.validate });
-						alert(21);
-						// that.login();
 					}
 				},
 				onError: (err, data) => {
@@ -157,7 +127,6 @@ class LoginComp extends React.Component {
 							_onClick={this.props._onClickBTn}
 						/> */}
 						<div
-							style={{ marginTop: 20 }}
 							ref={bar => {
 								this.slideBar = bar;
 							}}
@@ -167,7 +136,7 @@ class LoginComp extends React.Component {
 						<BottomTips
 							BottomTips1="尚未注册"
 							BottomTips2="立即注册"
-							style={{ marginTop: 138 }}
+							className="bottomTips-transform"
 							pathName="/register"
 						/>
 					</div>

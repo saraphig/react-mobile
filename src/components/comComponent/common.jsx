@@ -16,7 +16,7 @@ export const Buttons = props => {
 //页面中部的大文字
 export const MidText = props => {
 	return (
-		<p className={`midText ${props.className}`}  style={props.style}>
+		<p className={`midText ${props.className}`} style={props.style}>
 			{props.text}
 		</p>
 	);
@@ -25,7 +25,7 @@ export const MidText = props => {
 //底部文字
 export const BottomTips = props => {
 	return (
-		<p className="BottomTips" style={props.style}>
+		<p className={`BottomTips ${props.className}`} style={props.style}>
 			<Link to={props.pathName}>
 				<span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
 					{props.BottomTips2}
