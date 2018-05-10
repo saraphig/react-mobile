@@ -33,10 +33,7 @@ class RegisterComp extends React.Component {
 				<div className="register-middleContent">
 					<MidText
 						text="手机绑定"
-						style={{
-							marginTop: 64,
-							marginBottom: 10
-						}}
+						className="midText-register-transfrom"
 					/>
 					<Input placeholder="手机号码" />
 					<Input
@@ -46,14 +43,14 @@ class RegisterComp extends React.Component {
 					/>
 					<Input placeholder="推荐码(选填)" />
 					<Buttons
-						style={{ marginTop: 30 }}
+						className="buttons-register-transfrom"
 						buttonText="下一步"
 						_onClick={this.props._onClickBTn}
 					/>
 					<BottomTips
+						className="bottomTips-register-transfrom"
 						BottomTips1="已有账号"
 						BottomTips2="马上登录"
-						style={{ marginTop: 138 }}
 						pathName="/login"
 					/>
 				</div>

@@ -8,7 +8,11 @@ import ListView from './ListView';
 //按钮
 export const Buttons = props => {
 	return (
-		<Button className="button" style={props.style} onClick={props._onClick}>
+		<Button
+			className={`button ${props.className}`}
+			style={props.style}
+			onClick={props._onClick}
+		>
 			{props.buttonText}
 		</Button>
 	);
@@ -39,11 +43,8 @@ export const BottomTips = props => {
 //服务条款
 export const ServerTips = props => {
 	return (
-		<p className="ServerTips" style={props.style}>
-			<input
-				type="checkbox"
-				style={{ background: '#dab075', marginRight: 7 }}
-			/>
+		<p className={`ServerTips ${props.className}`} style={props.style}>
+			<input type="checkbox" className="ServerTips-checkbox" />
 			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
 				<span className="ServerTips-right">{props.ServerTips2}</span>
 			</Link>
@@ -82,7 +83,7 @@ export const Input = props => {
 //验证码
 export const Validate = props => {
 	return (
-		<div className="validate" style={props.style}>
+		<div className={`validate ${props.className}`} style={props.style}>
 			<input type="number" maxLength="6" autoComplete="off" />
 			<ul className="code-display">
 				<li>
@@ -131,22 +132,13 @@ export const TopTabs = props => {
 				tabBarTextStyle={{ fontSize: '15px' }}
 			>
 				<div
-					style={{
-						margin: '0 30px'
-					}}
+					//
+					className="tabs-content"
 				>
 					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
 					<Input placeholder="输入验证码" types={1} />
-
-					{/* <div style={{ visibility: 'hidden' }}>
-						<Input style={{ visibility: 'hidden' }} />
-					</div> */}
 				</div>
-				<div
-					style={{
-						margin: '0 30px'
-					}}
-				>
+				<div className="tabs-content">
 					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
 				</div>
 			</Tabs>
@@ -178,22 +170,25 @@ export const UserTop = props => {
 
 //个人中心列表
 export const ListItem = props => {
-  return(
-    <List renderHeader={() => 'Icon in the left'}>
-      <Item
-        thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-        arrow="horizontal"
-        onClick={() => {}}
-      >My wallet</Item>
-      <Item
-        thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-        onClick={() => {}}
-        arrow="horizontal"
-      >
-        My Cost Ratio
-      </Item>
-    </List>
-  )};
+	return (
+		<List renderHeader={() => 'Icon in the left'}>
+			<Item
+				thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+				arrow="horizontal"
+				onClick={() => {}}
+			>
+				My wallet
+			</Item>
+			<Item
+				thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+				onClick={() => {}}
+				arrow="horizontal"
+			>
+				My Cost Ratio
+			</Item>
+		</List>
+	);
+};
 
 //侧栏内容框
 export const sidebars = (

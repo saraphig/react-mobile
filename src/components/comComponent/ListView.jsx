@@ -34,8 +34,8 @@ const data = [
 		des: '不是所有的兼职汪都需要风吹日晒'
 	}
 ];
-const NUM_SECTIONS = 10;
-const NUM_ROWS_PER_SECTION = 10;
+const NUM_SECTIONS = 5;
+const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
 const dataBlobs = {};
@@ -242,7 +242,7 @@ class ListViewComp extends React.Component {
 				// onScroll={() => {
 				// 	console.log('scroll');
 				// }}
-				// scrollRenderAheadDistance={500}
+				scrollRenderAheadDistance={500}
 				// onEndReached={this.onEndReached}
 				onEndReachedThreshold={10}
 			/>

@@ -29,29 +29,26 @@ class RegisterEmailComp extends React.Component {
 				<div className="registerEmail-middleContent">
 					<MidText
 						text="邮箱注册"
-						style={{
-							marginTop: 64,
-							marginBottom: 10
-						}}
+						className="midText-registerEmail-transfrom"
 					/>
 					<Input placeholder="您的邮箱" />
 					<Input placeholder="您的密码" />
 					<Input placeholder="重复密码" />
 					<ServerTips
+						className="ServerTips-registerEmail-transfrom"
 						ServerTips1="我已阅读并同意TOP.ONE"
 						ServerTips2="服务条款"
 						pathName="/login"
-						style={{ marginBottom: 17, marginTop: 17 }}
 					/>
 					<Buttons
-						style={{ marginTop: 0 }}
+						className="Buttons-registerEmail-transfrom"
 						buttonText="下一步"
 						_onClick={this.props._onClickBTn}
 					/>
 					<BottomTips
+						className="bottomTips-registerEmail-transfrom"
 						BottomTips1="已有账号"
 						BottomTips2="马上登录"
-						style={{ marginTop: 138 }}
 						pathName="/login"
 					/>
 				</div>
