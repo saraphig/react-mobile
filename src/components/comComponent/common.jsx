@@ -637,6 +637,7 @@ export const Navbars = props => {
 	return <NavBar className={props.className} leftContent={props.title} />;
 };
 
+//个人中心弹出框
 export const AlertModal = props => {
 	return (
 		<div>
