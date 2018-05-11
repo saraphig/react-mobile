@@ -61,24 +61,35 @@ export const BottomTips = props => {
 // 	);
 // };
 export class ServerTips extends React.Component {
-	constructor(props){
-		super(props)
+	constructor(props) {
+		super(props);
 	}
-	onChange(e){
+	onChange(e) {
 		// console.log('同意协议：', e.target.checked)
-		this.props.onChange(e.target.checked)
+		this.props.onChange(e.target.checked);
 	}
-	render(){
+	render() {
 		return (
-			<p className={`ServerTips ${this.props.className}`} style={this.props.style}>
-				<input type="checkbox" className="ServerTips-checkbox" onChange={this.onChange.bind(this)}/>
-				<span>{this.props.ServerTips1}</span>&nbsp;<Link to={this.props.pathName}>
-					<span className="ServerTips-right">{this.props.ServerTips2}</span>
+			<p
+				className={`ServerTips ${this.props.className}`}
+				style={this.props.style}
+			>
+				<input
+					type="checkbox"
+					className="ServerTips-checkbox"
+					onChange={this.onChange.bind(this)}
+				/>
+				<span>{this.props.ServerTips1}</span>&nbsp;<Link
+					to={this.props.pathName}
+				>
+					<span className="ServerTips-right">
+						{this.props.ServerTips2}
+					</span>
 				</Link>
 			</p>
 		);
-    }
-};
+	}
+}
 
 //输入框
 // export const Input = props => {
@@ -109,45 +120,47 @@ export class ServerTips extends React.Component {
 // };
 
 // 输入框
-export class Input extends React.Component{
-	constructor(props){
-		super(props)
-		this.state={
+export class Input extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			val: props.value
 		};
 	}
-	onChange(e){
-	   this.props.onChange(e.target.value)
+	onChange(e) {
+		this.props.onChange(e.target.value);
 	}
-	render(){
-	   return (
-		   <div className="input-container">
-			   <input
-				   className="input"
-				   style={this.props.style}
-				   placeholder={this.props.placeholder || '您的邮箱'}
-				   value={this.state.value}
-				   onChange={this.onChange.bind(this)}
-				   id={this.props.comId}
-			   />
-			   {this.props.types === 1 && (
-				   <div>
-					   <span className="line" />
-					   <span
-						   className={
-							this.props.disabled ? 'input-sended' : 'input-send'
-						   }
-					   >
-						   {this.props.disabled
-							   ? `已发送(${this.props.time})`
-							   : this.props.text || '发送验证码'}
-					   </span>
-				   </div>
-			   )}
-		   </div>
-	   );
-   }
-};
+	render() {
+		return (
+			<div className="input-container">
+				<input
+					className="input"
+					style={this.props.style}
+					placeholder={this.props.placeholder || '您的邮箱'}
+					value={this.state.value}
+					onChange={this.onChange.bind(this)}
+					id={this.props.comId}
+				/>
+				{this.props.types === 1 && (
+					<div>
+						<span className="line" />
+						<span
+							className={
+								this.props.disabled
+									? 'input-sended'
+									: 'input-send'
+							}
+						>
+							{this.props.disabled
+								? `已发送(${this.props.time})`
+								: this.props.text || '发送验证码'}
+						</span>
+					</div>
+				)}
+			</div>
+		);
+	}
+}
 
 //验证码
 // export const Validate = props => {
@@ -177,54 +190,76 @@ export class Input extends React.Component{
 // 		</div>
 // 	);
 // };
-export class Validate  extends React.Component{
-	constructor(props){
-		super(props)
+export class Validate extends React.Component {
+	constructor(props) {
+		super(props);
 		this.state = {
 			val: ''
-		}
+		};
 	}
 
-	onChange(e){
-		console.log(e.target.value)
-		let value = e.target.value
-		let liList = $(".code-display li")
+	onChange(e) {
+		console.log(e.target.value);
+		let value = e.target.value;
+		let liList = $('.code-display li');
 		this.setState({
 			val: value
-		})
-        for (let i = 0; i < 6; i++) {
+		});
+		for (let i = 0; i < 6; i++) {
 			if (i > value.length) {
-				liList.eq(i).find('span').addClass('number')
-				liList.eq(i).find('span').html('')
+				liList
+					.eq(i)
+					.find('span')
+					.addClass('number');
+				liList
+					.eq(i)
+					.find('span')
+					.html('');
 			} else {
-				liList.eq(i).find('span').removeClass('number')
+				liList
+					.eq(i)
+					.find('span')
+					.removeClass('number');
 				// value.toString().charAt(i)
-				liList.eq(i).find('span').html(value.toString().charAt(i))
+				liList
+					.eq(i)
+					.find('span')
+					.html(value.toString().charAt(i));
 			}
 		}
 
 		//当数字等于6个时失去焦点
 		if (value.length == 6) {
-			$('#valInput').blur()
+			$('#valInput').blur();
 		}
 	}
 
-	render(){
+	render() {
 		return (
-			<div className={`validate ${this.props.className}`} style={this.props.style}>
-				<input id="valInput" type="number" maxLength="6" value={this.state.val} autoComplete="off" onChange={this.onChange.bind(this)}/>
+			<div
+				className={`validate ${this.props.className}`}
+				style={this.props.style}
+			>
+				<input
+					id="valInput"
+					type="number"
+					maxLength="6"
+					value={this.state.val}
+					autoComplete="off"
+					onChange={this.onChange.bind(this)}
+				/>
 				<ul className="code-display">
 					<li>
-						<span className="number"></span>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number" />
 					</li>
 					<li>
 						<span className="number" />
@@ -235,8 +270,8 @@ export class Validate  extends React.Component{
 				</ul>
 			</div>
 		);
-    }
-};
+	}
+}
 
 //滑动tabs
 export const TopTabs = props => {
@@ -402,226 +437,6 @@ export const CoinTabs = props => {
 export const InformItem = props => {
 	return (
 		<div className="inform">
-			{/* <div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button className="inform-item-middle">+585.74%</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button className="inform-item-middle">+585.74%</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button className="inform-item-middle">+585.74%</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button className="inform-item-middle">+585.74%</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div>
-			<div className="inform-items">
-				<span className="inform-item one">
-					<p>
-						TOP/<span style={{ color: '#BEBEBE' }}>ETH</span>
-					</p>
-					<p className="inform-item-small">12345675.22</p>
-				</span>
-				<span className="inform-item two">
-					<p>23423141</p>
-					<p className="inform-item-small">¥2342525.3342</p>
-				</span>
-				<span className="inform-item three">
-					<Button
-						className="inform-item-middle"
-						style={{ background: '#FF5255' }}
-					>
-						-585.74%
-					</Button>
-				</span>
-			</div> */}
 			<ListView />
 		</div>
 	);
@@ -634,7 +449,13 @@ export const WhiteBlock = props => {
 
 //导航栏
 export const Navbars = props => {
-	return <NavBar className={props.className} leftContent={props.title} />;
+	return (
+		<NavBar
+			className={props.className}
+			leftContent={props.title}
+			rightContent={props._rightContent}
+		/>
+	);
 };
 
 //个人中心弹出框
