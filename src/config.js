@@ -7,7 +7,7 @@ import enUS from './locale/en_US';
 // import zhTW from './locale/zh_TW';
 
 const url = {
-  baseUri: '//47.94.130.229',
+  baseUri: '//47.94.130.229:8888',
   tradeUri: '//116.62.202.229',
   klineUri: '//116.62.202.229/kline/',
   historyUri: '//116.62.202.229/history/',

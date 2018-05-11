@@ -14,9 +14,16 @@ import {
 class ConfirmEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			validate: '798689'
+		}
 	}
 
 	componentDidMount() {}
+
+	_onClickBTn(){
+		this.props._onClickBTn(this.state.validate)
+	}
 
 	render() {
 		return (
@@ -31,7 +38,7 @@ class ConfirmEmailComp extends React.Component {
 					<Buttons
 						className="buttons-confirmEmail-transfrom"
 						buttonText="完成"
-						_onClick={this.props._onClickBTn}
+						_onClick={() => this._onClickBTn()}
 					/>
 					<BottomTips
 						className="bottomTips-confirmEmail-transfrom"

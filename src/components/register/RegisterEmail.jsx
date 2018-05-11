@@ -15,12 +15,24 @@ class RegisterEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pathName: ''
+			pathName: '',
+			agree: false,
+			email: '',
+			pwd: '',
+			confirm_pwd: ''
 		};
 	}
 
 	componentDidMount() {}
 
+	// 注册
+	onClick(){
+		if (this.state.agree) {
+		    this.props._onClickBTn(this.state.email, this.state.pwd, this.state.confirm_pwd)
+	    } else {
+			alert('您并未同意协议')
+		}
+	}
 	render() {
 		const { pathName } = this.state;
 		return (
@@ -31,19 +43,21 @@ class RegisterEmailComp extends React.Component {
 						text="邮箱注册"
 						className="midText-registerEmail-transfrom"
 					/>
-					<Input placeholder="您的邮箱" />
-					<Input placeholder="您的密码" />
-					<Input placeholder="重复密码" />
+					<Input placeholder="您的邮箱" onChange={(val) => {this.setState({email: val})}}/>
+					<Input placeholder="您的密码" onChange={(val) => {this.setState({pwd: val})}}/>
+					<Input placeholder="重复密码" onChange={(val) => {this.setState({confirm_pwd: val})}}/>
 					<ServerTips
 						className="ServerTips-registerEmail-transfrom"
 						ServerTips1="我已阅读并同意TOP.ONE"
 						ServerTips2="服务条款"
 						pathName="/login"
+						onChange={(val) => {this.setState({agree: val})}}
 					/>
 					<Buttons
 						className="Buttons-registerEmail-transfrom"
 						buttonText="下一步"
-						_onClick={this.props._onClickBTn}
+						// _onClick={this.props._onClickBTn}
+						_onClick={() => this.onClick()}
 					/>
 					<BottomTips
 						className="bottomTips-registerEmail-transfrom"

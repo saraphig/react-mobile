@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './common.scss';
-import { Tabs, WhiteSpace, Badge, Button, List, Switch } from 'antd-mobile';
+import {
+	Tabs,
+	WhiteSpace,
+	Badge,
+	Button,
+	List,
+	Switch,
+	NavBar
+} from 'antd-mobile';
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
+import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
 
 //按钮
 export const Buttons = props => {
@@ -41,58 +50,74 @@ export const BottomTips = props => {
 };
 
 //服务条款
-export const ServerTips = props => {
-	return (
-		<p className={`ServerTips ${props.className}`} style={props.style}>
-			<input type="checkbox" className="ServerTips-checkbox" />
-			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
-				<span className="ServerTips-right">{props.ServerTips2}</span>
-			</Link>
-		</p>
-	);
+// export const ServerTips = props => {
+// 	return (
+// 		<p className={`ServerTips ${props.className}`} style={props.style}>
+// 			<input type="checkbox" className="ServerTips-checkbox" />
+// 			<span>{props.ServerTips1}</span>&nbsp;<Link to={props.pathName}>
+// 				<span className="ServerTips-right">{props.ServerTips2}</span>
+// 			</Link>
+// 		</p>
+// 	);
+// };
+export class ServerTips extends React.Component {
+	constructor(props){
+		super(props)
+	}
+	onChange(e){
+		// console.log('同意协议：', e.target.checked)
+		this.props.onChange(e.target.checked)
+	}
+	render(){
+		return (
+			<p className={`ServerTips ${this.props.className}`} style={this.props.style}>
+				<input type="checkbox" className="ServerTips-checkbox" onChange={this.onChange.bind(this)}/>
+				<span>{this.props.ServerTips1}</span>&nbsp;<Link to={this.props.pathName}>
+					<span className="ServerTips-right">{this.props.ServerTips2}</span>
+				</Link>
+			</p>
+		);
+    }
 };
-
-
 
 //输入框
-export const Input = props => {
-	return (
-		<div className="input-container">
-			<input
-				className="input"
-				style={props.style}
-				placeholder={props.placeholder || '您的邮箱'}
-				value={props.value}
-			/>
-			{props.types === 1 && (
-				<div>
-					<span className="line" />
-					<span
-						className={
-							props.disabled ? 'input-sended' : 'input-send'
-						}
-					>
-						{props.disabled
-							? `已发送(${props.time})`
-							: props.text || '发送验证码'}
-					</span>
-				</div>
-			)}
-		</div>
-	);
-};
+// export const Input = props => {
+// 	return (
+// 		<div className="input-container">
+// 			<input
+// 				className="input"
+// 				style={props.style}
+// 				placeholder={props.placeholder || '您的邮箱'}
+// 				value={props.value}
+// 			/>
+// 			{props.types === 1 && (
+// 				<div>
+// 					<span className="line" />
+// 					<span
+// 						className={
+// 							props.disabled ? 'input-sended' : 'input-send'
+// 						}
+// 					>
+// 						{props.disabled
+// 							? `已发送(${props.time})`
+// 							: props.text || '发送验证码'}
+// 					</span>
+// 				</div>
+// 			)}
+// 		</div>
+// 	);
+// };
 
 // 输入框
-export class Input2 extends React.Component{
+export class Input extends React.Component{
 	constructor(props){
 		super(props)
 		this.state={
 			val: props.value
-		}
+		};
 	}
 	onChange(e){
-	   console.log(e.target.value)
-	   this.props.onChange(e)
+	   this.props.onChange(e.target.value)
 	}
 	render(){
 	   return (
@@ -103,6 +128,7 @@ export class Input2 extends React.Component{
 				   placeholder={this.props.placeholder || '您的邮箱'}
 				   value={this.state.value}
 				   onChange={this.onChange.bind(this)}
+				   id={this.props.comId}
 			   />
 			   {this.props.types === 1 && (
 				   <div>
@@ -213,31 +239,48 @@ export const UserTop = props => {
 
 //个人中心列表
 export const ListItem = props => {
-  return(
-    <div className='list-item'>
-      <div className='list-item-line'>
-        <div className='item-left'>
-        <span className='left-icon'>
-          <svg style={{width:'30px', height:'26px',marginRight: '8px'}} aria-hidden="true">
-            <use xlinkHref="#icon-friend"></use>
-          </svg>
-        </span>
-          <span className='title'>{props.title || 'enter title'}</span>
-        </div>
-        <div className='item-right'>
+	return (
+		<div className="list-item">
+			<div className="list-item-line">
+				<div className="item-left">
+					<span className="left-icon">
+						<svg
+							style={{
+								width: '30px',
+								height: '26px',
+								marginRight: '8px'
+							}}
+							aria-hidden="true"
+						>
+							<use xlinkHref="#icon-friend" />
+						</svg>
+					</span>
+					<span className="title">
+						{props.title || 'enter title'}
+					</span>
+				</div>
+				<div className="item-right">
+					{/*通过传值改变字体颜色*/}
+					{props.user ? (
+						props.user.isOpen ? (
+							<span className="text-active">已开启</span>
+						) : (
+							<span className="text">未认证</span>
+						)
+					) : null}
 
-          {/*通过传值改变字体颜色*/}
-          {props.user ? props.user.isOpen ? <span className='text-active'>已开启</span> : <span className='text'>未认证</span> : null}
-
-          {/*默认显示右箭头可以通过传值设置是否显示*/}
-          {(props.isShowRightIcon === undefined || props.isShowRightIcon) &&
-          <svg className="right-icon" aria-hidden="true">
-            <use xlinkHref="#icon-youjiantou"></use>
-          </svg>}
-        </div>
-      </div>
-    </div>
-  )};
+					{/*默认显示右箭头可以通过传值设置是否显示*/}
+					{(props.isShowRightIcon === undefined ||
+						props.isShowRightIcon) && (
+						<svg className="right-icon" aria-hidden="true">
+							<use xlinkHref="#icon-youjiantou" />
+						</svg>
+					)}
+				</div>
+			</div>
+		</div>
+	);
+};
 
 //侧栏内容框
 export const sidebars = (
@@ -526,27 +569,34 @@ export const InformItem = props => {
 
 //留白
 export const WhiteBlock = props => {
-  return (
-    <div className='white-block' style={props.style}></div>
-  )
+	return <div className="white-block" style={props.style} />;
+};
+
+//导航栏
+export const Navbars = props => {
+	return <NavBar className={props.className} leftContent={props.title} />;
 };
 
 //个人中心弹出框
 export const AlertModal = props => {
-  return(
-    <div>
-      {props.isOpen && (<div className='alertModal'>
-        <div className='container'>
-          <div className='top'><i className='email-icon'></i></div>
-          <p className='content'>
-            请前往top.one官网进行验证设置
-            请前往top.one官网进行验证设置
-          </p>
-          <div className='sure'>
-            <a href='javascript:;'>确定</a>
-          </div>
-        </div>
-      </div>)}
-    </div>
-  )
-}
+	return (
+		<div>
+			{props.isOpen && (
+				<div className="alertModal">
+					<div className="container">
+						<div className="top">
+							<i className="email-icon" />
+						</div>
+						<p className="content">
+							请前往top.one官网进行验证设置
+							请前往top.one官网进行验证设置
+						</p>
+						<div className="sure">
+							<a href="javascript:;">确定</a>
+						</div>
+					</div>
+				</div>
+			)}
+		</div>
+	);
+};
