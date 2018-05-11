@@ -18,6 +18,7 @@ class RegisterComp extends React.Component {
 			verifyCode: '', // 手机验证码
 			inviterCode: '' // 邀请码
 		};
+		console.log('=====', props.formatmessage)
 	}
 
 	componentDidMount() {

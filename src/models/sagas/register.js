@@ -10,6 +10,8 @@ import * as register from 'api/register';
 export const actionType = {
     getPhoneCode: 'register/getPhoneCode',
     phoneNext: 'register/phoneNext',
+    registerEmail: 'register/registerEmail',
+    emailValidate: 'register/emailValidate',
     // setInfo: 'login/setInfo'
 }
 
@@ -42,9 +44,41 @@ export function* phoneNext({ payload: { query, success, fail, error} }) {
 }
 
 
+// 邮箱注册
+export function* registerEmail({ payload: { query, success, fail, error} }) {
+    try{
+        const { data } = yield call(register.registerEmail,query)
+        if (data.error_code === 200) {
+            success(data.data);
+        } else {
+            fail(data.error_code);
+        }
+    } catch(err){
+        error(err)
+    }
+}
+
+
+// 邮箱验证
+export function* emailValidate({ payload: { query, success, fail, error} }) {
+    try{
+        const { data } = yield call(register.emailValidate,query)
+        if (data.error_code === 200) {
+            success(data.data);
+        } else {
+            fail(data.error_code);
+        }
+    } catch(err){
+        error(err)
+    }
+}
+
+
 export default function* root() {
     yield [
       takeLatest(actionType.getPhoneCode, getPhoneCode),
       takeLatest(actionType.phoneNext, phoneNext),
+      takeLatest(actionType.registerEmail, registerEmail),
+      takeLatest(actionType.emailValidate, emailValidate),
     ]
 }

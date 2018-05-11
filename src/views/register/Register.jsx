@@ -11,7 +11,13 @@ class Register extends React.Component {
 		super(props);
 		this.state = {
 			phoneCode: '',
-			mail_auth_token: ''
+			mail_auth_token: '',
+		}
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		this.formatmessage = {
+			register: formatMessage({id: 'register.register'})
 		}
 	}
 
@@ -34,6 +40,8 @@ class Register extends React.Component {
 			nationCode,
 			validate
 		}
+		// 验证query
+
 		this.props.dispatch({
 			type: registerSaga.getPhoneCode,
 			payload: { 
@@ -91,6 +99,7 @@ class Register extends React.Component {
 				  _onClickBTn={this._onClickBTn}
 				  getPhoneCode={this.getPhoneCode}
 				  phoneNext={this.phoneNext}
+				  formatmessage={this.formatmessage}
 				/>
 			</div>
 		);
