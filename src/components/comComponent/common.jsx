@@ -150,32 +150,92 @@ export class Input extends React.Component{
 };
 
 //验证码
-export const Validate = props => {
-	return (
-		<div className={`validate ${props.className}`} style={props.style}>
-			<input type="number" maxLength="6" autoComplete="off" />
-			<ul className="code-display">
-				<li>
-					<span>6</span>
-				</li>
-				<li>
-					<span>1</span>
-				</li>
-				<li>
-					<span>2</span>
-				</li>
-				<li>
-					<span>1</span>
-				</li>
-				<li>
-					<span className="number" />
-				</li>
-				<li>
-					<span className="number" />
-				</li>
-			</ul>
-		</div>
-	);
+// export const Validate = props => {
+// 	return (
+// 		<div className={`validate ${props.className}`} style={props.style}>
+// 			<input type="number" maxLength="6" autoComplete="off" />
+// 			<ul className="code-display">
+// 				<li>
+// 					<span>6</span>
+// 				</li>
+// 				<li>
+// 					<span>1</span>
+// 				</li>
+// 				<li>
+// 					<span>2</span>
+// 				</li>
+// 				<li>
+// 					<span>1</span>
+// 				</li>
+// 				<li>
+// 					<span className="number" />
+// 				</li>
+// 				<li>
+// 					<span className="number" />
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	);
+// };
+export class Validate  extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			val: ''
+		}
+	}
+
+	onChange(e){
+		console.log(e.target.value)
+		let value = e.target.value
+		let liList = $(".code-display li")
+		this.setState({
+			val: value
+		})
+        for (let i = 0; i < 6; i++) {
+			if (i > value.length) {
+				liList.eq(i).find('span').addClass('number')
+				liList.eq(i).find('span').html('')
+			} else {
+				liList.eq(i).find('span').removeClass('number')
+				// value.toString().charAt(i)
+				liList.eq(i).find('span').html(value.toString().charAt(i))
+			}
+		}
+
+		//当数字等于6个时失去焦点
+		if (value.length == 6) {
+			$('#valInput').blur()
+		}
+	}
+
+	render(){
+		return (
+			<div className={`validate ${this.props.className}`} style={this.props.style}>
+				<input id="valInput" type="number" maxLength="6" value={this.state.val} autoComplete="off" onChange={this.onChange.bind(this)}/>
+				<ul className="code-display">
+					<li>
+						<span className="number"></span>
+					</li>
+					<li>
+						<span className="number"></span>
+					</li>
+					<li>
+						<span className="number"></span>
+					</li>
+					<li>
+						<span className="number"></span>
+					</li>
+					<li>
+						<span className="number" />
+					</li>
+					<li>
+						<span className="number" />
+					</li>
+				</ul>
+			</div>
+		);
+    }
 };
 
 //滑动tabs

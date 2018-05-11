@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import ConfirmG2fComp from 'components/confirm/ConfirmG2f';
+import ConfirmG2fComp from 'components/confirm/ConfirmG2F';
 
 class ConfirmG2f extends React.Component {
 	constructor(props) {

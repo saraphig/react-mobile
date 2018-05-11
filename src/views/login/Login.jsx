@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import LoginComp from 'components/login/Login';
+import LoginComp from 'components/login/login';
 
 class Login extends React.Component {
 	constructor(props) {
