@@ -336,19 +336,23 @@ export const UserTop = props => {
 export const ListItem = props => {
 	return (
 		<div className="list-item">
-			<div className="list-item-line">
+			<div className={`list-item-line ${props.classNameItemline}`}>
 				<div className="item-left">
 					<span className="left-icon">
-						<svg
-							style={{
-								width: '30px',
-								height: '26px',
-								marginRight: '8px'
-							}}
-							aria-hidden="true"
-						>
-							<use xlinkHref="#icon-friend" />
-						</svg>
+						{props.svg ? (
+							props.svg
+						) : (
+							<svg
+								style={{
+									width: '30px',
+									height: '26px',
+									marginRight: '8px'
+								}}
+								aria-hidden="true"
+							>
+								<use xlinkHref="#icon-friend" />
+							</svg>
+						)}
 					</span>
 					<span className="title">
 						{props.title || 'enter title'}
@@ -377,9 +381,25 @@ export const ListItem = props => {
 	);
 };
 
+//switch栏
+export const SwitchItem = props => {
+	return (
+		<List className={props.classNameList}>
+			<List.Item
+				className={props.className}
+				extra={
+					<Switch checked={props._check} onClick={props._onClick} />
+				}
+			>
+				使用TOPCOIN支付交易手续费&nbsp;(50%折扣)
+			</List.Item>
+		</List>
+	);
+};
+
 //侧栏内容框
 export const sidebars = (
-	<List>
+	<List className="sideBars">
 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
 			马上登录，体验极速交易
 		</List.Item>
@@ -442,7 +462,7 @@ export const InformItem = props => {
 	);
 };
 
-//留白
+//分割线
 export const WhiteBlock = props => {
 	return <div className="white-block" style={props.style} />;
 };
