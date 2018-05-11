@@ -64,11 +64,11 @@ module.exports = Object.assign({}, baseConfig, {
       // sourceMap: true,
     }),
 
-    // new CopyWebpackPlugin([{
-    //   from: path.resolve(__dirname, '../lib'),
-    //   to: path.resolve(__dirname, '../dist/lib'),
-    //   toType: 'dir',
-    // }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../lib'),
+      to: path.resolve(__dirname, '../dist/lib'),
+      toType: 'dir',
+    }]),
 
     // new ExtractTextPlugin('css/app.css'),
     new ExtractTextPlugin({

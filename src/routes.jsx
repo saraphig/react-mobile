@@ -10,6 +10,7 @@ import ConfirmG2f from 'views/confirm/ConfirmG2f';
 import PhoneConfirm from 'views/confirm/PhoneConfirm';
 import DoubleConfirm from 'views/confirm/DoubleConfirm';
 import ChooseLanguage from 'views/extra/ChooseLanguage';
+import MyInvite from 'views/extra/MyInvite';
 import Mywallet from 'views/userCenter/Mywallet';
 import { asyncComponent } from 'utils/comFunction.js';
 
@@ -62,6 +63,10 @@ const routes = [
 	{
 		path: '/mywallet',
 		component: Mywallet
+	},
+	{
+		path: '/myInvite',
+		component: MyInvite
 	}
 ];
 
