@@ -74,7 +74,7 @@ class Register extends React.Component {
 					this.setState({
 						mail_auth_token: data.mail_auth_token
 					})
-					this.history.push({pathname:'/registerEmail', state: { mail_auth_token: data.mail_auth_token }})
+					this.props.history.push({pathname:'/registerEmail', state: { mail_auth_token: data.mail_auth_token }})
 				},
 				fail: this.fail,
 				error: this.error
@@ -90,6 +90,7 @@ class Register extends React.Component {
 	// 网络异常，请求失败
 	error = (err) => {
 		alert('网络异常，请求失败',err)
+		console.log(err)
 	}
 
 	render() {

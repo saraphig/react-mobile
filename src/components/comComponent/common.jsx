@@ -186,8 +186,12 @@ export class Validate  extends React.Component{
 	}
 
 	onChange(e){
-		console.log(e.target.value)
 		let value = e.target.value
+		if (value.length > 6){
+			return
+		}
+		console.log(e.target.value)
+		
 		let liList = $(".code-display li")
 		this.setState({
 			val: value
@@ -205,6 +209,7 @@ export class Validate  extends React.Component{
 
 		//当数字等于6个时失去焦点
 		if (value.length == 6) {
+			this.props.onChange(value)
 			$('#valInput').blur()
 		}
 	}
@@ -215,16 +220,16 @@ export class Validate  extends React.Component{
 				<input id="valInput" type="number" maxLength="6" value={this.state.val} autoComplete="off" onChange={this.onChange.bind(this)}/>
 				<ul className="code-display">
 					<li>
-						<span className="number"></span>
+						<span className="number"/>
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number"/>
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number"/>
 					</li>
 					<li>
-						<span className="number"></span>
+						<span className="number"/>
 					</li>
 					<li>
 						<span className="number" />

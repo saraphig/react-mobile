@@ -22,6 +22,7 @@ class ConfirmEmailComp extends React.Component {
 	componentDidMount() {}
 
 	_onClickBTn(){
+		alert(this.state.validate)
 		this.props._onClickBTn(this.state.validate)
 	}
 
@@ -34,7 +35,7 @@ class ConfirmEmailComp extends React.Component {
 						text="邮箱验证"
 						className="midText-confirmEmail-transfrom"
 					/>
-					<Validate className="validate-confirmEmail-transfrom" />
+					<Validate className="validate-confirmEmail-transfrom" onChange={(val) => {this.setState({validate: val})}}/>
 					<Buttons
 						className="buttons-confirmEmail-transfrom"
 						buttonText="完成"

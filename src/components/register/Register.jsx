@@ -91,7 +91,6 @@ class RegisterComp extends React.Component {
 	
 	// 手机验证码输入后下一步
 	phoneNext(){
-	  alert(99)
       this.props.phoneNext(this.state.phone, this.state.nationCode, this.state.verifyCode, this.state.inviterCode)
 	}
 

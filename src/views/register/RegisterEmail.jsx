@@ -37,7 +37,7 @@ class RegisterEmail extends React.Component {
 		// 需验证query
 
 		this.props.dispatch({
-			type: registerSaga.getPhoneCode,
+			type: registerSaga.registerEmail,
 			payload: { 
 				query, 
 				success: (data) => {
