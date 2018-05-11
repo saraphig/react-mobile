@@ -14,7 +14,7 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="header">
+				<div className={`header ${this.props.className}`}>
 					<span className="header-left">
 						<img
 							className="header-topone"

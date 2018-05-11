@@ -1,20 +1,11 @@
-.confirmG2f-middleContent {
-    flex-direction: column;
-    margin: 0 30px 0 30px;
-    .middleContent-img-logo {
-        margin: 70px 63px 0 63px;
-        .middleContent-logo {
-            width: 190px;
-            height: 65px;
-        }
-    }
-}
-
 // .choose-item {
 //     padding: 14px 10px 14px 10px;
 // }
-.am-list-content {
-    padding: 0;
+.chooseLanguage-middleContent .inform-items {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    font-weight: 300 !important;
 }
 
 .chooseLanguage-midText-transfrom {
@@ -27,11 +18,11 @@
 }
 
 .language-content {
-    border-bottom: 1px solid #313131 !important;
-}
-
-.language-items {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #313131 !important;
+    padding-bottom: 6px;
 }
 
 .language-icon {
@@ -39,7 +30,64 @@
     margin-right: 13px;
 }
 
-.language-icon img {
+.language-content img {
     width: 18px;
-    height: 13px;
+    height: 18px;
+    margin-right: 13px;
+}
+
+.language-content .am-list {
+    width: 100%;
+}
+
+.language-content .am-list-body:before {
+    height: 0px !important;
+}
+
+.language-content .am-list-line:after {
+    height: 1px !important;
+    color: #313131;
+}
+
+.language-content .am-list-item:first-child {
+    padding-left: 0px !important;
+}
+
+.language-content .am-list-item {
+    padding-left: 0px !important;
+}
+
+.language-content .am-list-item {
+    background: #000 !important;
+}
+
+.language-content .am-list-content {
+    color: #787878 !important;
+}
+
+.language-checkbox {
+    border-radius: 50%;
+}
+
+.language-checkbox .am-checkbox-inner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.language-content .am-list-line {
+    padding-left: 15px;
+}
+
+.language-checkbox .am-checkbox-inner:after {
+    content: none;
+}
+
+.language-checkbox .am-checkbox.am-checkbox-checked .am-checkbox-inner {
+    background: #dcb276;
+    border: 1px solid #dcb276;
+}
+
+.language-content .am-radio-inner:after {
+    border-color: #dcb276 !important;
 }
