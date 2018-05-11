@@ -1,4 +1,80 @@
 .myWallet-title {
-	background: #dcb276;
-	font-weight: 200;
+    background: #dcb276;
+    font-weight: 200;
+}
+
+.myWallet-money {
+    display: flex;
+    height: 115px;
+    background: #fff;
+    padding: 17px 15px 18px 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+.guji {
+    color: #969696;
+}
+
+.moneys {
+    color: #000;
+    font-size: 18px;
+}
+
+.myWallet-money-yuan {
+    font-size: 15px;
+    color: #969696;
+    margin-left: 7px;
+}
+
+.myWallet-money-info {
+    // display: inline-block;
+}
+
+.iconfont {
+    font-size: 21px;
+    margin-left: 11px;
+    vertical-align: middle;
+}
+
+.icon-ai44 {
+    color: #dcb276;
+}
+
+.am-checkbox-wrapper {
+    font-size: 14px;
+    color: #969696;
+}
+
+.am-checkbox {
+    width: 13px;
+    height: 13px;
+    vertical-align: 0%;
+    top: 1px;
+}
+
+.am-checkbox-input {
+    margin-right: 8px;
+}
+
+.am-checkbox.am-checkbox-checked .am-checkbox-inner {
+    border-color: #dcb276;
+    background: #dcb276;
+}
+
+.am-checkbox-inner {
+    width: 13px;
+    height: 13px;
+    border-radius: 0;
+    border-color: #dcb276;
+}
+
+.am-checkbox-inner:after {
+    top: -4px;
+    right: 1px;
+    width: 11px;
+    height: 11px;
 }
