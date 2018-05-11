@@ -531,6 +531,7 @@ export const WhiteBlock = props => {
   )
 };
 
+//个人中心弹出框
 export const AlertModal = props => {
   return(
     <div>
