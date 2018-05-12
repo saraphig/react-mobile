@@ -220,14 +220,15 @@
 }
 
 .tab-bar {
-    width: 90%;
+    width: 100%;
     position: fixed;
     display: flex;
-    top: 102px;
+    top: 100px;
     background: #1b1b1b;
     color: #bebebe;
     @extend .fz12;
     padding: 12px 20px 10px 20px;
+    box-sizing: border-box;
 }
 
 .tab-item {
