@@ -675,6 +675,7 @@ const zh_CN = {
   'phoneConfirm': '手机验证',
   'doubleConfirm': '二次验证',
   'noValidate': '没收到验证码',
-  'recommendedCode': '推荐码(选填)'
+  'recommendedCode': '推荐码(选填)',
+  'myAssets': '我的资产'
 };
 export default zh_CN;

@@ -700,10 +700,11 @@ const enUS = {
   noDepositAddress: 'Address unavailable. Please try again later.',
   serverError: 'Network exception. Please try again later.',
   'candyDetail.qrDode': 'QR code',
-  'choiceLanguage': 'Choice language',
-  'phoneConfirm': 'Mobile phone verification',
+  'choiceLanguage': 'Language',
+  'phoneConfirm': 'SMS Verification',
   'doubleConfirm': 'Two-step Verification',
-  'noValidate': 'Didn\'t get the verification code.',
-  'recommendedCode': 'Recommended code (optional)'
+  'noValidate': 'SMS code not received',
+  'recommendedCode': 'Referral Code',
+  'myAssets': 'My Assets'
 };
 export default enUS;

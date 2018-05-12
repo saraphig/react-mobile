@@ -23,6 +23,9 @@ class MyWalletComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="myWallet">
 				<div className="myWallet-bg">
@@ -40,10 +43,10 @@ class MyWalletComp extends React.Component {
 						onOpenChange={this.props._onOpenChange}
 						sidebarStyle={{ background: '#1B1B1B' }}
 					>
-						<Navbars title="我的资产" className="myWallet-title" />
+						<Navbars title={formatMessage({id: 'myAssets'})} className="myWallet-title" />
 						<div className="myWallet-money">
 							<span className="myWallet-money-info guji">
-								资产总估值<i className="iconfont icon-ai44" />
+                {formatMessage({id: 'topMenu.totalBTC'})}<i className="iconfont icon-ai44" />
 								<i className="iconfont icon-yincang" />
 							</span>
 							<span className="myWallet-money-info moneys">
@@ -54,7 +57,7 @@ class MyWalletComp extends React.Component {
 							</span>
 							<span className="myWallet-money-info">
 								{/* 资产总估值<i className="iconfont icon-ai44" /> */}
-								<Checkbox>&nbsp;&nbsp;隐藏0资产钱包</Checkbox>
+								<Checkbox>&nbsp;&nbsp;{formatMessage({id: 'depositWithdraw.filterZero'})}</Checkbox>
 							</span>
 						</div>
 						<div className="myWallet-money-card-all">
@@ -69,12 +72,12 @@ class MyWalletComp extends React.Component {
 											<span>BTC</span>
 										</div>
 										<div className="myWallet-card-title-right">
-											糖果: <span>200000000000</span>
+                      {formatMessage({id: 'depositWithdraw.candy'})}: <span>200000000000</span>
 										</div>
 									</div>
 									<div className="myWallet-card-item">
 										<div className="myWallet-card-item-left">
-											<span>总额</span>
+											<span>{formatMessage({id: 'orderTable.total'})}</span>
 										</div>
 										<div className="myWallet-card-item-right">
 											<span>20000000000</span>
@@ -82,7 +85,7 @@ class MyWalletComp extends React.Component {
 									</div>
 									<div className="myWallet-card-item">
 										<div className="myWallet-card-item-left">
-											<span>可用余额</span>
+											<span>{formatMessage({id: 'orderTable.available'})}</span>
 										</div>
 										<div className="myWallet-card-item-right">
 											<span>20000000000</span>
@@ -90,7 +93,7 @@ class MyWalletComp extends React.Component {
 									</div>
 									<div className="myWallet-card-item">
 										<div className="myWallet-card-item-left">
-											<span>冻结</span>
+											<span>{formatMessage({id: 'orderTable.freeze'})}</span>
 										</div>
 										<div className="myWallet-card-item-right">
 											<span>20000000000</span>
@@ -98,55 +101,7 @@ class MyWalletComp extends React.Component {
 									</div>
 									<div className="myWallet-card-item">
 										<div className="myWallet-card-item-left">
-											<span>估值</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="myWallet-money-card">
-								<div className="myWallet-card">
-									<div className="myWallet-card-title">
-										<div>
-											<img
-												src={require('assets/images/eth.png')}
-												alt="eth"
-											/>
-											<span>ETH</span>
-										</div>
-										<div className="myWallet-card-title-right">
-											糖果: <span>200000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>总额</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>可用余额</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>冻结</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>估值</span>
+											<span>{formatMessage({id: 'depositWithdraw.total'})}</span>
 										</div>
 										<div className="myWallet-card-item-right">
 											<span>20000000000</span>
@@ -154,54 +109,102 @@ class MyWalletComp extends React.Component {
 									</div>
 								</div>
 							</div>
-							<div className="myWallet-money-card">
-								<div className="myWallet-card">
-									<div className="myWallet-card-title">
-										<div>
-											<img
-												src={require('assets/images/btc.png')}
-												alt="btc"
-											/>
-											<span>BTC</span>
-										</div>
-										<div className="myWallet-card-title-right">
-											糖果: <span>200000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>总额</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>可用余额</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>冻结</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-									<div className="myWallet-card-item">
-										<div className="myWallet-card-item-left">
-											<span>估值</span>
-										</div>
-										<div className="myWallet-card-item-right">
-											<span>20000000000</span>
-										</div>
-									</div>
-								</div>
-							</div>
+              <div className="myWallet-money-card">
+                <div className="myWallet-card">
+                  <div className="myWallet-card-title">
+                    <div>
+                      <img
+                        src={require('assets/images/btc.png')}
+                        alt="btc"
+                      />
+                      <span>BTC</span>
+                    </div>
+                    <div className="myWallet-card-title-right">
+                      {formatMessage({id: 'depositWithdraw.candy'})}: <span>200000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.total'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.available'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.freeze'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'depositWithdraw.total'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="myWallet-money-card">
+                <div className="myWallet-card">
+                  <div className="myWallet-card-title">
+                    <div>
+                      <img
+                        src={require('assets/images/btc.png')}
+                        alt="btc"
+                      />
+                      <span>BTC</span>
+                    </div>
+                    <div className="myWallet-card-title-right">
+                      {formatMessage({id: 'depositWithdraw.candy'})}: <span>200000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.total'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.available'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'orderTable.freeze'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                  <div className="myWallet-card-item">
+                    <div className="myWallet-card-item-left">
+                      <span>{formatMessage({id: 'depositWithdraw.total'})}</span>
+                    </div>
+                    <div className="myWallet-card-item-right">
+                      <span>20000000000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 						</div>
 					</Drawer>
 				</div>
