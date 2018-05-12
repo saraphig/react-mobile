@@ -21,6 +21,9 @@ class ConfirmG2FComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="confirmG2f">
 				<Header _onClick={this.props._onOpenChange} />
@@ -37,13 +40,13 @@ class ConfirmG2FComp extends React.Component {
 				>
 					<div className="confirmG2f-middleContent">
 						<MidText
-							text="谷歌验证"
+              text={formatMessage({id: 'public.validate'})}
 							className="midText-transfrom"
 						/>
-						<Input placeholder="谷歌验证码" />
+						<Input placeholder={formatMessage({id: 'public.enterValidate'})} />
 						<Buttons
 							className="buttons-transform"
-							buttonText="提交"
+							buttonText={formatMessage({id: 'depositWithdraw.submit'})}
 						/>
 					</div>
 				</Drawer>

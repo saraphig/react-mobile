@@ -54,8 +54,8 @@ class LoginComp extends React.Component {
 					// //验证码文字的修改
 					document.getElementsByClassName(
 						'yidun_intelli-text'
-					)[0].innerText =
-						'确 定';
+					)[0].innerText = formatMessage({ id: 'public.sure' });
+					// '确 定';
 
 					// if (
 					// 	document.getElementsByClassName('yidun_tips__text')[0]
@@ -104,6 +104,9 @@ class LoginComp extends React.Component {
 	};
 
 	render() {
+		const {
+			intl: { formatMessage }
+		} = this.props;
 		return (
 			<div className="login">
 				<Header _onClick={this.props._onOpenChange} />
@@ -132,16 +135,20 @@ class LoginComp extends React.Component {
 						</p>
 						<MidText
 							className="midText-transform"
-							text="欢迎登录"
+							text={formatMessage({ id: 'login.welcome' })}
 						/>
 						<Input
-							placeholder="您的邮箱"
+							placeholder={formatMessage({
+								id: 'login.enterEmail'
+							})}
 							onChange={val => {
 								this.setState({ email: val });
 							}}
 						/>
 						<Input
-							placeholder="您的密码"
+							placeholder={formatMessage({
+								id: 'login.enterPassword'
+							})}
 							onChange={val => {
 								this.setState({ pwd: val });
 							}}
@@ -159,8 +166,12 @@ class LoginComp extends React.Component {
 							// ref="slideBar"
 						/>
 						<BottomTips
-							BottomTips1="尚未注册"
-							BottomTips2="立即注册"
+							BottomTips1={formatMessage({
+								id: 'login.notRegister'
+							})}
+							BottomTips2={formatMessage({
+								id: 'register.goRegister'
+							})}
 							className="bottomTips-transform"
 							pathName="/register"
 						/>

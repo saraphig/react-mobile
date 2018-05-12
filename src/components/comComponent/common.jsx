@@ -137,10 +137,15 @@ export class Input extends React.Component {
 				<input
 					className="input"
 					style={this.props.style}
-					placeholder={this.props.placeholder || '您的邮箱'}
+					placeholder={
+						this.props.placeholder || (
+							<FormattedMessage id="forget.email" />
+						)
+					}
 					value={this.state.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
+					type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
 					<div>
@@ -152,9 +157,16 @@ export class Input extends React.Component {
 									: 'input-send'
 							}
 						>
-							{this.props.disabled
-								? `已发送(${this.props.time})`
-								: this.props.text || '发送验证码'}
+							{this.props.disabled ? (
+								<span>
+									<FormattedMessage id="register.sended" />
+									{this.props.time}
+								</span>
+							) : (
+								this.props.text || (
+									<FormattedMessage id="register.postPhoneValidate" />
+								)
+							)}
 						</span>
 					</div>
 				)}
@@ -282,8 +294,16 @@ export class Validate extends React.Component {
 //滑动tabs
 export const TopTabs = props => {
 	const tabs = [
-		{ title: props.secondTitle || '手机验证' },
-		{ title: props.firstTitle || '谷歌验证' }
+		{
+			title: props.secondTitle || (
+				<FormattedMessage id={'userCenter.phoneValidate'} />
+			)
+		},
+		{
+			title: props.firstTitle || (
+				<FormattedMessage id={'public.validate'} />
+			)
+		}
 	];
 
 	return (
@@ -305,11 +325,22 @@ export const TopTabs = props => {
 					//
 					className="tabs-content"
 				>
-					<Input style={{ marginTop: 8 }} placeholder="手机号码" />
-					<Input placeholder="输入验证码" types={1} />
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={<FormattedMessage id={'register.phone'} />}
+					/>
+					<Input
+						placeholder={
+							<FormattedMessage id={'register.phoneValidate'} />
+						}
+						types={1}
+					/>
 				</div>
 				<div className="tabs-content">
-					<Input style={{ marginTop: 8 }} placeholder="谷歌验证码" />
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={<FormattedMessage id={'google.code'} />}
+					/>
 				</div>
 			</Tabs>
 			<WhiteSpace />
@@ -325,13 +356,20 @@ export const UserTop = props => {
 			{props.user ? (
 				<div>
 					<p className="title">topcoin1234@gmail.com</p>
-					<p className="text">最后登陆时间：2018-03-12 11:48:00</p>
+					<p className="text">
+						<FormattedMessage id={'usercenter.lastLogin'} />：2018-03-12
+						11:48:00
+					</p>
 					<p className="text">IP: 45.32.255.166</p>
 				</div>
 			) : (
 				<div>
-					<p className="title">未登录</p>
-					<p className="text">马上登录，体验极速交易</p>
+					<p className="title">
+						<FormattedMessage id={'usercenter.notLog'} />
+					</p>
+					<p className="text">
+						<FormattedMessage id={'usercenter.login.trade'} />
+					</p>
 				</div>
 			)}
 		</div>
@@ -364,9 +402,15 @@ export const ListItem = props => {
 					{/*通过传值改变字体颜色*/}
 					{props.user ? (
 						props.user.isOpen ? (
-							<span className="text-active">已开启</span>
+							<span className="text-active">
+								<FormattedMessage id={'userter.active'} />
+							</span>
 						) : (
-							<span className="text">未认证</span>
+							<span className="text">
+								<FormattedMessage
+									id={'usercenter.notVerified'}
+								/>
+							</span>
 						)
 					) : null}
 
@@ -393,8 +437,8 @@ export const SwitchItem = props => {
 					<Switch checked={props._check} onClick={props._onClick} />
 				}
 			>
-				<FormattedMessage id="userCenter.payFee" />
-				&nbsp; (<FormattedMessage id="userCenter.discount" />)
+				{<FormattedMessage id="userCenter.payFee" />}
+				&nbsp; ({<FormattedMessage id="userCenter.discount" />})
 			</List.Item>
 		</List>
 	);
@@ -404,12 +448,20 @@ export const SwitchItem = props => {
 export const sidebars = (
 	<List className="sideBars">
 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
-			马上登录，体验极速交易
+			<FormattedMessage id={'usercenter.login.trade'} />
 		</List.Item>
-		<List.Item key={2}>首页</List.Item>
-		<List.Item key={3}>个人中心</List.Item>
-		<List.Item key={4}>资产</List.Item>
-		<List.Item key={5}>退出登录</List.Item>
+		<List.Item key={2}>
+			<FormattedMessage id={'public.index'} />
+		</List.Item>
+		<List.Item key={3}>
+			<FormattedMessage id={'home.personalCenter'} />
+		</List.Item>
+		<List.Item key={4}>
+			<FormattedMessage id={'home.assets'} />
+		</List.Item>
+		<List.Item key={5}>
+			<FormattedMessage id={'usercenter.logout'} />
+		</List.Item>
 		<List.Item key={6}>language </List.Item>
 	</List>
 );
@@ -703,9 +755,15 @@ export const CoinTabs = props => {
 				<div>{/* <InformItem /> */}</div>
 			</Tabs>
 			<p className="tab-bar">
-				<span className="tab-item one">交易量</span>
-				<span className="tab-item two">最新价</span>
-				<span className="tab-item three">24H涨跌</span>
+				<span className="tab-item one">
+					<FormattedMessage id={'home.volume'} />
+				</span>
+				<span className="tab-item two">
+					<FormattedMessage id={'tradeCenterTop.last'} />
+				</span>
+				<span className="tab-item three">
+					<FormattedMessage id={'tradeCenterTop.change'} />
+				</span>
 			</p>
 		</div>
 	);
@@ -747,11 +805,13 @@ export const AlertModal = props => {
 							<i className="email-icon" />
 						</div>
 						<p className="content">
-							请前往top.one官网进行验证设置
-							请前往top.one官网进行验证设置
+							<FormattedMessage id={'usercenter.visist.topone'} />
+							<FormattedMessage id={'usercenter.visist.topone'} />
 						</p>
 						<div className="sure">
-							<a href="javascript:;">确定</a>
+							<a href="javascript:;">
+								<FormattedMessage id={'public.confirm'} />
+							</a>
 						</div>
 					</div>
 				</div>
