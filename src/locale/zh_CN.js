@@ -687,6 +687,7 @@ const zh_CN = {
   'doubleConfirm': '二次验证',
   'noValidate': '没收到验证码',
   'recommendedCode': '推荐码(选填)',
-  'myAssets': '我的资产'
+  'myAssets': '我的资产',
+  'public.sure': '确 定',
 };
 export default zh_CN;

@@ -60,7 +60,7 @@ class ConfirmEmailComp extends React.Component {
 						/>
 						<Buttons
 							className="buttons-confirmEmail-transfrom"
-              buttonText={formatMessage({id: 'public.confirm'})}
+              buttonText={formatMessage({id: 'public.sure'})}
 							_onClick={() => this._onClickBTn()}
 						/>
 						<BottomTips

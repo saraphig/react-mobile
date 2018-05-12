@@ -716,6 +716,7 @@ const enUS = {
   'doubleConfirm': 'Two-step Verification',
   'noValidate': 'SMS code not received',
   'recommendedCode': 'Referral Code',
-  'myAssets': 'My Assets'
+  'myAssets': 'My Assets',
+  'public.sure': 'Confirm',
 };
 export default enUS;

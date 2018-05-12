@@ -54,7 +54,7 @@ class LoginComp extends React.Component {
 					// //验证码文字的修改
 					document.getElementsByClassName(
 						'yidun_intelli-text'
-					)[0].innerText = formatMessage({ id: 'public.confirm' });
+					)[0].innerText = formatMessage({ id: 'public.sure' });
 						// '确 定';
 
 					// if (
