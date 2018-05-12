@@ -9,7 +9,8 @@ import {
 	Button,
 	List,
 	Switch,
-	NavBar
+	NavBar,
+	Drawer
 } from 'antd-mobile';
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
@@ -327,19 +328,14 @@ export const TopTabs = props => {
 				>
 					<Input
 						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'register.phone'} />}
+						placeholder={props.placeholder1}
 					/>
-					<Input
-						placeholder={
-							<FormattedMessage id={'register.phoneValidate'} />
-						}
-						types={1}
-					/>
+					<Input placeholder={props.placeholder2} types={1} />
 				</div>
 				<div className="tabs-content">
 					<Input
 						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'google.code'} />}
+						placeholder={props.placeholder3}
 					/>
 				</div>
 			</Tabs>
@@ -445,26 +441,26 @@ export const SwitchItem = props => {
 };
 
 //侧栏内容框
-export const sidebars = (
-	<List className="sideBars">
-		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
-			<FormattedMessage id={'usercenter.login.trade'} />
-		</List.Item>
-		<List.Item key={2}>
-			<FormattedMessage id={'public.index'} />
-		</List.Item>
-		<List.Item key={3}>
-			<FormattedMessage id={'home.personalCenter'} />
-		</List.Item>
-		<List.Item key={4}>
-			<FormattedMessage id={'home.assets'} />
-		</List.Item>
-		<List.Item key={5}>
-			<FormattedMessage id={'usercenter.logout'} />
-		</List.Item>
-		<List.Item key={6}>language </List.Item>
-	</List>
-);
+// export const sidebars = (
+// 	<List className="sideBars">
+// 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
+// 			<FormattedMessage id={'usercenter.login.trade'} />
+// 		</List.Item>
+// 		<List.Item key={2}>
+// 			<FormattedMessage id={'public.index'} />
+// 		</List.Item>
+// 		<List.Item key={3}>
+// 			<FormattedMessage id={'home.personalCenter'} />
+// 		</List.Item>
+// 		<List.Item key={4}>
+// 			<FormattedMessage id={'home.assets'} />
+// 		</List.Item>
+// 		<List.Item key={5}>
+// 			<FormattedMessage id={'usercenter.logout'} />
+// 		</List.Item>
+// 		<List.Item key={6}>language </List.Item>
+// 	</List>
+// );
 
 //币种tabs
 export const CoinTabs = props => {
@@ -819,3 +815,42 @@ export const AlertModal = props => {
 		</div>
 	);
 };
+
+// //抽屉
+// export const Drawers = props => {
+// 	return (
+// 		// <div>
+// 		// 	{props.isOpen && (
+// 		// 		<div className="alertModal">
+// 		// 			<div className="container">
+// 		// 				<div className="top">
+// 		// 					<i className="email-icon" />
+// 		// 				</div>
+// 		// 				<p className="content">
+// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
+// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
+// 		// 				</p>
+// 		// 				<div className="sure">
+// 		// 					<a href="javascript:;">
+// 		// 						<FormattedMessage id={'public.confirm'} />
+// 		// 					</a>
+// 		// 				</div>
+// 		// 			</div>
+// 		// 		</div>
+// 		// 	)}
+// 		// </div>
+// 		<Drawer
+// 			className="my-drawer"
+// 			style={{ minHeight: document.documentElement.clientHeight }}
+// 			enableDragHandle={true}
+// 			dragToggleDistance={0}
+// 			position="right"
+// 			sidebar={sidebars}
+// 			open={this.props._open}
+// 			onOpenChange={this.props._onOpenChange}
+// 			sidebarStyle={{ background: '#1B1B1B' }}
+// 		>
+// 			{}
+// 		</Drawer>
+// 	);
+// };

@@ -2,15 +2,10 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './login.scss';
 import Header from 'components/comComponent/header/Header';
-import { Drawer, List, NavBar, Icon } from 'antd-mobile';
+import { List, NavBar, Icon } from 'antd-mobile';
+import Drawers from 'components/container/Drawers';
 import { dun } from 'src/config';
-import {
-	MidText,
-	Input,
-	Buttons,
-	BottomTips,
-	sidebars
-} from '../comComponent/common';
+import { MidText, Input, Buttons, BottomTips } from '../comComponent/common';
 
 class LoginComp extends React.Component {
 	constructor(props) {
@@ -107,10 +102,63 @@ class LoginComp extends React.Component {
 		const {
 			intl: { formatMessage }
 		} = this.props;
+		const content = (
+			<div className="login-middleContent">
+				<p className="middleContent-img-logo">
+					<img
+						className="middleContent-logo"
+						src={require('assets/images/TOP.ONE@logo.png')}
+						alt="top.one"
+					/>
+				</p>
+				<MidText
+					className="midText-transform"
+					text={formatMessage({ id: 'login.welcome' })}
+				/>
+				<Input
+					placeholder={formatMessage({
+						id: 'login.enterEmail'
+					})}
+					onChange={val => {
+						this.setState({ email: val });
+					}}
+				/>
+				<Input
+					placeholder={formatMessage({
+						id: 'login.enterPassword'
+					})}
+					onChange={val => {
+						this.setState({ pwd: val });
+					}}
+				/>
+				{/* <Buttons
+			// style={{ marginTop: 30 }}
+			buttonText="确定"
+			_onClick={this.props._onClickBTn}
+		/> */}
+				<div
+					ref={bar => {
+						this.slideBar = bar;
+					}}
+					// className='login-button'
+					// ref="slideBar"
+				/>
+				<BottomTips
+					BottomTips1={formatMessage({
+						id: 'login.notRegister'
+					})}
+					BottomTips2={formatMessage({
+						id: 'register.goRegister'
+					})}
+					className="bottomTips-transform"
+					pathName="/register"
+				/>
+			</div>
+		);
 		return (
 			<div className="login">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
+				{/* <Drawer
 					className="my-drawer"
 					style={{
 						minHeight: $('.header').height()
@@ -124,59 +172,12 @@ class LoginComp extends React.Component {
 					open={this.props._open}
 					onOpenChange={this.props._onOpenChange}
 					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="login-middleContent">
-						<p className="middleContent-img-logo">
-							<img
-								className="middleContent-logo"
-								src={require('assets/images/TOP.ONE@logo.png')}
-								alt="top.one"
-							/>
-						</p>
-						<MidText
-							className="midText-transform"
-							text={formatMessage({ id: 'login.welcome' })}
-						/>
-						<Input
-							placeholder={formatMessage({
-								id: 'login.enterEmail'
-							})}
-							onChange={val => {
-								this.setState({ email: val });
-							}}
-						/>
-						<Input
-							placeholder={formatMessage({
-								id: 'login.enterPassword'
-							})}
-							onChange={val => {
-								this.setState({ pwd: val });
-							}}
-						/>
-						{/* <Buttons
-							// style={{ marginTop: 30 }}
-							buttonText="确定"
-							_onClick={this.props._onClickBTn}
-						/> */}
-						<div
-							ref={bar => {
-								this.slideBar = bar;
-							}}
-							// className='login-button'
-							// ref="slideBar"
-						/>
-						<BottomTips
-							BottomTips1={formatMessage({
-								id: 'login.notRegister'
-							})}
-							BottomTips2={formatMessage({
-								id: 'register.goRegister'
-							})}
-							className="bottomTips-transform"
-							pathName="/register"
-						/>
-					</div>
-				</Drawer>
+				/> */}
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}

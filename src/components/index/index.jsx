@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './index.scss';
-import { Drawer, List, NavBar, Icon } from 'antd-mobile';
+import { List, NavBar, Icon } from 'antd-mobile';
+import Drawers from 'components/container/Drawers';
 import Header from 'components/comComponent/header/Header';
 import {
 	MidText,
@@ -10,7 +11,6 @@ import {
 	BottomTips,
 	ServerTips,
 	Validate,
-	sidebars,
 	CoinTabs
 } from '../comComponent/common';
 
@@ -24,24 +24,19 @@ class IndexComp extends React.Component {
 	}
 
 	render() {
+		const content = (
+			<div className="index-middleContent">
+				<CoinTabs />
+			</div>
+		);
 		return (
 			<div className="indexPage">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
-					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle={true}
-					dragToggleDistance={0}
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="index-middleContent">
-						<CoinTabs />
-					</div>
-				</Drawer>
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}
