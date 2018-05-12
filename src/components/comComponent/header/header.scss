@@ -21,14 +21,14 @@
         display: flex;
         align-items: center;
         font-weight: 100;
+        justify-content: space-between;
+        width: 125px;
         @extend .fz15;
         .header-login {
             color: #dcb276;
-            margin-right: 23px;
         }
         .header-register {
             color: #fff;
-            margin-right: 23px;
         }
         .header-menus {
             width: 18px;

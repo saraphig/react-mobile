@@ -2,16 +2,16 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import './register.scss';
-import { Drawer, List, NavBar, Icon } from 'antd-mobile';
+import { List, NavBar, Icon } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
+import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import {
 	MidText,
 	Input,
 	Input2,
 	Buttons,
-	BottomTips,
-	sidebars
+	BottomTips
 } from '../comComponent/common';
 import { dun } from 'src/config';
 
@@ -75,8 +75,10 @@ class RegisterComp extends React.Component {
 					// //验证码文字的修改
 					document.getElementsByClassName(
 						'yidun_intelli-text'
-					)[0].innerText = formatMessage({id: 'register.postPhoneValidate'})
-						// '发送验证码';
+					)[0].innerText = formatMessage({
+						id: 'register.postPhoneValidate'
+					});
+					// '发送验证码';
 				},
 				onVerify: (err, data) => {
 					let that = this;
@@ -113,13 +115,61 @@ class RegisterComp extends React.Component {
 
 	render() {
 		const { pathName } = this.state;
-    const {
-      intl: { formatMessage }
-    } = this.props;
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		const content = (
+			<div className="register-middleContent">
+				<MidText
+					text={formatMessage({ id: 'register.tips' })}
+					className="midText-register-transfrom"
+				/>
+				<Input
+					placeholder={formatMessage({
+						id: 'register.phone'
+					})}
+					onChange={val => this.setState({ phone: val })}
+					comId="test"
+				/>
+				<Input
+					placeholder={formatMessage({
+						id: 'register.phoneValidate'
+					})}
+					types={1}
+					text={formatMessage({
+						id: 'register.postPhoneValidate'
+					})}
+					onChange={val => this.setState({ verifyCode: val })}
+				/>
+				<span id="dun" />
+				<Input
+					placeholder={formatMessage({
+						id: 'recommendedCode'
+					})}
+					onChange={val => this.setState({ inviterCode: val })}
+				/>
+				<Buttons
+					className="buttons-register-transfrom"
+					buttonText={formatMessage({ id: 'register.next' })}
+					// _onClick={this.props._onClickBTn}
+					_onClick={() => this.phoneNext()}
+				/>
+				<BottomTips
+					className="bottomTips-register-transfrom"
+					BottomTips1={formatMessage({
+						id: 'register.hasRegister'
+					})}
+					BottomTips2={formatMessage({
+						id: 'register.loginNow'
+					})}
+					pathName="/login"
+				/>
+			</div>
+		);
 		return (
 			<div className="register">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
+				{/* <Drawer
 					className="my-drawer"
 					style={{ minHeight: document.documentElement.clientHeight }}
 					enableDragHandle={true}
@@ -129,44 +179,12 @@ class RegisterComp extends React.Component {
 					open={this.props._open}
 					onOpenChange={this.props._onOpenChange}
 					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="register-middleContent">
-						<MidText
-							text={formatMessage({id: 'register.tips'})}
-							className="midText-register-transfrom"
-						/>
-						<Input
-              placeholder={formatMessage({id: 'register.phone'})}
-							onChange={val => this.setState({ phone: val })}
-							comId="test"
-						/>
-						<Input
-							placeholder={formatMessage({id: 'register.phoneValidate'})}
-							types={1}
-							text={formatMessage({id: 'register.postPhoneValidate'})}
-							onChange={val => this.setState({ verifyCode: val })}
-						/>
-						<span id="dun" />
-						<Input
-							placeholder={formatMessage({id: 'recommendedCode'})}
-							onChange={val =>
-								this.setState({ inviterCode: val })
-							}
-						/>
-						<Buttons
-							className="buttons-register-transfrom"
-							buttonText={formatMessage({id: 'register.next'})}
-              // _onClick={this.props._onClickBTn}
-							_onClick={() => this.phoneNext()}
-						/>
-						<BottomTips
-							className="bottomTips-register-transfrom"
-							BottomTips1={formatMessage({id: 'register.hasRegister'})}
-							BottomTips2={formatMessage({id: 'register.loginNow'})}
-							pathName="/login"
-						/>
-					</div>
-				</Drawer>
+				/> */}
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}

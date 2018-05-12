@@ -8,10 +8,9 @@ import {
 	Input,
 	Buttons,
 	BottomTips,
-	ServerTips,
-	sidebars
+	ServerTips
 } from '../comComponent/common';
-import { Drawer } from 'antd-mobile';
+import Drawers from 'components/container/Drawers';
 
 class RegisterEmailComp extends React.Component {
 	constructor(props) {
@@ -41,69 +40,66 @@ class RegisterEmailComp extends React.Component {
 	}
 	render() {
 		const { pathName } = this.state;
-    const {
-      intl: { formatMessage }
-    } = this.props;
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		const content = (
+			<div className="registerEmail-middleContent">
+				<MidText
+					text={formatMessage({ id: 'register.mailTips' })}
+					className="midText-registerEmail-transfrom"
+				/>
+				<Input
+					placeholder={formatMessage({ id: 'resendEmail.email' })}
+					onChange={val => {
+						this.setState({ email: val });
+					}}
+				/>
+				<Input
+					placeholder={formatMessage({ id: 'login.enterPassword' })}
+					onChange={val => {
+						this.setState({ pwd: val });
+					}}
+				/>
+				<Input
+					placeholder={formatMessage({
+						id: 'register.confirmPassword'
+					})}
+					onChange={val => {
+						this.setState({ confirm_pwd: val });
+					}}
+				/>
+				<ServerTips
+					className="ServerTips-registerEmail-transfrom"
+					ServerTips1={formatMessage({ id: 'register.hadRead' })}
+					ServerTips2={formatMessage({ id: 'register.agreement' })}
+					pathName="/login"
+					onChange={val => {
+						this.setState({ agree: val });
+					}}
+				/>
+				<Buttons
+					className="Buttons-registerEmail-transfrom"
+					buttonText={formatMessage({ id: 'register.next' })}
+					// _onClick={this.props._onClickBTn}
+					_onClick={() => this.onClick()}
+				/>
+				<BottomTips
+					className="bottomTips-registerEmail-transfrom"
+					BottomTips1={formatMessage({ id: 'register.hasRegister' })}
+					BottomTips2={formatMessage({ id: 'register.loginNow' })}
+					pathName="/login"
+				/>
+			</div>
+		);
 		return (
 			<div className="registerEmail">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
-					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle={true}
-					dragToggleDistance={0}
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="registerEmail-middleContent">
-						<MidText
-							text={formatMessage({id: 'register.mailTips'})}
-							className="midText-registerEmail-transfrom"
-						/>
-						<Input
-							placeholder={formatMessage({id: 'resendEmail.email'})}
-							onChange={val => {
-								this.setState({ email: val });
-							}}
-						/>
-						<Input
-							placeholder={formatMessage({id: 'login.enterPassword'})}
-							onChange={val => {
-								this.setState({ pwd: val });
-							}}
-						/>
-						<Input
-							placeholder={formatMessage({id: 'register.confirmPassword'})}
-							onChange={val => {
-								this.setState({ confirm_pwd: val });
-							}}
-						/>
-						<ServerTips
-							className="ServerTips-registerEmail-transfrom"
-							ServerTips1={formatMessage({id: 'register.hadRead'})}
-							ServerTips2={formatMessage({id: 'register.agreement'})}
-							pathName="/login"
-							onChange={val => {
-								this.setState({ agree: val });
-							}}
-						/>
-						<Buttons
-							className="Buttons-registerEmail-transfrom"
-							buttonText={formatMessage({id: 'register.next'})}
-							// _onClick={this.props._onClickBTn}
-							_onClick={() => this.onClick()}
-						/>
-						<BottomTips
-							className="bottomTips-registerEmail-transfrom"
-							BottomTips1={formatMessage({id: 'register.hasRegister'})}
-							BottomTips2={formatMessage({id: 'register.loginNow'})}
-							pathName="/login"
-						/>
-					</div>
-				</Drawer>
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}

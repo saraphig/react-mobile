@@ -1,16 +1,16 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './chooseLanguage.scss';
-import { List, Item, Radio, Checkbox, Drawer } from 'antd-mobile';
+import { List, Item, Radio, Checkbox } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
+import Drawers from 'components/container/Drawers';
 import {
 	MidText,
 	Input,
 	Buttons,
 	BottomTips,
 	ServerTips,
-	Validate,
-	sidebars
+	Validate
 } from '../comComponent/common';
 // const Item = List.Item;
 const RadioItem = Radio.RadioItem;
@@ -34,9 +34,10 @@ class ChooseLanguageComp extends React.Component {
 
 	render() {
 		const { value } = this.state;
-    const {
-      intl: { formatMessage }
-    } = this.props;
+		const {
+			intl: { formatMessage }
+		} = this.props;
+
 		const data = [
 			{
 				value: 0,
@@ -49,57 +50,39 @@ class ChooseLanguageComp extends React.Component {
 				url: '../src/assets/images/english.png'
 			}
 		];
+
+		const content = (
+			<div className="chooseLanguage-middleContent">
+				<MidText
+					text={formatMessage({ id: 'choiceLanguage' })}
+					className="chooseLanguage-midText-transfrom"
+				/>
+				<div className="inform-items language-content">
+					<List>
+						{data.map(i => {
+							return (
+								<RadioItem
+									key={i.value}
+									checked={value === i.value}
+									onChange={() => this.onChange(i.value)}
+								>
+									<img src={i.url} />
+									{i.label}
+								</RadioItem>
+							);
+						})}
+					</List>
+				</div>
+			</div>
+		);
 		return (
 			<div className="chooseLanguage">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
-					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle={true}
-					dragToggleDistance={0}
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="chooseLanguage-middleContent">
-						<MidText
-							text={formatMessage({id: 'choiceLanguage'})}
-							className="chooseLanguage-midText-transfrom"
-						/>
-						<div className="inform-items language-content">
-							{/* <div className="inform-item one language-items">
-							<span className="language-icon">
-								<img
-									src={require('assets/images/china.png')}
-									alt=""
-								/>
-							</span>
-							<span style={{ color: '#fff' }}>中文</span>
-						</div>
-						<div>
-							<Checkbox className="language-checkbox" />
-						</div> */}
-							<List>
-								{data.map(i => {
-									return (
-										<RadioItem
-											key={i.value}
-											checked={value === i.value}
-											onChange={() =>
-												this.onChange(i.value)
-											}
-										>
-											<img src={i.url} />
-											{i.label}
-										</RadioItem>
-									);
-								})}
-							</List>
-						</div>
-					</div>
-				</Drawer>
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}

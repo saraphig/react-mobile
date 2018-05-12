@@ -8,10 +8,9 @@ import {
 	Buttons,
 	BottomTips,
 	ServerTips,
-	Validate,
-	sidebars
+	Validate
 } from '../comComponent/common';
-import { Drawer } from 'antd-mobile';
+import Drawers from 'components/container/Drawers';
 
 class ConfirmEmailComp extends React.Component {
 	constructor(props) {
@@ -29,48 +28,48 @@ class ConfirmEmailComp extends React.Component {
 	}
 
 	render() {
-    const {
-      intl: { formatMessage }
-    } = this.props;
+		const {
+			intl: { formatMessage }
+		} = this.props;
+
+		const content = (
+			<div className="confirmEmail-middleContent">
+				<MidText
+					text={formatMessage({
+						id: 'withdrawVerify.validate'
+					})}
+					className="midText-confirmEmail-transfrom"
+				/>
+				<Validate
+					className="validate-confirmEmail-transfrom"
+					onChange={val => {
+						console.log(val);
+						this.setState({ validate: val });
+					}}
+				/>
+				<Buttons
+					className="buttons-confirmEmail-transfrom"
+					buttonText={formatMessage({ id: 'public.sure' })}
+					_onClick={() => this._onClickBTn()}
+				/>
+				<BottomTips
+					className="bottomTips-confirmEmail-transfrom"
+					BottomTips1={formatMessage({ id: 'noValidate' })}
+					BottomTips2={formatMessage({
+						id: 'resendEmail.resend'
+					})}
+					pathName="/#"
+				/>
+			</div>
+		);
 		return (
 			<div className="confirmEmail">
 				<Header _onClick={this.props._onOpenChange} />
-				<Drawer
-					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle={true}
-					dragToggleDistance={0}
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				>
-					<div className="confirmEmail-middleContent">
-						<MidText
-              text={formatMessage({id: 'withdrawVerify.validate'})}
-							className="midText-confirmEmail-transfrom"
-						/>
-						<Validate
-							className="validate-confirmEmail-transfrom"
-							onChange={val => {
-								console.log(val);
-								this.setState({ validate: val });
-							}}
-						/>
-						<Buttons
-							className="buttons-confirmEmail-transfrom"
-              buttonText={formatMessage({id: 'public.sure'})}
-							_onClick={() => this._onClickBTn()}
-						/>
-						<BottomTips
-							className="bottomTips-confirmEmail-transfrom"
-              BottomTips1={formatMessage({id: 'noValidate'})}
-              BottomTips2={formatMessage({id: 'resendEmail.resend'})}
-							pathName="/#"
-						/>
-					</div>
-				</Drawer>
+				<Drawers
+					childrenNode={content}
+					_onOpenChange={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 			</div>
 		);
 	}

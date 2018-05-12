@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { localeList,defaultConfig } from '../../config'
+import { localeList, defaultConfig } from '../../config';
 import './common.scss';
 import {
 	Tabs,
@@ -10,7 +10,8 @@ import {
 	Button,
 	List,
 	Switch,
-	NavBar
+	NavBar,
+	Drawer
 } from 'antd-mobile';
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
@@ -328,19 +329,14 @@ export const TopTabs = props => {
 				>
 					<Input
 						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'register.phone'} />}
+						placeholder={props.placeholder1}
 					/>
-					<Input
-						placeholder={
-							<FormattedMessage id={'register.phoneValidate'} />
-						}
-						types={1}
-					/>
+					<Input placeholder={props.placeholder2} types={1} />
 				</div>
 				<div className="tabs-content">
 					<Input
 						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'google.code'} />}
+						placeholder={props.placeholder3}
 					/>
 				</div>
 			</Tabs>
@@ -388,11 +384,7 @@ export const ListItem = props => {
 							props.svg
 						) : (
 							<svg
-								style={{
-									width: '30px',
-									height: '26px',
-									marginRight: '8px'
-								}}
+								className="list-item-friend"
 								aria-hidden="true"
 							>
 								<use xlinkHref="#icon-friend" />
@@ -467,7 +459,9 @@ export const sidebars = (
 		<List.Item key={5}>
 			<FormattedMessage id={'usercenter.logout'} />
 		</List.Item>
-        <List.Item key={6} onClick={() => setLanguage()}>{(localStorage.getItem("language") == 'zh') ? 'English' : '中文'}</List.Item>
+		<List.Item key={6} onClick={() => setLanguage()}>
+			{localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
+		</List.Item>
 	</List>
 );
 
@@ -501,7 +495,7 @@ export const CoinTabs = props => {
 			>
 				<div className="inform-height">
 					{/* <InformItem /> */}
-					<div style={{ marginTop: 30 }}>
+					{/* <div style={{ marginTop: 30 }}>
 						<div className="inform-items">
 							<span className="inform-item one">
 								<p>
@@ -754,7 +748,8 @@ export const CoinTabs = props => {
 								</Button>
 							</span>
 						</div>
-					</div>
+					</div> */}
+					<ListView />
 				</div>
 				<div>{/* <InformItem /> */}</div>
 			</Tabs>
@@ -826,15 +821,53 @@ export const AlertModal = props => {
 
 // 多语言切换
 const setLanguage = () => {
-    const language = localStorage.getItem("language");
-    let locale = {};
-    if(language == 'en') {
-        locale=localeList[1];
-    }else if(language == 'zh') {
-        locale=localeList[0];
-    }
-    localStorage.setItem('timezone', locale.timezone)
-    localStorage.setItem('language', locale.language);
-    localStorage.setItem('languageText', locale.languageText);
-    window.location.reload();
+	const language = localStorage.getItem('language');
+	let locale = {};
+	if (language == 'en') {
+		locale = localeList[1];
+	} else if (language == 'zh') {
+		locale = localeList[0];
+	}
+	localStorage.setItem('timezone', locale.timezone);
+	localStorage.setItem('language', locale.language);
+	localStorage.setItem('languageText', locale.languageText);
+	window.location.reload();
 };
+// //抽屉
+// export const Drawers = props => {
+// 	return (
+// 		// <div>
+// 		// 	{props.isOpen && (
+// 		// 		<div className="alertModal">
+// 		// 			<div className="container">
+// 		// 				<div className="top">
+// 		// 					<i className="email-icon" />
+// 		// 				</div>
+// 		// 				<p className="content">
+// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
+// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
+// 		// 				</p>
+// 		// 				<div className="sure">
+// 		// 					<a href="javascript:;">
+// 		// 						<FormattedMessage id={'public.confirm'} />
+// 		// 					</a>
+// 		// 				</div>
+// 		// 			</div>
+// 		// 		</div>
+// 		// 	)}
+// 		// </div>
+// 		<Drawer
+// 			className="my-drawer"
+// 			style={{ minHeight: document.documentElement.clientHeight }}
+// 			enableDragHandle={true}
+// 			dragToggleDistance={0}
+// 			position="right"
+// 			sidebar={sidebars}
+// 			open={this.props._open}
+// 			onOpenChange={this.props._onOpenChange}
+// 			sidebarStyle={{ background: '#1B1B1B' }}
+// 		>
+// 			{}
+// 		</Drawer>
+// 	);
+// };
