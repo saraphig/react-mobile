@@ -1,6 +1,6 @@
 const zh_CN = {
   'public.cancel': '取消',
-  'public.confirm': '确定',
+  'public.confirm': '确 定',
   'public.validate': '谷歌验证',
   'public.enterValidate': '请输入谷歌验证码',
   'public.index': '首页',
@@ -669,5 +669,11 @@ const zh_CN = {
   code_137: '您已经绑定过谷歌，请勿重复绑定',
   code_105: '手机与谷歌只允许解绑一个',
   code_80: '该币种目前处于限制获取充值地址状态',
+  'candyDetail.qrDode': '二维码',
+  'choiceLanguage': '选择语言',
+  'phoneConfirm': '手机验证',
+  'doubleConfirm': '二次验证',
+  'noValidate': '没收到验证码',
+  'recommendedCode': '推荐码(选填)'
 };
 export default zh_CN;

@@ -20,16 +20,19 @@ class ConfirmG2FComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="DoubleConfirm">
 				<Header />
 				<div className="doubleConfirm-middleContent">
 					<MidText
-						text="二次验证"
+						text={formatMessage({id: 'doubleConfirm'})}
 						className="midText-doubleConfirm-transfrom"
 					/>
 					<TopTabs />
-					<Buttons  className="buttons-doubleConfirm-transform"  buttonText="提交" />
+					<Buttons className="buttons-doubleConfirm-transform" buttonText={formatMessage({id: 'depositWithdraw.submit'})} />
 				</div>
 			</div>
 		);

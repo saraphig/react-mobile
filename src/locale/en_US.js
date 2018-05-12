@@ -698,5 +698,11 @@ const enUS = {
   code_80: 'The coin is not allowed to create address for deposit now',
   noDepositAddress: 'Address unavailable. Please try again later.',
   serverError: 'Network exception. Please try again later.',
+  'candyDetail.qrDode': 'QR code',
+  'choiceLanguage': 'Choice language',
+  'phoneConfirm': 'Mobile phone verification',
+  'doubleConfirm': 'Secondary verification',
+  'noValidate': 'Didn\'t get the verification code.',
+  'recommendedCode': 'Recommended code (optional)'
 };
 export default enUS;

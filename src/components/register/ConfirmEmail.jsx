@@ -27,24 +27,27 @@ class ConfirmEmailComp extends React.Component {
 	}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="confirmEmail">
 				<Header />
 				<div className="confirmEmail-middleContent">
 					<MidText
-						text="邮箱验证"
+						text={formatMessage({id: 'withdrawVerify.validate'})}
 						className="midText-confirmEmail-transfrom"
 					/>
 					<Validate className="validate-confirmEmail-transfrom" onChange={(val) => {this.setState({validate: val})}}/>
 					<Buttons
 						className="buttons-confirmEmail-transfrom"
-						buttonText="完成"
+						buttonText={formatMessage({id: 'public.confirm'})}
 						_onClick={() => this._onClickBTn()}
 					/>
 					<BottomTips
 						className="bottomTips-confirmEmail-transfrom"
-						BottomTips1="没收到验证码"
-						BottomTips2="重新发送"
+						BottomTips1={formatMessage({id: 'noValidate'})}
+						BottomTips2={formatMessage({id: 'resendEmail.resend'})}
 						pathName="/#"
 					/>
 				</div>

@@ -67,8 +67,8 @@ class RegisterComp extends React.Component {
 					// //验证码文字的修改
 					document.getElementsByClassName(
 						'yidun_intelli-text'
-					)[0].innerText =
-						'发送验证码';
+					)[0].innerText = formatMessage({id: 'register.postPhoneValidate'})
+						// '发送验证码';
 				},
 				onVerify: (err, data) => {
 					let that = this;
@@ -96,33 +96,36 @@ class RegisterComp extends React.Component {
 
 	render() {
 		const { pathName } = this.state;
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="register">
 				<Header />
 				<div className="register-middleContent">
 					<MidText
-						text="手机绑定"
+						text={formatMessage({id: 'register.tips'})}
 						className="midText-register-transfrom"
 					/>
-					<Input placeholder="手机号码" onChange={(val) => this.setState({phone: val})} comId= "test"/>
+					<Input placeholder={formatMessage({id: 'register.phone'})} onChange={(val) => this.setState({phone: val})} comId= "test"/>
 					<Input
-						placeholder="输入验证码"
+						placeholder={formatMessage({id: 'register.phoneValidate'})}
 						types={1}
-						text="发送验证码"
+						text={formatMessage({id: 'register.postPhoneValidate'})}
 						onChange={(val) => this.setState({verifyCode: val})}
 					/>
 					<span id="dun"></span>
-					<Input placeholder="推荐码(选填)" onChange={(val) => this.setState({inviterCode: val})}/>
+					<Input placeholder={formatMessage({id: 'recommendedCode'})} onChange={(val) => this.setState({inviterCode: val})}/>
 					<Buttons
 						className="buttons-register-transfrom"
-						buttonText="下一步"
+						buttonText={formatMessage({id: 'register.next'})}
 						// _onClick={this.props._onClickBTn}
 						_onClick={() => this.phoneNext()}
 					/>
 					<BottomTips
 						className="bottomTips-register-transfrom"
-						BottomTips1="已有账号"
-						BottomTips2="马上登录"
+            BottomTips1={formatMessage({id: 'register.hasRegister'})}
+            BottomTips2={formatMessage({id: 'register.loginNow'})}
 						pathName="/login"
 					/>
 				</div>

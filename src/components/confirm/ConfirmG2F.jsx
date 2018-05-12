@@ -19,13 +19,16 @@ class ConfirmG2FComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="confirmG2f">
 				<Header />
 				<div className="confirmG2f-middleContent">
-					<MidText text="谷歌验证" className="midText-transfrom" />
-					<Input placeholder="谷歌验证码" />
-					<Buttons className="buttons-transform" buttonText="提交" />
+					<MidText text={formatMessage({id: 'public.validate'})} className="midText-transfrom" />
+					<Input placeholder={formatMessage({id: 'public.enterValidate'})} />
+					<Buttons className="buttons-transform" buttonText={formatMessage({id: 'depositWithdraw.submit'})} />
 				</div>
 			</div>
 		);

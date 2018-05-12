@@ -19,21 +19,24 @@ class ConfirmG2FComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="phoneConfirm">
 				<Header />
 				<div className="phoneConfirm-middleContent">
 					<MidText
-						text="手机验证"
+						text={formatMessage({id: 'phoneConfirm'})}
 						className="midText-phoneConfirm-transfrom"
 					/>
-					<Input placeholder="手机号码" />
+					<Input placeholder={formatMessage({id: 'register.phone'})} />
 					<Input
-						placeholder="输入验证码"
+						placeholder={formatMessage({id: 'register.phoneValidate'})}
 						types={1}
-						text="发送验证码"
+						text={formatMessage({id: 'register.postPhoneValidate'})}
 					/>
-					<Buttons  className="buttons-phoneConfirm-transform"  buttonText="提交" />
+					<Buttons className="buttons-phoneConfirm-transform" buttonText={formatMessage({id: 'depositWithdraw.submit'})} />
 				</div>
 			</div>
 		);
