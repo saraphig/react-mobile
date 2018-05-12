@@ -13,6 +13,7 @@ import MyInvite from 'views/extra/MyInvite';
 import Mywallet from 'views/userCenter/Mywallet';
 import UserCenter from 'views/userCenter/UserCenter';
 import { asyncComponent } from 'utils/comFunction.js';
+import Test from 'views/index/Test';
 
 // 加载组件
 // import Index from 'views/index/index';
@@ -68,6 +69,10 @@ const routes = [
 	{
 		path: '/userCenter',
 		component: UserCenter
+	},
+	{
+		path: '/test',
+		component: Test
 	}
 ];
 

@@ -56,12 +56,17 @@
 }
 
 .myInvite-btn-copy {
-    width: 85px;
+    width: 84px;
     height: 30px;
     border-radius: 3pt;
     background: #fff;
     font-size: 15px;
     color: #dab272;
+    line-height: 30px;
+}
+
+.myInvite-url-btn .button:active {
+    background: rgba(0, 0, 0, 0);
 }
 
 .myInvite-url-btn .am-button:before {
@@ -91,7 +96,7 @@
 }
 
 .myInvite-item:last-child {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .myInvite-item-T {
