@@ -141,6 +141,7 @@ export class Input extends React.Component {
 					value={this.state.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
+          type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
 					<div>
