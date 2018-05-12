@@ -7,6 +7,9 @@ import ChooseLanguageComp from 'components/extra/ChooseLanguage';
 class ChooseLanguage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -17,10 +20,19 @@ class ChooseLanguage extends React.Component {
 		console.log(this.props.token);
 	}
 
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
+
 		return (
 			<div>
-				<ChooseLanguageComp />
+				<ChooseLanguageComp
+					_onOpenChange={this._onOpenChange}
+					_open={open}
+				/>
 			</div>
 		);
 	}

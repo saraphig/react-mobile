@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './chooseLanguage.scss';
-import { List, Item, Radio, Checkbox } from 'antd-mobile';
+import { List, Item, Radio, Checkbox, Drawer } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
 import {
 	MidText,
@@ -9,7 +9,8 @@ import {
 	Buttons,
 	BottomTips,
 	ServerTips,
-	Validate
+	Validate,
+	sidebars
 } from '../comComponent/common';
 // const Item = List.Item;
 const RadioItem = Radio.RadioItem;
@@ -47,14 +48,25 @@ class ChooseLanguageComp extends React.Component {
 		];
 		return (
 			<div className="chooseLanguage">
-				<Header />
-				<div className="chooseLanguage-middleContent">
-					<MidText
-						text="选择语言"
-						className="chooseLanguage-midText-transfrom"
-					/>
-					<div className="inform-items language-content">
-						{/* <div className="inform-item one language-items">
+				<Header _onClick={this.props._onOpenChange} />
+				<Drawer
+					className="my-drawer"
+					style={{ minHeight: document.documentElement.clientHeight }}
+					enableDragHandle={true}
+					dragToggleDistance={0}
+					position="right"
+					sidebar={sidebars}
+					open={this.props._open}
+					onOpenChange={this.props._onOpenChange}
+					sidebarStyle={{ background: '#1B1B1B' }}
+				>
+					<div className="chooseLanguage-middleContent">
+						<MidText
+							text="选择语言"
+							className="chooseLanguage-midText-transfrom"
+						/>
+						<div className="inform-items language-content">
+							{/* <div className="inform-item one language-items">
 							<span className="language-icon">
 								<img
 									src={require('assets/images/china.png')}
@@ -66,22 +78,25 @@ class ChooseLanguageComp extends React.Component {
 						<div>
 							<Checkbox className="language-checkbox" />
 						</div> */}
-						<List>
-							{data.map(i => {
-								return (
-									<RadioItem
-										key={i.value}
-										checked={value === i.value}
-										onChange={() => this.onChange(i.value)}
-									>
-										<img src={i.url} />
-										{i.label}
-									</RadioItem>
-								);
-							})}
-						</List>
+							<List>
+								{data.map(i => {
+									return (
+										<RadioItem
+											key={i.value}
+											checked={value === i.value}
+											onChange={() =>
+												this.onChange(i.value)
+											}
+										>
+											<img src={i.url} />
+											{i.label}
+										</RadioItem>
+									);
+								})}
+							</List>
+						</div>
 					</div>
-				</div>
+				</Drawer>
 			</div>
 		);
 	}

@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import ConfirmEmailComp from 'components/register/ConfirmEmail';
-import { actionType as registerSaga } from 'models/sagas/register'
+import { actionType as registerSaga } from 'models/sagas/register';
 
 class ConfirmEmail extends React.Component {
 	constructor(props) {
 		super(props);
-		let email = props.location.state.email || ''
+		// console.log(props.location)
+		let email = props.location.state.email || '';
 		this.state = {
-          email: email
-		}
+			email: email,
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -23,45 +25,55 @@ class ConfirmEmail extends React.Component {
 	}
 
 	//按钮提交跳转事件
-	_onClickBTn = (code) => {
+	_onClickBTn = code => {
 		console.log(this.props);
 		//TODO: for the featrue
 		let query = {
 			email: this.state.email,
 			code
-		}
+		};
 		// 验证参数
 
 		this.props.dispatch({
 			type: registerSaga.emailValidate,
-			payload: { 
-				query, 
-				success: (data) => {
+			payload: {
+				query,
+				success: data => {
 					// this.setState({
 					// 	phoneCode: data
 					// })
 					this.props.history.push('/login');
-				}, 
+				},
 				fail: this.fail,
 				error: this.error
 			}
-		})
+		});
 	};
 
 	//请求返回失败code
-	fail = (err_code) => {
-		alert(err_code)
-	}
-	
+	fail = err_code => {
+		alert(err_code);
+	};
+
 	// 网络异常，请求失败
-	error = (err) => {
-		alert('网络异常，请求失败',err)
-	}
+	error = err => {
+		alert('网络异常，请求失败', err);
+	};
+
+	//drawer
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
 
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
-				<ConfirmEmailComp _onClickBTn={this._onClickBTn} />
+				<ConfirmEmailComp
+					_onClickBTn={this._onClickBTn}
+					_onOpenChange={this._onOpenChange}
+					_open={open}
+				/>
 			</div>
 		);
 	}

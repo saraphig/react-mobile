@@ -199,14 +199,14 @@ export class Validate extends React.Component {
 		};
 	}
 
-	onChange(e){
-		let value = e.target.value
-		if (value.length > 6){
-			return
+	onChange(e) {
+		let value = e.target.value;
+		if (value.length > 6) {
+			return;
 		}
-		console.log(e.target.value)
-		
-		let liList = $(".code-display li")
+		console.log(e.target.value);
+
+		let liList = $('.code-display li');
 		this.setState({
 			val: value
 		});
@@ -235,8 +235,8 @@ export class Validate extends React.Component {
 
 		//当数字等于6个时失去焦点
 		if (value.length == 6) {
-			this.props.onChange(value)
-			$('#valInput').blur()
+			this.props.onChange(value);
+			$('#valInput').blur();
 		}
 	}
 
@@ -256,16 +256,16 @@ export class Validate extends React.Component {
 				/>
 				<ul className="code-display">
 					<li>
-						<span className="number"/>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"/>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"/>
+						<span className="number" />
 					</li>
 					<li>
-						<span className="number"/>
+						<span className="number" />
 					</li>
 					<li>
 						<span className="number" />
@@ -452,7 +452,261 @@ export const CoinTabs = props => {
 				tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
 			>
 				<div className="inform-height">
-					<InformItem />
+					{/* <InformItem /> */}
+					<div style={{ marginTop: 30 }}>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+						<div className="inform-items">
+							<span className="inform-item one">
+								<p>
+									TOP/<span style={{ color: '#BEBEBE' }}>
+										ETH
+									</span>
+								</p>
+								<p className="inform-item-small">12345675.22</p>
+							</span>
+							<span className="inform-item two">
+								<p>23423141</p>
+								<p className="inform-item-small">
+									¥2342525.3342
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button className="inform-item-middle">
+									+585.74%
+								</Button>
+							</span>
+						</div>
+					</div>
 				</div>
 				<div>{/* <InformItem /> */}</div>
 			</Tabs>
