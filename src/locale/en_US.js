@@ -287,6 +287,7 @@ const enUS = {
     'Used for login and withdrawals. Do not disclose your QR code or private key. Download Google Authenticator from official channels.',
   'userCenter.GoingOpen': 'Coming Soon',
   'userCenter.inviteFriends': 'Invite Friends',
+  'userCenter.phoneValidate': 'Phone Validate',
 
   'webBottom.aboutUs': 'About Us',
   'webBottom.agreement': 'Terms of Use',

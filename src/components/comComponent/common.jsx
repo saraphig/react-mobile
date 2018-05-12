@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import './common.scss';
 import {
 	Tabs,
@@ -396,7 +397,13 @@ export const SwitchItem = props => {
 					<Switch checked={props._check} onClick={props._onClick} />
 				}
 			>
-				使用TOPCOIN支付交易手续费&nbsp;(50%折扣)
+				<FormattedMessage
+					id="userCenter.payFee"
+				/>
+				&nbsp;
+                (<FormattedMessage
+                    id="userCenter.discount"
+                />)
 			</List.Item>
 		</List>
 	);

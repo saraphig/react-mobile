@@ -29,7 +29,11 @@ class UserCenterComp extends React.Component {
 					<WhiteBlock />
 					<ListItem
 						classNameItemline="first-item-line"
-						title="我的邀请"
+						title  = {
+                            <FormattedMessage
+                                id="userCenter.inviteFriends"
+                            />
+                        }
 					/>
 					<WhiteBlock />
 					<ListItem
@@ -40,7 +44,11 @@ class UserCenterComp extends React.Component {
 								src={require('assets/images/G2F.png')}
 							/>
 						]}
-						title="谷歌验证"
+                        title = {
+                            <FormattedMessage
+                                id="userCenter.validate"
+                            />
+                        }
 					/>
 					<ListItem
 						classNameItemline="item-line"
@@ -53,7 +61,11 @@ class UserCenterComp extends React.Component {
 								<use xlinkHref="#icon-phone" />
 							</svg>
 						]}
-						title="手机验证"
+						title = {
+                            <FormattedMessage
+                                id="userCenter.phoneValidate"
+                            />
+                        }
 					/>
 					<ListItem
 						classNameItemline="item-line last-item"
@@ -66,7 +78,11 @@ class UserCenterComp extends React.Component {
 								<use xlinkHref="#icon-mima" />
 							</svg>
 						]}
-						title="修改密码"
+						title = {
+							<FormattedMessage
+								id="changeLoginPassword.changePassword"
+							/>
+						}
 					/>
 				</div>
 			</div>
