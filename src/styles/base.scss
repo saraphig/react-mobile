@@ -41,7 +41,7 @@ $grayDrawer: #787878;
 
 .my-drawer {
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -64,30 +64,25 @@ $grayDrawer: #787878;
 // .am-list-item:first-child {
 //     padding-left: 16px !important;
 // }
-
 // .am-list-item {
 //     background: #1b1b1b !important;
 //     padding-left: 40px !important;
 //     font-weight: 100;
 // }
-
 // .am-list-item:first-child .am-list-content {
 //     @extend .fz15;
 //     color: $grayDrawer !important;
 //     padding-top: 13px !important;
 // }
-
 // .am-list-content {
 //     @extend .fz15;
 //     color: #fff !important;
 //     padding-top: 13px !important;
 //     font-weight: 100;
 // }
-
 // .am-list-line:after {
 //     height: 0px !important;
 // }
-
 // .am-list-body:after {
 //     height: 0px !important;
 // }

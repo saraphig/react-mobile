@@ -7,6 +7,9 @@ import PhoneConfirmComp from 'components/confirm/PhoneConfirm';
 class PhoneConfirm extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -17,10 +20,19 @@ class PhoneConfirm extends React.Component {
 		console.log(this.props.token);
 	}
 
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
+
 		return (
 			<div>
-				<PhoneConfirmComp />
+				<PhoneConfirmComp
+					_onOpenChange={this._onOpenChange}
+					_open={open}
+				/>
 			</div>
 		);
 	}

@@ -221,13 +221,13 @@
 
 .tab-bar {
     width: 90%;
-    position: absolute;
+    position: fixed;
     display: flex;
-    top: 44px;
+    top: 102px;
     background: #1b1b1b;
     color: #bebebe;
     @extend .fz12;
-    padding: 10px 20px 10px 20px;
+    padding: 12px 20px 10px 20px;
 }
 
 .tab-item {

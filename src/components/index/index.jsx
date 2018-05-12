@@ -30,7 +30,8 @@ class IndexComp extends React.Component {
 				<Drawer
 					className="my-drawer"
 					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle
+					enableDragHandle={true}
+					dragToggleDistance={0}
 					position="right"
 					sidebar={sidebars}
 					open={this.props._open}
