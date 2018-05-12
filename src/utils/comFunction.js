@@ -31,7 +31,38 @@ export function asyncComponent(importComponent) {
     return AsyncComponent;
   }
 
+// 手机验证
+export function phoneCheck(phoneCode) {
+    if (/^\d+$/g.test(phoneCode)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-  // 手机验证
+// 邮箱验证
+export function emailCheck(email) {
+    if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-  // 邮箱验证
+// 密码验证
+export function passwordCheck(password) {
+    if (password.length >= 8) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 谷歌验证码
+export function googleCodeCheck(googleCode) {
+    if (googleCode) {
+        return false;
+    } else {
+        return true;
+    }
+}
