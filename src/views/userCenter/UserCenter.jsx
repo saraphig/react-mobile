@@ -8,7 +8,8 @@ class UserCenter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			_check: true
+			_check: true,
+			open: false
 		};
 	}
 
@@ -27,12 +28,20 @@ class UserCenter extends React.Component {
 		});
 	};
 
+	//drawer
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
 				<UserCenterComp
 					_onClick={this._onClick}
 					_check={this.state._check}
+					_onOpenChange={this._onOpenChange}
+					_open={open}
 				/>
 			</div>
 		);

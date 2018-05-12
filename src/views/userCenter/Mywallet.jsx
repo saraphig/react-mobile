@@ -7,6 +7,9 @@ import MyWalletComp from 'components/userCenter/MyWallet';
 class MyWallet extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -17,10 +20,16 @@ class MyWallet extends React.Component {
 		console.log(this.props.token);
 	}
 
+	//drawer
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
-				<MyWalletComp />
+				<MyWalletComp _onOpenChange={this._onOpenChange} _open={open} />
 			</div>
 		);
 	}

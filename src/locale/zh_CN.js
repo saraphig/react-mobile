@@ -281,6 +281,7 @@ const zh_CN = {
     '提现及相关安全设置时，需使用谷歌验证。请妥善保管绑定谷歌验证时的二维码或密钥，并从官方渠道下载 Google Authenticator。',
   'userCenter.GoingOpen': '即将开放，敬请期待。',
   'userCenter.inviteFriends': '我的邀请',
+  'userCenter.phoneValidate': '手机验证',
 
   'webBottom.aboutUs': '关于我们',
   'webBottom.agreement': '服务协议',

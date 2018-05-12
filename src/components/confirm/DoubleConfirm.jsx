@@ -9,8 +9,10 @@ import {
 	BottomTips,
 	ServerTips,
 	Validate,
-	TopTabs
+	TopTabs,
+	sidebars
 } from '../comComponent/common';
+import { Drawer, List } from 'antd-mobile';
 
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {
@@ -25,15 +27,30 @@ class ConfirmG2FComp extends React.Component {
     } = this.props;
 		return (
 			<div className="DoubleConfirm">
-				<Header />
-				<div className="doubleConfirm-middleContent">
-					<MidText
-						text={formatMessage({id: 'doubleConfirm'})}
-						className="midText-doubleConfirm-transfrom"
-					/>
-					<TopTabs />
-					<Buttons className="buttons-doubleConfirm-transform" buttonText={formatMessage({id: 'depositWithdraw.submit'})} />
-				</div>
+				<Header _onClick={this.props._onOpenChange}/>
+				<Drawer
+					className="my-drawer"
+					style={{ minHeight: document.documentElement.clientHeight }}
+					enableDragHandle={true}
+					dragToggleDistance={0}
+					position="right"
+					sidebar={sidebars}
+					open={this.props._open}
+					onOpenChange={this.props._onOpenChange}
+					sidebarStyle={{ background: '#1B1B1B' }}
+				>
+					<div className="doubleConfirm-middleContent">
+						<MidText
+              text={formatMessage({id: 'doubleConfirm'})}
+							className="midText-doubleConfirm-transfrom"
+						/>
+						<TopTabs />
+						<Buttons
+							className="buttons-doubleConfirm-transform"
+              buttonText={formatMessage({id: 'depositWithdraw.submit'})}
+						/>
+					</div>
+				</Drawer>
 			</div>
 		);
 	}

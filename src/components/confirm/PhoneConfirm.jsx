@@ -8,8 +8,10 @@ import {
 	Buttons,
 	BottomTips,
 	ServerTips,
-	Validate
+	Validate,
+	sidebars
 } from '../comComponent/common';
+import { Drawer, List } from 'antd-mobile';
 
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {
@@ -24,20 +26,35 @@ class ConfirmG2FComp extends React.Component {
     } = this.props;
 		return (
 			<div className="phoneConfirm">
-				<Header />
-				<div className="phoneConfirm-middleContent">
-					<MidText
-						text={formatMessage({id: 'phoneConfirm'})}
-						className="midText-phoneConfirm-transfrom"
-					/>
-					<Input placeholder={formatMessage({id: 'register.phone'})} />
-					<Input
-						placeholder={formatMessage({id: 'register.phoneValidate'})}
-						types={1}
-						text={formatMessage({id: 'register.postPhoneValidate'})}
-					/>
-					<Buttons className="buttons-phoneConfirm-transform" buttonText={formatMessage({id: 'depositWithdraw.submit'})} />
-				</div>
+				<Header _onClick={this.props._onOpenChange}/>
+				<Drawer
+					className="my-drawer"
+					style={{ minHeight: document.documentElement.clientHeight }}
+					enableDragHandle={true}
+					dragToggleDistance={0}
+					position="right"
+					sidebar={sidebars}
+					open={this.props._open}
+					onOpenChange={this.props._onOpenChange}
+					sidebarStyle={{ background: '#1B1B1B' }}
+				>
+					<div className="phoneConfirm-middleContent">
+						<MidText
+              text={formatMessage({id: 'phoneConfirm'})}
+							className="midText-phoneConfirm-transfrom"
+						/>
+						<Input placeholder={formatMessage({id: 'register.phone'})} />
+						<Input
+							placeholder={formatMessage({id: 'register.phoneValidate'})}
+							types={1}
+							text={formatMessage({id: 'register.postPhoneValidate'})}
+						/>
+						<Buttons
+							className="buttons-phoneConfirm-transform"
+							buttonText={formatMessage({id: 'depositWithdraw.submit'})}
+						/>
+					</div>
+				</Drawer>
 			</div>
 		);
 	}

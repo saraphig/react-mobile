@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ListView, Button } from 'antd-mobile';
 import ReactDOM from 'react-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './listView.scss'
+import './listView.scss';
 
 function MyBody(props) {
 	return (
@@ -86,6 +86,7 @@ class ListViewComp extends React.Component {
 		const hei =
 			document.documentElement.clientHeight -
 			ReactDOM.findDOMNode(this.lv).parentNode.offsetTop;
+		console.log(hei);
 		// simulate initial Ajax
 		setTimeout(() => {
 			genData();
@@ -234,9 +235,10 @@ class ListViewComp extends React.Component {
 				renderBodyComponent={() => <MyBody />}
 				renderRow={row}
 				// renderSeparator={separator}
+
 				style={{
-					height: this.state.height,
-					overflow: 'hidden'
+					height: this.state.height
+					// overflow: 'hidden'
 				}}
 				// pageSize={10}
 				// onScroll={() => {
