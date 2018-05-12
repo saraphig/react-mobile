@@ -148,7 +148,7 @@ class RegisterComp extends React.Component {
 						/>
 						<span id="dun" />
 						<Input
-							placeholder=={formatMessage({id: 'recommendedCode'})}
+							placeholder={formatMessage({id: 'recommendedCode'})}
 							onChange={val =>
 								this.setState({ inviterCode: val })
 							}
