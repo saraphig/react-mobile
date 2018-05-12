@@ -681,5 +681,12 @@ const zh_CN = {
   'usercenter.logout': '退出登录',
   'usercenter.visist.topone': '请前往top.one官网进行验证',
   'home.volume': '交易量',
+  'candyDetail.qrDode': '二维码',
+  'choiceLanguage': '选择语言',
+  'phoneConfirm': '手机验证',
+  'doubleConfirm': '二次验证',
+  'noValidate': '没收到验证码',
+  'recommendedCode': '推荐码(选填)',
+  'myAssets': '我的资产'
 };
 export default zh_CN;

@@ -710,5 +710,12 @@ const enUS = {
   'usercenter.logout': 'Logout',
   'usercenter.visist.topone': 'Please visit TOP.ONE to verify',
   'home.volume': 'Volume',
+  'candyDetail.qrDode': 'QR code',
+  'choiceLanguage': 'Language',
+  'phoneConfirm': 'SMS Verification',
+  'doubleConfirm': 'Two-step Verification',
+  'noValidate': 'SMS code not received',
+  'recommendedCode': 'Referral Code',
+  'myAssets': 'My Assets'
 };
 export default enUS;

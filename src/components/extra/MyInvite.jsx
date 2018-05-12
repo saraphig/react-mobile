@@ -22,6 +22,9 @@ class MyInviteComp extends React.Component {
 	componentDidMount() {}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="myInvite">
 				<div className="myInvite-bg">
@@ -40,7 +43,7 @@ class MyInviteComp extends React.Component {
 						sidebarStyle={{ background: '#1B1B1B' }}
 					>
 						<Navbars
-							title="我的邀请"
+              title={formatMessage({id: 'userCenter.inviteFriends'})}
 							className="myInvite-title"
 							_rightContent={[
 								<img
@@ -58,13 +61,13 @@ class MyInviteComp extends React.Component {
 							<span className="myInvite-url-btn">
 								<Buttons
 									className="myInvite-btn-copy"
-									buttonText="复制"
+                  buttonText={formatMessage({id: 'candyDetail.copy'})}
 									_onClick={this.props._onClick}
 								/>
 							</span>
 						</div>
 						<Navbars
-							title="邀请好友"
+              title={formatMessage({id: 'candyDetail.inviteFriends'})}
 							className="myInvite-title invite-friend"
 							_rightContent={[
 								<img
@@ -77,7 +80,7 @@ class MyInviteComp extends React.Component {
 							<span className="myInvite-content-code">
 								<img
 									src={require('assets/images/code.png')}
-									alt="二维码"
+                  alt={formatMessage({id: 'candyDetail.qrDode'})}
 								/>
 							</span>
 						</div>
@@ -105,30 +108,26 @@ class MyInviteComp extends React.Component {
 						</div>
 						<div className="myInvite-content-introduce">
 							<p className="myInvite-content-introduce-name">
-								活动细则
+                {formatMessage({id: 'candy.detail'})}
 							</p>
 							<ol className="myInvite-content-introduce-detail">
 								<li className="myInvite-content-introduce-detail-item">
-									1.
-									被邀请人及其邀请的用戶成功完成的每笔交易，您均可获得其交易手续费的15%作为奖励。
+                  {formatMessage({id: 'candy.detail.first'})}
 								</li>
 								<li className="myInvite-content-introduce-detail-item">
-									2. 好友通过邀请链接完成注册计入邀请数。
+                  {formatMessage({id: 'candy.detail.second'})}
 								</li>
 								<li className="myInvite-content-introduce-detail-item">
-									3.
-									预注册及返利活动的时间及奖励比例未來將会根据实际情况进行调整。
+                  {formatMessage({id: 'candy.detail.third'})}
 								</li>
 								<li className="myInvite-content-introduce-detail-item">
-									4. 同一用户仅能被邀请一次。
+                  {formatMessage({id: 'candy.detail.fourth'})}
 								</li>
 								<li className="myInvite-content-introduce-detail-item">
-									5.
-									重复或虚假账户，以及共享自己的行为，一经发现，将不会支付返佣。
+                  {formatMessage({id: 'candy.detail.fifth'})}
 								</li>
 								<li className="myInvite-content-introduce-detail-item">
-									6. TOP.ONE
-									保留法律范围内允许的对活动的解释权。
+                  {formatMessage({id: 'candy.detail.sixth'})}
 								</li>
 							</ol>
 						</div>

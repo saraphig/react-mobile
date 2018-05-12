@@ -34,6 +34,9 @@ class ChooseLanguageComp extends React.Component {
 
 	render() {
 		const { value } = this.state;
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		const data = [
 			{
 				value: 0,
@@ -62,7 +65,7 @@ class ChooseLanguageComp extends React.Component {
 				>
 					<div className="chooseLanguage-middleContent">
 						<MidText
-							text="选择语言"
+							text={formatMessage({id: 'choiceLanguage'})}
 							className="chooseLanguage-midText-transfrom"
 						/>
 						<div className="inform-items language-content">

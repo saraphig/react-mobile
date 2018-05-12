@@ -41,6 +41,9 @@ class RegisterEmailComp extends React.Component {
 	}
 	render() {
 		const { pathName } = this.state;
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div className="registerEmail">
 				<Header _onClick={this.props._onOpenChange} />
@@ -57,31 +60,31 @@ class RegisterEmailComp extends React.Component {
 				>
 					<div className="registerEmail-middleContent">
 						<MidText
-							text="邮箱注册"
+							text={formatMessage({id: 'register.mailTips'})}
 							className="midText-registerEmail-transfrom"
 						/>
 						<Input
-							placeholder="您的邮箱"
+							placeholder={formatMessage({id: 'resendEmail.email'})}
 							onChange={val => {
 								this.setState({ email: val });
 							}}
 						/>
 						<Input
-							placeholder="您的密码"
+							placeholder={formatMessage({id: 'login.enterPassword'})}
 							onChange={val => {
 								this.setState({ pwd: val });
 							}}
 						/>
 						<Input
-							placeholder="重复密码"
+							placeholder={formatMessage({id: 'register.confirmPassword'})}
 							onChange={val => {
 								this.setState({ confirm_pwd: val });
 							}}
 						/>
 						<ServerTips
 							className="ServerTips-registerEmail-transfrom"
-							ServerTips1="我已阅读并同意TOP.ONE"
-							ServerTips2="服务条款"
+							ServerTips1={formatMessage({id: 'register.hadRead'})}
+							ServerTips2={formatMessage({id: 'register.agreement'})}
 							pathName="/login"
 							onChange={val => {
 								this.setState({ agree: val });
@@ -89,14 +92,14 @@ class RegisterEmailComp extends React.Component {
 						/>
 						<Buttons
 							className="Buttons-registerEmail-transfrom"
-							buttonText="下一步"
+							buttonText={formatMessage({id: 'register.next'})}
 							// _onClick={this.props._onClickBTn}
 							_onClick={() => this.onClick()}
 						/>
 						<BottomTips
 							className="bottomTips-registerEmail-transfrom"
-							BottomTips1="已有账号"
-							BottomTips2="马上登录"
+							BottomTips1={formatMessage({id: 'register.hasRegister'})}
+							BottomTips2={formatMessage({id: 'register.loginNow'})}
 							pathName="/login"
 						/>
 					</div>

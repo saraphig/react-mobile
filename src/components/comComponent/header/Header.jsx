@@ -12,6 +12,9 @@ class Header extends React.Component {
 	}
 
 	render() {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		return (
 			<div>
 				<div className={`header ${this.props.className}`}>
@@ -23,12 +26,8 @@ class Header extends React.Component {
 						/>
 					</span>
 					<span className="header-right">
-						<Link to="/login" className="header-login">
-							登录
-						</Link>
-						<Link to="/register" className="header-register">
-							注册
-						</Link>
+						<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
+						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
 						<span className="header-menus">
 							<img
 								className="header-menu"
