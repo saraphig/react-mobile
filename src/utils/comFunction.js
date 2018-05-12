@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Loading from '../components/comComponent/loading'
 
+var NodeRSA = require('node-rsa');
+import { key } from 'src/config.js'
+
 
 // 按需加载组件
 export function asyncComponent(importComponent) {
@@ -31,6 +34,16 @@ export function asyncComponent(importComponent) {
     return AsyncComponent;
   }
 
+  // 加密
+export function rsaEncrypt(message){
+  let clientKey = new NodeRSA(key)
+  clientKey.setOptions({encryptionScheme: 'pkcs1'})
+  let encrypted = clientKey.encrypt(message, 'base64')
+  return encrypted
+}
+
+
+  // 手机验证
 // 手机验证
 export function phoneCheck(phoneCode) {
     if (/^\d+$/g.test(phoneCode)) {

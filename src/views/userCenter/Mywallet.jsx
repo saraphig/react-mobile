@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import ConfirmG2fComp from 'components/confirm/ConfirmG2F';
+import MyWalletComp from 'components/userCenter/MyWallet';
 
-class ConfirmG2f extends React.Component {
+class MyWallet extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -20,7 +20,7 @@ class ConfirmG2f extends React.Component {
 	render() {
 		return (
 			<div>
-				<ConfirmG2fComp />
+				<MyWalletComp />
 			</div>
 		);
 	}
@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
 });
 
 // export default Index;
-export default connect(mapStateToProps)(injectIntl(ConfirmG2f));
+export default connect(mapStateToProps)(injectIntl(MyWallet));

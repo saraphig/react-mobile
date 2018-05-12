@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import ConfirmEmailComp from 'components/register/ConfirmEmail';
+import { actionType as registerSaga } from 'models/sagas/register'
 
 class ConfirmEmail extends React.Component {
 	constructor(props) {
 		super(props);
+		let email = props.location.state.email || ''
+		this.state = {
+          email: email
+		}
 	}
 
 	componentDidMount() {
@@ -18,11 +23,40 @@ class ConfirmEmail extends React.Component {
 	}
 
 	//按钮提交跳转事件
-	_onClickBTn = () => {
+	_onClickBTn = (code) => {
 		console.log(this.props);
 		//TODO: for the featrue
-		this.props.history.push('/login');
+		let query = {
+			email: this.state.email,
+			code
+		}
+		// 验证参数
+
+		this.props.dispatch({
+			type: registerSaga.emailValidate,
+			payload: { 
+				query, 
+				success: (data) => {
+					// this.setState({
+					// 	phoneCode: data
+					// })
+					this.props.history.push('/login');
+				}, 
+				fail: this.fail,
+				error: this.error
+			}
+		})
 	};
+
+	//请求返回失败code
+	fail = (err_code) => {
+		alert(err_code)
+	}
+	
+	// 网络异常，请求失败
+	error = (err) => {
+		alert('网络异常，请求失败',err)
+	}
 
 	render() {
 		return (

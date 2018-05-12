@@ -11,7 +11,7 @@ export function register(query) {
 
 /**
  * 获取手机验证码
- * @param  phoneCode { phone, nationCode, verifyCode }
+ * @param  phoneCode { phone, nationCode, validate }
  *
  */
 export function phoneCode(query) {
@@ -23,6 +23,7 @@ export function phoneCode(query) {
   }
   
 /**
+ * 提交手机验证码
  * @param  phoneNext { phone, nationCode, verifyCode, inviterCode }
  *
  */
@@ -35,13 +36,28 @@ export function phoneNext(query) {
     });
 }
 /** 
+ * 邮箱注册
  * `email` 邮箱
  * `pwd` 密码
  * `confirm_pwd` 确认密码
  */
 export function registerEmail(query) {
     return request({
-      url: '/api/registerEmail',
+      url: '/api/m/registerEmail',
+      method: 'post',
+      data: query
+    });
+  }
+
+ /** 
+ * 邮箱验证
+ * `email` 邮箱
+ * `pwd` 密码
+ * `confirm_pwd` 确认密码
+ */
+export function emailValidate(query) {
+    return request({
+      url: '/api/m/validateEmail',
       method: 'post',
       data: query
     });

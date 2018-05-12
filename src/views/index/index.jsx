@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import { actionType as tradeSaga } from 'models/sagas/trading';
 import wsRequest from 'utils/wsRequest';
-import IndexComp from 'components/index/Index';
+import IndexComp from 'components/index/index';
 
 class Index extends React.Component {
 	constructor(props) {

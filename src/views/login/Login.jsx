@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { actionType as loginSaga } from 'models/sagas/login.js';
-import LoginComp from 'components/login/Login';
+import { actionType as loginSaga } from 'models/sagas/login';
+import LoginComp from 'components/login/login';
+import { rsaEncrypt } from 'utils/comFunction'
 
 class Login extends React.Component {
 	constructor(props) {
@@ -20,13 +21,73 @@ class Login extends React.Component {
 	}
 
 	//按钮提交跳转事件
-	_onClickBTn = () => {
+	_onClickBTn = (email, pwd, validate) => {
 		//TODO: for the featrue
 		// either C has the G2F go to the ConfrimG2F
 		// or go to the PhoneConfirm
 		//or has the double conditions
-		this.props.history.push('/confirmG2F');
+		console.log(email, pwd, validate)
+		let query = {
+			email,
+			pwd: rsaEncrypt(pwd),
+			validate,
+			lang: localStorage.getItem('language')
+		}
+		// 验证query
+
+		this.props.dispatch({
+			type: loginSaga.userLogin,
+			payload: { 
+				query, 
+				success: (data) => {
+					const {
+						is_google,
+						// token,
+						tmp_token,
+						is_first_login,
+						google_auth_token,
+						is_top_for_fee
+					  } = data[0] ? data[0][0] : {};
+
+					const params = {
+						email,
+						isFirstLogin: is_first_login,
+						// token,
+						tmp_token,
+						google_auth_token,
+						isGoogle: is_google,
+						is_top_for_fee
+					  };
+					// 如果既绑定了谷歌跟手机
+					if (data[0][0].is_google && data['0'][0].is_validate) {
+						this.props.history.push({pathname:'/doubleConfirm', state: {param}});
+					}
+					// 如果只绑定了谷歌
+					if (data[0][0].is_google && !data['0'][0].is_validate) {
+						this.props.history.push({pathname:'/confirmG2F', state: {param}});
+					}
+					// 如果只绑定了手机
+					if (!data[0][0].is_google && data['0'][0].is_validate) {
+						this.props.history.push({pathname:'/phoneConfirm', state: {param}});
+					}
+					// this.props.history.push('/confirmG2F');
+				}, 
+				fail: this.fail,
+				error: this.error
+			}
+		})
 	};
+
+	//请求返回失败code
+	fail = (err_code) => {
+		alert(err_code)
+	}
+	
+	// 网络异常，请求失败
+	error = (err) => {
+		alert('网络异常，请求失败',err)
+		console.log(err)
+	}
 
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
@@ -46,9 +107,9 @@ class Login extends React.Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	token: state.login.token
-});
+// const mapStateToProps = state => ({
+// 	token: state.login.token
+// });
 
 // export default Index;
-export default connect(mapStateToProps)(injectIntl(Login));
+export default connect()(injectIntl(Login));

@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import ConfirmG2fComp from 'components/confirm/ConfirmG2F';
+import UserCenterComp from 'components/userCenter/UserCenter';
 
-class ConfirmG2f extends React.Component {
+class UserCenter extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			_check: true
+		};
 	}
 
 	componentDidMount() {
@@ -17,10 +20,20 @@ class ConfirmG2f extends React.Component {
 		console.log(this.props.token);
 	}
 
+	_onClick = () => {
+		const { _check } = this.state;
+		this.setState({
+			_check: !_check
+		});
+	};
+
 	render() {
 		return (
 			<div>
-				<ConfirmG2fComp />
+				<UserCenterComp
+					_onClick={this._onClick}
+					_check={this.state._check}
+				/>
 			</div>
 		);
 	}
@@ -31,4 +44,4 @@ const mapStateToProps = state => ({
 });
 
 // export default Index;
-export default connect(mapStateToProps)(injectIntl(ConfirmG2f));
+export default connect(mapStateToProps)(injectIntl(UserCenter));

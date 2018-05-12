@@ -9,23 +9,32 @@ export function login(query){
     })
 }
 
-// 注册
-export function register(query) {
-    return request({
-      url: '/api/register',
-      method: 'post',
-      data: query
-    });
-}
-
-// 谷歌验证
-export function validate(query) {
+// 谷歌验证(二次验证)
+export function googleValidate(query) {
     return request({
         url: '/api/googleValidate',
         method: 'post',
         data: query
     });
 }  
+
+// 手机验证（二次验证）发送验证码
+export function phoneCode(query) {
+    return request({
+        url: '/api/m/phoneCode',
+        method: 'post',
+        data: query
+    });
+}
+
+// 手机验证（二次验证）
+export function phoneValidate(query) {
+    return request({
+        url: '/api/m/loginWithPhone',
+        method: 'post',
+        data: query
+    });
+}
 
 // 退出登录
 export function logout(query) {
@@ -40,13 +49,13 @@ export function logout(query) {
  * @param  phoneCode { phone, nationCode, verifyCode }
  *
  */
-export function phoneCode(query) {
-    return request({
-      url: '/api/phoneCode',
-      method: 'post',
-      data: query
-    });
-  }
+// export function phoneCode(query) {
+//     return request({
+//       url: '/api/phoneCode',
+//       method: 'post',
+//       data: query
+//     });
+//   }
   
 /**
  * @param  phoneNext { phone, nationCode, verifyCode, inviterCode }
@@ -60,18 +69,6 @@ export function phoneNext(query) {
         data: query
     });
 }
-/** 
- * `email` 邮箱
- * `pwd` 密码
- * `confirm_pwd` 确认密码
- */
-export function registerEmail(query) {
-    return request({
-      url: '/api/registerEmail',
-      method: 'post',
-      data: query
-    });
-  }
   
   export function phoneChecks(query) {
     return request({

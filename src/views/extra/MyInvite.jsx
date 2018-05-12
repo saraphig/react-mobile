@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
-import ConfirmG2fComp from 'components/confirm/ConfirmG2F';
+import MyInviteComp from 'components/extra/MyInvite';
 
-class ConfirmG2f extends React.Component {
+class MyInvite extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -14,13 +14,18 @@ class ConfirmG2f extends React.Component {
 		//     type: loginSaga.setToken,
 		//     paylod: '3245353'
 		// })
-		console.log(this.props.token);
 	}
+	_onClick = () => {
+		console.log(324);
+	};
 
 	render() {
 		return (
 			<div>
-				<ConfirmG2fComp />
+				<MyInviteComp
+					_onClick={this._onClick}
+					inviteUrl="http://top.one/?inviter=5a6e91d30ac3dwefwkgnwiungowinfownfiufiofiuwbfiuqbf"
+				/>
 			</div>
 		);
 	}
@@ -31,4 +36,4 @@ const mapStateToProps = state => ({
 });
 
 // export default Index;
-export default connect(mapStateToProps)(injectIntl(ConfirmG2f));
+export default connect(mapStateToProps)(injectIntl(MyInvite));
