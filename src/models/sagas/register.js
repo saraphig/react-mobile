@@ -34,7 +34,7 @@ export function* phoneNext({ payload: { query, success, fail, error} }) {
     try{
         const { data } = yield call(register.phoneNext,query)
         if (data.error_code === 200) {
-            success(data.data.msg_code);
+            success(data.data);
         } else {
             fail(data.error_code);
         }

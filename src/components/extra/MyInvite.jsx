@@ -48,19 +48,6 @@ class MyInviteComp extends React.Component {
 								_onClick={this.props._onClick}
 							/>
 						</span>
-						{/* <span className="myWallet-money-info guji">
-							资产总估值<i className="iconfont icon-ai44" />
-							<i className="iconfont icon-yincang" />
-						</span>
-						<span className="myWallet-money-info moneys">
-							888888.88888888&nbsp;BTC<span className="myWallet-money-yuan">
-								/¥23333.333333
-							</span>
-							
-						</span> */}
-						{/* <span className="myWallet-money-info">
-							<Checkbox>&nbsp;&nbsp;隐藏0资产钱包</Checkbox>
-						</span> */}
 					</div>
 					<Navbars
 						title="邀请好友"
