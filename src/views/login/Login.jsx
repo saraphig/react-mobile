@@ -26,7 +26,6 @@ class Login extends React.Component {
 		// either C has the G2F go to the ConfrimG2F
 		// or go to the PhoneConfirm
 		//or has the double conditions
-		console.log(email, pwd, validate)
 		let query = {
 			email,
 			pwd: rsaEncrypt(pwd),
@@ -46,7 +45,8 @@ class Login extends React.Component {
 						tmp_token,
 						is_first_login,
 						google_auth_token,
-						is_top_for_fee
+						is_top_for_fee,
+						phone
 					  } = data[0] ? data[0][0] : {};
 
 					const params = {
@@ -56,19 +56,26 @@ class Login extends React.Component {
 						tmp_token,
 						google_auth_token,
 						isGoogle: is_google,
-						is_top_for_fee
+						is_top_for_fee,
+						phone
 					  };
 					// 如果既绑定了谷歌跟手机
-					if (data[0][0].is_google && data['0'][0].is_validate) {
-						this.props.history.push({pathname:'/doubleConfirm', state: {param}});
+					if (data[0][0].is_google && data['0'][0].phone != '0') {
+						this.props.history.push({pathname:'/doubleConfirm', state: {params}});
 					}
 					// 如果只绑定了谷歌
-					if (data[0][0].is_google && !data['0'][0].is_validate) {
-						this.props.history.push({pathname:'/confirmG2F', state: {param}});
+					if (data[0][0].is_google && data['0'][0].phone == '0') {
+						this.props.history.push({pathname:'/confirmG2F', state: {params}});
 					}
 					// 如果只绑定了手机
-					if (!data[0][0].is_google && data['0'][0].is_validate) {
-						this.props.history.push({pathname:'/phoneConfirm', state: {param}});
+					if (!data[0][0].is_google && data['0'][0].phone != '0') {
+						this.props.history.push({pathname:'/phoneConfirm', state: {params}});
+					}
+
+					// 如果都没绑定，请前往pc端绑定谷歌或手机
+					if (!data[0][0].is_google && data['0'][0].phone == '0') {
+						// 此处需改进，换成公用提示组件
+						alert('请前往pc端绑定谷歌或手机')
 					}
 					// this.props.history.push('/confirmG2F');
 				}, 

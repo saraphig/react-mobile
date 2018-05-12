@@ -3,7 +3,7 @@ import request from 'utils/request';
 // 登录
 export function login(query){
     return request({
-        url: '/api/login',
+        url: '/api/m/login',
         method: 'post',
         data: query
     })
@@ -12,7 +12,7 @@ export function login(query){
 // 谷歌验证(二次验证)
 export function googleValidate(query) {
     return request({
-        url: '/api/googleValidate',
+        url: '/api/tokenByGoogleAuth',
         method: 'post',
         data: query
     });

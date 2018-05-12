@@ -125,7 +125,7 @@ export class Input extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			val: props.value
+			value: props.value
 		};
 	}
 	onChange(e) {
@@ -163,9 +163,11 @@ export class Input extends React.Component {
 									{this.props.time}
 								</span>
 							) : (
+								<span onClick={this.props.onClick}>
 								this.props.text || (
 									<FormattedMessage id="register.postPhoneValidate" />
 								)
+								</span>
 							)}
 						</span>
 					</div>
@@ -292,60 +294,99 @@ export class Validate extends React.Component {
 }
 
 //滑动tabs
-export const TopTabs = props => {
-	const tabs = [
-		{
-			title: props.secondTitle || (
-				<FormattedMessage id={'userCenter.phoneValidate'} />
-			)
-		},
-		{
-			title: props.firstTitle || (
-				<FormattedMessage id={'public.validate'} />
-			)
+// export const TopTabs = props => {
+export class TopTabs extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			tabs: [
+				{
+					title: props.secondTitle || (
+						<FormattedMessage id={'userCenter.phoneValidate'} />
+					)
+				},
+				{
+					title: props.firstTitle || (
+						<FormattedMessage id={'public.validate'} />
+					)
+				}
+			],
+			checked: 'public.validate'
 		}
-	];
+		console.log(props.phone)
+	}
+	// const tabs = [
+	// 	{
+	// 		title: props.secondTitle || (
+	// 			<FormattedMessage id={'userCenter.phoneValidate'} />
+	// 		)
+	// 	},
+	// 	{
+	// 		title: props.firstTitle || (
+	// 			<FormattedMessage id={'public.validate'} />
+	// 		)
+	// 	}
+	// ];
 
-	return (
-		<div>
-			<Tabs
-				tabs={tabs}
-				initialPage={props.initialPage || 1}
-				tabBarBackgroundColor="#1A1A1A"
-				tabBarActiveTextColor="#DCB276"
-				tabBarInactiveTextColor="#646464"
-				tabBarUnderlineStyle={{
-					borderColor: '#DCB276',
-					width: '22%',
-					marginLeft: '14%'
-				}}
-				tabBarTextStyle={{ fontSize: '15px' }}
-			>
-				<div
-					//
-					className="tabs-content"
+	// 判断选择的是哪种验证
+	checkedValidate(e){
+		this.setState({checked: e.title.props.id})
+		let val = 'google'
+		if (e.title.props.id == 'public.validate') {
+			val = 'google'
+		} else {
+			val = 'phone'
+		}
+		this.props.checkChange(val)
+	}
+
+	render(){
+		return (
+			<div>
+				<Tabs
+					tabs={this.state.tabs}
+					initialPage={this.props.initialPage || 1}
+					tabBarBackgroundColor="#1A1A1A"
+					tabBarActiveTextColor="#DCB276"
+					tabBarInactiveTextColor="#646464"
+					tabBarUnderlineStyle={{
+						borderColor: '#DCB276',
+						width: '22%',
+						marginLeft: '14%'
+					}}
+					tabBarTextStyle={{ fontSize: '15px' }}
+					onChange={(e) => {this.checkedValidate(e)}}
 				>
-					<Input
-						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'register.phone'} />}
-					/>
-					<Input
-						placeholder={
-							<FormattedMessage id={'register.phoneValidate'} />
-						}
-						types={1}
-					/>
-				</div>
-				<div className="tabs-content">
-					<Input
-						style={{ marginTop: 8 }}
-						placeholder={<FormattedMessage id={'google.code'} />}
-					/>
-				</div>
-			</Tabs>
-			<WhiteSpace />
-		</div>
-	);
+					<div
+						//
+						className="tabs-content"
+					>
+						<Input
+							style={{ marginTop: 8 }}
+							placeholder={this.props.phoneHolder}
+							value= {this.props.phone}
+						/>
+						<Input
+							placeholder={
+								this.props.validateHolder
+							}
+							types={1}
+							onChange={this.props.validateChange}
+							onClick={this.props.sendPhoneCode}
+						/>
+					</div>
+					<div className="tabs-content">
+						<Input
+							style={{ marginTop: 8 }}
+							placeholder={this.props.googleHolder}
+							onChange={this.props.googleChange}
+						/>
+					</div>
+				</Tabs>
+				<WhiteSpace />
+			</div>
+		);
+    }
 };
 
 //个人中心头部

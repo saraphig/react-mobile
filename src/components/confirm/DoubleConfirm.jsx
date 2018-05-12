@@ -17,9 +17,20 @@ import { Drawer, List } from 'antd-mobile';
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			validate: '',
+			googleCode: '',
+			checked: 'google'
+		}
+		console.log(props.info)
 	}
 
 	componentDidMount() {}
+
+	// 提交
+	onClick(){
+		this.props.onClick(this.state.googleCode, this.state.validate, this.state.checked)
+	}
 
 	render() {
     const {
@@ -44,10 +55,20 @@ class ConfirmG2FComp extends React.Component {
               text={formatMessage({id: 'doubleConfirm'})}
 							className="midText-doubleConfirm-transfrom"
 						/>
-						<TopTabs />
+						<TopTabs 
+							googleHolder={formatMessage({id: 'google.code'})}
+							phoneHolder={formatMessage({id: 'register.phone'})}
+							validateHolder={formatMessage({id: 'register.phoneValidate'})}
+							validateChange={(val) => {this.setState({validate: val})}}
+							googleChange={(val) => {this.setState({googleCode: val})}}
+							checkChange={(val) => {this.setState({checked: val})}}
+							phone={this.props.info.phone}
+							sendPhoneCode={this.props.sendPhoneCode}
+						/>
 						<Buttons
 							className="buttons-doubleConfirm-transform"
-              buttonText={formatMessage({id: 'depositWithdraw.submit'})}
+							buttonText={formatMessage({id: 'depositWithdraw.submit'})}
+							_onClick={() => this.onClick()}
 						/>
 					</div>
 				</Drawer>
