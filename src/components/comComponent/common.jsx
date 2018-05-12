@@ -138,10 +138,15 @@ export class Input extends React.Component {
 				<input
 					className="input"
 					style={this.props.style}
-					placeholder={this.props.placeholder ||  <FormattedMessage id="forget.email" /> }
+					placeholder={
+						this.props.placeholder || (
+							<FormattedMessage id="forget.email" />
+						)
+					}
 					value={this.state.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
+					type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
 					<div>
@@ -153,9 +158,16 @@ export class Input extends React.Component {
 									: 'input-send'
 							}
 						>
-							{this.props.disabled
-								?<FormattedMessage id="register.sended"/> `(${this.props.time})`
-								: this.props.text || <FormattedMessage id="register.postPhoneValidate" /> }
+							{this.props.disabled ? (
+								<span>
+									<FormattedMessage id="register.sended" />
+									{this.props.time}
+								</span>
+							) : (
+								this.props.text || (
+									<FormattedMessage id="register.postPhoneValidate" />
+								)
+							)}
 						</span>
 					</div>
 				)}
@@ -283,8 +295,16 @@ export class Validate extends React.Component {
 //滑动tabs
 export const TopTabs = props => {
 	const tabs = [
-		{ title: props.secondTitle || <FormattedMessage id={"userCenter.phoneValidate"}/> },
-		{ title: props.firstTitle || <FormattedMessage id={"public.validate"}/> }
+		{
+			title: props.secondTitle || (
+				<FormattedMessage id={'userCenter.phoneValidate'} />
+			)
+		},
+		{
+			title: props.firstTitle || (
+				<FormattedMessage id={'public.validate'} />
+			)
+		}
 	];
 
 	return (
@@ -306,11 +326,22 @@ export const TopTabs = props => {
 					//
 					className="tabs-content"
 				>
-					<Input style={{ marginTop: 8 }} placeholder={<FormattedMessage id={"register.phone"}/>} />
-					<Input placeholder={<FormattedMessage id={"register.phoneValidate"}/>} types={1} />
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={<FormattedMessage id={'register.phone'} />}
+					/>
+					<Input
+						placeholder={
+							<FormattedMessage id={'register.phoneValidate'} />
+						}
+						types={1}
+					/>
 				</div>
 				<div className="tabs-content">
-					<Input style={{ marginTop: 8 }} placeholder={<FormattedMessage id={"google.code"}/>} />
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={<FormattedMessage id={'google.code'} />}
+					/>
 				</div>
 			</Tabs>
 			<WhiteSpace />
@@ -326,13 +357,20 @@ export const UserTop = props => {
 			{props.user ? (
 				<div>
 					<p className="title">topcoin1234@gmail.com</p>
-					<p className="text"><FormattedMessage id={"usercenter.lastLogin"}/>：2018-03-12 11:48:00</p>
+					<p className="text">
+						<FormattedMessage id={'usercenter.lastLogin'} />：2018-03-12
+						11:48:00
+					</p>
 					<p className="text">IP: 45.32.255.166</p>
 				</div>
 			) : (
 				<div>
-					<p className="title"><FormattedMessage id={"usercenter.notLog"}/></p>
-					<p className="text"><FormattedMessage id={"usercenter.login.trade"}/></p>
+					<p className="title">
+						<FormattedMessage id={'usercenter.notLog'} />
+					</p>
+					<p className="text">
+						<FormattedMessage id={'usercenter.login.trade'} />
+					</p>
 				</div>
 			)}
 		</div>
@@ -369,9 +407,15 @@ export const ListItem = props => {
 					{/*通过传值改变字体颜色*/}
 					{props.user ? (
 						props.user.isOpen ? (
-							<span className="text-active"><FormattedMessage id={"userter.active"}/></span>
+							<span className="text-active">
+								<FormattedMessage id={'userter.active'} />
+							</span>
 						) : (
-							<span className="text"><FormattedMessage id={"usercenter.notVerified"}/></span>
+							<span className="text">
+								<FormattedMessage
+									id={'usercenter.notVerified'}
+								/>
+							</span>
 						)
 					) : null}
 
@@ -398,13 +442,8 @@ export const SwitchItem = props => {
 					<Switch checked={props._check} onClick={props._onClick} />
 				}
 			>
-				{ <FormattedMessage
-					id="userCenter.payFee"
-				/> }
-				&nbsp;
-                ({<FormattedMessage
-                    id="userCenter.discount"
-                />})
+				{<FormattedMessage id="userCenter.payFee" />}
+				&nbsp; ({<FormattedMessage id="userCenter.discount" />})
 			</List.Item>
 		</List>
 	);
@@ -414,13 +453,21 @@ export const SwitchItem = props => {
 export const sidebars = (
 	<List className="sideBars">
 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
-			<FormattedMessage id={"usercenter.login.trade"}/>
+			<FormattedMessage id={'usercenter.login.trade'} />
 		</List.Item>
-		<List.Item key={2}><FormattedMessage id={"public.index"}/></List.Item>
-		<List.Item key={3}><FormattedMessage id={"home.personalCenter"}/></List.Item>
-		<List.Item key={4}><FormattedMessage id={"home.assets"}/></List.Item>
-		<List.Item key={5}><FormattedMessage id={"usercenter.logout"}/></List.Item>
-		<List.Item key={6} onClick={() => setLanguage()}>{(localStorage.getItem("language") == 'zh') ? 'English' : '中文'}</List.Item>
+		<List.Item key={2}>
+			<FormattedMessage id={'public.index'} />
+		</List.Item>
+		<List.Item key={3}>
+			<FormattedMessage id={'home.personalCenter'} />
+		</List.Item>
+		<List.Item key={4}>
+			<FormattedMessage id={'home.assets'} />
+		</List.Item>
+		<List.Item key={5}>
+			<FormattedMessage id={'usercenter.logout'} />
+		</List.Item>
+        <List.Item key={6} onClick={() => setLanguage()}>{(localStorage.getItem("language") == 'zh') ? 'English' : '中文'}</List.Item>
 	</List>
 );
 
@@ -712,9 +759,15 @@ export const CoinTabs = props => {
 				<div>{/* <InformItem /> */}</div>
 			</Tabs>
 			<p className="tab-bar">
-				<span className="tab-item one"><FormattedMessage id={"home.volume"}/></span>
-				<span className="tab-item two"><FormattedMessage id={"tradeCenterTop.last"}/></span>
-				<span className="tab-item three"><FormattedMessage id={"tradeCenterTop.change"}/></span>
+				<span className="tab-item one">
+					<FormattedMessage id={'home.volume'} />
+				</span>
+				<span className="tab-item two">
+					<FormattedMessage id={'tradeCenterTop.last'} />
+				</span>
+				<span className="tab-item three">
+					<FormattedMessage id={'tradeCenterTop.change'} />
+				</span>
 			</p>
 		</div>
 	);
@@ -756,11 +809,13 @@ export const AlertModal = props => {
 							<i className="email-icon" />
 						</div>
 						<p className="content">
-							<FormattedMessage id={"usercenter.visist.topone"}/>
-							<FormattedMessage id={"usercenter.visist.topone"}/>
+							<FormattedMessage id={'usercenter.visist.topone'} />
+							<FormattedMessage id={'usercenter.visist.topone'} />
 						</p>
 						<div className="sure">
-							<a href="javascript:;"><FormattedMessage id={"public.confirm"}/></a>
+							<a href="javascript:;">
+								<FormattedMessage id={'public.confirm'} />
+							</a>
 						</div>
 					</div>
 				</div>
