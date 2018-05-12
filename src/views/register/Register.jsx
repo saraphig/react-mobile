@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import RegisterComp from 'components/register/Register';
 import { dun } from 'src/config';
-import { actionType as registerSaga } from 'models/sagas/register'
+import { actionType as registerSaga } from 'models/sagas/register';
 
 class Register extends React.Component {
 	constructor(props) {
@@ -12,18 +12,17 @@ class Register extends React.Component {
 		this.state = {
 			phoneCode: '',
 			mail_auth_token: '',
-		}
+			open: false
+		};
 		const {
 			intl: { formatMessage }
 		} = this.props;
 		this.formatmessage = {
-			register: formatMessage({id: 'register.register'})
-		}
+			register: formatMessage({ id: 'register.register' })
+		};
 	}
 
-	componentDidMount() {
-	}
-
+	componentDidMount() {}
 
 	//按钮提交跳转事件
 	_onClickBTn = () => {
@@ -39,23 +38,28 @@ class Register extends React.Component {
 			phone,
 			nationCode,
 			validate
-		}
+		};
 		// 验证query
 
 		this.props.dispatch({
 			type: registerSaga.getPhoneCode,
-			payload: { 
-				query, 
-				success: (data) => {
+			payload: {
+				query,
+				success: data => {
 					this.setState({
 						phoneCode: data
-					})
-				}, 
+					});
+				},
 				fail: this.fail,
 				error: this.error
 			}
-		})
-	}
+		});
+	};
+
+	//drawer
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
 
 	// 提交手机验证码
 	phoneNext = (phone, nationCode, verifyCode, inviterCode) => {
@@ -64,43 +68,49 @@ class Register extends React.Component {
 			nationCode,
 			verifyCode,
 			inviterCode
-		}
+		};
 		this.props.dispatch({
 			type: registerSaga.phoneNext,
-			payload: { 
-				query, 
-				success: (data) => {
-					console.log(data)
+			payload: {
+				query,
+				success: data => {
+					console.log(data);
 					this.setState({
 						mail_auth_token: data.mail_auth_token
-					})
-					this.props.history.push({pathname:'/registerEmail', state: { mail_auth_token: data.mail_auth_token }})
+					});
+					this.props.history.push({
+						pathname: '/registerEmail',
+						state: { mail_auth_token: data.mail_auth_token }
+					});
 				},
 				fail: this.fail,
 				error: this.error
 			}
-		})
-	}
+		});
+	};
 
 	//请求返回失败code
-	fail = (err_code) => {
-		alert(err_code)
-	}
-	
+	fail = err_code => {
+		alert(err_code);
+	};
+
 	// 网络异常，请求失败
-	error = (err) => {
-		alert('网络异常，请求失败',err)
-		console.log(err)
-	}
+	error = err => {
+		alert('网络异常，请求失败', err);
+		console.log(err);
+	};
 
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
-				<RegisterComp 
-				  _onClickBTn={this._onClickBTn}
-				  getPhoneCode={this.getPhoneCode}
-				  phoneNext={this.phoneNext}
-				  formatmessage={this.formatmessage}
+				<RegisterComp
+					_onClickBTn={this._onClickBTn}
+					getPhoneCode={this.getPhoneCode}
+					phoneNext={this.phoneNext}
+					formatmessage={this.formatmessage}
+					_onOpenChange={this._onOpenChange}
+					_open={open}
 				/>
 			</div>
 		);

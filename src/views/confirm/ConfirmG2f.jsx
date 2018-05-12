@@ -7,6 +7,9 @@ import ConfirmG2fComp from 'components/confirm/ConfirmG2F';
 class ConfirmG2f extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			open: false
+		};
 	}
 
 	componentDidMount() {
@@ -17,10 +20,18 @@ class ConfirmG2f extends React.Component {
 		console.log(this.props.token);
 	}
 
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
+
 	render() {
+		const { open } = this.state;
 		return (
 			<div>
-				<ConfirmG2fComp />
+				<ConfirmG2fComp
+					_onOpenChange={this._onOpenChange}
+					_open={open}
+				/>
 			</div>
 		);
 	}

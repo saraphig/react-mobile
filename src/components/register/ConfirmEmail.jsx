@@ -8,46 +8,66 @@ import {
 	Buttons,
 	BottomTips,
 	ServerTips,
-	Validate
+	Validate,
+	sidebars
 } from '../comComponent/common';
+import { Drawer } from 'antd-mobile';
 
 class ConfirmEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			validate: '798689'
-		}
+		};
 	}
 
 	componentDidMount() {}
 
-	_onClickBTn(){
-		alert(this.state.validate)
-		this.props._onClickBTn(this.state.validate)
+	_onClickBTn() {
+		alert(this.state.validate);
+		this.props._onClickBTn(this.state.validate);
 	}
 
 	render() {
 		return (
 			<div className="confirmEmail">
-				<Header />
-				<div className="confirmEmail-middleContent">
-					<MidText
-						text="邮箱验证"
-						className="midText-confirmEmail-transfrom"
-					/>
-					<Validate className="validate-confirmEmail-transfrom" onChange={(val) => {this.setState({validate: val})}}/>
-					<Buttons
-						className="buttons-confirmEmail-transfrom"
-						buttonText="完成"
-						_onClick={() => this._onClickBTn()}
-					/>
-					<BottomTips
-						className="bottomTips-confirmEmail-transfrom"
-						BottomTips1="没收到验证码"
-						BottomTips2="重新发送"
-						pathName="/#"
-					/>
-				</div>
+				<Header _onClick={this.props._onOpenChange} />
+				<Drawer
+					className="my-drawer"
+					style={{ minHeight: document.documentElement.clientHeight }}
+					enableDragHandle={true}
+					dragToggleDistance={0}
+					position="right"
+					sidebar={sidebars}
+					open={this.props._open}
+					onOpenChange={this.props._onOpenChange}
+					sidebarStyle={{ background: '#1B1B1B' }}
+				>
+					<div className="confirmEmail-middleContent">
+						<MidText
+							text="邮箱验证"
+							className="midText-confirmEmail-transfrom"
+						/>
+						<Validate
+							className="validate-confirmEmail-transfrom"
+							onChange={val => {
+								console.log(val);
+								this.setState({ validate: val });
+							}}
+						/>
+						<Buttons
+							className="buttons-confirmEmail-transfrom"
+							buttonText="完成"
+							_onClick={() => this._onClickBTn()}
+						/>
+						<BottomTips
+							className="bottomTips-confirmEmail-transfrom"
+							BottomTips1="没收到验证码"
+							BottomTips2="重新发送"
+							pathName="/#"
+						/>
+					</div>
+				</Drawer>
 			</div>
 		);
 	}
