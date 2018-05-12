@@ -699,5 +699,16 @@ const enUS = {
   code_80: 'The coin is not allowed to create address for deposit now',
   noDepositAddress: 'Address unavailable. Please try again later.',
   serverError: 'Network exception. Please try again later.',
+  'google.code': 'Google Authenticator code',
+  'home.assets': 'Assets',
+  'home.personalCenter': 'Personal Center',
+  'usercenter.notLog': 'not logged in',
+  'usercenter.login.trade': 'login now and trade instantly',
+  'usercenter.lastLogin': 'Last Login Time',
+  'userter.active': 'Active',
+  'usercenter.notVerified': 'Not Verified',
+  'usercenter.logout': 'Logout',
+  'usercenter.visist.topone': 'Please visit TOP.ONE to verify',
+  'home.volume': 'Volume',
 };
 export default enUS;
