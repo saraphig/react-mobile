@@ -19,7 +19,7 @@ class LoginComp extends React.Component {
 			email: '',
 			pwd: '',
 			validate: ''
-		}
+		};
 	}
 
 	componentDidMount() {
@@ -85,7 +85,11 @@ class LoginComp extends React.Component {
 					if (data) {
 						that.setState({ validate: data.validate });
 					}
-					this.props._onClickBTn(this.state.email, this.state.pwd, this.state.validate)
+					this.props._onClickBTn(
+						this.state.email,
+						this.state.pwd,
+						this.state.validate
+					);
 				},
 				onError: (err, data) => {
 					if (err) {
@@ -105,7 +109,12 @@ class LoginComp extends React.Component {
 				<Header _onClick={this.props._onOpenChange} />
 				<Drawer
 					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
+					style={{
+						minHeight: $('.header').height()
+							? document.documentElement.clientHeight -
+							  $('.header').height()
+							: document.documentElement.clientHeight
+					}}
 					enableDragHandle
 					position="right"
 					sidebar={sidebars}
@@ -125,8 +134,18 @@ class LoginComp extends React.Component {
 							className="midText-transform"
 							text="欢迎登录"
 						/>
-						<Input placeholder="您的邮箱" onChange={(val) => {this.setState({email: val})}}/>
-						<Input placeholder="您的密码" onChange={(val) => {this.setState({pwd: val})}}/>
+						<Input
+							placeholder="您的邮箱"
+							onChange={val => {
+								this.setState({ email: val });
+							}}
+						/>
+						<Input
+							placeholder="您的密码"
+							onChange={val => {
+								this.setState({ pwd: val });
+							}}
+						/>
 						{/* <Buttons
 							// style={{ marginTop: 30 }}
 							buttonText="确定"

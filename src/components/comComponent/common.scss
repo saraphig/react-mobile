@@ -1,7 +1,7 @@
 @import '../../styles/base';
 @import '../../styles/mixin';
 .button {
-    width: 316px;
+    width: 100%;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -155,7 +155,7 @@
         padding-top: 16px;
     }
     .text {
-        @extend .fz12;
+        @extend .fz13;
         color: $gray;
         padding-top: 10px;
     }
@@ -200,13 +200,19 @@
                 margin-right: 4px;
             }
             .text {
-                color: #BEBEBE;
+                color: #bebebe;
             }
             .text-active {
                 color: $golden;
             }
         }
     }
+}
+
+.list-item-friend {
+    width: 30px;
+    height: 26px;
+    margin-right: 8px;
 }
 
 .index-middleContent {
@@ -220,14 +226,14 @@
 }
 
 .tab-bar {
-    width: 90%;
-    position: fixed;
+    width: 91%;
+    position: absolute;
     display: flex;
-    top: 102px;
+    top: 44px;
     background: #1b1b1b;
     color: #bebebe;
     @extend .fz12;
-    padding: 12px 20px 10px 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 .tab-item {
@@ -273,7 +279,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     .container {
         width: 244px;
@@ -286,7 +292,7 @@
             position: relative;
             background-color: $golden;
             .email-icon {
-                background: url("../../assets/images/email@2x.png") no-repeat;
+                background: url('../../assets/images/email@2x.png') no-repeat;
                 width: 80px;
                 height: 90px;
                 background-size: cover;
@@ -342,4 +348,28 @@
 
 .sideBars .am-list-body:after {
     height: 0px !important;
+}
+
+.switch-item .am-switch .checkbox {
+    height: 22px;
+}
+
+.switch-item .am-switch .checkbox:before {
+    height: 22px;
+}
+
+.switch-item .am-switch .checkbox:after {
+    width: 20px;
+    height: 20px;
+    top: 1px;
+}
+
+.switch-item .am-switch input[type='checkbox']:checked+.checkbox {
+    height: 22px;
+}
+
+.switch-item .am-switch input[type='checkbox']:checked+.checkbox:after {
+    width: 20px;
+    height: 20px;
+    left: 10px;
 }

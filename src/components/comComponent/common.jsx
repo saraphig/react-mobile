@@ -349,11 +349,7 @@ export const ListItem = props => {
 							props.svg
 						) : (
 							<svg
-								style={{
-									width: '30px',
-									height: '26px',
-									marginRight: '8px'
-								}}
+								className="list-item-friend"
 								aria-hidden="true"
 							>
 								<use xlinkHref="#icon-friend" />
@@ -397,13 +393,8 @@ export const SwitchItem = props => {
 					<Switch checked={props._check} onClick={props._onClick} />
 				}
 			>
-				<FormattedMessage
-					id="userCenter.payFee"
-				/>
-				&nbsp;
-                (<FormattedMessage
-                    id="userCenter.discount"
-                />)
+				<FormattedMessage id="userCenter.payFee" />
+				&nbsp; (<FormattedMessage id="userCenter.discount" />)
 			</List.Item>
 		</List>
 	);
@@ -453,7 +444,7 @@ export const CoinTabs = props => {
 			>
 				<div className="inform-height">
 					{/* <InformItem /> */}
-					<div style={{ marginTop: 30 }}>
+					{/* <div style={{ marginTop: 30 }}>
 						<div className="inform-items">
 							<span className="inform-item one">
 								<p>
@@ -706,7 +697,8 @@ export const CoinTabs = props => {
 								</Button>
 							</span>
 						</div>
-					</div>
+					</div> */}
+					<ListView />
 				</div>
 				<div>{/* <InformItem /> */}</div>
 			</Tabs>
