@@ -15,6 +15,11 @@ import {
 class LoginComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			email: '',
+			pwd: '',
+			validate: ''
+		}
 	}
 
 	componentDidMount() {
@@ -80,6 +85,7 @@ class LoginComp extends React.Component {
 					if (data) {
 						that.setState({ validate: data.validate });
 					}
+					this.props._onClickBTn(this.state.email, this.state.pwd, this.state.validate)
 				},
 				onError: (err, data) => {
 					if (err) {
@@ -119,8 +125,8 @@ class LoginComp extends React.Component {
 							className="midText-transform"
 							text="欢迎登录"
 						/>
-						<Input placeholder="您的邮箱" />
-						<Input placeholder="您的密码" />
+						<Input placeholder="您的邮箱" onChange={(val) => {this.setState({email: val})}}/>
+						<Input placeholder="您的密码" onChange={(val) => {this.setState({pwd: val})}}/>
 						{/* <Buttons
 							// style={{ marginTop: 30 }}
 							buttonText="确定"

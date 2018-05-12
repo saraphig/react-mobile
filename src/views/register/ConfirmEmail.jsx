@@ -8,9 +8,9 @@ import { actionType as registerSaga } from 'models/sagas/register'
 class ConfirmEmail extends React.Component {
 	constructor(props) {
 		super(props);
-		// let email = props.ocation.state.email || ''
+		let email = props.location.state.email || ''
 		this.state = {
-          email: '890i'
+          email: email
 		}
 	}
 

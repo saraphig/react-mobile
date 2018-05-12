@@ -4,14 +4,15 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import RegisterEmailComp from 'components/register/RegisterEmail';
 import { actionType as registerSaga } from 'models/sagas/register'
+import { rsaEncrypt } from 'utils/comFunction'
 
 class RegisterEmail extends React.Component {
 	constructor(props) {
 		super(props);
-		// let mail_auth_token = props.location.state.mail_auth_token || ''
+		let mail_auth_token = props.location.state.mail_auth_token || ''
 		this.state = {
-			// mail_auth_token: mail_auth_token
-			mail_auth_token: '7907'
+			mail_auth_token: mail_auth_token
+			// mail_auth_token: '7907'
 		}
 	}
 
@@ -30,8 +31,8 @@ class RegisterEmail extends React.Component {
 		let query = {
 			mailAuthToken: this.state.mail_auth_token,
 			email,
-			pwd,
-			confirm_pwd,
+			pwd: rsaEncrypt(pwd),
+			confirm_pwd: rsaEncrypt(confirm_pwd),
 			lang: localStorage.getItem('language')
 		}
 		// 需验证query
