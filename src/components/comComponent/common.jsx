@@ -42,15 +42,22 @@ export const MidText = props => {
 export const BottomTips = props => {
 	return (
 		<p className={`BottomTips ${props.className}`} style={props.style}>
-      {props.pathName ? <Link to={props.pathName}>
-        <span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
-					{props.BottomTips2}
-				</span>
-      </Link> : <a href="javascript:;">
-        <span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right" onClick={props.onClick}>
-					{props.BottomTips2}
-				</span>
-      </a>}
+			{props.pathName ? (
+				<Link to={props.pathName}>
+					<span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
+						{props.BottomTips2}
+					</span>
+				</Link>
+			) : (
+				<a href="javascript:;">
+					<span>{props.BottomTips1}？</span>&nbsp;<span
+						className="BottomTips-right"
+						onClick={props.onClick}
+					>
+						{props.BottomTips2}
+					</span>
+				</a>
+			)}
 		</p>
 	);
 };
@@ -134,10 +141,10 @@ export class Input extends React.Component {
 		};
 	}
 	onChange(e) {
-	  const value = e.target.value;
+		const value = e.target.value;
 		// this.props.onChange(e.target.value);
-    this.props.onChange(value);
-		this.setState({value})
+		this.props.onChange(value);
+		this.setState({ value });
 	}
 	render() {
 		return (
@@ -150,7 +157,7 @@ export class Input extends React.Component {
 							<FormattedMessage id="forget.email" />
 						)
 					}
-					autoComplete={this.props.autoComplete || ''}
+					// autoComplete={this.props.autoComplete || ''}
 					value={this.state.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
@@ -173,9 +180,9 @@ export class Input extends React.Component {
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
-                  {this.props.text || (
-									<FormattedMessage id="register.postPhoneValidate" />
-								)}
+									{this.props.text || (
+										<FormattedMessage id="register.postPhoneValidate" />
+									)}
 								</span>
 							)}
 						</span>
@@ -234,8 +241,8 @@ export class Validate extends React.Component {
 			val: value
 		});
 		for (let i = 0; i < 6; i++) {
-      //if (i > value.length)
-      if (i >= value.length) {
+			//if (i > value.length)
+			if (i >= value.length) {
 				liList
 					.eq(i)
 					.find('span')
@@ -262,7 +269,7 @@ export class Validate extends React.Component {
 			// this.props.onChange(value);
 			$('#valInput').blur();
 		}
-    this.props.onChange(value);
+		this.props.onChange(value);
 	}
 
 	render() {
@@ -277,7 +284,7 @@ export class Validate extends React.Component {
 					maxLength="6"
 					value={this.state.val}
 					autoComplete="off"
-          autoFocus="true"
+					autoFocus="true"
 					onChange={this.onChange.bind(this)}
 				/>
 				<ul className="code-display">
