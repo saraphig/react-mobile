@@ -86,7 +86,7 @@ class ListViewComp extends React.Component {
 		const hei =
 			document.documentElement.clientHeight -
 			ReactDOM.findDOMNode(this.lv).parentNode.offsetTop;
-		console.log(hei);
+		// console.log(hei);
 		// simulate initial Ajax
 		setTimeout(() => {
 			genData();

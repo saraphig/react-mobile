@@ -19,13 +19,13 @@ import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
 //按钮
 export const Buttons = props => {
 	return (
-		<Button
+		<a
 			className={`button ${props.className}`}
 			style={props.style}
 			onClick={props._onClick}
 		>
 			{props.buttonText}
-		</Button>
+		</a>
 	);
 };
 
@@ -42,11 +42,22 @@ export const MidText = props => {
 export const BottomTips = props => {
 	return (
 		<p className={`BottomTips ${props.className}`} style={props.style}>
-			<Link to={props.pathName}>
-				<span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
-					{props.BottomTips2}
-				</span>
-			</Link>
+			{props.pathName ? (
+				<Link to={props.pathName}>
+					<span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
+						{props.BottomTips2}
+					</span>
+				</Link>
+			) : (
+				<a href="javascript:;">
+					<span>{props.BottomTips1}？</span>&nbsp;<span
+						className="BottomTips-right"
+						onClick={props.onClick}
+					>
+						{props.BottomTips2}
+					</span>
+				</a>
+			)}
 		</p>
 	);
 };
@@ -143,7 +154,11 @@ export class Input extends React.Component {
 							<FormattedMessage id="forget.email" />
 						)
 					}
+					// autoComplete={this.props.autoComplete || ''}
 					value={this.state.value}
+					autoComplete={this.props.autoComplete || ''}
+          // value={this.state.value}
+					value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}
@@ -165,9 +180,9 @@ export class Input extends React.Component {
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
-								this.props.text || (
-									<FormattedMessage id="register.postPhoneValidate" />
-								)
+									{this.props.text || (
+										<FormattedMessage id="register.postPhoneValidate" />
+									)}
 								</span>
 							)}
 						</span>
@@ -219,14 +234,15 @@ export class Validate extends React.Component {
 		if (value.length > 6) {
 			return;
 		}
-		console.log(e.target.value);
+		// console.log(e.target.value);
 
 		let liList = $('.code-display li');
 		this.setState({
 			val: value
 		});
 		for (let i = 0; i < 6; i++) {
-			if (i > value.length) {
+			//if (i > value.length)
+			if (i >= value.length) {
 				liList
 					.eq(i)
 					.find('span')
@@ -250,9 +266,10 @@ export class Validate extends React.Component {
 
 		//当数字等于6个时失去焦点
 		if (value.length == 6) {
-			this.props.onChange(value);
+			// this.props.onChange(value);
 			$('#valInput').blur();
 		}
+		this.props.onChange(value);
 	}
 
 	render() {
@@ -267,6 +284,7 @@ export class Validate extends React.Component {
 					maxLength="6"
 					value={this.state.val}
 					autoComplete="off"
+					autoFocus="true"
 					onChange={this.onChange.bind(this)}
 				/>
 				<ul className="code-display">
@@ -296,9 +314,9 @@ export class Validate extends React.Component {
 
 //滑动tabs
 // export const TopTabs = props => {
-export class TopTabs extends React.Component{
-	constructor(props){
-		super(props)
+export class TopTabs extends React.Component {
+	constructor(props) {
+		super(props);
 		this.state = {
 			tabs: [
 				{
@@ -313,7 +331,7 @@ export class TopTabs extends React.Component{
 				}
 			],
 			checked: 'public.validate'
-		}
+		};
 		// console.log(props.info.phone)
 	}
 	// const tabs = [
@@ -330,21 +348,21 @@ export class TopTabs extends React.Component{
 	// ];
 
 	// 判断选择的是哪种验证
-	checkedValidate(e){
-		this.setState({checked: e.title.props.id})
-		let val = 'google'
+	checkedValidate(e) {
+		this.setState({ checked: e.title.props.id });
+		let val = 'google';
 		if (e.title.props.id == 'public.validate') {
-			val = 'google'
+			val = 'google';
 		} else {
-			val = 'phone'
+			val = 'phone';
 		}
-		this.props.checkChange(val)
+		this.props.checkChange(val);
 	}
 
-	render(){
-		let tabsBox = null
-		let googleBox = null
-		let phoneBox = null
+	render() {
+		let tabsBox = null;
+		let googleBox = null;
+		let phoneBox = null;
 
 		// 如果是都绑定了
 		if (this.props.info.isGoogle && this.props.info.phone != '0') {
@@ -362,7 +380,9 @@ export class TopTabs extends React.Component{
 							marginLeft: '14%'
 						}}
 						tabBarTextStyle={{ fontSize: '15px' }}
-						onChange={(e) => {this.checkedValidate(e)}}
+						onChange={e => {
+							this.checkedValidate(e);
+						}}
 					>
 						<div
 							//
@@ -371,12 +391,10 @@ export class TopTabs extends React.Component{
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value= {this.props.info.phone}
+								value={this.props.info.phone}
 							/>
 							<Input
-								placeholder={
-									this.props.validateHolder
-								}
+								placeholder={this.props.validateHolder}
 								types={1}
 								onChange={this.props.validateChange}
 								onClick={this.props.sendPhoneCode}
@@ -392,43 +410,41 @@ export class TopTabs extends React.Component{
 					</Tabs>
 					<WhiteSpace />
 				</div>
-				)
+			);
 		}
 
 		// 如果只绑定了谷歌
-		if (this.props.info.isGoogle && this.props.info.phone == '0'){
-			googleBox= (
+		if (this.props.info.isGoogle && this.props.info.phone == '0') {
+			googleBox = (
 				<div className="tabs-content">
-							<Input
-								style={{ marginTop: 8 }}
-								placeholder={this.props.googleHolder}
-								onChange={this.props.googleChange}
-							/>
-						</div>
-			)
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={this.props.googleHolder}
+						onChange={this.props.googleChange}
+					/>
+				</div>
+			);
 		}
 		// 如果只绑定了手机
-		if (!this.props.info.isGoogle && this.props.info.phone != '0'){
-			phoneBox= (
+		if (!this.props.info.isGoogle && this.props.info.phone != '0') {
+			phoneBox = (
 				<div
-							//
+					//
 					className="tabs-content"
-			 	>
+				>
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value= {this.props.info.phone}
+						value={this.props.info.phone}
 					/>
 					<Input
-						placeholder={
-							this.props.validateHolder
-						}
+						placeholder={this.props.validateHolder}
 						types={1}
 						onChange={this.props.validateChange}
 						onClick={this.props.sendPhoneCode}
 					/>
 				</div>
-			)
+			);
 		}
 		return (
 			<div>
@@ -478,8 +494,8 @@ export class TopTabs extends React.Component{
 				<WhiteSpace /> */}
 			</div>
 		);
-    }
-};
+	}
+}
 
 //个人中心头部
 export const UserTop = props => {
