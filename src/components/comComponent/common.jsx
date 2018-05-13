@@ -643,7 +643,7 @@ export const CoinTabs = props => {
 					// width: '22%',
 					// marginLeft: '14%'
 				}}
-				tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
+				// tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
 			>
 				<div className="inform-height">
 					{/* <InformItem /> */}

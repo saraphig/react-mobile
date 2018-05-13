@@ -2,6 +2,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 
 // reducer(action)
 import { actionType as loginReducer } from '../reducers/login';
+import { actionType as userCenterReducer } from '../reducers/userCenter';
 
 // api接口
 import * as login from 'api/login';
@@ -27,6 +28,7 @@ export function* userLogin({ payload: { query, success, fail, error} }) {
     } catch(err){
         error(err)
     }
+    yield put(userCenterReducer.setUserInfo, data.data)
 }
 
 // google验证

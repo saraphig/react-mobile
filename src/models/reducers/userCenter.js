@@ -5,12 +5,16 @@ const initState = {
 };
 
 export const actionType = {
-    setUserInfo: 'userCenter/info'
+    setUserInfo: 'userCenter/info',
+    getUserInfo: 'userCenter/getMyInfo',
 };
 
 const reducer = {
     [actionType.setUserInfo]: (state, { data }) => {
         return {...state, userInfo: data}
+    },
+    [actionType.getUserInfo]: (state, { data }) => {
+        return {...state, info: data}
     },
 }
 
