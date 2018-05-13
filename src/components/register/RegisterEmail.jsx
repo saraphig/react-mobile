@@ -11,7 +11,7 @@ import {
 	ServerTips
 } from '../comComponent/common';
 import Drawers from 'components/container/Drawers';
-import { topToast } from 'utils/comFunction'
+import { topToast } from 'utils/comFunction';
 
 class RegisterEmailComp extends React.Component {
 	constructor(props) {
@@ -61,6 +61,8 @@ class RegisterEmailComp extends React.Component {
 					onChange={val => {
 						this.setState({ pwd: val });
 					}}
+					type="password"
+					autoComplete="new-password"
 				/>
 				<Input
 					placeholder={formatMessage({
@@ -69,6 +71,8 @@ class RegisterEmailComp extends React.Component {
 					onChange={val => {
 						this.setState({ confirm_pwd: val });
 					}}
+					type="password"
+					autoComplete="new-password"
 				/>
 				<ServerTips
 					className="ServerTips-registerEmail-transfrom"
