@@ -131,7 +131,8 @@ class RegisterComp extends React.Component {
 		const {
 			intl: { formatMessage },
       count,
-      sended
+      sended,
+      isRefreshCaptcha,
 		} = this.props;
 		const content = (
 			<div className="register-middleContent">
@@ -187,6 +188,11 @@ class RegisterComp extends React.Component {
 		// 倒计时结束初始化发送验证码
 		if(count === 0){
 		  this.initNeCaptcha();
+    }
+    // 请求失败初始化发送验证码
+    if(isRefreshCaptcha){
+      this.initNeCaptcha();
+      this.props.setIsRefreshCaptcha();
     }
 		return (
 			<div className="register">

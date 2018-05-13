@@ -689,6 +689,7 @@ const zh_CN = {
   'recommendedCode': '推荐码(选填)',
   'myAssets': '我的资产',
   'public.sure': '确 定',
-  serverError: '当前网络异常，请稍后重试',
+  'serverError': '当前网络异常，请稍后重试',
+  'goPC': '请前往pc端绑定谷歌或手机',
 };
 export default zh_CN;

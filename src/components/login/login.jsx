@@ -6,6 +6,7 @@ import { List, NavBar, Icon } from 'antd-mobile';
 import Drawers from 'components/container/Drawers';
 import { dun } from 'src/config';
 import { MidText, Input, Buttons, BottomTips } from '../comComponent/common';
+import { topToast, emailCheck } from 'utils/comFunction'
 
 class LoginComp extends React.Component {
 	constructor(props) {
@@ -76,6 +77,16 @@ class LoginComp extends React.Component {
 					// 	'#fff';
 				},
 				onVerify: (err, data) => {
+          if(!emailCheck(this.state.email)){
+            topToast(formatMessage({id: 'register.validateInfo.emailError'}));
+            this.initNeCaptcha();
+            return
+          }
+          if(!this.state.pwd){
+            topToast(formatMessage({id: 'login.enterPassword'}));
+            this.initNeCaptcha();
+            return
+          }
 					let that = this;
 					if (data) {
 						that.setState({ validate: data.validate });
@@ -100,8 +111,13 @@ class LoginComp extends React.Component {
 
 	render() {
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+      isRefreshCaptcha,
 		} = this.props;
+		if(isRefreshCaptcha){
+		  this.initNeCaptcha();
+		  this.props.setIsRefreshCaptcha();
+    }
 		const content = (
 			<div className="login-middleContent">
 				<p className="middleContent-img-logo">
@@ -129,7 +145,7 @@ class LoginComp extends React.Component {
 					})}
 					type="password"
 					autoComplete="new-password"
-					onChange={val => {}}
+					onChange={val => {this.setState({pwd: val})}}
 				/>
 				{/* <Buttons
 			// style={{ marginTop: 30 }}
