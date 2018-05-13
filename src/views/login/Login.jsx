@@ -59,18 +59,19 @@ class Login extends React.Component {
 						is_top_for_fee,
 						phone
 					  };
-					// 如果既绑定了谷歌跟手机
-					if (data[0][0].is_google && data['0'][0].phone != '0') {
-						this.props.history.push({pathname:'/doubleConfirm', state: {params}});
-					}
-					// 如果只绑定了谷歌
-					if (data[0][0].is_google && data['0'][0].phone == '0') {
-						this.props.history.push({pathname:'/confirmG2F', state: {params}});
-					}
-					// 如果只绑定了手机
-					if (!data[0][0].is_google && data['0'][0].phone != '0') {
-						this.props.history.push({pathname:'/phoneConfirm', state: {params}});
-					}
+					  this.props.history.push({pathname:'/doubleConfirm', state: {params}});
+					// // 如果既绑定了谷歌跟手机
+					// if (data[0][0].is_google && data['0'][0].phone != '0') {
+					// 	this.props.history.push({pathname:'/doubleConfirm', state: {params}});
+					// }
+					// // 如果只绑定了谷歌
+					// if (data[0][0].is_google && data['0'][0].phone == '0') {
+					// 	this.props.history.push({pathname:'/confirmG2F', state: {params}});
+					// }
+					// // 如果只绑定了手机
+					// if (!data[0][0].is_google && data['0'][0].phone != '0') {
+					// 	this.props.history.push({pathname:'/phoneConfirm', state: {params}});
+					// }
 
 					// 如果都没绑定，请前往pc端绑定谷歌或手机
 					if (!data[0][0].is_google && data['0'][0].phone == '0') {

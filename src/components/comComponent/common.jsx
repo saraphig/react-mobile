@@ -315,7 +315,7 @@ export class TopTabs extends React.Component{
 			],
 			checked: 'public.validate'
 		}
-		console.log(props.phone)
+		// console.log(props.info.phone)
 	}
 	// const tabs = [
 	// 	{
@@ -343,9 +343,100 @@ export class TopTabs extends React.Component{
 	}
 
 	render(){
+		let tabsBox = null
+		let googleBox = null
+		let phoneBox = null
+
+		// 如果是都绑定了
+		if (this.props.info.isGoogle && this.props.info.phone != '0') {
+			tabsBox = (
+				<div>
+					<Tabs
+						tabs={this.state.tabs}
+						initialPage={this.props.initialPage || 1}
+						tabBarBackgroundColor="#1A1A1A"
+						tabBarActiveTextColor="#DCB276"
+						tabBarInactiveTextColor="#646464"
+						tabBarUnderlineStyle={{
+							borderColor: '#DCB276',
+							width: '22%',
+							marginLeft: '14%'
+						}}
+						tabBarTextStyle={{ fontSize: '15px' }}
+						onChange={(e) => {this.checkedValidate(e)}}
+					>
+						<div
+							//
+							className="tabs-content"
+						>
+							<Input
+								style={{ marginTop: 8 }}
+								placeholder={this.props.phoneHolder}
+								value= {this.props.info.phone}
+							/>
+							<Input
+								placeholder={
+									this.props.validateHolder
+								}
+								types={1}
+								onChange={this.props.validateChange}
+								onClick={this.props.sendPhoneCode}
+							/>
+						</div>
+						<div className="tabs-content">
+							<Input
+								style={{ marginTop: 8 }}
+								placeholder={this.props.googleHolder}
+								onChange={this.props.googleChange}
+							/>
+						</div>
+					</Tabs>
+					<WhiteSpace />
+				</div>
+				)
+		}
+
+		// 如果只绑定了谷歌
+		if (this.props.info.isGoogle && this.props.info.phone == '0'){
+			googleBox= (
+				<div className="tabs-content">
+							<Input
+								style={{ marginTop: 8 }}
+								placeholder={this.props.googleHolder}
+								onChange={this.props.googleChange}
+							/>
+						</div>
+			)
+		}
+		// 如果只绑定了手机
+		if (!this.props.info.isGoogle && this.props.info.phone != '0'){
+			phoneBox= (
+				<div
+							//
+					className="tabs-content"
+			 	>
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={this.props.phoneHolder}
+						value= {this.props.info.phone}
+					/>
+					<Input
+						placeholder={
+							this.props.validateHolder
+						}
+						types={1}
+						onChange={this.props.validateChange}
+						onClick={this.props.sendPhoneCode}
+					/>
+				</div>
+			)
+		}
 		return (
 			<div>
-				<Tabs
+				{tabsBox}
+				{googleBox}
+				{phoneBox}
+				{/* <Tabs
 					tabs={this.state.tabs}
 					initialPage={this.props.initialPage || 1}
 					tabBarBackgroundColor="#1A1A1A"
@@ -366,7 +457,7 @@ export class TopTabs extends React.Component{
 						<Input
 							style={{ marginTop: 8 }}
 							placeholder={this.props.phoneHolder}
-							value= {this.props.phone}
+							value= {this.props.info.phone}
 						/>
 						<Input
 							placeholder={
@@ -385,7 +476,7 @@ export class TopTabs extends React.Component{
 						/>
 					</div>
 				</Tabs>
-				<WhiteSpace />
+				<WhiteSpace /> */}
 			</div>
 		);
     }

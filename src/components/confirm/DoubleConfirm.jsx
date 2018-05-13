@@ -17,12 +17,18 @@ import { Drawer, List } from 'antd-mobile';
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {
 		super(props);
+		let checked = ''
+		if (!props.info.isGoogle) {
+			checked = 'phone'
+		} else {
+			checked = 'google'
+		}
 		this.state = {
 			validate: '',
 			googleCode: '',
-			checked: 'google'
+			checked: checked
 		}
-		console.log(props.info)
+		// console.log(props.info)
 	}
 
 	componentDidMount() {}
@@ -37,29 +43,29 @@ class ConfirmG2FComp extends React.Component {
 			intl: { formatMessage }
 		} = this.props;
 
-		const content = (
-			<div className="doubleConfirm-middleContent">
-				<MidText
-					text={formatMessage({ id: 'doubleConfirm' })}
-					className="midText-doubleConfirm-transfrom"
-				/>
-				<TopTabs
-					placeholder1={formatMessage({ id: 'register.phone' })}
-					placeholder2={formatMessage({
-						id: 'register.phoneValidate'
-					})}
-					placeholder3={formatMessage({
-						id: 'google.code'
-					})}
-				/>
-				<Buttons
-					className="buttons-doubleConfirm-transform"
-					buttonText={formatMessage({
-						id: 'depositWithdraw.submit'
-					})}
-				/>
-			</div>
-		);
+		// const content = (
+		// 	<div className="doubleConfirm-middleContent">
+		// 		<MidText
+		// 			text={formatMessage({ id: 'doubleConfirm' })}
+		// 			className="midText-doubleConfirm-transfrom"
+		// 		/>
+		// 		<TopTabs
+		// 			placeholder1={formatMessage({ id: 'register.phone' })}
+		// 			placeholder2={formatMessage({
+		// 				id: 'register.phoneValidate'
+		// 			})}
+		// 			placeholder3={formatMessage({
+		// 				id: 'google.code'
+		// 			})}
+		// 		/>
+		// 		<Buttons
+		// 			className="buttons-doubleConfirm-transform"
+		// 			buttonText={formatMessage({
+		// 				id: 'depositWithdraw.submit'
+		// 			})}
+		// 		/>
+		// 	</div>
+		// );
 		return (
 			<div className="DoubleConfirm">
 				<Header _onClick={this.props._onOpenChange}/>
@@ -69,7 +75,7 @@ class ConfirmG2FComp extends React.Component {
 					enableDragHandle={true}
 					dragToggleDistance={0}
 					position="right"
-					sidebar={sidebars}
+					// sidebar={sidebars}
 					open={this.props._open}
 					onOpenChange={this.props._onOpenChange}
 					sidebarStyle={{ background: '#1B1B1B' }}
@@ -86,7 +92,7 @@ class ConfirmG2FComp extends React.Component {
 							validateChange={(val) => {this.setState({validate: val})}}
 							googleChange={(val) => {this.setState({googleCode: val})}}
 							checkChange={(val) => {this.setState({checked: val})}}
-							phone={this.props.info.phone}
+							info={this.props.info}
 							sendPhoneCode={this.props.sendPhoneCode}
 						/>
 						<Buttons
