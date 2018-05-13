@@ -143,6 +143,7 @@ export class Input extends React.Component {
 							<FormattedMessage id="forget.email" />
 						)
 					}
+					autoComplete={this.props.autoComplete}
 					value={this.state.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}

@@ -130,6 +130,8 @@ class LoginComp extends React.Component {
 					onChange={val => {
 						this.setState({ pwd: val });
 					}}
+					type="password"
+					autoComplete="new-password"
 				/>
 				{/* <Buttons
 			// style={{ marginTop: 30 }}
