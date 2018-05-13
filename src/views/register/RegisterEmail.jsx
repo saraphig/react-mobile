@@ -5,6 +5,7 @@ import { actionType as loginSaga } from 'models/sagas/login.js';
 import RegisterEmailComp from 'components/register/RegisterEmail';
 import { actionType as registerSaga } from 'models/sagas/register';
 import { rsaEncrypt } from 'utils/comFunction';
+import { topToast } from 'utils/comFunction'
 
 class RegisterEmail extends React.Component {
 	constructor(props) {
@@ -58,12 +59,20 @@ class RegisterEmail extends React.Component {
 
 	//请求返回失败code
 	fail = err_code => {
-		alert(err_code);
+		// alert(err_code);
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({id: `code_${err_code}`}));
 	};
 
 	// 网络异常，请求失败
 	error = err => {
-		alert('网络异常，请求失败', err);
+		// alert('网络异常，请求失败', err);
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({id: 'serverError'}));
 	};
 
 	//drawer

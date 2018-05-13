@@ -4,6 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import ConfirmEmailComp from 'components/register/ConfirmEmail';
 import { actionType as registerSaga } from 'models/sagas/register';
+import { topToast } from 'utils/comFunction'
 
 class ConfirmEmail extends React.Component {
 	constructor(props) {
@@ -52,12 +53,20 @@ class ConfirmEmail extends React.Component {
 
 	//请求返回失败code
 	fail = err_code => {
-		alert(err_code);
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({id: `code_${err_code}`}));
+		// alert(err_code);
 	};
 
 	// 网络异常，请求失败
 	error = err => {
-		alert('网络异常，请求失败', err);
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({id: 'serverError'}));
+		// alert('网络异常，请求失败', err);
 	};
 
 	//drawer

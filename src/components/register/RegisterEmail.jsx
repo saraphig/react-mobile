@@ -11,6 +11,7 @@ import {
 	ServerTips
 } from '../comComponent/common';
 import Drawers from 'components/container/Drawers';
+import { topToast } from 'utils/comFunction'
 
 class RegisterEmailComp extends React.Component {
 	constructor(props) {
