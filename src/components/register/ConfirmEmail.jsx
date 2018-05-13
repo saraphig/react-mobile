@@ -16,14 +16,15 @@ class ConfirmEmailComp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			validate: '798689'
+			// validate: '798689'
+      validate: ''
 		};
 	}
 
 	componentDidMount() {}
 
 	_onClickBTn() {
-		alert(this.state.validate);
+		// alert(this.state.validate);
 		this.props._onClickBTn(this.state.validate);
 	}
 
@@ -58,7 +59,8 @@ class ConfirmEmailComp extends React.Component {
 					BottomTips2={formatMessage({
 						id: 'resendEmail.resend'
 					})}
-					pathName="/#"
+          onClick={() => { this.props.resendEmail() }}
+					// pathName="/#"
 				/>
 			</div>
 		);

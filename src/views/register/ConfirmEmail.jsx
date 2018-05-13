@@ -74,6 +74,29 @@ class ConfirmEmail extends React.Component {
 		this.setState({ open: !this.state.open });
 	};
 
+	// 底部的重新发送邮件
+  resendEmail = () => {
+    const { email, mailAuthToken, pwd, confirm_pwd, lang } = this.props.location.state;
+    const query = {
+      email,
+      mailAuthToken,
+      pwd,
+      confirm_pwd,
+      lang,
+    };
+    this.props.dispatch({
+      type: registerSaga.registerEmail,
+      payload: {
+        query,
+        success: data => {
+          this.fail(data.msg_code)
+        },
+        fail: this.fail,
+        error: this.error
+      }
+    });
+  };
+
 	render() {
 		const { open } = this.state;
 		return (
@@ -82,6 +105,7 @@ class ConfirmEmail extends React.Component {
 					_onClickBTn={this._onClickBTn}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
+          resendEmail={this.resendEmail}
 				/>
 			</div>
 		);
