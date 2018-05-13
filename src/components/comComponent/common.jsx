@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { localeList, defaultConfig } from '../../config';
 import './common.scss';
 import {
 	Tabs,
@@ -956,20 +955,6 @@ export const AlertModal = props => {
 	);
 };
 
-// 多语言切换
-const setLanguage = () => {
-	const language = localStorage.getItem('language');
-	let locale = {};
-	if (language == 'en') {
-		locale = localeList[1];
-	} else if (language == 'zh') {
-		locale = localeList[0];
-	}
-	localStorage.setItem('timezone', locale.timezone);
-	localStorage.setItem('language', locale.language);
-	localStorage.setItem('languageText', locale.languageText);
-	window.location.reload();
-};
 // //抽屉
 // export const Drawers = props => {
 // 	return (
