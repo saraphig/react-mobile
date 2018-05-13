@@ -44,7 +44,7 @@ class ConfirmEmailComp extends React.Component {
 				<Validate
 					className="validate-confirmEmail-transfrom"
 					onChange={val => {
-						console.log(val);
+						// console.log(val);
 						this.setState({ validate: val });
 					}}
 				/>

@@ -19,13 +19,13 @@ import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
 //按钮
 export const Buttons = props => {
 	return (
-		<Button
+		<a
 			className={`button ${props.className}`}
 			style={props.style}
 			onClick={props._onClick}
 		>
 			{props.buttonText}
-		</Button>
+		</a>
 	);
 };
 
@@ -226,7 +226,7 @@ export class Validate extends React.Component {
 		if (value.length > 6) {
 			return;
 		}
-		console.log(e.target.value);
+		// console.log(e.target.value);
 
 		let liList = $('.code-display li');
 		this.setState({
@@ -306,9 +306,9 @@ export class Validate extends React.Component {
 
 //滑动tabs
 // export const TopTabs = props => {
-export class TopTabs extends React.Component{
-	constructor(props){
-		super(props)
+export class TopTabs extends React.Component {
+	constructor(props) {
+		super(props);
 		this.state = {
 			tabs: [
 				{
@@ -323,7 +323,7 @@ export class TopTabs extends React.Component{
 				}
 			],
 			checked: 'public.validate'
-		}
+		};
 		// console.log(props.info.phone)
 	}
 	// const tabs = [
@@ -340,21 +340,21 @@ export class TopTabs extends React.Component{
 	// ];
 
 	// 判断选择的是哪种验证
-	checkedValidate(e){
-		this.setState({checked: e.title.props.id})
-		let val = 'google'
+	checkedValidate(e) {
+		this.setState({ checked: e.title.props.id });
+		let val = 'google';
 		if (e.title.props.id == 'public.validate') {
-			val = 'google'
+			val = 'google';
 		} else {
-			val = 'phone'
+			val = 'phone';
 		}
-		this.props.checkChange(val)
+		this.props.checkChange(val);
 	}
 
-	render(){
-		let tabsBox = null
-		let googleBox = null
-		let phoneBox = null
+	render() {
+		let tabsBox = null;
+		let googleBox = null;
+		let phoneBox = null;
 
 		// 如果是都绑定了
 		if (this.props.info.isGoogle && this.props.info.phone != '0') {
@@ -372,7 +372,9 @@ export class TopTabs extends React.Component{
 							marginLeft: '14%'
 						}}
 						tabBarTextStyle={{ fontSize: '15px' }}
-						onChange={(e) => {this.checkedValidate(e)}}
+						onChange={e => {
+							this.checkedValidate(e);
+						}}
 					>
 						<div
 							//
@@ -381,12 +383,10 @@ export class TopTabs extends React.Component{
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value= {this.props.info.phone}
+								value={this.props.info.phone}
 							/>
 							<Input
-								placeholder={
-									this.props.validateHolder
-								}
+								placeholder={this.props.validateHolder}
 								types={1}
 								onChange={this.props.validateChange}
 								onClick={this.props.sendPhoneCode}
@@ -402,43 +402,41 @@ export class TopTabs extends React.Component{
 					</Tabs>
 					<WhiteSpace />
 				</div>
-				)
+			);
 		}
 
 		// 如果只绑定了谷歌
-		if (this.props.info.isGoogle && this.props.info.phone == '0'){
-			googleBox= (
+		if (this.props.info.isGoogle && this.props.info.phone == '0') {
+			googleBox = (
 				<div className="tabs-content">
-							<Input
-								style={{ marginTop: 8 }}
-								placeholder={this.props.googleHolder}
-								onChange={this.props.googleChange}
-							/>
-						</div>
-			)
+					<Input
+						style={{ marginTop: 8 }}
+						placeholder={this.props.googleHolder}
+						onChange={this.props.googleChange}
+					/>
+				</div>
+			);
 		}
 		// 如果只绑定了手机
-		if (!this.props.info.isGoogle && this.props.info.phone != '0'){
-			phoneBox= (
+		if (!this.props.info.isGoogle && this.props.info.phone != '0') {
+			phoneBox = (
 				<div
-							//
+					//
 					className="tabs-content"
-			 	>
+				>
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value= {this.props.info.phone}
+						value={this.props.info.phone}
 					/>
 					<Input
-						placeholder={
-							this.props.validateHolder
-						}
+						placeholder={this.props.validateHolder}
 						types={1}
 						onChange={this.props.validateChange}
 						onClick={this.props.sendPhoneCode}
 					/>
 				</div>
-			)
+			);
 		}
 		return (
 			<div>
@@ -488,8 +486,8 @@ export class TopTabs extends React.Component{
 				<WhiteSpace /> */}
 			</div>
 		);
-    }
-};
+	}
+}
 
 //个人中心头部
 export const UserTop = props => {
@@ -522,7 +520,7 @@ export const UserTop = props => {
 //个人中心列表
 export const ListItem = props => {
 	return (
-		<div className="list-item">
+		<div className="list-item" onClick={props._onClick}>
 			<div className={`list-item-line ${props.classNameItemline}`}>
 				<div className="item-left">
 					<span className="left-icon">
@@ -588,28 +586,30 @@ export const SwitchItem = props => {
 };
 
 //侧栏内容框
-export const sidebars = (
-	<List className="sideBars">
-		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
-			<FormattedMessage id={'usercenter.login.trade'} />
-		</List.Item>
-		<List.Item key={2}>
-			<FormattedMessage id={'public.index'} />
-		</List.Item>
-		<List.Item key={3}>
-			<FormattedMessage id={'home.personalCenter'} />
-		</List.Item>
-		<List.Item key={4}>
-			<FormattedMessage id={'home.assets'} />
-		</List.Item>
-		<List.Item key={5}>
-			<FormattedMessage id={'usercenter.logout'} />
-		</List.Item>
-		<List.Item key={6} onClick={() => setLanguage()}>
-			{localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
-		</List.Item>
-	</List>
-);
+// export const sidebars = (
+// 	<List className="sideBars">
+// 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
+// 			<FormattedMessage id={'usercenter.login.trade'} />
+// 		</List.Item>
+// 		<List.Item key={2}>
+// 			<Link to="/index">
+// 				<FormattedMessage id={'public.index'} />
+// 			</Link>
+// 		</List.Item>
+// 		<List.Item key={3}>
+// 			<FormattedMessage id={'home.personalCenter'} />
+// 		</List.Item>
+// 		<List.Item key={4}>
+// 			<FormattedMessage id={'home.assets'} />
+// 		</List.Item>
+// 		<List.Item key={5}>
+// 			<FormattedMessage id={'usercenter.logout'} />
+// 		</List.Item>
+// 		<List.Item key={6} onClick={() => setLanguage()}>
+// 			{localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
+// 		</List.Item>
+// 	</List>
+// );
 
 //币种tabs
 export const CoinTabs = props => {
@@ -951,10 +951,9 @@ export const AlertModal = props => {
 						</div>
 						<p className="content">
 							<FormattedMessage id={'usercenter.visist.topone'} />
-							<FormattedMessage id={'usercenter.visist.topone'} />
 						</p>
 						<div className="sure">
-							<a href="javascript:;">
+							<a href="javascript:;" onClick={props._onClick}>
 								<FormattedMessage id={'public.confirm'} />
 							</a>
 						</div>

@@ -26,7 +26,7 @@ class ChooseLanguageComp extends React.Component {
 	componentDidMount() {}
 
 	onChange = value => {
-		console.log('checkbox');
+		// console.log('checkbox');
 		this.setState({
 			value
 		});

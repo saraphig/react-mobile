@@ -24,8 +24,8 @@
 .switch-item .am-list-content {
 	font-size: 13px !important;
 	color: #000 !important;
-    padding-top: 8px !important;
-    padding-left: 10px;
+	padding-top: 8px !important;
+	padding-left: 10px;
 }
 
 .first-item-line {
@@ -51,4 +51,12 @@
 
 .last-item {
 	border-bottom: 0 !important;
+}
+
+.am-modal-content {
+	background: rgba(0, 0, 0, 0);
+}
+
+.am-modal-button-group-v .am-modal-button:before {
+	height: 0px !important;
 }
