@@ -141,10 +141,7 @@ export class Input extends React.Component {
 		};
 	}
 	onChange(e) {
-		const value = e.target.value;
-		// this.props.onChange(e.target.value);
-		this.props.onChange(value);
-		this.setState({ value });
+		this.props.onChange(e.target.value);
 	}
 	render() {
 		return (
@@ -159,6 +156,9 @@ export class Input extends React.Component {
 					}
 					// autoComplete={this.props.autoComplete || ''}
 					value={this.state.value}
+					autoComplete={this.props.autoComplete || ''}
+          // value={this.state.value}
+					value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}
@@ -528,7 +528,7 @@ export const UserTop = props => {
 //个人中心列表
 export const ListItem = props => {
 	return (
-		<div className="list-item" onClick={props._onClick}>
+		<div className="list-item">
 			<div className={`list-item-line ${props.classNameItemline}`}>
 				<div className="item-left">
 					<span className="left-icon">
@@ -594,30 +594,28 @@ export const SwitchItem = props => {
 };
 
 //侧栏内容框
-// export const sidebars = (
-// 	<List className="sideBars">
-// 		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
-// 			<FormattedMessage id={'usercenter.login.trade'} />
-// 		</List.Item>
-// 		<List.Item key={2}>
-// 			<Link to="/index">
-// 				<FormattedMessage id={'public.index'} />
-// 			</Link>
-// 		</List.Item>
-// 		<List.Item key={3}>
-// 			<FormattedMessage id={'home.personalCenter'} />
-// 		</List.Item>
-// 		<List.Item key={4}>
-// 			<FormattedMessage id={'home.assets'} />
-// 		</List.Item>
-// 		<List.Item key={5}>
-// 			<FormattedMessage id={'usercenter.logout'} />
-// 		</List.Item>
-// 		<List.Item key={6} onClick={() => setLanguage()}>
-// 			{localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
-// 		</List.Item>
-// 	</List>
-// );
+export const sidebars = (
+	<List className="sideBars">
+		<List.Item key={1} thumb={require('assets/images/iconman.png')}>
+			<FormattedMessage id={'usercenter.login.trade'} />
+		</List.Item>
+		<List.Item key={2}>
+			<FormattedMessage id={'public.index'} />
+		</List.Item>
+		<List.Item key={3}>
+			<FormattedMessage id={'home.personalCenter'} />
+		</List.Item>
+		<List.Item key={4}>
+			<FormattedMessage id={'home.assets'} />
+		</List.Item>
+		<List.Item key={5}>
+			<FormattedMessage id={'usercenter.logout'} />
+		</List.Item>
+		<List.Item key={6} onClick={() => setLanguage()}>
+			{localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
+		</List.Item>
+	</List>
+);
 
 //币种tabs
 export const CoinTabs = props => {
@@ -959,9 +957,10 @@ export const AlertModal = props => {
 						</div>
 						<p className="content">
 							<FormattedMessage id={'usercenter.visist.topone'} />
+							<FormattedMessage id={'usercenter.visist.topone'} />
 						</p>
 						<div className="sure">
-							<a href="javascript:;" onClick={props._onClick}>
+							<a href="javascript:;">
 								<FormattedMessage id={'public.confirm'} />
 							</a>
 						</div>
