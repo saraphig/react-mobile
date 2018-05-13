@@ -25,7 +25,7 @@ class RegisterComp extends React.Component {
 			nationCode: '86', // 区号
 			validate: '', // 易盾验证码
 			verifyCode: '', // 手机验证码
-			inviterCode: '' // 邀请码
+			inviterCode: location.search ? location.search.split('=')[1] : '' // 邀请码
 		};
 		console.log('=====', props.formatmessage);
 	}
@@ -123,29 +123,13 @@ class RegisterComp extends React.Component {
 		);
 	}
 
-	//倒计时
-  countDown = () => {
-    const count = this.state.count - 1;
-    this.setState({
-      count
-    });
-    if (count > 0) {
-      this.timer = setTimeout(() => {
-        this.countDown();
-      }, 1000);
-    } else {
-      this.setState({
-        count: 60,
-        sended: false
-      });
-      clearTimeout(this.timer);
-    }
-  };
 
 	render() {
 		const { pathName } = this.state;
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+      count,
+      sended
 		} = this.props;
 		const content = (
 			<div className="register-middleContent">
@@ -165,6 +149,8 @@ class RegisterComp extends React.Component {
 						id: 'register.phoneValidate'
 					})}
 					types={1}
+          disabled={sended}
+          time={count}
 					text={formatMessage({
 						id: 'register.postPhoneValidate'
 					})}
@@ -175,6 +161,7 @@ class RegisterComp extends React.Component {
 					placeholder={formatMessage({
 						id: 'recommendedCode'
 					})}
+          value={this.state.inviterCode}
 					onChange={val => this.setState({ inviterCode: val })}
 				/>
 				<Buttons
@@ -195,6 +182,10 @@ class RegisterComp extends React.Component {
 				/>
 			</div>
 		);
+		// 倒计时结束初始化发送验证码
+		if(count === 0){
+		  this.initNeCaptcha();
+    }
 		return (
 			<div className="register">
 				<Header _onClick={this.props._onOpenChange} />

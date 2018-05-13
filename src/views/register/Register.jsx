@@ -5,7 +5,7 @@ import { actionType as loginSaga } from 'models/sagas/login.js';
 import RegisterComp from 'components/register/Register';
 import { dun } from 'src/config';
 import { actionType as registerSaga } from 'models/sagas/register';
-import { topToast } from 'utils/comFunction'
+import { topToast, phoneCheck } from 'utils/comFunction'
 
 class Register extends React.Component {
 	constructor(props) {
@@ -13,7 +13,9 @@ class Register extends React.Component {
 		this.state = {
 			phoneCode: '',
 			mail_auth_token: '',
-			open: false
+			open: false,
+      sended: false,   //是否已经发送验证码
+      count: 60,  //验证码倒计时间
 		};
 		const {
 			intl: { formatMessage }
@@ -48,8 +50,10 @@ class Register extends React.Component {
 				query,
 				success: data => {
 					this.setState({
-						phoneCode: data
+						phoneCode: data,
+            sended: true,
 					});
+					this.countDown();
 				},
 				fail: this.fail,
 				error: this.error
@@ -64,12 +68,23 @@ class Register extends React.Component {
 
 	// 提交手机验证码
 	phoneNext = (phone, nationCode, verifyCode, inviterCode) => {
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		let query = {
 			phone,
 			nationCode,
 			verifyCode,
 			inviterCode
 		};
+		//正确的手机
+		if(!phoneCheck(phone)){
+      return topToast(formatMessage({id: 'code_27'}))
+    }
+		// 验证码判断
+		if(!verifyCode){
+		  return topToast(formatMessage({id: 'code_126'}))
+    }
 		this.props.dispatch({
 			type: registerSaga.phoneNext,
 			payload: {
@@ -108,8 +123,27 @@ class Register extends React.Component {
 		// console.log(err);
 	};
 
+  //倒计时
+  countDown = () => {
+    const count = this.state.count - 1;
+    this.setState({
+      count
+    });
+    if (count > 0) {
+      this.timer = setTimeout(() => {
+        this.countDown();
+      }, 1000);
+    } else {
+      this.setState({
+        count: 60,
+        sended: false
+      });
+      clearTimeout(this.timer);
+    }
+  };
+
 	render() {
-		const { open } = this.state;
+		const { open, count, sended } = this.state;
 		return (
 			<div>
 				<RegisterComp
@@ -119,7 +153,8 @@ class Register extends React.Component {
 					formatmessage={this.formatmessage}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
-          ref='childDom'
+          count={count}
+          sended={sended}
 				/>
 			</div>
 		);

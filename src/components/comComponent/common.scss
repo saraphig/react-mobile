@@ -114,6 +114,7 @@
 			align-items: center;
 			@extend .fz30;
 			margin-right: 16px;
+            justify-content: center;
 			&:last-child {
 				margin-right: 0;
 			}

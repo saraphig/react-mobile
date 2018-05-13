@@ -48,7 +48,8 @@ class RegisterEmail extends React.Component {
 					// })
 					this.props.history.push({
 						pathname: '/confirmEmail',
-						state: { email: email }
+						// state: { email: email }
+            state: {query}
 					});
 				},
 				fail: this.fail,
