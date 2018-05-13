@@ -134,10 +134,7 @@ export class Input extends React.Component {
 		};
 	}
 	onChange(e) {
-	  const value = e.target.value;
-		// this.props.onChange(e.target.value);
-    this.props.onChange(value);
-		this.setState({value})
+		this.props.onChange(e.target.value);
 	}
 	render() {
 		return (
@@ -151,7 +148,8 @@ export class Input extends React.Component {
 						)
 					}
 					autoComplete={this.props.autoComplete || ''}
-					value={this.state.value}
+          // value={this.state.value}
+					value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}
