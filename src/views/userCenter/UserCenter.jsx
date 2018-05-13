@@ -33,6 +33,11 @@ class UserCenter extends React.Component {
 		this.setState({ open: !this.state.open });
 	};
 
+	//点击item项
+	_onClickListItem = type => {
+		console.log(this.props);
+	};
+
 	render() {
 		const { open } = this.state;
 		return (
@@ -42,6 +47,8 @@ class UserCenter extends React.Component {
 					_check={this.state._check}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
+					_onClickListItem={this._onClickListItem}
+					_allProps={this.props}
 				/>
 			</div>
 		);

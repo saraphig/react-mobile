@@ -20,7 +20,7 @@ class IndexComp extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
+		// console.log(this.props);
 		// 取消原生滚动，因为antd的滚动和原生冲突
 		document.body.className = 'body-no-scroll';
 	}

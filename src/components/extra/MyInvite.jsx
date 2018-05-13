@@ -45,15 +45,13 @@ class MyInviteComp extends React.Component {
 							{this.props.inviteUrl}
 						</span>
 					</span>
-					<span className="myInvite-url-btn">
-						<Buttons
-							className="myInvite-btn-copy"
-							buttonText={formatMessage({
-								id: 'candyDetail.copy'
-							})}
-							_onClick={this.props._onClick}
-						/>
-					</span>
+					<Buttons
+						className="myInvite-btn-copy"
+						buttonText={formatMessage({
+							id: 'candyDetail.copy'
+						})}
+						_onClick={this.props._onClick}
+					/>
 				</div>
 				<Navbars
 					title={formatMessage({
