@@ -62,6 +62,7 @@ class RegisterComp extends React.Component {
 				element: '#dun',
 				lang: 'zh-CN',
 				onReady: instance => {
+					this.captchaIns = instance
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 					//验证码logo的去除
 					if (
@@ -141,7 +142,7 @@ class RegisterComp extends React.Component {
 					})}
 					onChange={val => this.setState({ verifyCode: val })}
 				/>
-				<span id="dun" />
+				<span id="dun"/>
 				<Input
 					placeholder={formatMessage({
 						id: 'recommendedCode'
