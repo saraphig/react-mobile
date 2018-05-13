@@ -102,3 +102,44 @@ export function googleCodeCheck(googleCode) {
         return true;
     }
 }
+
+// 获取cookie
+export const getCookie = function(name) {
+  let cookieName = encodeURIComponent(name) + '=',
+    cookieStart = document.cookie.lastIndexOf(cookieName),
+    cookieValue = null;
+  if (cookieStart > -1) {
+    var cookieEnd = document.cookie.indexOf(';', cookieStart);
+    if (cookieEnd == -1) {
+      cookieEnd = document.cookie.length;
+    }
+    cookieValue = decodeURIComponent(
+      document.cookie.substring(cookieStart + cookieName.length, cookieEnd)
+    );
+  }
+  return cookieValue;
+};
+
+// 设置cookie
+export const setCookie = function(name, value, expires) {
+  let cookieText = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+  let https = '';
+  if ('https:' == document.location.protocol) {
+    https = 'https';
+  }
+  if (expires) {
+    var date = new Date();
+    date.setTime(date.getTime() + expires * 24 * 60 * 60 * 1000);
+    cookieText += '; expires=' + date.toGMTString();
+  }
+  // if (path) {
+  //   cookieText += '; path=' + path;
+  // }
+  // if (domain) {
+  //   cookieText += '; domain=' + domain;
+  // }
+  if (https) {
+    cookieText += '; secure;HttpOnly';
+  }
+  document.cookie = cookieText;
+};

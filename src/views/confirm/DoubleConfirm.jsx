@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import DoubleConfirmComp from 'components/confirm/DoubleConfirm';
+import {setCookie} from 'utils/comFunction'
 
 class DoubleConfirm extends React.Component {
 	constructor(props) {
@@ -38,6 +39,7 @@ class DoubleConfirm extends React.Component {
 					query,
 					success: data => {
 						console.log(data);
+						setCookie('token', data.token)
 						this.props.history.push({
 							pathname: '/index',
 							state: { token: data.mail_auth_token }
@@ -59,6 +61,7 @@ class DoubleConfirm extends React.Component {
 					query,
 					success: data => {
 						console.log(data);
+						setCookie('token', data.token)
 						this.props.history.push({
 							pathname: '/index',
 							state: { token: data.mail_auth_token }
