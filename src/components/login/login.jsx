@@ -127,9 +127,9 @@ class LoginComp extends React.Component {
 					placeholder={formatMessage({
 						id: 'login.enterPassword'
 					})}
-					onChange={val => {
-						this.setState({ pwd: val });
-					}}
+					type="password"
+					autoComplete="new-password"
+					onChange={val => {}}
 				/>
 				{/* <Buttons
 			// style={{ marginTop: 30 }}

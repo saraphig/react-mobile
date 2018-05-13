@@ -6,7 +6,7 @@ import { List, NavBar, Icon } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
-import { topToast, phoneCheck } from 'utils/comFunction'
+import { topToast, phoneCheck } from 'utils/comFunction';
 import {
 	MidText,
 	Input,
@@ -15,6 +15,7 @@ import {
 	BottomTips
 } from '../comComponent/common';
 import { dun } from 'src/config';
+import { relativeTimeThreshold } from 'moment';
 
 class RegisterComp extends React.Component {
 	constructor(props) {
@@ -31,6 +32,7 @@ class RegisterComp extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log(this);
 		this.initNeCaptcha();
 		// $(this.phone).intlTelInput({
 		$('#test').intlTelInput({
@@ -84,15 +86,15 @@ class RegisterComp extends React.Component {
 				onVerify: (err, data) => {
 					let that = this;
 					if (data) {
-					  // 判断手机号
-					  if(!phoneCheck(this.state.phone)){
-              const {
-                intl: { formatMessage }
-              } = this.props;
-              topToast(formatMessage({id: 'code_122'}));
-              this.initNeCaptcha();
-              return;
-            }
+						// 判断手机号
+						if (!phoneCheck(this.state.phone)) {
+							const {
+								intl: { formatMessage }
+							} = this.props;
+							topToast(formatMessage({ id: 'code_122' }));
+							this.initNeCaptcha();
+							return;
+						}
 						that.setState({ validate: data.validate });
 						that.props.getPhoneCode(
 							this.state.phone,
@@ -124,23 +126,23 @@ class RegisterComp extends React.Component {
 	}
 
 	//倒计时
-  countDown = () => {
-    const count = this.state.count - 1;
-    this.setState({
-      count
-    });
-    if (count > 0) {
-      this.timer = setTimeout(() => {
-        this.countDown();
-      }, 1000);
-    } else {
-      this.setState({
-        count: 60,
-        sended: false
-      });
-      clearTimeout(this.timer);
-    }
-  };
+	countDown = () => {
+		const count = this.state.count - 1;
+		this.setState({
+			count
+		});
+		if (count > 0) {
+			this.timer = setTimeout(() => {
+				this.countDown();
+			}, 1000);
+		} else {
+			this.setState({
+				count: 60,
+				sended: false
+			});
+			clearTimeout(this.timer);
+		}
+	};
 
 	render() {
 		const { pathName } = this.state;
