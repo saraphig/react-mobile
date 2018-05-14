@@ -1,22 +1,53 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { actionType as loginSaga } from 'models/sagas/login.js';
+import { actionType as userCenterSaga } from 'models/sagas/userCenter';
+import { getCookie } from 'utils/comFunction.js';
 import MyInviteComp from 'components/extra/MyInvite';
 
 class MyInvite extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			open: false
+			open: false,
+			TGroup: []
 		};
 	}
 
 	componentDidMount() {
-		// this.props.dispatch({
-		//     type: loginSaga.setToken,
-		//     paylod: '3245353'
-		// })
+		const token = getCookie('token');
+		let query = {
+			token: token
+		};
+
+		this.props.dispatch({
+			type: userCenterSaga.setInfo,
+			payload: {
+				query,
+				success: data => {
+					this.setState({
+						TGroup: data.data
+					});
+				},
+				fail: this.fail,
+				error: this.error
+			}
+		});
+
+		this.props.dispatch({
+			type: userCenterSaga.getInfo,
+			payload: {
+				query,
+				success: data => {
+					console.log(data);
+					this.setState({
+						info: data.data
+					});
+				},
+				fail: this.fail,
+				error: this.error
+			}
+		});
 	}
 	_onClick = () => {
 		console.log(324);
@@ -27,7 +58,7 @@ class MyInvite extends React.Component {
 	};
 
 	render() {
-		const { open } = this.state;
+		const { open, TGroup } = this.state;
 		return (
 			<div>
 				<MyInviteComp
@@ -35,6 +66,7 @@ class MyInvite extends React.Component {
 					inviteUrl="http://top.one/?inviter=5a6e91d30ac3dwefwkgnwiungowinfownfiufiofiuwbfiuqbf"
 					_onOpenChange={this._onOpenChange}
 					_open={open}
+					TGroup={TGroup}
 				/>
 			</div>
 		);
