@@ -17,7 +17,7 @@ class ConfirmG2f extends React.Component {
 		//     type: loginSaga.setToken,
 		//     paylod: '3245353'
 		// })
-		console.log(this.props.token);
+		// console.log(this.props.token);
 	}
 
 	_onOpenChange = () => {

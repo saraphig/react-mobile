@@ -718,5 +718,6 @@ const enUS = {
   'recommendedCode': 'Referral Code',
   'myAssets': 'My Assets',
   'public.sure': 'Confirm',
+  'goPC': 'Please visit our desktop version to turn on Google 2FA or SMS verification',
 };
 export default enUS;

@@ -23,8 +23,10 @@ class MyInviteComp extends React.Component {
 
 	render() {
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+			TGroup
 		} = this.props;
+		console.log(this);
 		const content = (
 			<div>
 				<Navbars
@@ -45,15 +47,13 @@ class MyInviteComp extends React.Component {
 							{this.props.inviteUrl}
 						</span>
 					</span>
-					<span className="myInvite-url-btn">
-						<Buttons
-							className="myInvite-btn-copy"
-							buttonText={formatMessage({
-								id: 'candyDetail.copy'
-							})}
-							_onClick={this.props._onClick}
-						/>
-					</span>
+					<Buttons
+						className="myInvite-btn-copy"
+						buttonText={formatMessage({
+							id: 'candyDetail.copy'
+						})}
+						_onClick={this.props._onClick}
+					/>
 				</div>
 				<Navbars
 					title={formatMessage({
@@ -77,23 +77,23 @@ class MyInviteComp extends React.Component {
 				<div className="myInvite-content-items">
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T1</div>
-						<div className="myInvite-item-num">100</div>
+						<div className="myInvite-item-num">{TGroup.m1}</div>
 					</div>
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T2</div>
-						<div className="myInvite-item-num">100</div>
+						<div className="myInvite-item-num">{TGroup.m2}</div>
 					</div>
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T3</div>
-						<div className="myInvite-item-num">100</div>
+						<div className="myInvite-item-num">{TGroup.m3}</div>
 					</div>
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T4</div>
-						<div className="myInvite-item-num">100</div>
+						<div className="myInvite-item-num">{TGroup.m4}</div>
 					</div>
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T5</div>
-						<div className="myInvite-item-num">100</div>
+						<div className="myInvite-item-num">{TGroup.m5}</div>
 					</div>
 				</div>
 				<div className="myInvite-content-introduce">

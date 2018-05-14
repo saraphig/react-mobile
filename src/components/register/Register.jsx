@@ -6,6 +6,7 @@ import { List, NavBar, Icon } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
+import { topToast, phoneCheck } from 'utils/comFunction';
 import {
 	MidText,
 	Input,
@@ -14,6 +15,7 @@ import {
 	BottomTips
 } from '../comComponent/common';
 import { dun } from 'src/config';
+import { relativeTimeThreshold } from 'moment';
 
 class RegisterComp extends React.Component {
 	constructor(props) {
@@ -24,12 +26,13 @@ class RegisterComp extends React.Component {
 			nationCode: '86', // 区号
 			validate: '', // 易盾验证码
 			verifyCode: '', // 手机验证码
-			inviterCode: '' // 邀请码
+			inviterCode: location.search ? location.search.split('=')[1] : '' // 邀请码
 		};
 		console.log('=====', props.formatmessage);
 	}
 
 	componentDidMount() {
+		console.log(this);
 		this.initNeCaptcha();
 		// $(this.phone).intlTelInput({
 		$('#test').intlTelInput({
@@ -62,6 +65,7 @@ class RegisterComp extends React.Component {
 				element: '#dun',
 				lang: 'zh-CN',
 				onReady: instance => {
+					this.captchaIns = instance
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 					//验证码logo的去除
 					if (
@@ -83,6 +87,15 @@ class RegisterComp extends React.Component {
 				onVerify: (err, data) => {
 					let that = this;
 					if (data) {
+						// 判断手机号
+						if (!phoneCheck(this.state.phone)) {
+							const {
+								intl: { formatMessage }
+							} = this.props;
+							topToast(formatMessage({ id: 'code_122' }));
+							this.initNeCaptcha();
+							return;
+						}
 						that.setState({ validate: data.validate });
 						that.props.getPhoneCode(
 							this.state.phone,
@@ -113,10 +126,14 @@ class RegisterComp extends React.Component {
 		);
 	}
 
+
 	render() {
 		const { pathName } = this.state;
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+      count,
+      sended,
+      isRefreshCaptcha,
 		} = this.props;
 		const content = (
 			<div className="register-middleContent">
@@ -136,16 +153,19 @@ class RegisterComp extends React.Component {
 						id: 'register.phoneValidate'
 					})}
 					types={1}
+          disabled={sended}
+          time={count}
 					text={formatMessage({
 						id: 'register.postPhoneValidate'
 					})}
 					onChange={val => this.setState({ verifyCode: val })}
 				/>
-				<span id="dun" />
+				<span id="dun"/>
 				<Input
 					placeholder={formatMessage({
 						id: 'recommendedCode'
 					})}
+          value={this.state.inviterCode}
 					onChange={val => this.setState({ inviterCode: val })}
 				/>
 				<Buttons
@@ -166,6 +186,15 @@ class RegisterComp extends React.Component {
 				/>
 			</div>
 		);
+		// 倒计时结束初始化发送验证码
+		if(count === 0){
+		  this.initNeCaptcha();
+    }
+    // 请求失败初始化发送验证码
+    if(isRefreshCaptcha){
+      this.initNeCaptcha();
+      this.props.setIsRefreshCaptcha();
+    }
 		return (
 			<div className="register">
 				<Header _onClick={this.props._onOpenChange} />

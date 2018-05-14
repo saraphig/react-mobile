@@ -14,14 +14,10 @@
 }
 
 .myInvite-content {
-    display: flex;
-    height: 115px;
     background: #fff;
     padding: 20px 50px 20px 50px;
     font-size: 15px;
     box-sizing: border-box;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .myInvite-friend-content {
@@ -62,7 +58,8 @@
     background: #fff;
     font-size: 15px;
     color: #dab272;
-    line-height: 30px;
+    border: 1px solid;
+    margin-top: 20px;
 }
 
 .myInvite-url-btn .button:active {

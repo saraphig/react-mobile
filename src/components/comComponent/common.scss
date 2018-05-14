@@ -1,79 +1,129 @@
 @import '../../styles/base';
 @import '../../styles/mixin';
 .button {
-	width: 316px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 2px;
-	margin: 0 auto;
-	color: $black;
-	@extend .button-active;
-	@extend .fz18;
-	@extend .gradient;
+    width: 316px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    margin: 0 auto;
+    color: $black;
+    @extend .button-active;
+    @extend .fz18;
+    @extend .gradient;
 }
 
 .midText {
-	font-size: 24px;
-	color: $golden;
-	text-align: center;
-	font-weight: 100;
+    font-size: 24px;
+    color: $golden;
+    text-align: center;
+    font-weight: 100;
 }
 
 .BottomTips {
-	font-weight: 200;
-	@extend .fz15;
-	text-align: center;
-	color: #fff;
-	.BottomTips-right {
-		color: $golden;
-	}
+    font-weight: 200;
+    @extend .fz15;
+    text-align: center;
+    color: #fff;
+    .BottomTips-right {
+        color: $golden;
+    }
 }
 
 .ServerTips {
-	font-weight: 200;
-	@extend .fz12;
-	color: #fff;
-	.ServerTips-right {
-		color: $golden;
-	}
+    font-weight: 200;
+    @extend .fz12;
+    color: #fff;
+    .ServerTips-right {
+        color: $golden;
+    }
 }
 
 .input-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid $golden;
-	padding-bottom: 14px;
-	margin-top: 30px;
-	@extend .fz15;
-	.input {
-		flex: 1;
-		box-sizing: border-box;
-		outline: none;
-		background-color: transparent;
-		border: none;
-		color: #fff;
-	} // 不写伪类是防止点击了线也发送验证码
-	.input-send {
-		color: $golden;
-		@extend .font-active;
-	}
-	.input-sended {
-		color: $gray;
-	}
-	.line {
-		width: 2px;
-		background-color: $golden;
-		height: 16px;
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 12px;
-	}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $golden;
+    padding-bottom: 14px;
+    margin-top: 30px;
+    @extend .fz15;
+    .input {
+        flex: 1;
+        box-sizing: border-box;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+    } // 不写伪类是防止点击了线也发送验证码
+    .input-send {
+        color: $golden;
+        @extend .font-active;
+    }
+    .input-sended {
+        color: $gray;
+    }
+    .line {
+        width: 2px;
+        background-color: $golden;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 12px;
+    }
 }
 
 .validate {
+    input {
+        position: absolute;
+        border: none;
+        left: 0;
+        -webkit-appearance: none; // margin: 16px auto;
+        // margin-top: 42px;
+        // margin-bottom: 34px;
+        display: block;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        outline: none;
+        opacity: 0.01;
+        text-size-adjust: none;
+        padding: 0;
+        box-sizing: content-box;
+        background-clip: padding-box;
+        overflow: hidden;
+        cursor: auto;
+    }
+    ul {
+        // margin: 16px auto;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        box-sizing: border-box;
+        background-clip: padding-box;
+        font-size: 0;
+        display: flex;
+        position: relative;
+        li {
+            flex: 1;
+            color: #fff;
+            height: 44px;
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            @extend .fz30;
+            margin-right: 16px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .number {
+            width: 100%;
+            height: 3px;
+            background-color: $golden;
+        }
+    }
 	input {
 		position: absolute;
 		border: none;
@@ -114,6 +164,7 @@
 			align-items: center;
 			@extend .fz30;
 			margin-right: 16px;
+            justify-content: center;
 			&:last-child {
 				margin-right: 0;
 			}
@@ -127,102 +178,102 @@
 }
 
 .ServerTips-checkbox {
-	background: #dab075;
-	margin-right: 7px;
+    background: #dab075;
+    margin-right: 7px;
 }
 
 // .am-tabs-default-bar-top, .am-tabs-default-bar-bottom{
 //   padding: 0 64px;
 // }
 .am-tabs-default-bar-tab:after {
-	background-color: rgba(0, 0, 0, 1) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
 }
 
 //个人中心顶部
 .user-top {
-	padding: 24px 0 16px;
-	text-align: center; //display: flex;
-	//align-items: center;
-	//justify-content: center;
-	background: #fff;
-	.head {
-		width: 34px;
-		height: 50px;
-	}
-	.title {
-		@extend .fz18;
-		color: $grayBlack;
-		padding-top: 16px;
-	}
-	.text {
-		@extend .fz13;
-		color: $gray;
-		padding-top: 10px;
-	}
+    padding: 24px 0 16px;
+    text-align: center; //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    background: #fff;
+    .head {
+        width: 34px;
+        height: 50px;
+    }
+    .title {
+        @extend .fz18;
+        color: $grayBlack;
+        padding-top: 16px;
+    }
+    .text {
+        @extend .fz13;
+        color: $gray;
+        padding-top: 10px;
+    }
 }
 
 //列表样式
 .list-item {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background-color: #fff;
-	overflow: hidden;
-	@extend .fz15;
-	@extend .gray-bg-active;
-	.list-item-line {
-		display: flex;
-		flex: 1;
-		align-items: center;
-		justify-content: space-between;
-		padding: 10px 16px 10px 0;
-		margin-left: 20px;
-		border-bottom: 1px solid #e6e6e6;
-		.item-left {
-			flex: 1;
-			display: flex;
-			align-items: center;
-			.title {
-				@extend .fz15;
-			}
-		}
-		.item-right {
-			display: flex;
-			align-items: center;
-			.right-icon {
-				width: 16px;
-				height: 26px;
-				color: #8a8a8a;
-			}
-			.text,
-			.text-active {
-				@extend .fz15;
-				margin-right: 4px;
-			}
-			.text {
-				color: #bebebe;
-			}
-			.text-active {
-				color: $golden;
-			}
-		}
-	}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    overflow: hidden;
+    @extend .fz15;
+    @extend .gray-bg-active;
+    .list-item-line {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px 10px 0;
+        margin-left: 20px;
+        border-bottom: 1px solid #e6e6e6;
+        .item-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            .title {
+                @extend .fz15;
+            }
+        }
+        .item-right {
+            display: flex;
+            align-items: center;
+            .right-icon {
+                width: 16px;
+                height: 26px;
+                color: #8a8a8a;
+            }
+            .text,
+            .text-active {
+                @extend .fz15;
+                margin-right: 4px;
+            }
+            .text {
+                color: #bebebe;
+            }
+            .text-active {
+                color: $golden;
+            }
+        }
+    }
 }
 
 .list-item-friend {
-	width: 30px;
-	height: 26px;
-	margin-right: 8px;
+    width: 30px;
+    height: 26px;
+    margin-right: 8px;
 }
 
 .index-middleContent {
-	margin: 0;
+    margin: 0;
 }
 
 /**交易条的三个信息对**start**/
 
 .tabs-content {
-	margin: 0 30px;
+    margin: 0 30px;
 }
 
 .tab-bar {
@@ -238,144 +289,144 @@
 }
 
 .tab-item {
-	flex: 1;
+    flex: 1;
 }
 
 .two {
-	text-align: center;
+    text-align: center;
 }
 
 .three {
-	text-align: right;
+    text-align: right;
 }
 
 /**交易条的三个信息对**end**/
 
 .inform-height {
-	height: 600px;
+    height: 600px;
 }
 
 .inform {
-	margin-top: 35px;
+    margin-top: 35px;
 }
 
 .am-tabs-default-bar-prevpage {
-	background: linear-gradient(to left, rgba(0, 0, 0, 0), #000) !important;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), #000) !important;
 }
 
 //
 .am-tabs-default-bar-nextpage {
-	background: linear-gradient(to right, rgba(0, 0, 0, 0), #000) !important;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #000) !important;
 }
 
 //留白
 .white-block {
-	height: 10px;
+    height: 10px;
 }
 
 //弹窗
 .alertModal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 999;
-	.container {
-		width: 244px;
-		padding-bottom: 36px;
-		@include center;
-		background-color: #fff;
-		.top {
-			height: 66px;
-			width: 100%;
-			position: relative;
-			background-color: $golden;
-			.email-icon {
-				background: url('../../assets/images/email@2x.png') no-repeat;
-				width: 80px;
-				height: 90px;
-				background-size: cover;
-				@include cl;
-				top: -54%;
-			}
-		}
-		.content {
-			@extend .fz15;
-			color: $gray;
-			line-height: 24px;
-			padding: 24px 14px;
-		}
-		.sure {
-			text-align: center;
-			a {
-				@extend .fz18;
-				padding: 10px 34px;
-				color: #fff;
-				background-color: $golden;
-				border-radius: 2px;
-			}
-		}
-	}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    .container {
+        width: 244px;
+        padding-bottom: 36px;
+        @include center;
+        background-color: #fff;
+        .top {
+            height: 66px;
+            width: 100%;
+            position: relative;
+            background-color: $golden;
+            .email-icon {
+                background: url('../../assets/images/email@2x.png') no-repeat;
+                width: 80px;
+                height: 90px;
+                background-size: cover;
+                @include cl;
+                top: -54%;
+            }
+        }
+        .content {
+            @extend .fz15;
+            color: $gray;
+            line-height: 24px;
+            padding: 24px 14px;
+        }
+        .sure {
+            text-align: center;
+            a {
+                @extend .fz18;
+                padding: 10px 34px;
+                color: #fff;
+                background-color: $golden;
+                border-radius: 2px;
+            }
+        }
+    }
 }
 
-.sideBars .am-list-item:first-child {
-	padding-left: 16px !important;
+.sideBars .siderbar-logo:first-child {
+    padding-left: 16px !important;
 }
 
 .sideBars .am-list-item {
-	background: #1b1b1b !important;
-	padding-left: 40px !important;
-	font-weight: 100;
+    background: #1b1b1b !important;
+    padding-left: 40px !important;
+    font-weight: 100;
 }
 
-.sideBars .am-list-item:first-child .am-list-content {
-	@extend .fz15;
-	color: $grayDrawer !important;
-	padding-top: 13px !important;
+.sideBars .siderbar-logo:first-child .am-list-content {
+    @extend .fz15;
+    color: $grayDrawer !important;
+    padding-top: 13px !important;
 }
 
 .sideBars .am-list-content {
-	@extend .fz15;
-	color: #fff !important;
-	padding-top: 13px !important;
-	font-weight: 100;
+    @extend .fz15;
+    color: #fff !important;
+    padding-top: 13px !important;
+    font-weight: 100;
 }
 
 .sideBars .am-list-line:after {
-	height: 0px !important;
+    height: 0px !important;
 }
 
 .sideBars .am-list-body:after {
-	height: 0px !important;
+    height: 0px !important;
 }
 
 .switch-item .am-switch .checkbox {
-	height: 22px;
+    height: 22px;
 }
 
 .switch-item .am-switch .checkbox:before {
-	height: 22px;
+    height: 22px;
 }
 
 .switch-item .am-switch .checkbox:after {
-	width: 20px;
-	height: 20px;
-	top: 1px;
+    width: 20px;
+    height: 20px;
+    top: 1px;
 }
 
-.switch-item .am-switch input[type='checkbox']:checked + .checkbox {
-	height: 22px;
+.switch-item .am-switch input[type='checkbox']:checked+.checkbox {
+    height: 22px;
 }
 
-.switch-item .am-switch input[type='checkbox']:checked + .checkbox:after {
-	width: 20px;
-	height: 20px;
-	left: 10px;
+.switch-item .am-switch input[type='checkbox']:checked+.checkbox:after {
+    width: 20px;
+    height: 20px;
+    left: 10px;
 }
 
 //drawer
 .am-drawer.am-drawer-right .am-drawer-draghandle {
-	width: 0;
+    width: 0;
 }

@@ -14,7 +14,8 @@ class Index extends React.Component {
 		//     payload: '3245353'
 		// })
 		this.state = {
-			open: false
+			open: false,
+			initData: []
 		};
 
 		this.dataWs = null;
@@ -44,6 +45,10 @@ class Index extends React.Component {
 					id: 0
 				},
 				success: result => {
+					console.log('----', result)
+					this.setState({
+						initData: result
+					})
 					const dataWs = [
 						{ method: 'server.ping', params: ['coinKind'], id: 1 }
 					];
@@ -58,7 +63,7 @@ class Index extends React.Component {
 	};
 
 	wsMessage = data => {
-		console.log(data, this.dataWs);
+		// console.log(data, this.dataWs);
 		const { method, params, id, result, error } = data;
 		if (id === 1) {
 			let query = {
@@ -93,7 +98,11 @@ class Index extends React.Component {
 
 		return (
 			<div>
-				<IndexComp _onOpenChange={this._onOpenChange} _open={open} />
+				<IndexComp 
+				  _onOpenChange={this._onOpenChange} 
+				  _open={open}
+				  initData={this.state.initData}
+			    />
 			</div>
 		);
 	}
