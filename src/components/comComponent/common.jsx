@@ -169,7 +169,13 @@ export class Input extends React.Component {
 					type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
-					<div>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}}
+					>
 						<span className="line" />
 						<span
 							className={
@@ -185,7 +191,7 @@ export class Input extends React.Component {
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
-									{this.props.text || (
+									{this.props.yidun || (
 										<FormattedMessage id="register.postPhoneValidate" />
 									)}
 								</span>
