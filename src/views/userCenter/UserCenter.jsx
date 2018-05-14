@@ -24,7 +24,7 @@ class UserCenter extends React.Component {
 		const token = getCookie('token');
 		if (token) {
 			const { dispatch } = this.props;
-			console.log('userCenterSaga', userCenterSaga);
+			// console.log('userCenterSaga', userCenterSaga);
 			this.setState({
 				token: token
 			})

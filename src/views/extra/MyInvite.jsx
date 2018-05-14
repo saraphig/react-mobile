@@ -10,7 +10,8 @@ class MyInvite extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
-			TGroup: []
+			TGroup: [],
+			info: []
 		};
 	}
 
@@ -19,7 +20,7 @@ class MyInvite extends React.Component {
 		let query = {
 			token: token
 		};
-		console.log(userCenterSaga);
+		// console.log(userCenterSaga);
 
 		this.props.dispatch({
 			type: userCenterSaga.getInviteInfo,
@@ -40,7 +41,7 @@ class MyInvite extends React.Component {
 			payload: {
 				query,
 				success: data => {
-					console.log(data);
+					// console.log(data);
 					this.setState({
 						info: data.data
 					});
@@ -50,16 +51,16 @@ class MyInvite extends React.Component {
 			}
 		});
 	}
-	_onClick = () => {
-		console.log(324);
-	};
+	// _onClick = () => {
+	// 	// console.log(324);
+	// };
 
-	_onOpenChange = () => {
-		this.setState({ open: !this.state.open });
-	};
+	// _onOpenChange = () => {
+	// 	this.setState({ open: !this.state.open });
+	// };
 
 	render() {
-		const { open, TGroup } = this.state;
+		const { open, TGroup, info } = this.state;
 		return (
 			<div>
 				<MyInviteComp
@@ -68,6 +69,7 @@ class MyInvite extends React.Component {
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}
+					info={info}
 				/>
 			</div>
 		);
