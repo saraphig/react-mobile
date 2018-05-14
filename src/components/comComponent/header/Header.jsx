@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Drawer, List, NavBar, Icon } from 'antd-mobile';
 import './header.scss';
+import { getCookie } from 'utils/comFunction';
 
 class Header extends React.Component {
 	constructor(props) {
 		super();
+		const token = getCookie('token');
 		this.state = {
-			isLogin: props.isLogin || false
+            token: token
 		};
 	}
 
@@ -18,7 +20,7 @@ class Header extends React.Component {
       intl: { formatMessage }
 	} = this.props;
 		let box = null
-		if (!this.state.isLogin) {
+		if (!this.state.token) {
 			box = (
 				<div>
 					<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
