@@ -979,17 +979,16 @@ export const AlertModal = props => {
 	return (
 		<div>
 			{props.isOpen && (
-				<div className="alertModal">
+				<div className="alertModal" >
 					<div className="container">
 						<div className="top">
 							<i className="email-icon" />
 						</div>
 						<p className="content">
 							<FormattedMessage id={'usercenter.visist.topone'} />
-							<FormattedMessage id={'usercenter.visist.topone'} />
 						</p>
 						<div className="sure">
-							<a href="javascript:;">
+							<a href="javascript:;" onClick={props._close}>
 								<FormattedMessage id={'public.confirm'} />
 							</a>
 						</div>

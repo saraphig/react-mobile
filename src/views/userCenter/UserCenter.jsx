@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import UserCenterComp from 'components/userCenter/UserCenter';
 import { actionType as userCenterSaga } from 'models/sagas/userCenter.js';
 import { getCookie } from 'utils/comFunction';
-const token = getCookie('token');
+
 
 class UserCenter extends React.Component {
 	constructor(props) {
@@ -15,17 +15,19 @@ class UserCenter extends React.Component {
 			open: false,
 			isTopForFee: false,
 			isToggle: true,
-			_disabled: false
+			_disabled: false,
+			token:''
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
+		const token = getCookie('token');
 		if (token) {
 			const { dispatch } = this.props;
 			console.log('userCenterSaga', userCenterSaga);
-			// this.setState({
-			// 	_disabled: false
-			// })
+			this.setState({
+				token: token
+			})
 			dispatch({
 				type: userCenterSaga.getUserInfo,
 				payload: {
@@ -103,7 +105,7 @@ class UserCenter extends React.Component {
 	};
 
 	render() {
-		const { open, _disabled } = this.state;
+		const { open, _disabled,token } = this.state;
 		return (
 			<div>
 				<UserCenterComp

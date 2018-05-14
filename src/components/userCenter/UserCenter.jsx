@@ -3,38 +3,76 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import './userCenter.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
+import { topToast } from 'utils/comFunction';
 import { connect } from 'react-redux';
+import { Modal } from 'antd-mobile';
 import {
 	MidText,
 	Navbars,
 	UserTop,
 	WhiteBlock,
 	ListItem,
-	SwitchItem
+	SwitchItem,
+	AlertModal
 } from '../comComponent/common';
+function closest(el, selector) {
+	const matchesSelector =
+		el.matches ||
+		el.webkitMatchesSelector ||
+		el.mozMatchesSelector ||
+		el.msMatchesSelector;
+	while (el) {
+		if (matchesSelector.call(el, selector)) {
+			return el;
+		}
+		el = el.parentElement;
+	}
+	return null;
+}
 
 class UserCenterComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			modal1: false,
+			_isOpen: false
+		};
 	}
 	componentWillMount() {}
 	componentDidMount() {
-		console.log(this.props);
+		console.log(this.props.token);
 	}
 	_onClick(type) {
-		if (!this.props.token) {
-			console.log(type);
-			return;
-		}
-		switch (type) {
-			case 'invite':
-				window.location.href = '/myInvite';
-				break;
-			default:
-				console.log(3242);
-				break;
+		//let that = this;
+
+		let that = this;
+		if (this.props.token) {
+			switch (type) {
+				case 'invite':
+					window.location.href = '/myInvite';
+					break;
+				default:
+					console.log(3242);
+					that.showModal();
+					break;
+			}
+		} else {
+			topToast('请先登录');
 		}
 	}
+
+	showModal() {
+		this.setState({
+			_isOpen: true
+		});
+	}
+
+	_close = () => {
+		this.setState({
+			_isOpen: false
+		});
+		console.log(4242);
+	};
 
 	render() {
 		const content = (
@@ -63,7 +101,7 @@ class UserCenterComp extends React.Component {
 					]}
 					title={<FormattedMessage id="userCenter.validate" />}
 					googleValidate={this.props.info}
-					_onClick={this._onClick}
+					_onClick={this._onClick.bind(this)}
 				/>
 				<ListItem
 					classNameItemline="item-line"
@@ -78,7 +116,7 @@ class UserCenterComp extends React.Component {
 					]}
 					title={<FormattedMessage id="userCenter.phoneValidate" />}
 					phoneValidate={this.props.info}
-					_onClick={this._onClick}
+					_onClick={this._onClick.bind(this)}
 				/>
 				<ListItem
 					classNameItemline="item-line last-item"
@@ -94,7 +132,7 @@ class UserCenterComp extends React.Component {
 					title={
 						<FormattedMessage id="changeLoginPassword.changePassword" />
 					}
-					_onClick={this._onClick}
+					_onClick={this._onClick.bind(this)}
 				/>
 			</div>
 		);
@@ -110,6 +148,27 @@ class UserCenterComp extends React.Component {
 						_onOpenChange={this.props._onOpenChange}
 						_open={this.props._open}
 					/>
+					{/* <Modal
+						visible={this.state.modal1}
+						transparent
+						maskClosable={false}
+						onClose={this.onClose}
+						title="Title"
+						footer={[
+							{
+								text: 'Ok',
+								onPress: () => {
+									console.log('ok');
+								}
+							}
+						]}
+						wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+					> */}
+					<AlertModal
+						isOpen={this.state._isOpen}
+						_close={this._close}
+					/>
+					{/* </Modal> */}
 				</div>
 			</div>
 		);
