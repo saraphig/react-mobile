@@ -158,7 +158,7 @@ export class Input extends React.Component {
 					// autoComplete={this.props.autoComplete || ''}
 					value={this.state.value}
 					autoComplete={this.props.autoComplete || ''}
-          // value={this.state.value}
+					// value={this.state.value}
 					value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
@@ -503,14 +503,18 @@ export const UserTop = props => {
 	return (
 		<div className="user-top">
 			<img src={defaultUserImg} className="head" />
-			{JSON.stringify(props.info) != "{}" ? (
+			{JSON.stringify(props.info) != '{}' ? (
 				<div>
 					<p className="title">{props.info['user_info'].email}</p>
 					<p className="text">
 						<FormattedMessage id={'usercenter.lastLogin'} />：
-						{moment(props.info['login_history'][0]['login_time']*1000).format('YYYY-MM-DD HH:mm:ss')}
+						{moment(
+							props.info['login_history'][0]['login_time'] * 1000
+						).format('YYYY-MM-DD HH:mm:ss')}
 					</p>
-					<p className="text">IP: {props.info['login_history'][0].ip}</p>
+					<p className="text">
+						IP: {props.info['login_history'][0].ip}
+					</p>
 				</div>
 			) : (
 				<div>
@@ -529,7 +533,7 @@ export const UserTop = props => {
 //个人中心列表
 export const ListItem = props => {
 	return (
-		<div onClick = {props._onClick} className="list-item">
+		<div onClick={props._onClick} className="list-item">
 			<div className={`list-item-line ${props.classNameItemline}`}>
 				<div className="item-left">
 					<span className="left-icon">
@@ -550,13 +554,15 @@ export const ListItem = props => {
 				</div>
 				<div className="item-right">
 					{/*通过传值改变字体颜色*/}
-                    {props.inviterCode && JSON.stringify(props.inviterCode) != "{}" ? (
-                            <span className="text-active">
-								{props.inviterCode['user_info']['invite_code']}
-							</span>
-                     ) : null}
-					{props.googleValidate && JSON.stringify(props.googleValidate) != "{}" ? (
-                        props.googleValidate['user_info']['is_google']? (
+					{props.inviterCode &&
+					JSON.stringify(props.inviterCode) != '{}' ? (
+						<span className="text-active">
+							{props.inviterCode['user_info']['invite_code']}
+						</span>
+					) : null}
+					{props.googleValidate &&
+					JSON.stringify(props.googleValidate) != '{}' ? (
+						props.googleValidate['user_info']['is_google'] ? (
 							<span className="text-active">
 								<FormattedMessage id={'userter.active'} />
 							</span>
@@ -568,19 +574,20 @@ export const ListItem = props => {
 							</span>
 						)
 					) : null}
-                    {props.phoneValidate && JSON.stringify(props.phoneValidate) != "{}" ? (
-                        props.phoneValidate['user_info']['is_validate']? (
-                            <span className="text-active">
+					{props.phoneValidate &&
+					JSON.stringify(props.phoneValidate) != '{}' ? (
+						props.phoneValidate['user_info']['is_validate'] ? (
+							<span className="text-active">
 								<FormattedMessage id={'userter.active'} />
 							</span>
-                        ) : (
-                            <span className="text">
+						) : (
+							<span className="text">
 								<FormattedMessage
-                                    id={'usercenter.notVerified'}
-                                />
+									id={'usercenter.notVerified'}
+								/>
 							</span>
-                        )
-                    ) : null}
+						)
+					) : null}
 					{/*默认显示右箭头可以通过传值设置是否显示*/}
 					{(props.isShowRightIcon === undefined ||
 						props.isShowRightIcon) && (
@@ -601,7 +608,11 @@ export const SwitchItem = props => {
 			<List.Item
 				className={props.className}
 				extra={
-					<Switch checked={props._isTopForFee} onClick={props._topForFeeSwitch} />
+					<Switch
+						checked={props._isTopForFee}
+						onClick={props._topForFeeSwitch}
+						disabled={props.disabled}
+					/>
 				}
 			>
 				{<FormattedMessage id="userCenter.payFee" />}

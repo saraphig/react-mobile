@@ -10,41 +10,50 @@ import {
 	UserTop,
 	WhiteBlock,
 	ListItem,
-	SwitchItem,
+	SwitchItem
 } from '../comComponent/common';
 
 class UserCenterComp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	componentWillMount(){
-
-	}
+	componentWillMount() {}
 	componentDidMount() {
+		console.log(this.props);
+	}
+	_onClick(type) {
+		if (!this.props.token) {
+			console.log(type);
+			return;
+		}
+		switch (type) {
+			case 'invite':
+				window.location.href = '/myInvite';
+				break;
+			default:
+				console.log(3242);
+				break;
+		}
+	}
 
-	}
-    _onClick = () => {
-		window.location.href = '/myinvite';
-	}
 	render() {
 		const content = (
 			<div>
-				<UserTop
-					info={this.props.info}
-				/>
+				<UserTop info={this.props.info} />
 				<WhiteBlock />
 				<SwitchItem
 					classNameList="switch-list"
 					className="switch-item"
-                    _topForFeeSwitch={this.props._topForFeeSwitch}
-                    _isTopForFee={this.props._isTopForFee}
+					_topForFeeSwitch={this.props._topForFeeSwitch}
+					_isTopForFee={this.props._isTopForFee}
+					disabled={this.props._disabled}
 				/>
 				<WhiteBlock />
 				<ListItem
 					classNameItemline="first-item-line"
 					title={<FormattedMessage id="userCenter.inviteFriends" />}
-                    inviterCode={this.props.info}
-                    _onClick={this._onClick}
+					inviterCode={this.props.info}
+					_onClick={this._onClick.bind(this, 'invite')}
 				/>
 				<WhiteBlock />
 				<ListItem
@@ -53,8 +62,8 @@ class UserCenterComp extends React.Component {
 						<img key={1} src={require('assets/images/G2F.png')} />
 					]}
 					title={<FormattedMessage id="userCenter.validate" />}
-                    googleValidate={this.props.info}
-                    _onClick={this._onClick}
+					googleValidate={this.props.info}
+					_onClick={this._onClick}
 				/>
 				<ListItem
 					classNameItemline="item-line"
@@ -69,7 +78,7 @@ class UserCenterComp extends React.Component {
 					]}
 					title={<FormattedMessage id="userCenter.phoneValidate" />}
 					phoneValidate={this.props.info}
-                    _onClick={this._onClick}
+					_onClick={this._onClick}
 				/>
 				<ListItem
 					classNameItemline="item-line last-item"
@@ -85,7 +94,7 @@ class UserCenterComp extends React.Component {
 					title={
 						<FormattedMessage id="changeLoginPassword.changePassword" />
 					}
-                    _onClick={this._onClick}
+					_onClick={this._onClick}
 				/>
 			</div>
 		);
@@ -107,8 +116,8 @@ class UserCenterComp extends React.Component {
 	}
 }
 export function mapStateToProps(state) {
-    return {
-        info: state.userCenter.info,
-    };
+	return {
+		info: state.userCenter.info
+	};
 }
 export default connect(mapStateToProps)(injectIntl(UserCenterComp));

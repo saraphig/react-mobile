@@ -7,10 +7,30 @@ import { actionType as userCenterReducer } from 'models/reducers/userCenter';
 import * as userCenterService from 'api/userCenter';
 
 export const actionType = {
+    getInviteInfo:'userCenter/getInviteInfo',
     getUserInfo: 'userCenter/getUserInfo',
     topFeeUpdate: 'userCenter/topFeeUpdate',
 }
 
+export function* getInviteInfo({ payload: { query, success, fail } }) {
+	console.log(query);
+	// const { data } = yield call(userCenterService.inviteInfo, query);
+	// if (!data.error) {
+	// 	success(data.result);
+	// } else {
+	// 	fail(data.error);
+	// }
+	try {
+		const { data } = yield call(userCenterService.inviteInfo, query);
+		if (data.error_code === 200) {
+			success(data.data);
+		} else {
+			fail(data.error_code);
+		}
+	} catch (err) {
+		error(err);
+    }
+}
 
 export function* getUserInfo({ payload: { query, success, fail } }) {
     const { data } = yield call(userCenterService.getUserInfo, query);
@@ -44,6 +64,7 @@ export function* topFeeUpdate({ payload: { query, success, fail } }) {
 
 export default function* root() {
     yield [
+        takeLatest(actionType.getInviteInfo, getInviteInfo),
         takeLatest(actionType.getUserInfo, getUserInfo),
         takeLatest(actionType.topFeeUpdate, topFeeUpdate),
     ];
