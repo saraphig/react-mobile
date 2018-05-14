@@ -4,6 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import DoubleConfirmComp from 'components/confirm/DoubleConfirm';
 import {setCookie} from 'utils/comFunction'
+import { topToast } from 'utils/comFunction'
 
 class DoubleConfirm extends React.Component {
 	constructor(props) {
@@ -93,16 +94,24 @@ class DoubleConfirm extends React.Component {
 		});
 	}
 
-	//请求返回失败code
-	fail = err_code => {
-		alert(err_code);
-	};
+  //请求返回失败code
+  fail = (err_code) => {
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({ id: `code_${err_code}` }));
+    // alert(err_code)
+  };
 
-	// 网络异常，请求失败
-	error = err => {
-		alert('网络异常，请求失败', err);
-		console.log(err);
-	};
+  // 网络异常，请求失败
+  error = (err) => {
+    // alert('网络异常，请求失败',err)
+    // console.log(err)
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({ id: 'serverError' }));
+  };
 	
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
