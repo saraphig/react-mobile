@@ -19,9 +19,10 @@ class MyInvite extends React.Component {
 		let query = {
 			token: token
 		};
+		console.log(userCenterSaga);
 
 		this.props.dispatch({
-			type: userCenterSaga.setInfo,
+			type: userCenterSaga.getInviteInfo,
 			payload: {
 				query,
 				success: data => {
@@ -35,7 +36,7 @@ class MyInvite extends React.Component {
 		});
 
 		this.props.dispatch({
-			type: userCenterSaga.getInfo,
+			type: userCenterSaga.getUserInfo,
 			payload: {
 				query,
 				success: data => {

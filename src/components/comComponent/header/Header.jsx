@@ -4,17 +4,30 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Drawer, List, NavBar, Icon } from 'antd-mobile';
 import './header.scss';
+import { getCookie } from 'utils/comFunction';
 
 class Header extends React.Component {
 	constructor(props) {
 		super();
-		this.state = {};
+		const token = getCookie('token');
+		this.state = {
+            token: token
+		};
 	}
 
 	render() {
     const {
       intl: { formatMessage }
-    } = this.props;
+	} = this.props;
+		let box = null
+		if (!this.state.token) {
+			box = (
+				<div>
+					<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
+					<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
+				</div>
+			)
+		}
 		return (
 			<div>
 				<div className={`header ${this.props.className}`}>
@@ -26,8 +39,9 @@ class Header extends React.Component {
 						/>
 					</span>
 					<span className="header-right">
-						<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
-						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
+						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
+						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link> */}
+						{box}
 						<span className="header-menus">
 							<img
 								className="header-menu"

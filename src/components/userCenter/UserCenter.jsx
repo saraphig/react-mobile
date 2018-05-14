@@ -3,8 +3,9 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import './userCenter.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
+import { topToast } from 'utils/comFunction';
+import { connect } from 'react-redux';
 import { Modal } from 'antd-mobile';
-// import AlertModal from 'components/container/AlertModal';
 import {
 	MidText,
 	Navbars,
@@ -14,7 +15,6 @@ import {
 	SwitchItem,
 	AlertModal
 } from '../comComponent/common';
-
 function closest(el, selector) {
 	const matchesSelector =
 		el.matches ||
@@ -34,69 +34,64 @@ class UserCenterComp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal1: false
+			modal1: false,
+			_isOpen: false
 		};
 	}
-
+	componentWillMount() {}
 	componentDidMount() {
-		// console.log(this.props._allProps);
+		console.log(this.props.token);
+	}
+	_onClick(type) {
+		//let that = this;
+
+		let that = this;
+		if (this.props.token) {
+			switch (type) {
+				case 'invite':
+					window.location.href = '/myInvite';
+					break;
+				default:
+					console.log(3242);
+					that.showModal();
+					break;
+			}
+		} else {
+			topToast('请先登录');
+		}
 	}
 
-	_onClickListItem(type) {
-		switch (type) {
-			case 'myInvite':
-				this.props._allProps.history.push('myInvite');
-				break;
-			default:
-				this.showModal();
-				break;
-		}
+	showModal() {
+		this.setState({
+			_isOpen: true
+		});
 	}
 
-	showModal = e => {
-		// e.preventDefault(); // 修复 Android 上点击穿透
+	_close = () => {
 		this.setState({
-			modal1: true
+			_isOpen: false
 		});
-	};
-
-	_onClickAlert = () => {
-		this._onClose();
-	};
-
-	_onClose = () => {
-		this.setState({
-			modal1: false
-		});
-	};
-
-	_onWrapTouchStart = e => {
-		// fix touch to scroll background page on iOS
-		if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
-			return;
-		}
-		const pNode = closest(e.target, '.am-modal-content');
-		if (!pNode) {
-			e.preventDefault();
-		}
+		console.log(4242);
 	};
 
 	render() {
-		let content = (
+		const content = (
 			<div>
-				<UserTop />
+				<UserTop info={this.props.info} />
 				<WhiteBlock />
 				<SwitchItem
 					classNameList="switch-list"
 					className="switch-item"
-					_onClick={this.props._onClick}
-					_check={this.props._check}
+					_topForFeeSwitch={this.props._topForFeeSwitch}
+					_isTopForFee={this.props._isTopForFee}
+					disabled={this.props._disabled}
 				/>
 				<WhiteBlock />
 				<ListItem
 					classNameItemline="first-item-line"
 					title={<FormattedMessage id="userCenter.inviteFriends" />}
-					_onClick={this._onClickListItem.bind(this, 'myInvite')}
+					inviterCode={this.props.info}
+					_onClick={this._onClick.bind(this, 'invite')}
 				/>
 				<WhiteBlock />
 				<ListItem
@@ -105,7 +100,8 @@ class UserCenterComp extends React.Component {
 						<img key={1} src={require('assets/images/G2F.png')} />
 					]}
 					title={<FormattedMessage id="userCenter.validate" />}
-					_onClick={this._onClickListItem.bind(this)}
+					googleValidate={this.props.info}
+					_onClick={this._onClick.bind(this)}
 				/>
 				<ListItem
 					classNameItemline="item-line"
@@ -119,7 +115,8 @@ class UserCenterComp extends React.Component {
 						</svg>
 					]}
 					title={<FormattedMessage id="userCenter.phoneValidate" />}
-					_onClick={this._onClickListItem.bind(this)}
+					phoneValidate={this.props.info}
+					_onClick={this._onClick.bind(this)}
 				/>
 				<ListItem
 					classNameItemline="item-line last-item"
@@ -135,27 +132,8 @@ class UserCenterComp extends React.Component {
 					title={
 						<FormattedMessage id="changeLoginPassword.changePassword" />
 					}
-					_onClick={this._onClickListItem.bind(this)}
+					_onClick={this._onClick.bind(this)}
 				/>
-				{/* <Modal
-					visible={this.state.modal1}
-					transparent
-					maskClosable={false}
-					onClose={this.onClose()}
-					title="Title"
-					footer={[
-						{
-							text: 'Ok',
-							onPress: () => {
-								console.log('ok');
-								this.onClose()();
-							}
-						}
-					]}
-					wrapProps={{ onTouchStart: this.onWrapTouchStart }}
-				>
-					
-				</Modal> */}
 			</div>
 		);
 		return (
@@ -170,24 +148,35 @@ class UserCenterComp extends React.Component {
 						_onOpenChange={this.props._onOpenChange}
 						_open={this.props._open}
 					/>
-					<Modal
+					{/* <Modal
 						visible={this.state.modal1}
 						transparent
 						maskClosable={false}
-						onClose={this._onClose}
-						wrapProps={{
-							onTouchStart: this._onWrapTouchStart
-						}}
-					>
-						<AlertModal
-							isOpen={this.state.modal1}
-							_onClick={this._onClickAlert}
-						/>
-					</Modal>
+						onClose={this.onClose}
+						title="Title"
+						footer={[
+							{
+								text: 'Ok',
+								onPress: () => {
+									console.log('ok');
+								}
+							}
+						]}
+						wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+					> */}
+					<AlertModal
+						isOpen={this.state._isOpen}
+						_close={this._close}
+					/>
+					{/* </Modal> */}
 				</div>
 			</div>
 		);
 	}
 }
-
-export default injectIntl(UserCenterComp);
+export function mapStateToProps(state) {
+	return {
+		info: state.userCenter.info
+	};
+}
+export default connect(mapStateToProps)(injectIntl(UserCenterComp));

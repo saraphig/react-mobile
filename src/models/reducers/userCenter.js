@@ -1,20 +1,18 @@
 import createReducer from './createReducer';
+//import { getCookie } from "utils/comFunction";
 const initState = {
     info: {},
+    //token: getCookie('token') || '',
     myCoinAccount: 0
 };
 
 export const actionType = {
-    setUserInfo: 'userCenter/info',
-    getUserInfo: 'userCenter/getMyInfo',
+    setUserInfo: 'userCenter/setUserInfo'
 };
 
 const reducer = {
-    [actionType.setUserInfo]: (state, { data }) => {
-        return {...state, userInfo: data}
-    },
-    [actionType.getUserInfo]: (state, { data }) => {
-        return {...state, info: data}
+    [actionType.setUserInfo]: (state, { payload }) => {
+        return {...state, info: payload}
     },
 }
 

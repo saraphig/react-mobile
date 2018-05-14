@@ -6,10 +6,10 @@ import register from './register';
 import userCenter from './userCenter';
 
 export default function* rootSaga() {
-	yield [
-		spawn(loginSaga),
-		spawn(tradeSaga),
-		spawn(register),
-		spawn(userCenter)
-	];
+  yield [
+    spawn(loginSaga),
+    spawn(tradeSaga),
+    spawn(register),
+    spawn(userCenter),
+  ];
 }

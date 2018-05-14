@@ -54,6 +54,7 @@ class Login extends React.Component {
 			payload: { 
 				query, 
 				success: (data) => {
+					console.log(data)
 					const {
 						is_google,
 						// token,

@@ -7,7 +7,6 @@ import { actionType as userCenterReducer } from '../reducers/userCenter';
 // api接口
 import * as login from 'api/login';
 
-
 export const actionType = {
     userLogin: 'login/login',
     googleValidate: 'login/googleValidate',
@@ -17,64 +16,64 @@ export const actionType = {
 };
 
 // 登录
-export function* userLogin({ payload: { query, success, fail, error} }) {
-    try{
-        const { data } = yield call(login.login,query)
-        if (data.error_code === 200) {
-            console.log(data)
-            success(data.data);
-        } else {
-            fail(data.error_code);
-        }
-    } catch(err){
-        error(err)
-    }
-    yield put(userCenterReducer.setUserInfo, data.data)
+export function* userLogin({ payload: { query, success, fail, error } }) {
+	try {
+		const { data } = yield call(login.login, query);
+		if (data.error_code === 200) {
+            console.log(data.data)
+			success(data.data);
+		} else {
+			fail(data.error_code);
+		}
+	} catch (err) {
+		error(err);
+	}
+	//yield put(userCenterReducer.setUserInfo, data);
 }
 
 // google验证
-export function* googleValidate({ payload: { query, success, fail, error} }) {
-    try{
-        const { data } = yield call(login.googleValidate,query)
-        if (data.error_code === 200) {
-            console.log(data)
-            success(data.data);
-        } else {
-            fail(data.error_code);
-        }
-    } catch(err){
-        error(err)
-    }
+export function* googleValidate({ payload: { query, success, fail, error } }) {
+	try {
+		const { data } = yield call(login.googleValidate, query);
+		if (data.error_code === 200) {
+			console.log(data);
+			success(data.data);
+		} else {
+			fail(data.error_code);
+		}
+	} catch (err) {
+		error(err);
+	}
 }
 
 // 发送手机验证码
-export function* phoneCode({ payload: { query, success, fail, error} }) {
-    try{
-        const { data } = yield call(login.phoneCode,query)
-        if (data.error_code === 200) {
-            console.log(data)
-            success(data.data);
-        } else {
-            fail(data.error_code);
-        }
-    } catch(err){
-        error(err)
-    }
+export function* phoneCode({ payload: { query, success, fail, error } }) {
+	try {
+		const { data } = yield call(login.phoneCode, query);
+		if (data.error_code === 200) {
+			console.log(data);
+			success(data.data);
+		} else {
+			fail(data.error_code);
+		}
+	} catch (err) {
+		error(err);
+	}
 }
 
 // 手机验证
-export function* phoneValidate({ payload: { query, success, fail, error} }) {
-    try{
-        const { data } = yield call(login.phoneValidate,query)
-        if (data.error_code === 200) {
-            console.log(data)
-            success(data.data);
-        } else {
-            fail(data.error_code);
-        }
-    } catch(err){
-        error(err)
-    }
+export function* phoneValidate({ payload: { query, success, fail, error } }) {
+	try {
+		const { data } = yield call(login.phoneValidate, query);
+		if (data.error_code === 200) {
+			console.log(data);
+			success(data.data);
+		} else {
+			fail(data.error_code);
+		}
+	} catch (err) {
+		error(err);
+	}
 }
 
 // 退出登陆
