@@ -8,13 +8,24 @@ import './header.scss';
 class Header extends React.Component {
 	constructor(props) {
 		super();
-		this.state = {};
+		this.state = {
+			isLogin: props.isLogin || false
+		};
 	}
 
 	render() {
     const {
       intl: { formatMessage }
-    } = this.props;
+	} = this.props;
+		let box = null
+		if (!this.state.isLogin) {
+			box = (
+				<div>
+					<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
+					<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
+				</div>
+			)
+		}
 		return (
 			<div>
 				<div className={`header ${this.props.className}`}>
@@ -26,8 +37,9 @@ class Header extends React.Component {
 						/>
 					</span>
 					<span className="header-right">
-						<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
-						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
+						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
+						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link> */}
+						{box}
 						<span className="header-menus">
 							<img
 								className="header-menu"
