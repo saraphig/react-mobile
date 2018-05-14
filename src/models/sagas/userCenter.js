@@ -21,7 +21,7 @@ export function* getInviteInfo({ payload: { query, success, fail } }) {
 	// 	fail(data.error);
 	// }
 	try {
-		const { data } = yield call(userCenterService.inviteInfo, query);
+		const { data } = yield call(userCenterApi.inviteInfo, query);
 		if (data.error_code === 200) {
 			success(data.data);
 		} else {
@@ -33,7 +33,7 @@ export function* getInviteInfo({ payload: { query, success, fail } }) {
 }
 
 export function* getUserInfo({ payload: { query, success, fail } }) {
-    const { data } = yield call(userCenterService.getUserInfo, query);
+    const { data } = yield call(userCenterApi.getUserInfo, query);
     if (data.error_code === 200) {
         success(data.data);
     } else {
@@ -51,7 +51,7 @@ export function* getUserInfo({ payload: { query, success, fail } }) {
 
 export function* topFeeUpdate({ payload: { query, success, fail } }) {
     try {
-        const { data } = yield call(userCenterService.topFeeUpdate, query);
+        const { data } = yield call(userCenterApi.topFeeUpdate, query);
         if (data.error_code === 200) {
             success(data.data);
         } else {
