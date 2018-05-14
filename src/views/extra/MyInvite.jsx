@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as userCenterSaga } from 'models/sagas/userCenter';
-import { getCookie } from 'utils/comFunction.js';
+import { getCookie, topToast } from 'utils/comFunction.js';
 import MyInviteComp from 'components/extra/MyInvite';
+import copy from 'copy-to-clipboard';
 
 class MyInvite extends React.Component {
 	constructor(props) {
@@ -41,9 +42,8 @@ class MyInvite extends React.Component {
 			payload: {
 				query,
 				success: data => {
-					// console.log(data);
 					this.setState({
-						info: data.data
+						info: data.info.user_info
 					});
 				},
 				fail: this.fail,
@@ -51,9 +51,23 @@ class MyInvite extends React.Component {
 			}
 		});
 	}
-	// _onClick = () => {
-	// 	// console.log(324);
-	// };
+
+	fail = () => {
+	  this.props.history.push('login')
+  };
+
+	error = () => {
+    const {
+      intl: { formatMessage }
+    } = this.props;
+    topToast(formatMessage({ id: 'serverError' }));
+  };
+
+	_onClick = () => {
+    let url = 'test';
+    copy(url);
+    topToast(this.props.intl.formatMessage({id: 'code_08'}));
+	};
 
 	// _onOpenChange = () => {
 	// 	this.setState({ open: !this.state.open });
@@ -65,7 +79,7 @@ class MyInvite extends React.Component {
 			<div>
 				<MyInviteComp
 					_onClick={this._onClick}
-					inviteUrl="http://top.one/?inviter=5a6e91d30ac3dwefwkgnwiungowinfownfiufiofiuwbfiuqbf"
+					inviteUrl={`http://top.one/?inviter=${info.invite_code}`}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}

@@ -12,16 +12,14 @@ import {
 	Validate,
 	Navbars
 } from '../comComponent/common';
-import { Icon } from 'antd-mobile';
+import QRCode from 'qrcode-react';
 
 class MyInviteComp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
-	componentDidMount() {
-		console.log(this);
-	}
+	componentDidMount() {}
 
 	render() {
 		const {
@@ -46,7 +44,7 @@ class MyInviteComp extends React.Component {
 				/>
 				<div className="myInvite-content">
 					<span>
-						<span className="myInvite-url">
+						<span className="myInvite-url" id="foo">
 							{this.props.inviteUrl}
 						</span>
 					</span>
@@ -56,6 +54,7 @@ class MyInviteComp extends React.Component {
 							id: 'candyDetail.copy'
 						})}
 						_onClick={this.props._onClick}
+            data-clipboard-target="#foo"
 					/>
 				</div>
 				<Navbars
@@ -69,12 +68,13 @@ class MyInviteComp extends React.Component {
 				/>
 				<div className="myInvite-friend-content ">
 					<span className="myInvite-content-code">
-						<img
+            <QRCode value={this.props.inviteUrl}/>
+						{/*<img
 							src={require('assets/images/code.png')}
 							alt={formatMessage({
 								id: 'candyDetail.qrDode'
 							})}
-						/>
+						/>*/}
 					</span>
 				</div>
 				<div className="myInvite-content-items">
