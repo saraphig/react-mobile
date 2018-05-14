@@ -15,7 +15,8 @@ const CheckboxItem = Checkbox.CheckboxItem;
 class MyWalletComp extends React.Component {
 	constructor(props) {
 		super(props);
-        const isSee = getCookie('isSee')||true;
+		console.log("localStorage.getItem('isSee')",localStorage.getItem('isSee'))
+        const isSee = (localStorage.getItem('isSee') === 'false')?false:true;
 		this.state={
 			isSee: isSee,
 			isSeeClass:isSee?'icon-ai44':'icon-yincang',
@@ -26,13 +27,12 @@ class MyWalletComp extends React.Component {
 
 	componentDidMount() {}
     seeAssets = () => {
-        setCookie('isSee',!this.state.isSee);
         this.setState({
             isSeeClass:this.state.isSee?"icon-yincang":"icon-ai44",
             isSee:!this.state.isSee
         })
-
-	}
+        localStorage.setItem('isSee',!this.state.isSee);
+    }
     hideSmall = (e) => {
 		if(e.target.checked){
 			this.setState({
@@ -94,7 +94,7 @@ class MyWalletComp extends React.Component {
                                     <div className="myWallet-card-title">
                                         <div>
                                             <img
-                                                src={require('assets/images/btc.png')}
+                                                src={'https://www.top.one/lib/coin/'+coin.coin+'.png'}
                                                 alt="btc"
                                             />
                                             <span>{coin.coin}</span>
