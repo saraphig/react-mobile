@@ -35,6 +35,8 @@ export function asyncComponent(importComponent) {
   return AsyncComponent;
 }
 
+
+// 提示信息
 export const topToast = (text, callBack, time, type = 1) =>{
   switch (type) {
     case 1:
@@ -142,4 +144,13 @@ export const setCookie = function(name, value, expires) {
     cookieText += '; secure; HttpOnly';
   }
   document.cookie = cookieText;
+};
+
+//删除cookie
+export const delCookie = function(name) {
+  let exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  let cval = getCookie(name);
+  if (cval)
+    document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString();
 };

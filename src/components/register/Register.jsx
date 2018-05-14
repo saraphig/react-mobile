@@ -153,7 +153,7 @@ class RegisterComp extends React.Component {
 						id: 'register.phoneValidate'
 					})}
 					types={1}
-          disabled={sended}
+          sended={sended}
           time={count}
 					text={formatMessage({
 						id: 'register.postPhoneValidate'

@@ -141,7 +141,10 @@ export class Input extends React.Component {
 		};
 	}
 	onChange(e) {
-		this.props.onChange(e.target.value);
+	  // input不可点击就没有change事件
+	  if(!this.props.disabled){
+      this.props.onChange(e.target.value);
+    }
 	}
 	render() {
 		return (
@@ -154,8 +157,9 @@ export class Input extends React.Component {
 							<FormattedMessage id="forget.email" />
 						)
 					}
+          disabled={this.props.disabled || false}
 					// autoComplete={this.props.autoComplete || ''}
-					value={this.state.value}
+					// value={this.state.value}
 					autoComplete={this.props.autoComplete || ''}
           // value={this.state.value}
 					value={this.props.value}
@@ -168,12 +172,12 @@ export class Input extends React.Component {
 						<span className="line" />
 						<span
 							className={
-								this.props.disabled
+								this.props.sended
 									? 'input-sended'
 									: 'input-send'
 							}
 						>
-							{this.props.disabled ? (
+							{this.props.sended ? (
 								<span>
 									<FormattedMessage id="register.sended" />
 									{this.props.time}
@@ -392,12 +396,15 @@ export class TopTabs extends React.Component {
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
 								value={this.props.info.phone}
+                disabled={true}
 							/>
 							<Input
 								placeholder={this.props.validateHolder}
 								types={1}
 								onChange={this.props.validateChange}
 								onClick={this.props.sendPhoneCode}
+                time={this.props.count}
+                sended={this.props.sended}
 							/>
 						</div>
 						<div className="tabs-content">
@@ -436,12 +443,15 @@ export class TopTabs extends React.Component {
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
 						value={this.props.info.phone}
+            disabled={true}
 					/>
 					<Input
 						placeholder={this.props.validateHolder}
 						types={1}
 						onChange={this.props.validateChange}
 						onClick={this.props.sendPhoneCode}
+            time={this.props.count}
+            sended={this.props.sended}
 					/>
 				</div>
 			);

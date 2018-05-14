@@ -77,11 +77,13 @@ class LoginComp extends React.Component {
 					// 	'#fff';
 				},
 				onVerify: (err, data) => {
+				  // 验证邮箱
           if(!emailCheck(this.state.email)){
             topToast(formatMessage({id: 'register.validateInfo.emailError'}));
             this.initNeCaptcha();
             return
           }
+          // 验证密码
           if(!this.state.pwd){
             topToast(formatMessage({id: 'login.enterPassword'}));
             this.initNeCaptcha();
@@ -114,6 +116,7 @@ class LoginComp extends React.Component {
 			intl: { formatMessage },
       isRefreshCaptcha,
 		} = this.props;
+		// 刷新验证码
 		if(isRefreshCaptcha){
 		  this.initNeCaptcha();
 		  this.props.setIsRefreshCaptcha();

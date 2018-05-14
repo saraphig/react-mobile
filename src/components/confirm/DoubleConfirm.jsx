@@ -44,7 +44,9 @@ class ConfirmG2FComp extends React.Component {
 
 	render() {
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+      count,
+      sended,
 		} = this.props;
 
 		const content = (
@@ -72,6 +74,8 @@ class ConfirmG2FComp extends React.Component {
 					}}
 					info={this.props.info}
 					sendPhoneCode={this.props.sendPhoneCode}
+          count={count}
+          sended={sended}
 				/>
 				<Buttons
 					className="buttons-doubleConfirm-transform"

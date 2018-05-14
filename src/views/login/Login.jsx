@@ -74,7 +74,7 @@ class Login extends React.Component {
 						is_top_for_fee,
 						phone
 					  };
-					  this.props.history.push({pathname:'/doubleConfirm', state: {params}});
+					  // this.props.history.push({pathname:'/doubleConfirm', state: {params}});
 					// // 如果既绑定了谷歌跟手机
 					// if (data[0][0].is_google && data['0'][0].phone != '0') {
 					// 	this.props.history.push({pathname:'/doubleConfirm', state: {params}});
@@ -91,9 +91,11 @@ class Login extends React.Component {
 					// 如果都没绑定，请前往pc端绑定谷歌或手机
 					if (!data[0][0].is_google && data['0'][0].phone == '0') {
 						// 此处需改进，换成公用提示组件
-            topToast(formatMessage({id: 'goPC'}))
+            topToast(formatMessage({id: 'goPC'}));
+            return;
 						// alert('请前往pc端绑定谷歌或手机')
 					}
+          this.props.history.push({pathname:'/doubleConfirm', state: {params}});
 					// this.props.history.push('/confirmG2F');
 				}, 
 				fail: this.fail,

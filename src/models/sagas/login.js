@@ -13,7 +13,8 @@ export const actionType = {
     googleValidate: 'login/googleValidate',
     phoneCode: 'login/phoneCode',
     phoneValidate: 'login/phoneValidate',
-}
+    loginOut: 'login/loginOut'
+};
 
 // 登录
 export function* userLogin({ payload: { query, success, fail, error} }) {
@@ -76,6 +77,20 @@ export function* phoneValidate({ payload: { query, success, fail, error} }) {
     }
 }
 
+// 退出登陆
+export function* loginOut({ payload: { query, success, fail, error} }) {
+  try{
+    const { data } = yield call(login.logout,query);
+    if (data.error_code === 200) {
+      success(data.data);
+    } else {
+      fail(data.error_code);
+    }
+  } catch(err){
+    error(err)
+  }
+}
+
 
 export default function* root() {
     yield [
@@ -83,6 +98,7 @@ export default function* root() {
       takeLatest(actionType.googleValidate, googleValidate),
       takeLatest(actionType.phoneCode, phoneCode),
       takeLatest(actionType.phoneValidate, phoneValidate),
+      takeLatest(actionType.loginOut, loginOut),
     //   takeLatest(actionType.setInfo, setInfo),
     ]
 }

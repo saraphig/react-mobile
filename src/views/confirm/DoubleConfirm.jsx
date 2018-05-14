@@ -13,7 +13,9 @@ class DoubleConfirm extends React.Component {
 		let info = props.location.state.params;
 		this.state = {
 			open: false,
-			info: info
+			info: info,
+      sended: false, //是否已经发送验证码
+      count: 60, //验证码倒计时间
 		};
 	}
 
@@ -87,12 +89,35 @@ class DoubleConfirm extends React.Component {
 				query,
 				success: data => {
 					console.log(data);
+					//倒计时开始
+					this.setState({
+            sended: true
+					}, () => {this.countDown()})
 				},
 				fail: this.fail,
 				error: this.error
 			}
 		});
 	}
+
+  //倒计时
+  countDown = () => {
+    const count = this.state.count - 1;
+    this.setState({
+      count
+    });
+    if (count > 0) {
+      this.timer = setTimeout(() => {
+        this.countDown();
+      }, 1000);
+    } else {
+      this.setState({
+        count: 60,
+        sended: false
+      });
+      clearTimeout(this.timer);
+    }
+  };
 
   //请求返回失败code
   fail = (err_code) => {
@@ -118,7 +143,7 @@ class DoubleConfirm extends React.Component {
 	};
 
 	render() {
-		const { open } = this.state;
+		const { open, count, sended } = this.state;
 		return (
 			<div>
 				<DoubleConfirmComp
@@ -127,6 +152,8 @@ class DoubleConfirm extends React.Component {
 					info={this.state.info}
 					onClick={this.onClick}
 					sendPhoneCode={() => this.sendPhoneCode()}
+          count={count}
+          sended={sended}
 				/>
 			</div>
 		);
