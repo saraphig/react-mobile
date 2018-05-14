@@ -3,37 +3,48 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import './userCenter.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
+import { connect } from 'react-redux';
 import {
 	MidText,
 	Navbars,
 	UserTop,
 	WhiteBlock,
 	ListItem,
-	SwitchItem
+	SwitchItem,
 } from '../comComponent/common';
 
 class UserCenterComp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentWillMount(){
 
-	componentDidMount() {}
+	}
+	componentDidMount() {
 
+	}
+    _onClick = () => {
+		window.location.href = '/myinvite';
+	}
 	render() {
 		const content = (
 			<div>
-				<UserTop />
+				<UserTop
+					info={this.props.info}
+				/>
 				<WhiteBlock />
 				<SwitchItem
 					classNameList="switch-list"
 					className="switch-item"
-					_onClick={this.props._onClick}
-					_check={this.props._check}
+                    _topForFeeSwitch={this.props._topForFeeSwitch}
+                    _isTopForFee={this.props._isTopForFee}
 				/>
 				<WhiteBlock />
 				<ListItem
 					classNameItemline="first-item-line"
 					title={<FormattedMessage id="userCenter.inviteFriends" />}
+                    inviterCode={this.props.info}
+                    _onClick={this._onClick}
 				/>
 				<WhiteBlock />
 				<ListItem
@@ -42,6 +53,8 @@ class UserCenterComp extends React.Component {
 						<img key={1} src={require('assets/images/G2F.png')} />
 					]}
 					title={<FormattedMessage id="userCenter.validate" />}
+                    googleValidate={this.props.info}
+                    _onClick={this._onClick}
 				/>
 				<ListItem
 					classNameItemline="item-line"
@@ -55,6 +68,8 @@ class UserCenterComp extends React.Component {
 						</svg>
 					]}
 					title={<FormattedMessage id="userCenter.phoneValidate" />}
+					phoneValidate={this.props.info}
+                    _onClick={this._onClick}
 				/>
 				<ListItem
 					classNameItemline="item-line last-item"
@@ -70,6 +85,7 @@ class UserCenterComp extends React.Component {
 					title={
 						<FormattedMessage id="changeLoginPassword.changePassword" />
 					}
+                    _onClick={this._onClick}
 				/>
 			</div>
 		);
@@ -90,5 +106,9 @@ class UserCenterComp extends React.Component {
 		);
 	}
 }
-
-export default injectIntl(UserCenterComp);
+export function mapStateToProps(state) {
+    return {
+        info: state.userCenter.info,
+    };
+}
+export default connect(mapStateToProps)(injectIntl(UserCenterComp));
