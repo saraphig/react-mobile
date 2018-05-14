@@ -15,10 +15,20 @@ class Index extends React.Component {
 		// })
 		this.state = {
 			open: false,
-			initData: []
+			initData: [],
+			updateData: [],
+			priceETH: null
 		};
 
 		this.dataWs = null;
+		this.interval = null // 定时获取对于价格（人民币和美元）
+	}
+
+	componentWillMount(){
+		this.props.dispatch({type: tradeSaga.setPrice})
+		this.interval = setInterval(() => {
+			this.props.dispatch({type: tradeSaga.setPrice})
+		}, 10000)
 	}
 
 	componentDidMount() {
@@ -29,10 +39,17 @@ class Index extends React.Component {
 	componentWillReceiveProps(nextprops) {
 		// 接收到nextprops触发
 		console.log('==', nextprops.token);
+		// console.log('price:', this.props.priceETH)
+		this.setState({
+			priceETH: this.props.priceETH
+		})
 	}
 
 	componentWillUnmount() {
 		this.dataWs.close();
+		if (this.interval) {
+	       clearInterval(this.interval)
+	    }
 	}
 
 	openSocket = () => {
@@ -65,27 +82,30 @@ class Index extends React.Component {
 	wsMessage = data => {
 		// console.log(data, this.dataWs);
 		const { method, params, id, result, error } = data;
+		let arrName = []
+		this.props.market.forEach(el => {
+			arrName.push(el.name)
+		})
 		if (id === 1) {
 			let query = {
 				method: 'status.subscribe',
-				params: ['HOP/ETH', 'TOP/ETH', 'SEER/ETH', 'KEY/ETH'],
+				params: arrName,
 				id: 3
 			};
 			this.dataWs.send(JSON.stringify(query));
 		}
+
+		if (method === 'daystatus.update') {
+			this.props.dispatch({
+				type: tradeSaga.setMarketData,
+				params
+			})
+			this.setState({
+				updateData: params
+			})
+		}
 	};
 
-	test() {
-		this.props.dispatch({
-			type: loginSaga.setToken,
-			payload: {
-				query: {
-					pwd: '89078',
-					email: '789789'
-				}
-			}
-		});
-	}
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
 	};
@@ -102,6 +122,10 @@ class Index extends React.Component {
 				  _onOpenChange={this._onOpenChange} 
 				  _open={open}
 				  initData={this.state.initData}
+				  updateData={this.state.updateData}
+				  market={this.props.market}
+				  marketData={this.props.marketData}
+				  priceETH={this.props.priceETH}
 			    />
 			</div>
 		);
@@ -109,7 +133,10 @@ class Index extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	token: state.login.token
+	token: state.login.token,
+	market: state.trade.market,
+	marketData: state.trade.marketData,
+	priceETH: state.trade.price
 });
 
 // export default Index;

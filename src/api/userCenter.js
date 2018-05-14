@@ -9,3 +9,12 @@ export function inviteInfo(query) {
       data: query,
     });
   }
+
+// 获取个人信息
+export function getUserInfo(query) {
+  return request({
+      url: '/api/',
+      method: 'post',
+      data: query,
+  });
+}
