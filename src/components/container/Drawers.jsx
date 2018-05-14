@@ -64,6 +64,7 @@ class Drawers extends React.Component {
 
 	render() {
     //侧栏内容框
+    const token = getCookie('token');
     const sidebars = (
       <List className="sideBars">
         <List.Item key={1} thumb={require('assets/images/iconman.png')} className='siderbar-logo'>
@@ -74,19 +75,20 @@ class Drawers extends React.Component {
             <FormattedMessage id={'public.index'} />
           </List.Item>
         </Link>
-        <Link to="/userCenter">
+        {token && (<div><Link to="/userCenter">
           <List.Item key={3}>
             <FormattedMessage id={'home.personalCenter'} />
           </List.Item>
         </Link>
-        <Link to="/myWallet">
-          <List.Item key={4}>
-            <FormattedMessage id={'home.assets'} />
-          </List.Item>
-        </Link>
-        <List.Item key={5} onClick={this.loginOut}>
-          <FormattedMessage id={'usercenter.logout'} />
-        </List.Item>
+          <Link to="/myWallet">
+            <List.Item key={4}>
+              <FormattedMessage id={'home.assets'} />
+            </List.Item>
+          </Link>
+          <List.Item key={5} onClick={this.loginOut}>
+            <FormattedMessage id={'usercenter.logout'} />
+          </List.Item></div>)}
+
         <List.Item key={6} onClick={this.setLanguage}>
           {localStorage.getItem('language') == 'zh' ? 'English' : '中文'}
         </List.Item>
