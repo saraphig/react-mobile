@@ -19,14 +19,17 @@ class MyInviteComp extends React.Component {
 		super(props);
 	}
 
-	componentDidMount() {}
+	componentDidMount() {
+		console.log(this);
+	}
 
 	render() {
 		const {
 			intl: { formatMessage },
-			TGroup
+			TGroup,
+			info
 		} = this.props;
-		console.log(this);
+
 		const content = (
 			<div>
 				<Navbars
