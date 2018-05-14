@@ -1116,7 +1116,7 @@ export const StatusShow = props => {
 					</div>
 				);
 			})}
-			{props.data.map((item, index) => {
+			{/* {props.data.map((item, index) => {
 				let color = '',
 					bizhi = '',
 					reg = /[a-zA-Z]+/gi,
@@ -1156,7 +1156,7 @@ export const StatusShow = props => {
 						</span>
 					</div>
 				);
-			})}
+			})} */}
 		</div>
 	);
 };
