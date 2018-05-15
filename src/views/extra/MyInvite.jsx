@@ -12,7 +12,8 @@ class MyInvite extends React.Component {
 		this.state = {
 			open: false,
 			TGroup: [],
-			info: []
+			info: [],
+      inviteUrl: ''
 		};
 	}
 
@@ -43,7 +44,8 @@ class MyInvite extends React.Component {
 				query,
 				success: data => {
 					this.setState({
-						info: data.info.user_info
+						info: data.info.user_info,
+            inviteUrl: `${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`
 					});
 				},
 				fail: this.fail,
@@ -64,7 +66,7 @@ class MyInvite extends React.Component {
   };
 
 	_onClick = () => {
-    let url = `${window.location.origin}/register?inviter=${this.state.info.invite_code}`;
+    let url = this.state.inviteUrl;
     copy(url);
     topToast(this.props.intl.formatMessage({id: 'code_08'}));
 	};
@@ -74,12 +76,12 @@ class MyInvite extends React.Component {
 	// };
 
 	render() {
-		const { open, TGroup, info } = this.state;
+		const { open, TGroup, info, inviteUrl } = this.state;
 		return (
 			<div>
 				<MyInviteComp
 					_onClick={this._onClick}
-					inviteUrl={`${window.location.origin}/register?inviter=${info.invite_code}`}
+					inviteUrl={inviteUrl}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}
