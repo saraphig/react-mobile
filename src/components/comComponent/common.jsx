@@ -240,14 +240,14 @@ export class Validate extends React.Component {
 		};
 	}
 
-  componentDidMount() {
-	  this.focus();
-  }
+	componentDidMount() {
+		this.focus();
+	}
 
-  focus = () => {
-    // 强制聚焦
-    $('#valInput').focus();
-}
+	focus = () => {
+		// 强制聚焦
+		$('#valInput').focus();
+	};
 
 	onChange(e) {
 		let value = e.target.value;
@@ -708,7 +708,7 @@ export class CoinTabs extends React.Component {
 					tabBarUnderlineStyle={{
 						borderColor: '#DCB276'
 					}}
-					tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
+					tabBarTextStyle={{ fontWeight: 300 }}
 				>
 					<div className="inform-height">
 						{/* <InformItem /> */}
@@ -1066,6 +1066,9 @@ export const AlertModal = props => {
 // };
 
 export const StatusShow = props => {
+	let orderIcon1 = '#icon-shengxu',
+		orderIcon2 = '#icon-jiangxu';
+
 	return (
 		<div className="status-show">
 			<p className="tab-bar">
@@ -1074,18 +1077,27 @@ export const StatusShow = props => {
 					onClick={() => this.sortData('volume')}
 				>
 					<FormattedMessage id={'home.volume'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 				<span
 					className="tab-item two"
 					onClick={() => this.sortData('last')}
 				>
 					<FormattedMessage id={'tradeCenterTop.last'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 				<span
 					className="tab-item three"
 					onClick={() => this.sortData('change')}
 				>
 					<FormattedMessage id={'tradeCenterTop.change'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 			</p>
 			{props.data.map((item, index) => {
