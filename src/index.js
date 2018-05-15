@@ -33,6 +33,15 @@ ReactDOM.render(
 // 	false
 // );
 
+$('input[type="text"],textarea').on('click', function() {
+	var target = this;
+	setTimeout(function() {
+		target.scrollIntoViewIfNeeded();
+	}, 100);
+});
+
+// console.log(document.body.clientHeight);
+
 if (module.hot) {
 	module.hot.accept('./routes', () => {
 		const newRoutes = require('./routes').default;
