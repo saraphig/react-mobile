@@ -29,31 +29,18 @@
 </head>
 
 <body>
-  <!-- <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript> -->
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 <script>
-  $(function(){
-    if(window.location.href.indexOf("/login") > -1) {
-     //防止页面后退
+  $(function () {
+    if (window.location.href.indexOf("/login") > -1) {
+      //防止页面后退
       history.pushState(null, null, document.URL);
       window.addEventListener('popstate', function () {
-       history.pushState(null, null, document.URL);
+        history.pushState(null, null, document.URL);
       });
     }
   });
- </script>
+</script>
 
 </html>

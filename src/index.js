@@ -40,6 +40,8 @@ $('input[type="text"],textarea').on('click', function() {
 	}, 100);
 });
 
+// console.log(document.body.clientHeight);
+
 if (module.hot) {
 	module.hot.accept('./routes', () => {
 		const newRoutes = require('./routes').default;
