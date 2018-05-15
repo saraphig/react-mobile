@@ -23,15 +23,24 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-//阻止浏览器滑动后退事件
-document.addEventListener(
-	'touchmove',
-	function(event) {
-		event.preventDefault();
-		console.log(3423523);
-	},
-	false
-);
+// //阻止浏览器滑动后退事件
+// document.addEventListener(
+// 	'touchmove',
+// 	function(event) {
+// 		event.preventDefault();
+// 		console.log(3423523);
+// 	},
+// 	false
+// );
+
+$('input[type="text"],textarea').on('click', function() {
+	var target = this;
+	setTimeout(function() {
+		target.scrollIntoViewIfNeeded();
+	}, 100);
+});
+
+// console.log(document.body.clientHeight);
 
 if (module.hot) {
 	module.hot.accept('./routes', () => {

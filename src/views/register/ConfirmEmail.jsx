@@ -10,10 +10,12 @@ class ConfirmEmail extends React.Component {
 	constructor(props) {
 		super(props);
 		// console.log(props.location)
-		let email = props.location.state.email || '';
+		// let email = props.location.state.email || '';
+    let email = props.location.state.query.email || '';
 		this.state = {
 			email: email,
-			open: false
+			open: false,
+      isRefreshCaptcha: false,
 		};
 	}
 
@@ -43,6 +45,11 @@ class ConfirmEmail extends React.Component {
 					// this.setState({
 					// 	phoneCode: data
 					// })
+          console.log(data);
+          const {
+            intl: { formatMessage }
+          } = this.props;
+          topToast(formatMessage({id: `code_${data.msg_code}`}));
 					this.props.history.push('/login');
 				},
 				fail: this.fail,
@@ -75,37 +82,52 @@ class ConfirmEmail extends React.Component {
 	};
 
 	// 底部的重新发送邮件
-  resendEmail = () => {
-    const { email, mailAuthToken, pwd, confirm_pwd, lang } = this.props.location.state;
+  resend = (validate) => {
+    const { email, lang } = this.props.location.state.query;
     const query = {
       email,
-      mailAuthToken,
-      pwd,
-      confirm_pwd,
       lang,
+      validate,
     };
     this.props.dispatch({
-      type: registerSaga.registerEmail,
+      type: registerSaga.resendEmail,
       payload: {
         query,
         success: data => {
-          this.fail(data.msg_code)
+          this.fail(data.msg_code);
+          this.setIsRefreshCaptcha();
         },
-        fail: this.fail,
-        error: this.error
+        fail: (code) => {
+          this.fail(code);
+          this.setIsRefreshCaptcha();
+        },
+        error: err => {
+          this.error();
+          this.setIsRefreshCaptcha();
+        }
       }
     });
   };
 
+  //设置是否刷新无感验证
+  setIsRefreshCaptcha = () => {
+    const { isRefreshCaptcha } = this.state;
+    this.setState({
+      isRefreshCaptcha: !isRefreshCaptcha
+    })
+  };
+
 	render() {
-		const { open } = this.state;
+		const { open, isRefreshCaptcha } = this.state;
 		return (
 			<div>
 				<ConfirmEmailComp
 					_onClickBTn={this._onClickBTn}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
-          resendEmail={this.resendEmail}
+          resend={this.resend}
+          isRefreshCaptcha={isRefreshCaptcha}
+          setIsRefreshCaptcha={this.setIsRefreshCaptcha}
 				/>
 			</div>
 		);

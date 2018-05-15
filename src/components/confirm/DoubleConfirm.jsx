@@ -77,13 +77,15 @@ class ConfirmG2FComp extends React.Component {
           count={count}
           sended={sended}
 				/>
-				<Buttons
-					className="buttons-doubleConfirm-transform"
-					buttonText={formatMessage({
-						id: 'depositWithdraw.submit'
-					})}
-					_onClick={() => this.onClick()}
-				/>
+        <div className='tabs-content'>
+          <Buttons
+            className="buttons-doubleConfirm-transform"
+            buttonText={formatMessage({
+              id: 'depositWithdraw.submit'
+            })}
+            _onClick={() => this.onClick()}
+          />
+        </div>
 			</div>
 		);
 		return (

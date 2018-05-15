@@ -6,7 +6,7 @@ import { List, NavBar, Icon } from 'antd-mobile';
 import Drawers from 'components/container/Drawers';
 import { dun } from 'src/config';
 import { MidText, Input, Buttons, BottomTips } from '../comComponent/common';
-import { topToast, emailCheck } from 'utils/comFunction'
+import { topToast, emailCheck } from 'utils/comFunction';
 
 class LoginComp extends React.Component {
 	constructor(props) {
@@ -20,11 +20,11 @@ class LoginComp extends React.Component {
 
 	componentDidMount() {
 		this.initNeCaptcha();
-		document.body.className='body-no-scroll'
+		document.body.className = 'body-no-scroll';
 	}
 
 	componentWillUnmount() {
-		document.body.className=''
+		document.body.className = '';
 	}
 
 	initNeCaptcha = () => {
@@ -38,8 +38,8 @@ class LoginComp extends React.Component {
 			{
 				captchaId: dun.captchaId,
 				element: this.slideBar,
-				// lang: formatMessage({ id: 'c.dun.lang' }),
-				lang: 'zh-CN',
+				lang: formatMessage({ id: 'c.dun.lang' }),
+				// lang: 'zh-CN',
 				onReady: instance => {
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 
@@ -82,18 +82,22 @@ class LoginComp extends React.Component {
 					// 	'#fff';
 				},
 				onVerify: (err, data) => {
-				  // 验证邮箱
-          if(!emailCheck(this.state.email)){
-            topToast(formatMessage({id: 'register.validateInfo.emailError'}));
-            this.initNeCaptcha();
-            return
-          }
-          // 验证密码
-          if(!this.state.pwd){
-            topToast(formatMessage({id: 'login.enterPassword'}));
-            this.initNeCaptcha();
-            return
-          }
+					// 验证邮箱
+					if (!emailCheck(this.state.email)) {
+						topToast(
+							formatMessage({
+								id: 'register.validateInfo.emailError'
+							})
+						);
+						this.initNeCaptcha();
+						return;
+					}
+					// 验证密码
+					if (!this.state.pwd) {
+						topToast(formatMessage({ id: 'login.enterPassword' }));
+						this.initNeCaptcha();
+						return;
+					}
 					let that = this;
 					if (data) {
 						that.setState({ validate: data.validate });
@@ -119,13 +123,16 @@ class LoginComp extends React.Component {
 	render() {
 		const {
 			intl: { formatMessage },
-      isRefreshCaptcha,
+			isRefreshCaptcha
 		} = this.props;
 		// 刷新验证码
-		if(isRefreshCaptcha){
-		  this.initNeCaptcha();
-		  this.props.setIsRefreshCaptcha();
-    }
+		if (isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
+
+
+
 		const content = (
 			<div className="login-middleContent">
 				<p className="middleContent-img-logo">
@@ -168,7 +175,7 @@ class LoginComp extends React.Component {
 					ref={bar => {
 						this.slideBar = bar;
 					}}
-					// className='login-button'
+					id="yidun"
 					// ref="slideBar"
 				/>
 				<BottomTips

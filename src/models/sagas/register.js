@@ -12,6 +12,7 @@ export const actionType = {
     phoneNext: 'register/phoneNext',
     registerEmail: 'register/registerEmail',
     emailValidate: 'register/emailValidate',
+    resendEmail: 'register/resendEmail',
     // setInfo: 'login/setInfo'
 }
 
@@ -73,6 +74,20 @@ export function* emailValidate({ payload: { query, success, fail, error} }) {
     }
 }
 
+// 邮箱重发
+export function* resendEmail({ payload: { query, success, fail, error} }) {
+  try{
+    const { data } = yield call(register.resend,query);
+    if (data.error_code === 200) {
+      success(data.data);
+    } else {
+      fail(data.error_code);
+    }
+  } catch(err){
+    error(err)
+  }
+}
+
 
 export default function* root() {
     yield [
@@ -80,5 +95,6 @@ export default function* root() {
       takeLatest(actionType.phoneNext, phoneNext),
       takeLatest(actionType.registerEmail, registerEmail),
       takeLatest(actionType.emailValidate, emailValidate),
+      takeLatest(actionType.resendEmail, resendEmail),
     ]
 }

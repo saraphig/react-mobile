@@ -1,6 +1,5 @@
 @import '../../styles/base';
 .login-middleContent {
-    flex-direction: column;
     margin: 0 30px 0 30px;
     .middleContent-img-logo {
         margin-top: 70px;
@@ -30,7 +29,7 @@
 //     @extend .fz18;
 //     @extend .gradient;
 // }
-.yidun_intelli-control {
+#yidun .yidun_intelli-control {
     background: #dcb276 !important;
     border: 1px solid #dcb276 !important;
     width: 100% !important;
@@ -45,21 +44,21 @@
     background: linear-gradient(to bottom, #fedf97, #cea366) !important;
 }
 
-.yidun_intelli-tips {
+#yidun .yidun_intelli-tips {
     color: #000 !important;
     font-weight: 200 !important;
 }
 
-.yidun_intelli-text {
+#yidun .yidun_intelli-text {
     color: #000 !important;
     font-weight: 200 !important;
 }
 
-.yidun_tips__text {
+#yidun .yidun_tips__text {
     color: #000 !important;
     font-weight: 200 !important;
 }
 
 .bottomTips-transform {
-    margin-top: 78px;
+    margin-top: 58px;
 }
