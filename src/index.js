@@ -48,13 +48,3 @@ if (module.hot) {
 		render(newRoutes);
 	});
 }
-
-// $(function () {
-//   if (window.location.href.indexOf("/login") > -1) {
-//     //防止页面后退
-//     history.pushState(null, null, document.URL);
-//     window.addEventListener('popstate', function () {
-//       history.pushState(null, null, document.URL);
-//     });
-//   }
-// });
