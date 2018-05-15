@@ -240,14 +240,14 @@ export class Validate extends React.Component {
 		};
 	}
 
-  componentDidMount() {
-	  this.focus();
-  }
+	componentDidMount() {
+		this.focus();
+	}
 
-  focus = () => {
-    // 强制聚焦
-    $('#valInput').focus();
-}
+	focus = () => {
+		// 强制聚焦
+		$('#valInput').focus();
+	};
 
 	onChange(e) {
 		let value = e.target.value;
@@ -680,9 +680,9 @@ export class CoinTabs extends React.Component {
 		};
 	}
 
-	sortData(val) {
+	sortData(val, status) {
 		// alert(val)
-		this.props.sortData(val);
+		this.props.sortData(val, status);
 	}
 	// console.log('comp==',props.data)
 	// const tabs = [
@@ -708,7 +708,7 @@ export class CoinTabs extends React.Component {
 					tabBarUnderlineStyle={{
 						borderColor: '#DCB276'
 					}}
-					tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
+					tabBarTextStyle={{ fontWeight: 300 }}
 				>
 					<div className="inform-height">
 						{/* <InformItem /> */}
@@ -967,7 +967,7 @@ export class CoinTabs extends React.Component {
 							</div>
 						</div> */}
 						{/* <ListView data={props.data}/> */}
-						<StatusShow data={this.props.data} />
+						<StatusShow data={this.props.data} sortData={(val, status) => this.sortData(val, status)}/>
 					</div>
 					<div>{/* <InformItem /> */}</div>
 				</Tabs>
@@ -1066,26 +1066,38 @@ export const AlertModal = props => {
 // };
 
 export const StatusShow = props => {
+	let orderIcon1 = '#icon-shengxu',
+		orderIcon2 = '#icon-jiangxu';
+
 	return (
 		<div className="status-show">
 			<p className="tab-bar">
 				<span
 					className="tab-item one"
-					onClick={() => this.sortData('volume')}
+					onClick={() => props.sortData('volume',true)}
 				>
 					<FormattedMessage id={'home.volume'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 				<span
 					className="tab-item two"
-					onClick={() => this.sortData('last')}
+					onClick={() => props.sortData('last', 'none')}
 				>
 					<FormattedMessage id={'tradeCenterTop.last'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 				<span
 					className="tab-item three"
-					onClick={() => this.sortData('change')}
+					onClick={() => props.sortData('change', 'none')}
 				>
 					<FormattedMessage id={'tradeCenterTop.change'} />
+					<svg className="order-icon" aria-hidden="true">
+						<use xlinkHref={orderIcon1} />
+					</svg>
 				</span>
 			</p>
 			{props.data.map((item, index) => {

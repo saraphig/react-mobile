@@ -264,7 +264,7 @@ const zh_CN = {
     '请不要向任何人透露您的登录密码或谷歌验证码，包括网站的工作人员。',
   'userCenter.loginPassword': '登录密码',
   'userCenter.useInLogin':
-    '登录密码至少8个字符，必须包含大小写字母和数字,不能使用特殊字符。为了您的资产安全，请您在设置后妥善保管。',
+    '登录密码至少8个字符，必须包含大小写字母和数字。为了您的资产安全，请您在设置后妥善保管。',
   'userCenter.change': '修改',
   'userCenter.validate': '谷歌验证',
   'userCenter.useInValidate': '验证时候使用',

@@ -121,6 +121,11 @@ class IndexComp extends React.Component {
 		document.body.className = '';
 	}
 
+	sortData(val, status) {
+		console.log(val, status)
+		this.setState({ sortBy: val })
+	}
+
 	render() {
 		let content = <div />;
 		if (this.state.data.length > 0) {
@@ -128,7 +133,7 @@ class IndexComp extends React.Component {
 				<div className="index-middleContent">
 					<CoinTabs
 						data={this.state.data}
-						sortData={val => this.setState({ sortBy: val })}
+						sortData={(val, status) => this.sortData(val, status)}
 					/>
 				</div>
 			);

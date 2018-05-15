@@ -14,7 +14,7 @@ class MyWallet extends React.Component {
 			open: false,
 		};
 	}
-	componentDidMount() {
+	componentWillMount() {
 		const token = getCookie('token');
 		if(token){
             this.props.dispatch({type: tradeSaga.setPrice})
@@ -43,6 +43,10 @@ class MyWallet extends React.Component {
                     },
                     fail: err => {
                         console.log(err);
+                        //token 失效
+                        if(Number(err.code) == 10003) {
+                            this.props.history.push('/login');
+                        }
                     }
                 }
             });
