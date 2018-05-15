@@ -234,6 +234,15 @@ export class Validate extends React.Component {
 		};
 	}
 
+  componentDidMount() {
+	  this.focus();
+  }
+
+  focus = () => {
+    // 强制聚焦
+    $('#valInput').focus();
+}
+
 	onChange(e) {
 		let value = e.target.value;
 		if (value.length > 6) {
@@ -292,7 +301,7 @@ export class Validate extends React.Component {
 					autoFocus="true"
 					onChange={this.onChange.bind(this)}
 				/>
-				<ul className="code-display">
+				<ul className="code-display" onClick={this.focus}>
 					<li>
 						<span className="number" />
 					</li>
