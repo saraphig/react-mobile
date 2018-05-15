@@ -288,20 +288,22 @@
     color: #bebebe;
     @extend .fz12;
     padding: 12px 20px 10px 20px;
-    box-sizing: border-box;
+	box-sizing: border-box;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.tab-item {
-    flex: 1;
-}
+// .tab-item {
+//     flex: 1;
+// }
 
-.two {
-    text-align: center;
-}
+// .two {
+//     text-align: center;
+// }
 
-.three {
-    text-align: right;
-}
+// .three {
+//     text-align: right;
+// }
 
 /**交易条的三个信息对**end**/
 
@@ -497,3 +499,4 @@
 .status-show .am-button:before{
 	border: 0 !important;
 }
+

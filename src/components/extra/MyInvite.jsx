@@ -54,7 +54,7 @@ class MyInviteComp extends React.Component {
 							id: 'candyDetail.copy'
 						})}
 						_onClick={this.props._onClick}
-            data-clipboard-target="#foo"
+						data-clipboard-target="#foo"
 					/>
 				</div>
 				<Navbars
@@ -68,7 +68,7 @@ class MyInviteComp extends React.Component {
 				/>
 				<div className="myInvite-friend-content ">
 					<span className="myInvite-content-code">
-            <QRCode value={this.props.inviteUrl}/>
+						<QRCode value={this.props.inviteUrl} />
 						{/*<img
 							src={require('assets/images/code.png')}
 							alt={formatMessage({

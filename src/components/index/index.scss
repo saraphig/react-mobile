@@ -9,6 +9,20 @@
             height: 65px;
         }
     }
+    .am-tabs-tab-bar-wrap {
+        width: 19%;
+    }
+    .tab-bar .one,
+    .tab-bar .two,
+    .tab-bar .three {
+        display: flex;
+        align-items: center;
+    }
+    .order-icon {
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+    }
 }
 
 .body-no-scroll {
