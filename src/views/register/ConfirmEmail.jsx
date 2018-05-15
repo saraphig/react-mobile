@@ -45,6 +45,11 @@ class ConfirmEmail extends React.Component {
 					// this.setState({
 					// 	phoneCode: data
 					// })
+          console.log(data);
+          const {
+            intl: { formatMessage }
+          } = this.props;
+          topToast(formatMessage({id: `code_${data.msg_code}`}));
 					this.props.history.push('/login');
 				},
 				fail: this.fail,

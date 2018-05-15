@@ -64,7 +64,7 @@ class MyInvite extends React.Component {
   };
 
 	_onClick = () => {
-    let url = 'test';
+    let url = `http://top.one/?inviter=${this.state.info.invite_code}`;
     copy(url);
     topToast(this.props.intl.formatMessage({id: 'code_08'}));
 	};
