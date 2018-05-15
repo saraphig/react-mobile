@@ -148,27 +148,10 @@ class UserCenterComp extends React.Component {
 						_onOpenChange={this.props._onOpenChange}
 						_open={this.props._open}
 					/>
-					{/* <Modal
-						visible={this.state.modal1}
-						transparent
-						maskClosable={false}
-						onClose={this.onClose}
-						title="Title"
-						footer={[
-							{
-								text: 'Ok',
-								onPress: () => {
-									console.log('ok');
-								}
-							}
-						]}
-						wrapProps={{ onTouchStart: this.onWrapTouchStart }}
-					> */}
 					<AlertModal
 						isOpen={this.state._isOpen}
 						_close={this._close}
 					/>
-					{/* </Modal> */}
 				</div>
 			</div>
 		);

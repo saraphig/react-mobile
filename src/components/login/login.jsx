@@ -20,6 +20,11 @@ class LoginComp extends React.Component {
 
 	componentDidMount() {
 		this.initNeCaptcha();
+		document.body.className='body-no-scroll'
+	}
+
+	componentWillUnmount() {
+		document.body.className=''
 	}
 
 	initNeCaptcha = () => {

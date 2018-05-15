@@ -32,6 +32,7 @@ class RegisterComp extends React.Component {
 	}
 
 	componentDidMount() {
+		document.body.className = 'body-no-scroll';
 		console.log(this);
 		this.initNeCaptcha();
 		// $(this.phone).intlTelInput({
@@ -43,6 +44,10 @@ class RegisterComp extends React.Component {
 				nationCode: countryData.dialCode
 			});
 		});
+	}
+
+	componentWillUnmount() {
+		document.body.className = '';
 	}
 
 	// _onClickBTn = e => {
@@ -65,7 +70,7 @@ class RegisterComp extends React.Component {
 				element: '#dun',
 				lang: 'zh-CN',
 				onReady: instance => {
-					this.captchaIns = instance
+					this.captchaIns = instance;
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 					//验证码logo的去除
 					if (
@@ -82,6 +87,17 @@ class RegisterComp extends React.Component {
 					)[0].innerText = formatMessage({
 						id: 'register.postPhoneValidate'
 					});
+
+					$('.yidun_intellisense--light .yidun_intelli-text').css({
+						'line-height': 1
+					});
+
+					$('.yidun_intelli-control').css({
+						background: 'transparent',
+						border: 0,
+						height: 'auto'
+					});
+
 					// '发送验证码';
 				},
 				onVerify: (err, data) => {
@@ -126,14 +142,13 @@ class RegisterComp extends React.Component {
 		);
 	}
 
-
 	render() {
 		const { pathName } = this.state;
 		const {
 			intl: { formatMessage },
-      count,
-      sended,
-      isRefreshCaptcha,
+			count,
+			sended,
+			isRefreshCaptcha
 		} = this.props;
 		const content = (
 			<div className="register-middleContent">
@@ -153,19 +168,20 @@ class RegisterComp extends React.Component {
 						id: 'register.phoneValidate'
 					})}
 					types={1}
-          sended={sended}
-          time={count}
+					sended={sended}
+					time={count}
 					text={formatMessage({
 						id: 'register.postPhoneValidate'
 					})}
+					yidun={<span id="dun" />}
 					onChange={val => this.setState({ verifyCode: val })}
 				/>
-				<span id="dun"/>
+				{/* <span id="dun" /> */}
 				<Input
 					placeholder={formatMessage({
 						id: 'recommendedCode'
 					})}
-          value={this.state.inviterCode}
+					value={this.state.inviterCode}
 					onChange={val => this.setState({ inviterCode: val })}
 				/>
 				<Buttons
@@ -187,28 +203,17 @@ class RegisterComp extends React.Component {
 			</div>
 		);
 		// 倒计时结束初始化发送验证码
-		if(count === 0){
-		  this.initNeCaptcha();
-    }
-    // 请求失败初始化发送验证码
-    if(isRefreshCaptcha){
-      this.initNeCaptcha();
-      this.props.setIsRefreshCaptcha();
-    }
+		if (count === 0) {
+			this.initNeCaptcha();
+		}
+		// 请求失败初始化发送验证码
+		if (isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
 		return (
 			<div className="register">
 				<Header _onClick={this.props._onOpenChange} />
-				{/* <Drawer
-					className="my-drawer"
-					style={{ minHeight: document.documentElement.clientHeight }}
-					enableDragHandle={true}
-					dragToggleDistance={0}
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				/> */}
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

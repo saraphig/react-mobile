@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { actionType as tradingSaga } from 'models/sagas/trading';
 import { actionType as userCenterSaga } from 'models/sagas/userCenter';
+import { actionType as tradeSaga } from 'models/sagas/trading';
 import MyWalletComp from 'components/userCenter/MyWallet';
 import { getCookie} from "../../utils/comFunction";
 
@@ -13,10 +14,13 @@ class MyWallet extends React.Component {
 			open: false,
 		};
 	}
-
 	componentDidMount() {
 		const token = getCookie('token');
 		if(token){
+            this.props.dispatch({type: tradeSaga.setPrice})
+            this.interval = setInterval(() => {
+                this.props.dispatch({type: tradeSaga.setPrice})
+            }, 10000);
             this.props.dispatch({
                 type: tradingSaga.tradeAssets,
                 payload: {
@@ -26,6 +30,7 @@ class MyWallet extends React.Component {
                         id: 0
                     },
                     success: result => {
+                    	// 将资产信息存储在store
                         this.props.dispatch({
                             type: userCenterSaga.setMyCoinAccount,
                             payload: {
@@ -35,7 +40,6 @@ class MyWallet extends React.Component {
                                 },
                             },
                         });
-                        //this.setState({ coinList: assetArr});
                     },
                     fail: err => {
                         console.log(err);
@@ -46,8 +50,13 @@ class MyWallet extends React.Component {
 			window.location.href='/login';
 		}
 	}
+    componentWillUnmount() {
+        if (this.interval) {
+            clearInterval(this.interval)
+        }
+    }
 
-	//drawer
+	// 抽屉显示
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
 	};
@@ -65,11 +74,4 @@ class MyWallet extends React.Component {
 	}
 }
 
-export function mapStateToProps(state) {
-    return {
-        //myAssets: state.userCenter.myAssets,
-    };
-}
-
-// export default Index;
-export default connect(mapStateToProps)(injectIntl(MyWallet));
+export default connect()(injectIntl(MyWallet));

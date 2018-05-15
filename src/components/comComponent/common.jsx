@@ -45,13 +45,13 @@ export const BottomTips = props => {
 		<p className={`BottomTips ${props.className}`} style={props.style}>
 			{props.pathName ? (
 				<Link to={props.pathName}>
-					<span>{props.BottomTips1}？</span>&nbsp;<span className="BottomTips-right">
+					<span>{props.BottomTips1}</span>&nbsp;<span className="BottomTips-right">
 						{props.BottomTips2}
 					</span>
 				</Link>
 			) : (
 				<a href="javascript:;">
-					<span>{props.BottomTips1}？</span>&nbsp;<span
+					<span>{props.BottomTips1}</span>&nbsp;<span
 						className="BottomTips-right"
 						onClick={props.onClick}
 					>
@@ -142,10 +142,10 @@ export class Input extends React.Component {
 		};
 	}
 	onChange(e) {
-	  // input不可点击就没有change事件
-	  if(!this.props.disabled){
-      this.props.onChange(e.target.value);
-    }
+		// input不可点击就没有change事件
+		if (!this.props.disabled) {
+			this.props.onChange(e.target.value);
+		}
 	}
 	render() {
 		return (
@@ -158,7 +158,7 @@ export class Input extends React.Component {
 							<FormattedMessage id="forget.email" />
 						)
 					}
-          disabled={this.props.disabled || false}
+					disabled={this.props.disabled || false}
 					// autoComplete={this.props.autoComplete || ''}
 					// value={this.state.value}
 					autoComplete={this.props.autoComplete || ''}
@@ -169,7 +169,13 @@ export class Input extends React.Component {
 					type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
-					<div>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}}
+					>
 						<span className="line" />
 						<span
 							className={
@@ -185,7 +191,7 @@ export class Input extends React.Component {
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
-									{this.props.text || (
+									{this.props.yidun || (
 										<FormattedMessage id="register.postPhoneValidate" />
 									)}
 								</span>
@@ -406,15 +412,15 @@ export class TopTabs extends React.Component {
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
 								value={this.props.info.phone}
-                disabled={true}
+								disabled={true}
 							/>
 							<Input
 								placeholder={this.props.validateHolder}
 								types={1}
 								onChange={this.props.validateChange}
 								onClick={this.props.sendPhoneCode}
-                time={this.props.count}
-                sended={this.props.sended}
+								time={this.props.count}
+								sended={this.props.sended}
 							/>
 						</div>
 						<div className="tabs-content">
@@ -453,15 +459,15 @@ export class TopTabs extends React.Component {
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
 						value={this.props.info.phone}
-            disabled={true}
+						disabled={true}
 					/>
 					<Input
 						placeholder={this.props.validateHolder}
 						types={1}
 						onChange={this.props.validateChange}
 						onClick={this.props.sendPhoneCode}
-            time={this.props.count}
-            sended={this.props.sended}
+						time={this.props.count}
+						sended={this.props.sended}
 					/>
 				</div>
 			);
@@ -701,8 +707,6 @@ export class CoinTabs extends React.Component {
 					swipeable={false}
 					tabBarUnderlineStyle={{
 						borderColor: '#DCB276'
-						// width: '22%',
-						// marginLeft: '14%'
 					}}
 					tabBarTextStyle={{ fontSize: '18px', fontWeight: 400 }}
 				>
@@ -967,26 +971,6 @@ export class CoinTabs extends React.Component {
 					</div>
 					<div>{/* <InformItem /> */}</div>
 				</Tabs>
-				<p className="tab-bar">
-					<span
-						className="tab-item one"
-						onClick={() => this.sortData('volume')}
-					>
-						<FormattedMessage id={'home.volume'} />
-					</span>
-					<span
-						className="tab-item two"
-						onClick={() => this.sortData('last')}
-					>
-						<FormattedMessage id={'tradeCenterTop.last'} />
-					</span>
-					<span
-						className="tab-item three"
-						onClick={() => this.sortData('change')}
-					>
-						<FormattedMessage id={'tradeCenterTop.change'} />
-					</span>
-				</p>
 			</div>
 		);
 	}
@@ -1084,6 +1068,26 @@ export const AlertModal = props => {
 export const StatusShow = props => {
 	return (
 		<div className="status-show">
+			<p className="tab-bar">
+				<span
+					className="tab-item one"
+					onClick={() => this.sortData('volume')}
+				>
+					<FormattedMessage id={'home.volume'} />
+				</span>
+				<span
+					className="tab-item two"
+					onClick={() => this.sortData('last')}
+				>
+					<FormattedMessage id={'tradeCenterTop.last'} />
+				</span>
+				<span
+					className="tab-item three"
+					onClick={() => this.sortData('change')}
+				>
+					<FormattedMessage id={'tradeCenterTop.change'} />
+				</span>
+			</p>
 			{props.data.map((item, index) => {
 				let color = '',
 					bizhi = '',
@@ -1125,7 +1129,7 @@ export const StatusShow = props => {
 					</div>
 				);
 			})}
-			{/* {props.data.map((item, index) => {
+			{props.data.map((item, index) => {
 				let color = '',
 					bizhi = '',
 					reg = /[a-zA-Z]+/gi,
@@ -1165,7 +1169,7 @@ export const StatusShow = props => {
 						</span>
 					</div>
 				);
-			})} */}
+			})}
 		</div>
 	);
 };

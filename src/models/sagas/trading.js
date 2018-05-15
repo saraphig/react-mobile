@@ -15,15 +15,18 @@ export const actionType = {
 }
 
 // 获取初始数据并存入store
-export function* tradeApi({ payload: { query, success, fail } }) {
+export function* tradeApi({ payload: { query, success, fail, error } }) {
     // console.log(query)
-    
-    const { data } = yield call(trading.Api, query)
-    if (!data.error) {
-        yield put({ type: tradeReducer.setMarket, payload: data.result });
-        success(data.result);
-    } else {
-        fail(data.error)
+    try{
+        const { data } = yield call(trading.Api, query)
+        if (!data.error) {
+            yield put({ type: tradeReducer.setMarket, payload: data.result });
+            success(data.result);
+        } else {
+            fail(data.error)
+        }
+    }catch(err){
+        error(err)
     }
 }
 

@@ -11,22 +11,31 @@ class Header extends React.Component {
 		super();
 		const token = getCookie('token');
 		this.state = {
-            token: token
+			token: token
 		};
 	}
 
 	render() {
-    const {
-      intl: { formatMessage }
-	} = this.props;
-		let box = null
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		let box1,
+			box2 = null;
 		if (!this.state.token) {
-			box = (
+			box1 = (
 				<div>
-					<Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
-					<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link>
+					<Link to="/login" className="header-login">
+						{formatMessage({ id: 'public.login' })}
+					</Link>
 				</div>
-			)
+			);
+			box2 = (
+				<div>
+					<Link to="/register" className="header-register">
+						{formatMessage({ id: 'login.register' })}
+					</Link>
+				</div>
+			);
 		}
 		return (
 			<div>
@@ -41,7 +50,8 @@ class Header extends React.Component {
 					<span className="header-right">
 						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
 						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link> */}
-						{box}
+						{box1|| <span className="header-login"></span>}
+						{box2 || <span className="header-register"></span>}
 						<span className="header-menus">
 							<img
 								className="header-menu"
