@@ -21,14 +21,15 @@ class IndexComp extends React.Component {
 			initData: [],
 			updateData: [],
 			data: [],
-			sortBy: 'volume' // 按照成交量排序
+			sortBy: 'volume', // 按照成交量排序
+			orderStatus: false,
+			orderStatus2: false,
+			orderStatus3: false,
+			orderName: 'volume'
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
-		// console.log('data',this.state.data)
-		// console.log('updateData',nextProps.updateData)
-		// console.log('initData',this.state.initData)
 		if (this.state.initData.length == 0) {
 			let arr = [];
 			nextProps.initData.forEach(el => {
@@ -56,10 +57,11 @@ class IndexComp extends React.Component {
 			this.state.initData.length != 0
 		) {
 			let obj = [...this.state.data];
-			let price = 0
-			let unit = ''
+			let price = 0;
+			let unit = '';
 			if (nextProps.priceETH != null) {
-				price = localStorage.getItem('language') == 'zh'
+				price =
+					localStorage.getItem('language') == 'zh'
 						? nextProps.priceETH.eth.cny
 						: nextProps.priceETH.eth.usd;
 				unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
@@ -121,19 +123,64 @@ class IndexComp extends React.Component {
 		document.body.className = '';
 	}
 
+	/**
+	 *
+	 * @param {*} val
+	 * @param {*} status true 为升序，false 为降序
+	 *
+	 * TODO: need for optimized
+	 */
 	sortData(val, status) {
-		console.log(val, status)
-		this.setState({ sortBy: val })
+		switch (val) {
+			case 'volume':
+				this.setState({
+					orderStatus: !status,
+					orderStatus2: false,
+					orderStatus3: false
+				});
+				break;
+			case 'last':
+				this.setState({
+					orderStatus2: !status,
+					orderStatus: false,
+					orderStatus3: false
+				});
+				break;
+			case 'change':
+				this.setState({
+					orderStatus3: !status,
+					orderStatus2: false,
+					orderStatus: false
+				});
+				break;
+			default:
+				break;
+		}
+		this.setState({
+			sortBy: val,
+			orderName: val
+		});
 	}
 
 	render() {
+		const {
+			data,
+			orderStatus,
+			orderName,
+			orderStatus2,
+			orderStatus3
+		} = this.state;
 		let content = <div />;
 		if (this.state.data.length > 0) {
 			content = (
 				<div className="index-middleContent">
 					<CoinTabs
-						data={this.state.data}
+						data={data}
 						sortData={(val, status) => this.sortData(val, status)}
+						orderStatus={orderStatus}
+						orderStatus2={orderStatus2}
+						orderStatus3={orderStatus3}
+						orderName={orderName}
 					/>
 				</div>
 			);

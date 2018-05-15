@@ -50,8 +50,8 @@ class Header extends React.Component {
 					<span className="header-right">
 						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
 						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link> */}
-						{box1|| <span className="header-login"></span>}
-						{box2 || <span className="header-register"></span>}
+						{box1 || <span className="header-login" />}
+						{box2 || <span className="header-register" />}
 						<span className="header-menus">
 							<img
 								className="header-menu"
