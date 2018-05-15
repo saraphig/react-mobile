@@ -411,7 +411,7 @@ export class TopTabs extends React.Component {
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value={this.props.info.phone}
+								value={'+' + this.props.info.nation_code + '  ' + this.props.info.phone}
 								disabled={true}
 							/>
 							<Input
@@ -458,7 +458,7 @@ export class TopTabs extends React.Component {
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value={this.props.info.phone}
+						value={'+' + this.props.info.nation_code + '  ' + this.props.info.phone}
 						disabled={true}
 					/>
 					<Input
