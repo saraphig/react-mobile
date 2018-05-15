@@ -383,6 +383,7 @@ export class TopTabs extends React.Component {
 		let tabsBox = null;
 		let googleBox = null;
 		let phoneBox = null;
+		const { nation_code, phone } = this.props.info;
 
 		// 如果是都绑定了
 		if (this.props.info.isGoogle && this.props.info.phone != '0') {
@@ -411,7 +412,7 @@ export class TopTabs extends React.Component {
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value={'+' + this.props.info.nation_code + '  ' + this.props.info.phone}
+								value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
 								disabled={true}
 							/>
 							<Input
@@ -458,7 +459,7 @@ export class TopTabs extends React.Component {
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value={'+' + this.props.info.nation_code + '  ' + this.props.info.phone}
+						value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
 						disabled={true}
 					/>
 					<Input
