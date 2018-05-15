@@ -64,7 +64,7 @@ class MyInvite extends React.Component {
   };
 
 	_onClick = () => {
-    let url = `http://top.one/?inviter=${this.state.info.invite_code}`;
+    let url = `${window.location.origin}/register?inviter=${this.state.info.invite_code}`;
     copy(url);
     topToast(this.props.intl.formatMessage({id: 'code_08'}));
 	};
@@ -79,7 +79,7 @@ class MyInvite extends React.Component {
 			<div>
 				<MyInviteComp
 					_onClick={this._onClick}
-					inviteUrl={`http://top.one/?inviter=${info.invite_code}`}
+					inviteUrl={`${window.location.origin}/register?inviter=${info.invite_code}`}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}
