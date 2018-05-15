@@ -270,7 +270,7 @@ const enUS = {
     'Security Recommendations: Check the visit URL, Enable 2FA, Do not disclose password and make any transactions to anyone claims to be TOP.ONE support.',
   'userCenter.loginPassword': 'Login Password',
   'userCenter.useInLogin':
-    'Login Password must be at least 8 characters with uppercase letters and numbers. Special characters are not allowed. Do not disclose it to anyone.',
+    'Login Password must be at least 8 characters with uppercase letters and numbers. Do not disclose it to anyone.',
   'userCenter.change': 'Change',
   'userCenter.validate': 'Google 2FA',
   'userCenter.useInValidate': 'Use for authentication',
