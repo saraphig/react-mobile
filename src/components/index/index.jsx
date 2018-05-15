@@ -56,11 +56,14 @@ class IndexComp extends React.Component {
 			this.state.initData.length != 0
 		) {
 			let obj = [...this.state.data];
-			let price =
-				localStorage.getItem('language') == 'zh'
-					? nextProps.priceETH.eth.cny
-					: nextProps.priceETH.eth.usd;
-			let unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
+			let price = 0
+			let unit = ''
+			if (nextProps.priceETH != null) {
+				price = localStorage.getItem('language') == 'zh'
+						? nextProps.priceETH.eth.cny
+						: nextProps.priceETH.eth.usd;
+				unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
+			}
 			obj.forEach(el => {
 				if (el.name == nextProps.updateData[0]) {
 					// console.log('===',nextProps.updateData[0])

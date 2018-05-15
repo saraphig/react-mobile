@@ -11,7 +11,7 @@ export function Api(query) {
   });
 };
 
-// 打开webSocket
+// 获取人民币或美元汇率（ETH）
 export function coinPrice(query) {
   return request({
     url: '/api/coinPrice',

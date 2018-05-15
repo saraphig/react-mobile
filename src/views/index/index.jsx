@@ -5,6 +5,7 @@ import { actionType as loginSaga } from 'models/sagas/login.js';
 import { actionType as tradeSaga } from 'models/sagas/trading';
 import wsRequest from 'utils/wsRequest';
 import IndexComp from 'components/index/index';
+import { topToast } from 'utils/comFunction'
 
 class Index extends React.Component {
 	constructor(props) {
@@ -38,7 +39,7 @@ class Index extends React.Component {
 
 	componentWillReceiveProps(nextprops) {
 		// 接收到nextprops触发
-		console.log('==', nextprops.token);
+		// console.log('==', nextprops.token);
 		// console.log('price:', this.props.priceETH)
 		this.setState({
 			priceETH: this.props.priceETH
@@ -62,7 +63,7 @@ class Index extends React.Component {
 					id: 0
 				},
 				success: result => {
-					console.log('----', result)
+					// console.log('----', result)
 					this.setState({
 						initData: result
 					})
@@ -72,11 +73,31 @@ class Index extends React.Component {
 					this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
 					// console.log('8888',this.dataWs)
 				},
-				fail: err => {
-					console.log(err);
-				}
+				fail: this.fail,
+				error: this.error
 			}
 		});
+	};
+
+	//请求返回失败code
+	fail = (err_code) => {
+	const {
+		intl: { formatMessage }
+	} = this.props;
+	topToast(formatMessage({ id: `code_${err_code}` }));
+	// this.setIsRefreshCaptcha();
+		// alert(err_code)
+	};
+	
+	// 网络异常，请求失败
+	error = (err) => {
+		// alert('网络异常，请求失败',err)
+		// console.log(err)
+	const {
+		intl: { formatMessage }
+	} = this.props;
+	topToast(formatMessage({ id: 'serverError' }));
+	// this.setIsRefreshCaptcha();
 	};
 
 	wsMessage = data => {
