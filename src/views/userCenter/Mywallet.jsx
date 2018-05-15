@@ -14,7 +14,7 @@ class MyWallet extends React.Component {
 			open: false,
 		};
 	}
-	componentDidMount() {
+	componentWillMount() {
 		const token = getCookie('token');
 		if(token){
             this.props.dispatch({type: tradeSaga.setPrice})
