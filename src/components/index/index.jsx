@@ -21,7 +21,11 @@ class IndexComp extends React.Component {
 			initData: [],
 			updateData: [],
 			data: [],
-			sortBy: 'volume' // 按照成交量排序
+			sortBy: 'volume', // 按照成交量排序
+			orderStatus: false,
+			orderStatus2: false,
+			orderStatus3: false,
+			orderName: 'volume'
 		};
 	}
 
@@ -56,10 +60,11 @@ class IndexComp extends React.Component {
 			this.state.initData.length != 0
 		) {
 			let obj = [...this.state.data];
-			let price = 0
-			let unit = ''
+			let price = 0;
+			let unit = '';
 			if (nextProps.priceETH != null) {
-				price = localStorage.getItem('language') == 'zh'
+				price =
+					localStorage.getItem('language') == 'zh'
 						? nextProps.priceETH.eth.cny
 						: nextProps.priceETH.eth.usd;
 				unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
@@ -122,18 +127,28 @@ class IndexComp extends React.Component {
 	}
 
 	sortData(val, status) {
-		console.log(val, status)
-		this.setState({ sortBy: val })
+		console.log(val, status);
+		this.setState({
+			sortBy: val,
+			orderStatus: !status,
+			orderStatus2: !status,
+			orderStatus3: !status,
+			orderName: val
+		});
 	}
 
 	render() {
+		const { data, orderStatus, orderName, orderStatus2 } = this.state;
 		let content = <div />;
 		if (this.state.data.length > 0) {
 			content = (
 				<div className="index-middleContent">
 					<CoinTabs
-						data={this.state.data}
+						data={data}
 						sortData={(val, status) => this.sortData(val, status)}
+						orderStatus={orderStatus}
+						orderStatus2={orderStatus2}
+						orderName={orderName}
 					/>
 				</div>
 			);
