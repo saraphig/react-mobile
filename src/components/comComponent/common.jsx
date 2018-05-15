@@ -1106,7 +1106,7 @@ export const StatusShow = props => {
 						<span className="inform-item two">
 							<p>{item.last || '---'}</p>
 							<p className="inform-item-small">
-								{item.price || ''}
+								{item.price || '---'}
 							</p>
 						</span>
 						<span className="inform-item three">
@@ -1114,7 +1114,9 @@ export const StatusShow = props => {
 								className="inform-item-middle"
 								style={{ background: color }}
 							>
-								{item.change ? bizhi + item.change : '---'}
+								{item.change
+									? bizhi + item.change + '%'
+									: '---'}
 							</Button>
 						</span>
 					</div>
@@ -1147,7 +1149,7 @@ export const StatusShow = props => {
 						<span className="inform-item two">
 							<p>{item.last || '---'}</p>
 							<p className="inform-item-small">
-								{item.price || ''}
+								{item.price || '---'}
 							</p>
 						</span>
 						<span className="inform-item three">
@@ -1155,7 +1157,9 @@ export const StatusShow = props => {
 								className="inform-item-middle"
 								style={{ background: color }}
 							>
-								{item.change ? bizhi + item.change : '---'}
+								{item.change
+									? bizhi + item.change + '%'
+									: '---'}
 							</Button>
 						</span>
 					</div>
