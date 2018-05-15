@@ -71,9 +71,9 @@ class MyInvite extends React.Component {
     topToast(this.props.intl.formatMessage({id: 'code_08'}));
 	};
 
-	// _onOpenChange = () => {
-	// 	this.setState({ open: !this.state.open });
-	// };
+	_onOpenChange = () => {
+		this.setState({ open: !this.state.open });
+	};
 
 	render() {
 		const { open, TGroup, info, inviteUrl } = this.state;
