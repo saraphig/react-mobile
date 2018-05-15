@@ -22,10 +22,11 @@ class IndexComp extends React.Component {
 			updateData: [],
 			data: [],
 			sortBy: 'volume', // 按照成交量排序
+			isAsc: true, // 是否按照降序排列
 			orderStatus: false,
 			orderStatus2: false,
 			orderStatus3: false,
-			orderName: 'volume'
+			// orderName: 'volume'
 		};
 	}
 
@@ -82,9 +83,15 @@ class IndexComp extends React.Component {
 					).toFixed(2);
 				}
 			});
-			obj = obj.sort((b, a) =>
-				this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
-			);
+			if (this.state.isAsc) {
+				obj = obj.sort((b, a) =>
+					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
+				);
+	    	} else {
+				obj = obj.sort((a, b) =>
+					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
+				);
+			}
 			this.setState({
 				data: obj
 			});
@@ -158,7 +165,23 @@ class IndexComp extends React.Component {
 		}
 		this.setState({
 			sortBy: val,
-			orderName: val
+			isAsc: status,
+			// orderName: val
+		});
+
+		//数据处理
+		let obj = [...this.state.data];
+		if (status) {
+			obj = obj.sort((b, a) =>
+				this.sortDeal(a[val], b[val])
+			);
+		} else {
+			obj = obj.sort((a, b) =>
+				this.sortDeal(a[val], b[val])
+			);
+		}
+		this.setState({
+			data: obj
 		});
 	}
 
@@ -166,7 +189,7 @@ class IndexComp extends React.Component {
 		const {
 			data,
 			orderStatus,
-			orderName,
+			sortBy,
 			orderStatus2,
 			orderStatus3
 		} = this.state;
@@ -180,7 +203,7 @@ class IndexComp extends React.Component {
 						orderStatus={orderStatus}
 						orderStatus2={orderStatus2}
 						orderStatus3={orderStatus3}
-						orderName={orderName}
+						orderName={sortBy}
 					/>
 				</div>
 			);
