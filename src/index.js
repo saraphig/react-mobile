@@ -33,12 +33,12 @@ ReactDOM.render(
 // 	false
 // );
 
-$('input[type="text"],textarea').on('click', function() {
-	var target = this;
-	setTimeout(function() {
-		target.scrollIntoViewIfNeeded();
-	}, 100);
-});
+// $('input[type="text"],textarea').on('click', function() {
+// 	var target = this;
+// 	setTimeout(function() {
+// 		target.scrollIntoViewIfNeeded();
+// 	}, 100);
+// });
 
 // console.log(document.body.clientHeight);
 
@@ -49,12 +49,12 @@ if (module.hot) {
 	});
 }
 
-$(function () {
-  if (window.location.href.indexOf("/login") > -1) {
-    //防止页面后退
-    history.pushState(null, null, document.URL);
-    window.addEventListener('popstate', function () {
-      history.pushState(null, null, document.URL);
-    });
-  }
-});
+// $(function () {
+//   if (window.location.href.indexOf("/login") > -1) {
+//     //防止页面后退
+//     history.pushState(null, null, document.URL);
+//     window.addEventListener('popstate', function () {
+//       history.pushState(null, null, document.URL);
+//     });
+//   }
+// });
