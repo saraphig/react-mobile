@@ -1096,7 +1096,6 @@ export const StatusShow = props => {
 	props.orderStatus3
 		? (orderIcon3 = '#icon-shengxu')
 		: (orderIcon3 = '#icon-jiangxu');
-	console.log(props.orderStatus, props.orderStatus2, props.orderStatus3);
 	return (
 		<div className="status-show">
 			<p className="tab-bar">

@@ -25,7 +25,7 @@ class Drawers extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
+		// console.log(this.props);
 	}
 	// 退出登陆
 	// 抽屉每个页面都引入，每个页面都写就很多，所以写在这边
