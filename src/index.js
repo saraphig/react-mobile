@@ -10,26 +10,32 @@ import configureStore from 'models/store/configureStore';
 import 'src/styles/reset.css';
 import 'src/styles/globle.css';
 import 'amfe-flexible';
-import 'src/assets/js/iconfont'
+import 'src/assets/js/iconfont';
 
 const store = configureStore();
 
 const { locale, messages } = setLang();
 
 ReactDOM.render(
-      <IntlProvider locale={locale} messages={messages}>
-        <Provider store={store}>
-          { routes }
-        </Provider>
-      </IntlProvider>,
-    document.getElementById('root')
+	<IntlProvider locale={locale} messages={messages}>
+		<Provider store={store}>{routes}</Provider>
+	</IntlProvider>,
+	document.getElementById('root')
+);
+
+//阻止浏览器滑动后退事件
+document.addEventListener(
+	'touchmove',
+	function(event) {
+		event.preventDefault();
+		console.log(3423523);
+	},
+	false
 );
 
 if (module.hot) {
-    module.hot.accept('./routes', () => {
-      const newRoutes = require('./routes').default;
-      render(newRoutes);
-    });
-  }
-
-
+	module.hot.accept('./routes', () => {
+		const newRoutes = require('./routes').default;
+		render(newRoutes);
+	});
+}

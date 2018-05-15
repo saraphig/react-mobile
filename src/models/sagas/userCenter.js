@@ -10,6 +10,7 @@ export const actionType = {
     getInviteInfo:'userCenter/getInviteInfo',
     getUserInfo: 'userCenter/getUserInfo',
     topFeeUpdate: 'userCenter/topFeeUpdate',
+    setMyCoinAccount: 'userCenter/coinAccount',
 }
 
 export function* getInviteInfo({ payload: { query, success, fail } }) {
@@ -62,10 +63,16 @@ export function* topFeeUpdate({ payload: { query, success, fail } }) {
     }
 }
 
+// 获取资产总值
+export function* setMyCoinAccount({ payload: { query } }) {
+    yield put({ type: userCenterReducer.setMyCoinAccount, query });
+}
+
 export default function* root() {
     yield [
         takeLatest(actionType.getInviteInfo, getInviteInfo),
         takeLatest(actionType.getUserInfo, getUserInfo),
         takeLatest(actionType.topFeeUpdate, topFeeUpdate),
+        takeLatest(actionType.setMyCoinAccount, setMyCoinAccount),
     ];
 }
