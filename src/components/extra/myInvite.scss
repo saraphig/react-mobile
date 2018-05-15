@@ -45,10 +45,16 @@
     height: 85px;
 }
 
+.myInvite-content-code canvas{
+    width: 86px !important;
+    height: 86px !important;
+}
+
 .myInvite-url {
     line-height: 18px;
     color: #969696;
     word-break: break-all;
+    user-select: text;
 }
 
 .myInvite-btn-copy {
@@ -60,6 +66,9 @@
     color: #dab272;
     border: 1px solid;
     margin-top: 20px;
+    &:active{
+        background-color: #f5f5f5;
+    }
 }
 
 .myInvite-url-btn .button:active {
