@@ -46,14 +46,16 @@ class MyWalletComp extends React.Component {
 	render() {
 		const {
 			intl: { formatMessage },
-            myAssets
+            myAssets,
+            priceETH
 		} = this.props;
 		const {
             isSee,
 			noSeeValue,
             isHideSmall
 		} =this.state;
-		console.log("myAssets===",myAssets)
+		console.log("myAssets===",myAssets);
+		console.log("priceETH===",priceETH&&priceETH.eth.cny);
 		const content = (
 			<div>
 				<Navbars
@@ -68,7 +70,7 @@ class MyWalletComp extends React.Component {
 					{
 						isSee?<span className="myWallet-money-info moneys">
 						{myAssets.myCoinAccount}&nbsp;ETH<span className="myWallet-money-yuan">
-							/¥23333.333333
+							/¥{(priceETH&&priceETH.eth.cny) * (myAssets.myCoinAccount)}
 						</span>
 					</span>:noSeeValue
 					}
@@ -179,7 +181,8 @@ class MyWalletComp extends React.Component {
 
 export function mapStateToProps(state) {
     return {
-        myAssets: state.userCenter.myAssets
+        myAssets: state.userCenter.myAssets,
+        priceETH: state.trade.price
     };
 }
 export default connect(mapStateToProps)(injectIntl(MyWalletComp));

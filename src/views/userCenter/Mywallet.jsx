@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { injectIntl } from 'react-intl';
 import { actionType as tradingSaga } from 'models/sagas/trading';
 import { actionType as userCenterSaga } from 'models/sagas/userCenter';
+import { actionType as tradeSaga } from 'models/sagas/trading';
 import MyWalletComp from 'components/userCenter/MyWallet';
 import { getCookie} from "../../utils/comFunction";
 
@@ -16,6 +17,10 @@ class MyWallet extends React.Component {
 	componentDidMount() {
 		const token = getCookie('token');
 		if(token){
+            this.props.dispatch({type: tradeSaga.setPrice})
+            this.interval = setInterval(() => {
+                this.props.dispatch({type: tradeSaga.setPrice})
+            }, 10000);
             this.props.dispatch({
                 type: tradingSaga.tradeAssets,
                 payload: {
@@ -45,6 +50,11 @@ class MyWallet extends React.Component {
 			window.location.href='/login';
 		}
 	}
+    componentWillUnmount() {
+        if (this.interval) {
+            clearInterval(this.interval)
+        }
+    }
 
 	// 抽屉显示
 	_onOpenChange = () => {
