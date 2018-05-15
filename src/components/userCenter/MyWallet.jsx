@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import './myWallet.scss';
 import Header from 'components/comComponent/header/Header';
 import {
@@ -8,9 +8,6 @@ import {
 import { Checkbox } from 'antd-mobile';
 import Drawers from 'components/container/Drawers';
 import { connect } from 'react-redux';
-import {getCookie,setCookie} from "../../utils/comFunction";
-
-const CheckboxItem = Checkbox.CheckboxItem;
 
 class MyWalletComp extends React.Component {
 	constructor(props) {
@@ -25,7 +22,7 @@ class MyWalletComp extends React.Component {
 		}
 	}
 
-	componentDidMount() {}
+	// 资产显示隐藏
     seeAssets = () => {
         this.setState({
             isSeeClass:this.state.isSee?"icon-yincang":"icon-ai44",
@@ -33,6 +30,8 @@ class MyWalletComp extends React.Component {
         })
         localStorage.setItem('isSee',!this.state.isSee);
     }
+
+    // 隐藏小额资产
     hideSmall = (e) => {
 		if(e.target.checked){
 			this.setState({
