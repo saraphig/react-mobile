@@ -30,9 +30,6 @@ class IndexComp extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		// console.log('data',this.state.data)
-		// console.log('updateData',nextProps.updateData)
-		// console.log('initData',this.state.initData)
 		if (this.state.initData.length == 0) {
 			let arr = [];
 			nextProps.initData.forEach(el => {
@@ -126,19 +123,53 @@ class IndexComp extends React.Component {
 		document.body.className = '';
 	}
 
+	/**
+	 *
+	 * @param {*} val
+	 * @param {*} status true 为升序，false 为降序
+	 *
+	 * TODO: need for optimized
+	 */
 	sortData(val, status) {
-		console.log(val, status);
+		switch (val) {
+			case 'volume':
+				this.setState({
+					orderStatus: !status,
+					orderStatus2: false,
+					orderStatus3: false
+				});
+				break;
+			case 'last':
+				this.setState({
+					orderStatus2: !status,
+					orderStatus: false,
+					orderStatus3: false
+				});
+				break;
+			case 'change':
+				this.setState({
+					orderStatus3: !status,
+					orderStatus2: false,
+					orderStatus: false
+				});
+				break;
+			default:
+				break;
+		}
 		this.setState({
 			sortBy: val,
-			orderStatus: !status,
-			orderStatus2: !status,
-			orderStatus3: !status,
 			orderName: val
 		});
 	}
 
 	render() {
-		const { data, orderStatus, orderName, orderStatus2 } = this.state;
+		const {
+			data,
+			orderStatus,
+			orderName,
+			orderStatus2,
+			orderStatus3
+		} = this.state;
 		let content = <div />;
 		if (this.state.data.length > 0) {
 			content = (
@@ -148,6 +179,7 @@ class IndexComp extends React.Component {
 						sortData={(val, status) => this.sortData(val, status)}
 						orderStatus={orderStatus}
 						orderStatus2={orderStatus2}
+						orderStatus3={orderStatus3}
 						orderName={orderName}
 					/>
 				</div>

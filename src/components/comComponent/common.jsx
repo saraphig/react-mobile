@@ -412,7 +412,11 @@ export class TopTabs extends React.Component {
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
+								value={
+									nation_code
+										? '+' + nation_code + '  ' + phone
+										: phone
+								}
 								disabled={true}
 							/>
 							<Input
@@ -459,7 +463,11 @@ export class TopTabs extends React.Component {
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
+						value={
+							nation_code
+								? '+' + nation_code + '  ' + phone
+								: phone
+						}
 						disabled={true}
 					/>
 					<Input
@@ -1076,9 +1084,19 @@ export const AlertModal = props => {
 // };
 
 export const StatusShow = props => {
-	let orderIcon1 = '#icon-shengxu',
-		orderIcon2 = '#icon-jiangxu';
-	console.log(props);
+	let orderIcon1 = '',
+		orderIcon2 = '',
+		orderIcon3 = '';
+	props.orderStatus
+		? (orderIcon1 = '#icon-shengxu')
+		: (orderIcon1 = '#icon-jiangxu');
+	props.orderStatus2
+		? (orderIcon2 = '#icon-shengxu')
+		: (orderIcon2 = '#icon-jiangxu');
+	props.orderStatus3
+		? (orderIcon3 = '#icon-shengxu')
+		: (orderIcon3 = '#icon-jiangxu');
+	console.log(props.orderStatus, props.orderStatus2, props.orderStatus3);
 	return (
 		<div className="status-show">
 			<p className="tab-bar">
@@ -1100,7 +1118,7 @@ export const StatusShow = props => {
 					<FormattedMessage id={'tradeCenterTop.last'} />
 					{props.orderName === 'last' ? (
 						<svg className="order-icon" aria-hidden="true">
-							<use xlinkHref={orderIcon1} />
+							<use xlinkHref={orderIcon2} />
 						</svg>
 					) : null}
 				</span>
@@ -1111,7 +1129,7 @@ export const StatusShow = props => {
 					<FormattedMessage id={'tradeCenterTop.change'} />
 					{props.orderName === 'change' ? (
 						<svg className="order-icon" aria-hidden="true">
-							<use xlinkHref={orderIcon1} />
+							<use xlinkHref={orderIcon3} />
 						</svg>
 					) : null}
 				</span>
