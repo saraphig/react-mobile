@@ -62,7 +62,8 @@ class Login extends React.Component {
 						is_first_login,
 						google_auth_token,
 						is_top_for_fee,
-						phone
+						phone,
+            nation_code,
 					  } = data[0] ? data[0][0] : {};
 
 					const params = {
@@ -73,7 +74,8 @@ class Login extends React.Component {
 						google_auth_token,
 						isGoogle: is_google,
 						is_top_for_fee,
-						phone
+						phone,
+            nation_code
 					  };
 					  // this.props.history.push({pathname:'/doubleConfirm', state: {params}});
 					// // 如果既绑定了谷歌跟手机

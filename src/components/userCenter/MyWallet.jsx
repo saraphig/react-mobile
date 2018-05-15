@@ -75,7 +75,7 @@ class MyWalletComp extends React.Component {
 					{
 						isSee?<span className="myWallet-money-info">
 						{/* 资产总估值<i className="iconfont icon-ai44" /> */}
-                            <Checkbox  onChange={(e) => this.hideSmall(e)} >
+                            <Checkbox checked={isHideSmall} onChange={(e) => this.hideSmall(e)} >
 							&nbsp;&nbsp;{formatMessage({
                                 id: 'depositWithdraw.filterZero'
                             })}
