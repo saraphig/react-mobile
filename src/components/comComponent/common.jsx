@@ -680,9 +680,9 @@ export class CoinTabs extends React.Component {
 		};
 	}
 
-	sortData(val) {
+	sortData(val, status) {
 		// alert(val)
-		this.props.sortData(val);
+		this.props.sortData(val, status);
 	}
 	// console.log('comp==',props.data)
 	// const tabs = [
@@ -967,7 +967,7 @@ export class CoinTabs extends React.Component {
 							</div>
 						</div> */}
 						{/* <ListView data={props.data}/> */}
-						<StatusShow data={this.props.data} />
+						<StatusShow data={this.props.data} sortData={(val, status) => this.sortData(val, status)}/>
 					</div>
 					<div>{/* <InformItem /> */}</div>
 				</Tabs>
@@ -1074,7 +1074,7 @@ export const StatusShow = props => {
 			<p className="tab-bar">
 				<span
 					className="tab-item one"
-					onClick={() => this.sortData('volume')}
+					onClick={() => props.sortData('volume',true)}
 				>
 					<FormattedMessage id={'home.volume'} />
 					<svg className="order-icon" aria-hidden="true">
@@ -1083,7 +1083,7 @@ export const StatusShow = props => {
 				</span>
 				<span
 					className="tab-item two"
-					onClick={() => this.sortData('last')}
+					onClick={() => props.sortData('last', 'none')}
 				>
 					<FormattedMessage id={'tradeCenterTop.last'} />
 					<svg className="order-icon" aria-hidden="true">
@@ -1092,7 +1092,7 @@ export const StatusShow = props => {
 				</span>
 				<span
 					className="tab-item three"
-					onClick={() => this.sortData('change')}
+					onClick={() => props.sortData('change', 'none')}
 				>
 					<FormattedMessage id={'tradeCenterTop.change'} />
 					<svg className="order-icon" aria-hidden="true">
