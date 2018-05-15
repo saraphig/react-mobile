@@ -412,7 +412,11 @@ export class TopTabs extends React.Component {
 							<Input
 								style={{ marginTop: 8 }}
 								placeholder={this.props.phoneHolder}
-								value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
+								value={
+									nation_code
+										? '+' + nation_code + '  ' + phone
+										: phone
+								}
 								disabled={true}
 							/>
 							<Input
@@ -459,7 +463,11 @@ export class TopTabs extends React.Component {
 					<Input
 						style={{ marginTop: 8 }}
 						placeholder={this.props.phoneHolder}
-						value={ nation_code ? ('+' + nation_code + '  ' + phone) : phone}
+						value={
+							nation_code
+								? '+' + nation_code + '  ' + phone
+								: phone
+						}
 						disabled={true}
 					/>
 					<Input
@@ -968,7 +976,16 @@ export class CoinTabs extends React.Component {
 							</div>
 						</div> */}
 						{/* <ListView data={props.data}/> */}
-						<StatusShow data={this.props.data} sortData={(val, status) => this.sortData(val, status)}/>
+						<StatusShow
+							data={this.props.data}
+							sortData={(val, status) =>
+								this.sortData(val, status)
+							}
+							orderStatus={this.props.orderStatus}
+							orderStatus2={this.props.orderStatus2}
+							orderStatus3={this.props.orderStatus3}
+							orderName={this.props.orderName}
+						/>
 					</div>
 					<div>{/* <InformItem /> */}</div>
 				</Tabs>
@@ -1067,38 +1084,54 @@ export const AlertModal = props => {
 // };
 
 export const StatusShow = props => {
-	let orderIcon1 = '#icon-shengxu',
-		orderIcon2 = '#icon-jiangxu';
-
+	let orderIcon1 = '',
+		orderIcon2 = '',
+		orderIcon3 = '';
+	props.orderStatus
+		? (orderIcon1 = '#icon-shengxu')
+		: (orderIcon1 = '#icon-jiangxu');
+	props.orderStatus2
+		? (orderIcon2 = '#icon-shengxu')
+		: (orderIcon2 = '#icon-jiangxu');
+	props.orderStatus3
+		? (orderIcon3 = '#icon-shengxu')
+		: (orderIcon3 = '#icon-jiangxu');
+	console.log(props.orderStatus, props.orderStatus2, props.orderStatus3);
 	return (
 		<div className="status-show">
 			<p className="tab-bar">
 				<span
 					className="tab-item one"
-					onClick={() => props.sortData('volume',true)}
+					onClick={() => props.sortData('volume', props.orderStatus)}
 				>
 					<FormattedMessage id={'home.volume'} />
-					<svg className="order-icon" aria-hidden="true">
-						<use xlinkHref={orderIcon1} />
-					</svg>
+					{props.orderName === 'volume' ? (
+						<svg className="order-icon" aria-hidden="true">
+							<use xlinkHref={orderIcon1} />
+						</svg>
+					) : null}
 				</span>
 				<span
 					className="tab-item two"
-					onClick={() => props.sortData('last', 'none')}
+					onClick={() => props.sortData('last', props.orderStatus2)}
 				>
 					<FormattedMessage id={'tradeCenterTop.last'} />
-					<svg className="order-icon" aria-hidden="true">
-						<use xlinkHref={orderIcon1} />
-					</svg>
+					{props.orderName === 'last' ? (
+						<svg className="order-icon" aria-hidden="true">
+							<use xlinkHref={orderIcon2} />
+						</svg>
+					) : null}
 				</span>
 				<span
 					className="tab-item three"
-					onClick={() => props.sortData('change', 'none')}
+					onClick={() => props.sortData('change', props.orderStatus3)}
 				>
 					<FormattedMessage id={'tradeCenterTop.change'} />
-					<svg className="order-icon" aria-hidden="true">
-						<use xlinkHref={orderIcon1} />
-					</svg>
+					{props.orderName === 'change' ? (
+						<svg className="order-icon" aria-hidden="true">
+							<use xlinkHref={orderIcon3} />
+						</svg>
+					) : null}
 				</span>
 			</p>
 			{props.data.map((item, index) => {
