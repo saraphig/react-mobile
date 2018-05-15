@@ -168,7 +168,7 @@ class LoginComp extends React.Component {
 					ref={bar => {
 						this.slideBar = bar;
 					}}
-					// className='login-button'
+					id='yidun'
 					// ref="slideBar"
 				/>
 				<BottomTips
