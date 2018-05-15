@@ -10,7 +10,8 @@ class ConfirmEmail extends React.Component {
 	constructor(props) {
 		super(props);
 		// console.log(props.location)
-		let email = props.location.state.email || '';
+		// let email = props.location.state.email || '';
+    let email = props.location.state.query.email || '';
 		this.state = {
 			email: email,
 			open: false,
