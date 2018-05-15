@@ -80,7 +80,7 @@ export function phoneChecks(query) {
  */
 export function resend(query) {
   return request({
-    url: '/api/email',
+    url: '/api/m/resendEmail',
     method: 'post',
     data: query
   });

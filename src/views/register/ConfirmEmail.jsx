@@ -81,7 +81,6 @@ class ConfirmEmail extends React.Component {
     const { email, lang } = this.props.location.state.query;
     const query = {
       email,
-      type: 0,
       lang,
       validate,
     };

@@ -143,7 +143,7 @@ class ConfirmEmailComp extends React.Component {
 					BottomTips2={formatMessage({
 						id: 'resendEmail.resend'
 					})}
-          onClick={() => { this.props.resend() }}
+          // onClick={() => { this.props.resend() }}
 					// pathName="/#"
 				/>
         <div ref={bar => {this.slideBar = bar;}}/>
