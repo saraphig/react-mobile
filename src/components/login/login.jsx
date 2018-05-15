@@ -38,8 +38,8 @@ class LoginComp extends React.Component {
 			{
 				captchaId: dun.captchaId,
 				element: this.slideBar,
-				// lang: formatMessage({ id: 'c.dun.lang' }),
-				lang: 'zh-CN',
+				lang: formatMessage({ id: 'c.dun.lang' }),
+				// lang: 'zh-CN',
 				onReady: instance => {
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 
@@ -168,7 +168,7 @@ class LoginComp extends React.Component {
 					ref={bar => {
 						this.slideBar = bar;
 					}}
-					// className='login-button'
+					id='yidun'
 					// ref="slideBar"
 				/>
 				<BottomTips

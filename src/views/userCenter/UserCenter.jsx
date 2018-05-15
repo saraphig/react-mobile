@@ -20,14 +20,15 @@ class UserCenter extends React.Component {
 		};
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		const token = getCookie('token');
 		if (token) {
 			const { dispatch } = this.props;
-			// console.log('userCenterSaga', userCenterSaga);
 			this.setState({
 				token: token
-			})
+			});
+
+			// 获取用户信息并存储在store
 			dispatch({
 				type: userCenterSaga.getUserInfo,
 				payload: {
@@ -36,6 +37,7 @@ class UserCenter extends React.Component {
 					},
 					success: res => {
 						if (res) {
+							// 费率开关
 							this.setState({
 								isTopForFee:
 									res.info['user_info'].is_top_for_fee
@@ -87,10 +89,6 @@ class UserCenter extends React.Component {
 						isTopForFee: !isTopForFees,
 						isToggle: true
 					});
-					// dispatch({
-					// 	type: tradingSaga.setTopForFee,
-					// 	payload: !_isTopForFee
-					// });
 				},
 				fail: code => {
 					console.log(code);
@@ -99,7 +97,7 @@ class UserCenter extends React.Component {
 		});
 	};
 
-	//drawer
+	// 抽屉显示隐藏
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
 	};
@@ -122,16 +120,4 @@ class UserCenter extends React.Component {
 	}
 }
 
-// export function mapStateToProps = state => ({
-// 	token: state.login.token,
-// 	info: state.userCenter.info
-// });
-
-export function mapStateToProps(state) {
-	return {
-		info: state.userCenter.info
-	};
-}
-
-// export default Index;
-export default connect(mapStateToProps)(injectIntl(UserCenter));
+export default connect()(injectIntl(UserCenter));

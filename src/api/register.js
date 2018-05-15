@@ -63,10 +63,25 @@ export function emailValidate(query) {
     });
   }
   
-  export function phoneChecks(query) {
+export function phoneChecks(query) {
     return request({
       url: '/api/phoneCheck',
       method: 'post',
       data: query
     });
   }
+
+/**
+ * 重发邮箱
+ * `email` 邮箱
+ * `validate` 验证码
+ * `type` 邮件类型: type=1为忘记密码;type=0为邮箱验证
+ * `lang` 语言 (zh/en)
+ */
+export function resend(query) {
+  return request({
+    url: '/api/email',
+    method: 'post',
+    data: query
+  });
+}

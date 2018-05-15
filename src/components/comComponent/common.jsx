@@ -169,7 +169,13 @@ export class Input extends React.Component {
 					type={this.props.type || 'text'}
 				/>
 				{this.props.types === 1 && (
-					<div>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}}
+					>
 						<span className="line" />
 						<span
 							className={
@@ -185,7 +191,7 @@ export class Input extends React.Component {
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
-									{this.props.text || (
+									{this.props.yidun || (
 										<FormattedMessage id="register.postPhoneValidate" />
 									)}
 								</span>
@@ -233,6 +239,15 @@ export class Validate extends React.Component {
 			val: ''
 		};
 	}
+
+  componentDidMount() {
+	  this.focus();
+  }
+
+  focus = () => {
+    // 强制聚焦
+    $('#valInput').focus();
+}
 
 	onChange(e) {
 		let value = e.target.value;
@@ -292,7 +307,7 @@ export class Validate extends React.Component {
 					autoFocus="true"
 					onChange={this.onChange.bind(this)}
 				/>
-				<ul className="code-display">
+				<ul className="code-display" onClick={this.focus}>
 					<li>
 						<span className="number" />
 					</li>
@@ -1100,7 +1115,7 @@ export const StatusShow = props => {
 						<span className="inform-item two">
 							<p>{item.last || '---'}</p>
 							<p className="inform-item-small">
-								{item.price || ''}
+								{item.price || '---'}
 							</p>
 						</span>
 						<span className="inform-item three">
@@ -1108,7 +1123,9 @@ export const StatusShow = props => {
 								className="inform-item-middle"
 								style={{ background: color }}
 							>
-								{item.change ? bizhi + item.change : '---'}
+								{item.change
+									? bizhi + item.change + '%'
+									: '---'}
 							</Button>
 						</span>
 					</div>
@@ -1141,7 +1158,7 @@ export const StatusShow = props => {
 						<span className="inform-item two">
 							<p>{item.last || '---'}</p>
 							<p className="inform-item-small">
-								{item.price || ''}
+								{item.price || '---'}
 							</p>
 						</span>
 						<span className="inform-item three">
@@ -1149,7 +1166,9 @@ export const StatusShow = props => {
 								className="inform-item-middle"
 								style={{ background: color }}
 							>
-								{item.change ? bizhi + item.change : '---'}
+								{item.change
+									? bizhi + item.change + '%'
+									: '---'}
 							</Button>
 						</span>
 					</div>
