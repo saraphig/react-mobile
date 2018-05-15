@@ -54,8 +54,6 @@ class MyWalletComp extends React.Component {
 			noSeeValue,
             isHideSmall
 		} =this.state;
-		console.log("myAssets===",myAssets);
-		console.log("priceETH===",priceETH&&priceETH.eth.cny);
 		const content = (
 			<div>
 				<Navbars

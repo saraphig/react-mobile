@@ -23,15 +23,15 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-//阻止浏览器滑动后退事件
-document.addEventListener(
-	'touchmove',
-	function(event) {
-		event.preventDefault();
-		console.log(3423523);
-	},
-	false
-);
+// //阻止浏览器滑动后退事件
+// document.addEventListener(
+// 	'touchmove',
+// 	function(event) {
+// 		event.preventDefault();
+// 		console.log(3423523);
+// 	},
+// 	false
+// );
 
 if (module.hot) {
 	module.hot.accept('./routes', () => {
