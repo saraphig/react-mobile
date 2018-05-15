@@ -27,12 +27,12 @@ class Register extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this);
+		// console.log(this);
 	}
 
 	//按钮提交跳转事件
 	_onClickBTn = () => {
-		console.log(this.props);
+		// console.log(this.props);
 		//TODO: for the featrue
 		this.props.history.push('/registerEmail');
 	};

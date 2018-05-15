@@ -193,21 +193,6 @@ class LoginComp extends React.Component {
 		return (
 			<div className="login">
 				<Header _onClick={this.props._onOpenChange} />
-				{/* <Drawer
-					className="my-drawer"
-					style={{
-						minHeight: $('.header').height()
-							? document.documentElement.clientHeight -
-							  $('.header').height()
-							: document.documentElement.clientHeight
-					}}
-					enableDragHandle
-					position="right"
-					sidebar={sidebars}
-					open={this.props._open}
-					onOpenChange={this.props._onOpenChange}
-					sidebarStyle={{ background: '#1B1B1B' }}
-				/> */}
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

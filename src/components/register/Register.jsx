@@ -28,12 +28,12 @@ class RegisterComp extends React.Component {
 			verifyCode: '', // 手机验证码
 			inviterCode: location.search ? location.search.split('=')[1] : '' // 邀请码
 		};
-		console.log('=====', props.formatmessage);
+		// console.log('=====', props.formatmessage);
 	}
 
 	componentDidMount() {
 		document.body.className = 'body-no-scroll';
-		console.log(this);
+		// console.log(this);
 		this.initNeCaptcha();
 		// $(this.phone).intlTelInput({
 		$('#test').intlTelInput({

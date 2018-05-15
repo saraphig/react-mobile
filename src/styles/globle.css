@@ -2,3 +2,8 @@ html,
 body {
     background-color: #000;
 }
+
+.am-drawer-content {
+    position: relative;
+    height: 100%;
+}
