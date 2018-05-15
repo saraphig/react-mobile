@@ -719,6 +719,7 @@ const enUS = {
   'myAssets': 'My Assets',
   'public.sure': 'Confirm',
   'goPC': 'Please visit our desktop version to turn on Google 2FA or SMS verification',
-  code_117: '验证已超过5分钟时限，请重新登陆'
+  code_117: 'Verification code is only valid for 5 minutes. Please try to login again.',
+  'noAgreement': 'You have not accepted the agreement'
 };
 export default enUS;

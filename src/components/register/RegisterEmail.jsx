@@ -36,7 +36,11 @@ class RegisterEmailComp extends React.Component {
 				this.state.confirm_pwd
 			);
 		} else {
-			alert('您并未同意协议');
+      const {
+        intl: { formatMessage }
+      } = this.props;
+      topToast(formatMessage({id: 'noAgreement'}))
+			// alert('您并未同意协议');
 		}
 	}
 	render() {
