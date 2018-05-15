@@ -30,7 +30,7 @@ const enUS = {
   'login.forget': 'Forget Password?',
   'login.notRegister': 'Not Register? ',
   'login.register': 'Register',
-  'login.enterEmail': 'Please enter email addres',
+  'login.enterEmail': 'Please enter email address',
   'login.enterPassword': 'Please enter password',
 
   'register.confirmPassword': 'Confirm Password',
