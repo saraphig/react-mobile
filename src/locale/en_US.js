@@ -343,7 +343,7 @@ const enUS = {
   code_13: 'Email is registered',
   code_14: 'Please enter your password',
   code_15:
-    'Password must be at least 8 characters with uppercase letters and numbers. Special characters are not allowed',
+    'Password must be at least 8 characters with uppercase letters and numbers.',
   code_16: 'Passwords do not match',
   code_17: 'Registration Failed',
   code_20018:
