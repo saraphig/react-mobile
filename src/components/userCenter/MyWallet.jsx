@@ -58,7 +58,7 @@ class MyWalletComp extends React.Component {
 		if(localStorage.getItem('language')=='zh'){
 		     totalTransForm = `¥${(priceETH&&priceETH.eth.cny) * (myAssets.myCoinAccount).toFixed(8)}`
         } else if(localStorage.getItem('language') == 'en') {
-             totalTransForm = `$ ${(priceETH&&priceETH.eth.usd) * (myAssets.myCoinAccount).toFixed(8)}`
+             totalTransForm = `$${(priceETH&&priceETH.eth.usd) * (myAssets.myCoinAccount).toFixed(8)}`
         }
 		const content = (
 			<div>
