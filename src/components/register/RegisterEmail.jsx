@@ -84,7 +84,7 @@ class RegisterEmailComp extends React.Component {
 					className="ServerTips-registerEmail-transfrom"
 					ServerTips1={formatMessage({ id: 'register.hadRead' })}
 					ServerTips2={formatMessage({ id: 'register.agreement' })}
-          btnText={formatMessage({id: 'public.confirm'})}
+          btnText={formatMessage({id: 'public.isee'})}
 					//pathName="/login"
 					onChange={val => {
 						this.setState({ agree: val });
