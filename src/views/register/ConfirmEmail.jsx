@@ -11,9 +11,9 @@ class ConfirmEmail extends React.Component {
 		super(props);
 		// console.log(props.location)
 		// let email = props.location.state.email || '';
-		// let email = props.location.state.query.email || '';
+		let email = props.location.state.query.email || '';
 		this.state = {
-			email: '1226703023@qq.com',
+			email: '',
 			open: false,
 			isRefreshCaptcha: false,
 			count: 60,
