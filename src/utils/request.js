@@ -17,7 +17,7 @@ function checkStatus(response) {
     // token失效退出到登陆页
     // localStorage.removeItem('token');
     delCookie('token');
-    window.location = '/login';
+    window.location = '/login?connect=0'; // login页面使用判断显示登陆失效
   }
   if (response.status >= 200 && response.status < 300) {
     return response;
