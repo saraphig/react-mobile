@@ -692,6 +692,7 @@ const zh_CN = {
   'serverError': '当前网络异常，请稍后重试',
   'goPC': '请前往pc端绑定谷歌或手机',
   code_117: '验证已超过5分钟时限，请重新登录',
-  'noAgreement': '您并未同意协议'
+  'noAgreement': '您并未同意协议',
+  code_106: '验证码已发送，10分钟内有效，请勿频繁请求'
 };
 export default zh_CN;
