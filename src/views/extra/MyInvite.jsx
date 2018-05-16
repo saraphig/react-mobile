@@ -5,6 +5,7 @@ import { actionType as userCenterSaga } from 'models/sagas/userCenter';
 import { getCookie, topToast } from 'utils/comFunction.js';
 import MyInviteComp from 'components/extra/MyInvite';
 import copy from 'copy-to-clipboard';
+import jrQrcode from 'jr-qrcode';
 
 class MyInvite extends React.Component {
 	constructor(props) {
@@ -13,7 +14,8 @@ class MyInvite extends React.Component {
 			open: false,
 			TGroup: [],
 			info: [],
-      inviteUrl: ''
+      inviteUrl: '', //邀请链接
+      inviteSrc: '', //链接图片
 		};
 	}
 
@@ -45,7 +47,8 @@ class MyInvite extends React.Component {
 				success: data => {
 					this.setState({
 						info: data.info.user_info,
-            inviteUrl: `${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`
+            inviteUrl: `${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`,
+            inviteSrc: jrQrcode.getQrBase64(`${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`)
 					});
 				},
 				fail: this.fail,
@@ -76,12 +79,13 @@ class MyInvite extends React.Component {
 	};
 
 	render() {
-		const { open, TGroup, info, inviteUrl } = this.state;
+		const { open, TGroup, info, inviteUrl, inviteSrc } = this.state;
 		return (
 			<div>
 				<MyInviteComp
 					_onClick={this._onClick}
 					inviteUrl={inviteUrl}
+          inviteSrc={inviteSrc}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}

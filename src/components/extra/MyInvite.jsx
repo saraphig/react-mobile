@@ -12,16 +12,13 @@ import {
 	Validate,
 	Navbars
 } from '../comComponent/common';
-import QRCode from 'qrcode-react';
 
 class MyInviteComp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
-	componentDidMount() {}
-
-	render() {
+  render() {
 		const {
 			intl: { formatMessage },
 			TGroup,
@@ -68,13 +65,13 @@ class MyInviteComp extends React.Component {
 				/>
 				<div className="myInvite-friend-content ">
 					<span className="myInvite-content-code">
-						<QRCode value={this.props.inviteUrl} />
-						{/*<img
-							src={require('assets/images/code.png')}
-							alt={formatMessage({
-								id: 'candyDetail.qrDode'
-							})}
-						/>*/}
+            {/*<img
+              src={require('assets/images/code.png')}
+              alt={formatMessage({
+                id: 'candyDetail.qrDode'
+              })}
+            />*/}
+            <img src={this.props.inviteSrc}/>
 					</span>
 				</div>
 				<div className="myInvite-content-items">
