@@ -356,6 +356,7 @@ export class Validate extends React.Component {
 				style={this.props.style}
 			>
 				<input
+				    className="val-input"
 					id="valInput"
 					type="number"
 					maxLength="6"
@@ -363,6 +364,14 @@ export class Validate extends React.Component {
 					autoComplete="off"
 					autoFocus="true"
 					onChange={this.onChange.bind(this)}
+				/>
+				<input
+					type="number"
+					maxLength="6"
+					autoComplete="off"
+					autoFocus="true"
+					readOnly
+					onClick={() => this.focus()}
 				/>
 				<ul className="code-display" onClick={this.focus}>
 					<li>

@@ -50,6 +50,7 @@ class UserCenter extends React.Component {
 				}
 			});
 		} else {
+            this.props.history.push('/login');
 			this.setState({
 				_disabled: true
 			});
