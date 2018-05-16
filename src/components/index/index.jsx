@@ -31,6 +31,7 @@ class IndexComp extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		// 如果初始值（交易对列表）没拿到，先调用接口拿初始值
 		if (this.state.initData.length == 0) {
 			let arr = [];
 			nextProps.initData.forEach(el => {
@@ -53,9 +54,11 @@ class IndexComp extends React.Component {
 				data: arr2
 			});
 		}
+
+		// 如果有初始值并且有更新数据(updateData)，那么更新显示数据（data）
 		if (
 			nextProps.updateData.length != 0 &&
-			this.state.initData.length != 0
+			this.state.initData.length != 0 || this.state.updateData.length != 0 && this.state.initData.length != 0 && nextProps.priceETH != null
 		) {
 			let obj = [...this.state.data];
 			let price = 0;
@@ -83,6 +86,7 @@ class IndexComp extends React.Component {
 					).toFixed(2);
 				}
 			});
+			//判断升降序来给数据排序
 			if (this.state.isAsc) {
 				obj = obj.sort((b, a) =>
 					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
