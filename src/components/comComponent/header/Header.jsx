@@ -22,16 +22,17 @@ class Header extends React.Component {
 		let box1,
 			box2 = null;
 		if (!this.state.token) {
+			console.log("=====",window.location.href)
 			box1 = (
 				<div>
-					<Link to="/login" className="header-login">
+					<Link to="/login" className={`${window.location.href.indexOf('login')>-1?'active':null} header-login`}>
 						{formatMessage({ id: 'public.login' })}
 					</Link>
 				</div>
 			);
 			box2 = (
 				<div>
-					<Link to="/register" className="header-register">
+					<Link to="/register" className={`${window.location.href.indexOf('register')>-1?'active':null} header-register`}>
 						{formatMessage({ id: 'login.register' })}
 					</Link>
 				</div>

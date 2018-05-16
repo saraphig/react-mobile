@@ -13,7 +13,7 @@ const axiosReq = axios.create({
 // const baseUri = __DEV__ ? url : url';
 
 function checkStatus(response) {
-  if (response.data.error_code === 110) {
+  if (Number(response.data['error_code']) === 110 || Number(response.data.error) ===10003) {
     // token失效退出到登陆页
     // localStorage.removeItem('token');
     delCookie('token');
