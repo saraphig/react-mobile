@@ -481,7 +481,9 @@
     color: #787878;
     margin-top: 6px;
 }
-
+.am-list .am-list-body:after{
+    height:0px !important;
+}
 .status-show .inform-item-middle {
     @extend .fz15;
     background-color: #5fc555; // border: 1px solid #5fc555;
