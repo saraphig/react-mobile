@@ -714,7 +714,7 @@ const enUS = {
   'choiceLanguage': 'Language',
   'phoneConfirm': 'SMS Verification',
   'doubleConfirm': 'Two-step Verification',
-  'noValidate': 'SMS code not received',
+  'noValidate': 'Verification code not received',
   'recommendedCode': 'Referral code (Optional)',
   'myAssets': 'My Assets',
   'public.sure': 'Confirm',
