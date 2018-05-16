@@ -1,10 +1,5 @@
 @import '../../styles/base';
 @import '../../styles/mixin';
-// .body-no-scroll {
-//     overflow: hidden;
-//     height: 100%;
-// }
-
 .button {
     width: 100%;
     height: 40px;
@@ -128,8 +123,7 @@
             height: 3px;
             background-color: $golden;
         }
-    }
-    // input {
+    } // input {
     //     position: absolute;
     //     border: none;
     //     left: 0;
@@ -288,23 +282,20 @@
     color: #bebebe;
     @extend .fz12;
     padding: 12px 20px 10px 20px;
-	box-sizing: border-box;
-	justify-content: space-between;
-	align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
 }
 
 // .tab-item {
 //     flex: 1;
 // }
-
 // .two {
 //     text-align: center;
 // }
-
 // .three {
 //     text-align: right;
 // }
-
 /**交易条的三个信息对**end**/
 
 // .inform-height {
@@ -496,7 +487,7 @@
     line-height: 31px;
     border-radius: 2px;
 }
-.status-show .am-button:before{
-	border: 0 !important;
-}
 
+.status-show .am-button:before {
+    border: 0 !important;
+}

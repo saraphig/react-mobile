@@ -1044,49 +1044,12 @@ export const AlertModal = props => {
 	);
 };
 
-// //抽屉
-// export const Drawers = props => {
-// 	return (
-// 		// <div>
-// 		// 	{props.isOpen && (
-// 		// 		<div className="alertModal">
-// 		// 			<div className="container">
-// 		// 				<div className="top">
-// 		// 					<i className="email-icon" />
-// 		// 				</div>
-// 		// 				<p className="content">
-// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
-// 		// 					<FormattedMessage id={'usercenter.visist.topone'} />
-// 		// 				</p>
-// 		// 				<div className="sure">
-// 		// 					<a href="javascript:;">
-// 		// 						<FormattedMessage id={'public.confirm'} />
-// 		// 					</a>
-// 		// 				</div>
-// 		// 			</div>
-// 		// 		</div>
-// 		// 	)}
-// 		// </div>
-// 		<Drawer
-// 			className="my-drawer"
-// 			style={{ minHeight: document.documentElement.clientHeight }}
-// 			enableDragHandle={true}
-// 			dragToggleDistance={0}
-// 			position="right"
-// 			sidebar={sidebars}
-// 			open={this.props._open}
-// 			onOpenChange={this.props._onOpenChange}
-// 			sidebarStyle={{ background: '#1B1B1B' }}
-// 		>
-// 			{}
-// 		</Drawer>
-// 	);
-// };
-
 export const StatusShow = props => {
 	let orderIcon1 = '',
 		orderIcon2 = '',
 		orderIcon3 = '';
+	// headerHeight='',
+	// amtabsHeight='';
 	props.orderStatus
 		? (orderIcon1 = '#icon-shengxu')
 		: (orderIcon1 = '#icon-jiangxu');
@@ -1096,6 +1059,17 @@ export const StatusShow = props => {
 	props.orderStatus3
 		? (orderIcon3 = '#icon-shengxu')
 		: (orderIcon3 = '#icon-jiangxu');
+
+	if ($('.tab-bar')[0]) {
+		$('.list-view-tab').css({
+			height:
+				document.documentElement.clientHeight -
+				$('.header')[0].clientHeight -
+				$('.tab-bar')[0].clientHeight -
+				$('.am-tabs-tab-bar-wrap')[0].clientHeight
+		});
+	}
+
 	return (
 		<div className="status-show">
 			<p className="tab-bar">
@@ -1133,92 +1107,100 @@ export const StatusShow = props => {
 					) : null}
 				</span>
 			</p>
-			{props.data.map((item, index) => {
-				let color = '',
-					bizhi = '',
-					reg = /[a-zA-Z]+/gi,
-					items = item.name.match(reg);
-				item.change >= 0
-					? ((color = '#5FC555'), (bizhi = '+'))
-					: ((color = '#FF5255'), (bizhi = ''));
+			<div
+				className="list-view-tab"
+				style={{
+					overflowY: 'scroll'
+				}}
+			>
+				{props.data.map((item, index) => {
+					let color = '',
+						bizhi = '',
+						reg = /[a-zA-Z]+/gi,
+						items = item.name.match(reg);
+					item.change >= 0
+						? ((color = '#5FC555'), (bizhi = '+'))
+						: ((color = '#FF5255'), (bizhi = ''));
 
-				return (
-					<div className="inform-items" key={index}>
-						<span className="inform-item one">
-							<p>
-								{items[0]}&nbsp;/<span
-									style={{ color: '#BEBEBE' }}
+					return (
+						<div className="inform-items" key={index}>
+							<span className="inform-item one">
+								<p>
+									{items[0]}&nbsp;/<span
+										style={{ color: '#BEBEBE' }}
+									>
+										&nbsp;{items[1]}
+									</span>
+								</p>
+
+								<p className="inform-item-small">
+									{item.volume || '---'}
+								</p>
+							</span>
+							<span className="inform-item two">
+								<p>{item.last || '---'}</p>
+								<p className="inform-item-small">
+									{item.price || '---'}
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button
+									className="inform-item-middle"
+									style={{ background: color }}
 								>
-									&nbsp;{items[1]}
-								</span>
-							</p>
+									{item.change
+										? bizhi + item.change + '%'
+										: '---'}
+								</Button>
+							</span>
+						</div>
+					);
+				})}
+				{/* {props.data.map((item, index) => {
+					let color = '',
+						bizhi = '',
+						reg = /[a-zA-Z]+/gi,
+						items = item.name.match(reg);
+					item.change >= 0
+						? ((color = '#5FC555'), (bizhi = '+'))
+						: ((color = '#FF5255'), (bizhi = ''));
 
-							<p className="inform-item-small">
-								{item.volume || '---'}
-							</p>
-						</span>
-						<span className="inform-item two">
-							<p>{item.last || '---'}</p>
-							<p className="inform-item-small">
-								{item.price || '---'}
-							</p>
-						</span>
-						<span className="inform-item three">
-							<Button
-								className="inform-item-middle"
-								style={{ background: color }}
-							>
-								{item.change
-									? bizhi + item.change + '%'
-									: '---'}
-							</Button>
-						</span>
-					</div>
-				);
-			})}
-			{props.data.map((item, index) => {
-				let color = '',
-					bizhi = '',
-					reg = /[a-zA-Z]+/gi,
-					items = item.name.match(reg);
-				item.change >= 0
-					? ((color = '#5FC555'), (bizhi = '+'))
-					: ((color = '#FF5255'), (bizhi = ''));
+					return (
+						<div className="inform-items" key={index}>
+							<span className="inform-item one">
+								<p>
+									{items[0]}&nbsp;/<span
+										style={{ color: '#BEBEBE' }}
+									>
+										&nbsp;{items[1]}
+									</span>
+								</p>
 
-				return (
-					<div className="inform-items" key={index}>
-						<span className="inform-item one">
-							<p>
-								{items[0]}&nbsp;/<span
-									style={{ color: '#BEBEBE' }}
+								<p className="inform-item-small">
+									{item.volume || '---'}
+								</p>
+							</span>
+							<span className="inform-item two">
+								<p>{item.last || '---'}</p>
+								<p className="inform-item-small">
+									{item.price || '---'}
+								</p>
+							</span>
+							<span className="inform-item three">
+								<Button
+									className="inform-item-middle"
+									style={{ background: color }}
 								>
-									&nbsp;{items[1]}
-								</span>
-							</p>
-
-							<p className="inform-item-small">
-								{item.volume || '---'}
-							</p>
-						</span>
-						<span className="inform-item two">
-							<p>{item.last || '---'}</p>
-							<p className="inform-item-small">
-								{item.price || '---'}
-							</p>
-						</span>
-						<span className="inform-item three">
-							<Button
-								className="inform-item-middle"
-								style={{ background: color }}
-							>
-								{item.change
-									? bizhi + item.change + '%'
-									: '---'}
-							</Button>
-						</span>
-					</div>
-				);
-			})}
+									{item.change
+										? bizhi + item.change + '%'
+										: '---'}
+								</Button>
+							</span>
+						</div>
+					);
+				})} */}
+				{/* <div className='inform-item-bottom'>到底部了，亲！</div> */}
+			</div>
 		</div>
 	);
 };
