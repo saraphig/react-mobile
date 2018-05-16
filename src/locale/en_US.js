@@ -708,7 +708,7 @@ const enUS = {
   'userter.active': 'Active',
   'usercenter.notVerified': 'Not Verified',
   'usercenter.logout': 'Logout',
-  'usercenter.visist.topone': 'Please visit TOP.ONE to verify',
+  'usercenter.visist.topone': 'please visit TOP.ONE desktop version to verify',
   'home.volume': 'Volume',
   'candyDetail.qrDode': 'QR code',
   'choiceLanguage': 'Language',

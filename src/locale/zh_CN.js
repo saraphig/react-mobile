@@ -679,7 +679,7 @@ const zh_CN = {
   'userter.active': '已开启',
   'usercenter.notVerified': '未认证',
   'usercenter.logout': '退出登录',
-  'usercenter.visist.topone': '请前往TOP.ONE官网进行验证',
+  'usercenter.visist.topone': '请前往 TOP.ONE PC版官网进行验证',
   'home.volume': '交易量',
   'candyDetail.qrDode': '二维码',
   'choiceLanguage': '选择语言',
