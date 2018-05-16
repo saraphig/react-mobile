@@ -24,11 +24,11 @@ class DoubleConfirm extends React.Component {
 		//     type: loginSaga.setToken,
 		//     paylod: '3245353'
 		// })
-		console.log(this.props.token);
+		// console.log(this.props.token);
 	}
 
 	onClick = (googleCode, phoneCode, checked) => {
-		console.log(googleCode, checked, this.state.info.google_auth_token)
+		// console.log(googleCode, checked, this.state.info.google_auth_token)
 		let query = {}
 		if (checked == 'google') {
 			query = {
@@ -41,7 +41,7 @@ class DoubleConfirm extends React.Component {
 				payload: {
 					query,
 					success: data => {
-						console.log(data);
+						// console.log(data);
 						setCookie('token', data.token)
 						this.props.history.push({
 							pathname: '/index',
@@ -63,7 +63,6 @@ class DoubleConfirm extends React.Component {
 				payload: {
 					query,
 					success: data => {
-						console.log(data);
 						setCookie('token', data.token)
 						this.props.history.push({
 							pathname: '/index',
@@ -88,7 +87,6 @@ class DoubleConfirm extends React.Component {
 			payload: {
 				query,
 				success: data => {
-					console.log(data);
 					//倒计时开始
 					this.setState({
             sended: true

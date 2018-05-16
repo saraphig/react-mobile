@@ -14,7 +14,6 @@ export const actionType = {
 }
 
 export function* getInviteInfo({ payload: { query, success, fail } }) {
-	console.log(query);
 	// const { data } = yield call(userCenterService.inviteInfo, query);
 	// if (!data.error) {
 	// 	success(data.result);
@@ -59,7 +58,7 @@ export function* topFeeUpdate({ payload: { query, success, fail } }) {
             fail(data.error_code);
         }
     } catch (error) {
-        console.log(error);
+
     }
 }
 

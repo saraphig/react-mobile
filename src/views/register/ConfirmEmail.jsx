@@ -31,7 +31,6 @@ class ConfirmEmail extends React.Component {
 
 	//按钮提交跳转事件
 	_onClickBTn = code => {
-		console.log(this.props);
 		//TODO: for the featrue
 		let query = {
 			email: this.state.email,
@@ -47,7 +46,6 @@ class ConfirmEmail extends React.Component {
 					// this.setState({
 					// 	phoneCode: data
 					// })
-					console.log(data);
 					const {
 						intl: { formatMessage }
 					} = this.props;

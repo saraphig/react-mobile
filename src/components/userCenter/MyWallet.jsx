@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 class MyWalletComp extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log("localStorage.getItem('isSee')",localStorage.getItem('isSee'))
+		//console.log("localStorage.getItem('isSee')",localStorage.getItem('isSee'))
         const isSee = (localStorage.getItem('isSee') === 'false')?false:true;
 		this.state={
 			isSee: isSee,

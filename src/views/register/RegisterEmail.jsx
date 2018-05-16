@@ -28,7 +28,6 @@ class RegisterEmail extends React.Component {
 
 	//按钮提交跳转事件
 	_onClickBTn = (email, pwd, confirm_pwd) => {
-		console.log(email, pwd, confirm_pwd);
 		//TODO: for the featrue
 		let query = {
 			mailAuthToken: this.state.mail_auth_token,
