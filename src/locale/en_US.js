@@ -376,7 +376,7 @@ const enUS = {
   code_61: 'Please enter your email',
   code_62: 'Account does not exist',
   code_63: 'Request failed, please try again later',
-  code_20064: 'Email has been sent，please look for it in your inbox',
+  code_20064: 'Email has been sent,please look for it in your inbox',
 
   code_71: 'Account exception',
   code_72: 'Please enter the old password',
@@ -399,7 +399,7 @@ const enUS = {
   code_88:
     'The withdrawl is higher than 24 hour limit, please contact customer service',
   code_89: 'The withdrawl confirmation failed',
-  code_20084: 'Email has been sent，please look for it in your inbox',
+  code_20084: 'Email has been sent,please look for it in your inbox',
   code_20085: 'Withdrawal Completed',
 
   code_91: 'Parameter Error',
@@ -431,8 +431,8 @@ const enUS = {
   code_124: 'SMS sent, valid within the next 1 minutes',
   code_125: 'Please enter SMS authentication code',
   code_126: 'SMS authentication code error',
-  code_127: 'Phone number verification failed，please try again later',
-  code_128: 'Phone number disable failed，please try again later',
+  code_127: 'Phone number verification failed,please try again later',
+  code_128: 'Phone number disable failed,please try again later',
   code_129: 'modification failed',
 
   code_10001: 'Parameter Error',
@@ -537,7 +537,7 @@ const enUS = {
   'rate.theme': 'Fee for trading',
   'rate.note1': '0.2% trading fee (Deducted assets received)',
   'rate.note2_1':
-    'If you have any TOP COIN, we will use TOP to pay for transaction fees as default. A 50% discount will be applied, if you use TOP for transaction fees, which is 0.1%（temporary）.Details please see',
+    'If you have any TOP COIN, we will use TOP to pay for transaction fees as default. A 50% discount will be applied, if you use TOP for transaction fees, which is 0.1% (temporary).Details please see',
   'rate.note2.url':
     'https://toponehelp.zendesk.com/hc/en-us/articles/360003081832',
   'rate.note2_2': 'What deductible fees does TOP charge?',
@@ -695,7 +695,7 @@ const enUS = {
   'code_-1': 'Sorry, the server went wrong. We\'re working on getting this fixed as soon as we can.',
   code_10030: 'The pair has been modified. Data is reloading. Please wait for a minute.',
   code_137: 'You have enabled Google 2FA. Please do not try again.',
-  code_105: 'Google 2FA or mobile phone，you must enable one of them.',
+  code_105: 'Google 2FA or mobile phone,you must enable one of them.',
   code_80: 'The coin is not allowed to create address for deposit now',
   noDepositAddress: 'Address unavailable. Please try again later.',
   serverError: 'Network exception. Please try again later.',

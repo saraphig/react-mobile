@@ -74,7 +74,7 @@ class Drawers extends React.Component {
 					thumb={require('assets/images/iconman.png')}
 					className="siderbar-logo"
 				>
-					<FormattedMessage id={'usercenter.login.trade'} />
+					{ token?localStorage.getItem('email'):<FormattedMessage id={'usercenter.login.trade'} />}
 				</List.Item>
 				<Link to="/index">
 					<List.Item key={2}>
