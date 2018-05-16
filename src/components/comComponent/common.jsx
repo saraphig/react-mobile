@@ -650,7 +650,7 @@ export const SwitchItem = props => {
 				}
 			>
 				{<FormattedMessage id="userCenter.payFee" />}
-				&nbsp; ({<FormattedMessage id="userCenter.discount" />})
+				{/*{<FormattedMessage id="userCenter.discount" />}*/}
 			</List.Item>
 		</List>
 	);
