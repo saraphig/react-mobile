@@ -491,3 +491,55 @@
 .status-show .am-button:before {
     border: 0 !important;
 }
+
+.serverTipsModal{
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  .container{
+    @include center;
+    width: 250px;
+    height: 456px;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 0 26px;
+    .content-title{
+      @extend .fz20;
+      color: #000;
+      text-align: center;
+      padding: 30px 0 26px;
+      font-weight: 400;
+    }
+    .container-wrapper{
+      height: 278px;
+      overflow: auto;
+      margin-bottom: 30px;
+      .item{
+        margin-bottom: 20px;
+        .title{
+          color: #000;
+          @extend .fz13;
+          font-weight: 400;
+          margin-bottom: 4px;
+        }
+        .content{
+          color: #969696;
+          @extend .fz12;
+          line-height: 18px;
+        }
+      }
+    }
+    .close{
+      color: #fff;
+      background: #DAB272;
+      @extend .fz15;
+      &:active{
+        background: #e4b76e;
+      }
+    }
+  }
+}

@@ -83,24 +83,81 @@ export class ServerTips extends React.Component {
 		this.props.onChange(e.target.checked);
 	}
 	render() {
+	  const { isShowAgreement, showAgreement, btnText } = this.props;
 		return (
-			<p
-				className={`ServerTips ${this.props.className}`}
-				style={this.props.style}
-			>
-				<input
-					type="checkbox"
-					className="ServerTips-checkbox"
-					onChange={this.onChange.bind(this)}
-				/>
-				<span>{this.props.ServerTips1}</span>&nbsp;<Link
-					to={this.props.pathName}
-				>
+      <div>
+        <div
+          className={`ServerTips ${this.props.className}`}
+          style={this.props.style}
+        >
+          <input
+            type="checkbox"
+            className="ServerTips-checkbox"
+            onChange={this.onChange.bind(this)}
+          />
+          <span>{this.props.ServerTips1}</span>&nbsp;
+          {this.props.pathName ? <Link to={this.props.pathName}>
 					<span className="ServerTips-right">
 						{this.props.ServerTips2}
 					</span>
-				</Link>
-			</p>
+          </Link> : <a href="javascript:;">
+					<span className="ServerTips-right" onClick={showAgreement}>
+						{this.props.ServerTips2}
+					</span>
+          </a>}
+          {isShowAgreement && <div className="serverTipsModal">
+            <div className="container">
+              <p className="content-title"><FormattedMessage id={'agreement.theme'}/></p>
+              <div className="container-wrapper">
+                <div className="item">
+                  <div className="title"><FormattedMessage id="agreement.p1" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p1.c1" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p1.c2" /></div>
+                </div>
+                <div className="item">
+                  <div className="title"><FormattedMessage id="agreement.p2" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_1" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_1.content" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_2" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_2.content" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_3" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_3.content" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_4" /></div>
+                  <div className="content"><FormattedMessage id="agreement.p2_4.content" /></div>
+                </div>
+                <div className="item">
+                  <p className="title"><FormattedMessage id="agreement.p3" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p3_1.content" /></p>
+                </div>
+                <div className="item">
+                  <p className="title"><FormattedMessage id="agreement.p4" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p4_1.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p4_2.content" /></p>
+                </div>
+                <div className="item">
+                  <p className="title"><FormattedMessage id="agreement.p5" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p5_1.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p5_2.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p5_3.content" /></p>
+                </div>
+                <div className="item">
+                  <p className="title"><FormattedMessage id="agreement.p6" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p6_1.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p6_2.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p6_3.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p6_4.content" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p6_5.content" /></p>
+                </div>
+                <div className="item">
+                  <p className="title"><FormattedMessage id="agreement.p7" /></p>
+                  <p className="content"><FormattedMessage id="agreement.p7.content" /></p>
+                </div>
+              </div>
+              <Buttons buttonText={btnText} className="close" _onClick={showAgreement}/>
+            </div>
+          </div>}
+        </div>
+      </div>
 		);
 	}
 }
