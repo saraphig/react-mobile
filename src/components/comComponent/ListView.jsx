@@ -140,7 +140,7 @@ class ListViewComp extends React.Component {
 		// let index = data.length - 1;
 		let index = this.props.data.length - 1;
 		const row = (rowData, sectionID, rowID) => {
-			console.log('listviews',this.props.data.length)
+			// console.log('listviews',this.props.data.length)
 			if (index < 0) {
 				index = this.props.data.length - 1;
 			}

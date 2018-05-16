@@ -31,7 +31,7 @@ const TopModal = (props) => {
       maskClosable={false}
       onClose={this.onClose('modal1')}
       title="Title"
-      footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
+      footer={[{ text: 'Ok', onPress: () => { this.onClose('modal1')(); } }]}
       wrapProps={{ onTouchStart: this.onWrapTouchStart }}
     >
       <div style={{ height: 100, overflow: 'scroll' }}>

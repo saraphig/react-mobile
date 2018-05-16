@@ -91,7 +91,7 @@ class UserCenter extends React.Component {
 					});
 				},
 				fail: code => {
-					console.log(code);
+					// console.log(code);
 				}
 			}
 		});

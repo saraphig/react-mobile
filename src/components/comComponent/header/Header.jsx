@@ -22,7 +22,6 @@ class Header extends React.Component {
 		let box1,
 			box2 = null;
 		if (!this.state.token) {
-			console.log("=====",window.location.href)
 			box1 = (
 				<div>
 					<Link to="/login" className={`${window.location.href.indexOf('login')>-1?'active':null} header-login`}>

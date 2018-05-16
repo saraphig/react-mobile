@@ -40,7 +40,7 @@ class UserCenterComp extends React.Component {
 	}
 	componentWillMount() {}
 	componentDidMount() {
-		console.log(this.props.token);
+		// console.log(this.props.token);
 	}
 	_onClick(type) {
 		//let that = this;
@@ -52,7 +52,7 @@ class UserCenterComp extends React.Component {
 					window.location.href = '/myInvite';
 					break;
 				default:
-					console.log(3242);
+					// console.log(3242);
 					that.showModal();
 					break;
 			}
@@ -71,7 +71,7 @@ class UserCenterComp extends React.Component {
 		this.setState({
 			_isOpen: false
 		});
-		console.log(4242);
+		// console.log(4242);
 	};
 
 	render() {

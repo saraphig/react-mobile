@@ -42,7 +42,7 @@ class MyWallet extends React.Component {
                         });
                     },
                     fail: err => {
-                        console.log(err);
+                        // console.log(err);
                         //token 失效
                         if(Number(err.code) == 10003) {
                             this.props.history.push('/login');

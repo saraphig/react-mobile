@@ -99,7 +99,6 @@ class Register extends React.Component {
 			payload: {
 				query,
 				success: data => {
-					console.log(data);
 					this.setState({
 						mail_auth_token: data.mail_auth_token
 					});

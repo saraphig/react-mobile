@@ -14,7 +14,7 @@ class Test extends React.Component {
 
 	componentWillReceiveProps(nextprops) {
 		// 接收到nextprops触发
-		console.log('==', nextprops.token);
+		// console.log('==', nextprops.token);
 	}
 
 	render() {

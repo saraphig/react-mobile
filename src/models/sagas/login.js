@@ -20,7 +20,6 @@ export function* userLogin({ payload: { query, success, fail, error } }) {
 	try {
 		const { data } = yield call(login.login, query);
 		if (data.error_code === 200) {
-            console.log(data.data)
 			success(data.data);
 		} else {
 			fail(data.error_code);
@@ -36,7 +35,6 @@ export function* googleValidate({ payload: { query, success, fail, error } }) {
 	try {
 		const { data } = yield call(login.googleValidate, query);
 		if (data.error_code === 200) {
-			console.log(data);
 			success(data.data);
 		} else {
 			fail(data.error_code);
@@ -51,7 +49,6 @@ export function* phoneCode({ payload: { query, success, fail, error } }) {
 	try {
 		const { data } = yield call(login.phoneCode, query);
 		if (data.error_code === 200) {
-			console.log(data);
 			success(data.data);
 		} else {
 			fail(data.error_code);
@@ -66,7 +63,6 @@ export function* phoneValidate({ payload: { query, success, fail, error } }) {
 	try {
 		const { data } = yield call(login.phoneValidate, query);
 		if (data.error_code === 200) {
-			console.log(data);
 			success(data.data);
 		} else {
 			fail(data.error_code);

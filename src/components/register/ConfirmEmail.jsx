@@ -95,7 +95,6 @@ class ConfirmEmailComp extends React.Component {
 			isRefreshCaptcha,
 			count
 		} = this.props;
-		console.log(this.props);
 		// 刷新验证码
 		if (isRefreshCaptcha) {
 			this.initNeCaptcha();
