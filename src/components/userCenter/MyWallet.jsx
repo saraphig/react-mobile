@@ -54,6 +54,12 @@ class MyWalletComp extends React.Component {
 			noSeeValue,
             isHideSmall
 		} =this.state;
+		let totalTransForm = 0;
+		if(localStorage.getItem('language')=='zh'){
+		     totalTransForm = `¥${(priceETH&&priceETH.eth.cny) * (myAssets.myCoinAccount).toFixed(8)}`
+        } else if(localStorage.getItem('language') == 'en') {
+             totalTransForm = `$ ${(priceETH&&priceETH.eth.usd) * (myAssets.myCoinAccount).toFixed(8)}`
+        }
 		const content = (
 			<div>
 				<Navbars
@@ -68,7 +74,7 @@ class MyWalletComp extends React.Component {
 					{
 						isSee?<span className="myWallet-money-info moneys">
 						{myAssets.myCoinAccount}&nbsp;ETH<span className="myWallet-money-yuan">
-							/¥{(priceETH&&priceETH.eth.cny) * (myAssets.myCoinAccount)}
+							/ {totalTransForm}
 						</span>
 					</span>:noSeeValue
 					}
