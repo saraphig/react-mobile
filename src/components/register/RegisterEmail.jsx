@@ -46,7 +46,9 @@ class RegisterEmailComp extends React.Component {
 	render() {
 		const { pathName } = this.state;
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+      isShowAgreement,
+      showAgreement,
 		} = this.props;
 		const content = (
 			<div className="registerEmail-middleContent">
@@ -82,10 +84,13 @@ class RegisterEmailComp extends React.Component {
 					className="ServerTips-registerEmail-transfrom"
 					ServerTips1={formatMessage({ id: 'register.hadRead' })}
 					ServerTips2={formatMessage({ id: 'register.agreement' })}
-					pathName="/login"
+          btnText={formatMessage({id: 'public.confirm'})}
+					//pathName="/login"
 					onChange={val => {
 						this.setState({ agree: val });
 					}}
+          showAgreement={showAgreement}
+          isShowAgreement={isShowAgreement}
 				/>
 				<Buttons
 					className="Buttons-registerEmail-transfrom"

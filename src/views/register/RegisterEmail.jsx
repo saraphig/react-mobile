@@ -13,7 +13,8 @@ class RegisterEmail extends React.Component {
 		let mail_auth_token = props.location.state.mail_auth_token || '';
 		this.state = {
 			mail_auth_token: mail_auth_token,
-			open: false
+			open: false,
+      isShowAgreement: false,
 		};
 	}
 
@@ -81,14 +82,23 @@ class RegisterEmail extends React.Component {
 		this.setState({ open: !this.state.open });
 	};
 
+	showAgreement = () => {
+	  const { isShowAgreement } = this.state;
+	  this.setState({
+      isShowAgreement: !isShowAgreement
+    })
+  }
+
 	render() {
-		const { open } = this.state;
+		const { open, isShowAgreement } = this.state;
 		return (
 			<div>
 				<RegisterEmailComp
 					_onClickBTn={this._onClickBTn}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
+          showAgreement={this.showAgreement}
+          isShowAgreement={isShowAgreement}
 				/>
 			</div>
 		);
