@@ -185,7 +185,7 @@ class LoginComp extends React.Component {
 		);
 		return (
 			<div className="login">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header _onClick={this.props._onOpenChange} currentPage={'login'}/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

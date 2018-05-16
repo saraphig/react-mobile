@@ -139,7 +139,7 @@ class ConfirmEmailComp extends React.Component {
 		}
 		return (
 			<div className="confirmEmail">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header _onClick={this.props._onOpenChange} currentPage={'register'}/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
