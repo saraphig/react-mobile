@@ -76,7 +76,6 @@ class ConfirmEmailComp extends React.Component {
 						});
 					}
 					that.props.resend(that.state.validate);
-					
 				},
 				onError: (err, data) => {
 					if (err) {
@@ -123,13 +122,7 @@ class ConfirmEmailComp extends React.Component {
 					_onClick={() => this._onClickBTn()}
 				/>
 				<div className="bottom-tips">
-					{this.props.sended ? (
-						<span className="already-send">
-							{formatMessage({ id: 'register.sended' })}
-							{this.props.count}
-						</span>
-					) : (
-						<span id="yi-dun" />
+					<span id="yi-dun" />
 					)}
 				</div>
 			</div>
