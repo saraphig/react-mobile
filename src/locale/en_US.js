@@ -720,6 +720,7 @@ const enUS = {
   'public.sure': 'Confirm',
   'goPC': 'Please visit our desktop version to turn on Google 2FA or SMS verification',
   code_117: 'Verification code is only valid for 5 minutes. Please try to login again.',
-  'noAgreement': 'You have not accepted the agreement'
+  'noAgreement': 'You have not accepted the agreement',
+  code_106: 'SMS sent, valid within the next 10 minutes'
 };
 export default enUS;
