@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { url } from 'src/config.js';
 import qs from 'qs';
-// import { delCookie } from '../utils/commFunction';
+import { delCookie } from './comFunction';
 
 const axiosReq = axios.create({
   timeout: 10000,
@@ -16,8 +16,8 @@ function checkStatus(response) {
   if (response.data.error_code === 110) {
     // token失效退出到登陆页
     // localStorage.removeItem('token');
-    // delCookie('token');
-    window.location = '/login';
+    delCookie('token');
+    window.location = '/login?connect=0'; // login页面使用判断显示登陆失效
   }
   if (response.status >= 200 && response.status < 300) {
     return response;
