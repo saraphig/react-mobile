@@ -29,3 +29,38 @@
 .bottomTips-confirmEmail-transfrom {
     margin-top: 40px;
 }
+
+.bottom-tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-tips .already-send {
+    color: #999;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.already-send .yidun_intelli-control {
+    display: none;
+}
+
+#yi-dun .yidun_intelli-control {
+    height: auto;
+    border: 0px;
+    margin: 0 auto;
+    background: transparent;
+    width: 157px;
+    margin-top: 30px;
+}
+
+#yi-dun .yidun_intellisense--light .yidun_intelli-text {
+    line-height: 1;
+    color: #fff;
+}
+
+#yi-dun .resend {
+    color: #dcb276;
+    margin-left: 5px;
+}

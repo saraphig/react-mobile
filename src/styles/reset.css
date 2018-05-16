@@ -35,7 +35,6 @@ mark{background-color:transparent;}
 body{font-family:"Helvetica Neue",Helvetica,Arial,Tahoma,sans-serif; min-height: 100%;}
 legend,button,select,textarea,input{color:#333;}
 button{min-width:50px;min-height:28px;padding:0 14px 1px;cursor:pointer;}
-input[type='text']{padding:0 4px;}
 img{max-width:100%;height:auto;}
 select {-webkit-appearance:none;-webkit-border-radius:0px;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGdJREFUeNrs1dEKwCAIBdCMfat+k1/raG8bLW/gHgZXsJf0VAQlEdEqo7fiIEiQIMGfgscYzAx+Zd1d0h1mRSh2O3JWjC7akSYUm17Ks3kHu2L8erNU1XibW6XwGyVIkCDBb8BTgAEACnVTobavwZYAAAAASUVORK5CYIIvKiAgfHhHdjAwfGVlMjQ0YTBkNjkwODFlNzdhNzlhMDUwOGY1M2EzMzg5ICov") no-repeat right;background-size:auto 100%;}
 input[type='text'] {-webkit-appearance:none;background:none;}
