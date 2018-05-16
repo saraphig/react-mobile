@@ -13,7 +13,7 @@ class ConfirmEmail extends React.Component {
 		// let email = props.location.state.email || '';
 		let email = props.location.state.query.email || '';
 		this.state = {
-			email: '',
+			email: email,
 			open: false,
 			isRefreshCaptcha: false,
 			count: 60,
