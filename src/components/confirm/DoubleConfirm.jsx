@@ -90,7 +90,7 @@ class ConfirmG2FComp extends React.Component {
 		);
 		return (
 			<div className="DoubleConfirm">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header _onClick={this.props._onOpenChange} currentPage={'login'}/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

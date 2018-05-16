@@ -24,14 +24,14 @@ class Header extends React.Component {
 		if (!this.state.token) {
 			box1 = (
 				<div>
-					<Link to="/login" className={`${window.location.href.indexOf('login')>-1?'active':null} header-login`}>
+					<Link to="/login" className={`${this.props.currentPage=='login'?'active':null} header-login`}>
 						{formatMessage({ id: 'public.login' })}
 					</Link>
 				</div>
 			);
 			box2 = (
 				<div>
-					<Link to="/register" className={`${window.location.href.indexOf('register')>-1?'active':null} header-register`}>
+					<Link to="/register" className={`${this.props.currentPage=='register'?'active':null} header-register`}>
 						{formatMessage({ id: 'login.register' })}
 					</Link>
 				</div>
