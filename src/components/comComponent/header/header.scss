@@ -25,10 +25,13 @@
         width: 125px;
         @extend .fz15;
         .header-login {
-            color: #dcb276;
+            color: #fff;
         }
         .header-register {
             color: #fff;
+        }
+        .active {
+            color: #dcb276;
         }
         .header-menus {
             width: 18px;
