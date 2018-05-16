@@ -509,10 +509,10 @@
   .container{
     @include center;
     width: 250px;
-    height: 456px;
+    // height: 456px;
     background-color: #fff;
     border-radius: 2px;
-    padding: 0 26px;
+    padding: 0 26px 26px;
     .content-title{
       @extend .fz20;
       color: #000;
@@ -533,7 +533,7 @@
           margin-bottom: 4px;
         }
         .content{
-          color: #969696;
+          color: #312e2e;
           @extend .fz12;
           line-height: 18px;
         }
