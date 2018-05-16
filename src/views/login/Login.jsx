@@ -65,7 +65,8 @@ class Login extends React.Component {
 						phone,
             nation_code,
 					  } = data[0] ? data[0][0] : {};
-
+					// 将email存储在localStorage
+					localStorage.setItem('email',data[0][0].email);
 					const params = {
 						email,
 						isFirstLogin: is_first_login,

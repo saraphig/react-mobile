@@ -187,7 +187,7 @@ export class Input extends React.Component {
 							{this.props.sended ? (
 								<span>
 									<FormattedMessage id="register.sended" />
-									{this.props.time}
+									&nbsp;({this.props.time})
 								</span>
 							) : (
 								<span onClick={this.props.onClick}>
