@@ -24,9 +24,16 @@
         margin-left: 5px;
     }
     .order-name {}
+    .list-view-tab:last-child {
+        border-bottom: 0;
+    }
 }
 
 .body-no-scroll {
     overflow: hidden;
     height: 100%;
+}
+
+.indexPage .am-drawer-content {
+    overflow: hidden;
 }

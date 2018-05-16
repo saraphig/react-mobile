@@ -20,11 +20,6 @@ class LoginComp extends React.Component {
 
 	componentDidMount() {
 		this.initNeCaptcha();
-		document.body.className = 'body-no-scroll';
-	}
-
-	componentWillUnmount() {
-		document.body.className = '';
 	}
 
 	initNeCaptcha = () => {
@@ -130,8 +125,6 @@ class LoginComp extends React.Component {
 			this.initNeCaptcha();
 			this.props.setIsRefreshCaptcha();
 		}
-
-
 
 		const content = (
 			<div className="login-middleContent">
