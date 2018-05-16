@@ -18,13 +18,13 @@ class ConfirmEmailComp extends React.Component {
 		super(props);
 		this.state = {
 			// validate: '798689'
-      validate: ''
+			validate: ''
 		};
 	}
 
 	componentDidMount() {
-	  this.initNeCaptcha();
-  }
+		this.initNeCaptcha();
+	}
 
 	_onClickBTn() {
 		// alert(this.state.validate);
@@ -32,91 +32,76 @@ class ConfirmEmailComp extends React.Component {
 	}
 
 	// 网易云盾
-  initNeCaptcha = () => {
-    const {
-      intl: { formatMessage }
-    } = this.props;
+	initNeCaptcha = () => {
+		const {
+			intl: { formatMessage }
+		} = this.props;
 
-    // const { email, password, validate } = this.state;
+		// const { email, password, validate } = this.state;
 
-    initNECaptcha(
-      {
-        captchaId: dun.captchaId,
-        element: this.slideBar,
-        lang: formatMessage({ id: 'c.dun.lang' }),
-        // lang: 'zh-CN',
-        onReady: instance => {
-          // 验证码一切准备就绪，此时可正常使用验证码的相关功能
+		initNECaptcha(
+			{
+				captchaId: dun.captchaId,
+				element: '#yi-dun',
+				lang: formatMessage({ id: 'c.dun.lang' }),
+				// lang: 'zh-CN',
+				onReady: instance => {
+					let text = formatMessage({
+						id: 'resendEmail.resend'
+					});
+					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
+					//验证码logo的去除
+					if (
+						document.getElementsByClassName('yidun_intelli-icon')[0]
+					) {
+						document
+							.getElementsByClassName('yidun_intelli-icon')[0]
+							.remove();
+					}
 
-          //验证码logo的去除
-          if (
-            document.getElementsByClassName('yidun_intelli-icon')[0]
-          ) {
-            document
-              .getElementsByClassName('yidun_intelli-icon')[0]
-              .remove();
-          }
-          // document.getElementsByClassName('yidun_intelli-text')[0].setAttribute('style','font-size:14px;height:35px')
-          // //验证码文字的修改
-          document.getElementsByClassName(
-            'yidun_intelli-text'
-          )[0].innerText = formatMessage({ id: 'public.sure' });
-          // '确 定';
-
-          // if (
-          // 	document.getElementsByClassName('yidun_tips__text')[0]
-          // ) {
-          // 	document
-          // 		.getElementsByClassName('yidun_tips__text')[0]
-          // 		.setAttribute('style', 'display:none');
-          // }
-
-          // //验证码验证完成的logo去除这里可以更改完成的后的logo
-          // if (
-          // 	document.getElementsByClassName('yidun_tips__icon')[0]
-          // ) {
-          // 	document
-          // 		.getElementsByClassName('yidun_tips__icon')[0]
-          // 		.remove();
-          // }
-
-          // //验证码完成后的文字样式
-          // document.getElementsByClassName(
-          // 	'yidun_classic-tips'
-          // )[0].style.color =
-          // 	'#fff';
-        },
-        onVerify: (err, data) => {
-          let that = this;
-          if (data) {
-            that.setState({ validate: data.validate });
-          }
-          this.props.resend(
-            this.state.validate
-          );
-        },
-        onError: (err, data) => {
-          if (err) {
-            this.initNeCaptcha();
-          }
-        }
-      },
-      res => {
-        this.captchaCallback = res;
-      }
-    );
-  };
+					document.getElementsByClassName(
+						'yidun_intelli-text'
+					)[0].innerHTML =
+						formatMessage({ id: 'noValidate' }) +
+						'?' +
+						"<span class='resend'>" +
+						text +
+						'</span>';
+				},
+				onVerify: (err, data) => {
+					let that = this;
+					if (data) {
+						that.setState({
+							validate: data.validate
+						});
+					}
+					that.props.resend(that.state.validate);
+					
+				},
+				onError: (err, data) => {
+					if (err) {
+						this.initNeCaptcha();
+					}
+				}
+			},
+			res => {
+				this.captchaCallback = res;
+			}
+		);
+	};
 
 	render() {
 		const {
 			intl: { formatMessage },
-      isRefreshCaptcha,
+			isRefreshCaptcha,
+			count
 		} = this.props;
-// 刷新验证码
-    if(isRefreshCaptcha){
-      this.initNeCaptcha();
-      this.props.setIsRefreshCaptcha();
-    }
+		console.log(this.props);
+		// 刷新验证码
+		if (isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
 		const content = (
 			<div className="confirmEmail-middleContent">
 				<MidText
@@ -137,18 +122,28 @@ class ConfirmEmailComp extends React.Component {
 					buttonText={formatMessage({ id: 'public.sure' })}
 					_onClick={() => this._onClickBTn()}
 				/>
-				<BottomTips
-					className="bottomTips-confirmEmail-transfrom"
-					BottomTips1={formatMessage({ id: 'noValidate' })}
-					BottomTips2={formatMessage({
-						id: 'resendEmail.resend'
-					})}
-          // onClick={() => { this.props.resend() }}
-					// pathName="/#"
-				/>
-        <div ref={bar => {this.slideBar = bar;}}/>
+				<div className="bottom-tips">
+					{this.props.sended ? (
+						<span className="already-send">
+							{formatMessage({ id: 'register.sended' })}
+							{this.props.count}
+						</span>
+					) : (
+						<span id="yi-dun" />
+					)}
+				</div>
 			</div>
 		);
+
+		// 倒计时结束初始化发送验证码
+		if (count === 0) {
+			this.initNeCaptcha();
+		}
+		// 请求失败初始化发送验证码
+		if (isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
 		return (
 			<div className="confirmEmail">
 				<Header _onClick={this.props._onOpenChange} />

@@ -87,18 +87,6 @@ class RegisterComp extends React.Component {
 					)[0].innerText = formatMessage({
 						id: 'register.postPhoneValidate'
 					});
-
-					$('.yidun_intellisense--light .yidun_intelli-text').css({
-						'line-height': 1
-					});
-
-					$('.yidun_intelli-control').css({
-						background: 'transparent',
-						border: 0,
-						height: 'auto'
-					});
-
-					// '发送验证码';
 				},
 				onVerify: (err, data) => {
 					let that = this;
