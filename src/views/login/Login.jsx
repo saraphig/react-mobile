@@ -20,6 +20,7 @@ class Login extends React.Component {
 		//     type: loginSaga.setToken,
 		//     paylod: '3245353'
 		// })
+    this.tokenOut();
 	}
 
 	//按钮提交跳转事件
@@ -65,7 +66,8 @@ class Login extends React.Component {
 						phone,
             nation_code,
 					  } = data[0] ? data[0][0] : {};
-
+					// 将email存储在localStorage
+					localStorage.setItem('email',data[0][0].email);
 					const params = {
 						email,
 						isFirstLogin: is_first_login,
@@ -139,6 +141,17 @@ class Login extends React.Component {
 	_onOpenChange = () => {
 		this.setState({ open: !this.state.open });
 	};
+
+	//登陆失效
+	tokenOut = () => {
+	  const isToken = location.search;
+	  if(isToken.includes('connect')){
+      const {
+        intl: { formatMessage }
+      } = this.props;
+      topToast(formatMessage({ id: 'code_10003' }));
+    }
+  };
 
 	render() {
 		const { open, isRefreshCaptcha } = this.state;

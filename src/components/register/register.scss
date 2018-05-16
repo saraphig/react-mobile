@@ -1,64 +1,58 @@
 .register-middleContent {
-    flex-direction: column;
-    margin: 0 30px 0 30px;
-    .middleContent-img-logo {
-        margin: 70px 63px 0 63px;
-        .middleContent-logo {
-            width: 190px;
-            height: 65px;
-        }
-    }
+	flex-direction: column;
+	margin: 0 30px 0 30px;
+	.middleContent-img-logo {
+		margin: 70px 63px 0 63px;
+		.middleContent-logo {
+			width: 190px;
+			height: 65px;
+		}
+	}
 }
 
 .midText-register-transfrom {
-    margin-top: 64px;
-    margin-bottom: 41px;
+	margin-top: 64px;
+	margin-bottom: 41px;
 }
 
 .buttons-register-transfrom {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .bottomTips-register-transfrom {
-    margin-top: 58px;
+	margin-top: 58px;
 }
 
 .iti-mobile .intl-tel-input.iti-container {
-    top: 213px;
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
-    position: fixed;
+	top: 213px;
+	bottom: 30px;
+	left: 30px;
+	right: 30px;
+	position: fixed;
 }
 
 .iti-mobile .intl-tel-input .country-list {
-    max-height: 50%;
-    width: 100%;
-    font-size: 15px;
-    background: #000;
-    color: #fff;
-    border: 1px solid #dcb276;
-    font-weight: 200;
+	max-height: 50%;
+	width: 100%;
+	font-size: 15px;
+	background: #000;
+	color: #fff;
+	border: 1px solid #dcb276;
+	font-weight: 200;
 }
 
 .iti-mobile .intl-tel-input .country-list .country {
-    padding: 5px 8px;
+	padding: 5px 8px;
 }
 
 #dun .yidun_intelli-text {
-    color: #dcb276 !important;
-    line-height: 1 !important;
+	color: #dcb276;
+	line-height: 1;
 }
 
-// #dun .yidun_intelli-control {
-//     margin-top: 0px !important;
-//     background: transparent !important;
-//     border: 0px !important;
-//     // height: auto !important;
-// }
 #dun .yidun_intelli-control {
-    margin-top: 0px !important;
-    background: transparent !important;
-    border: 0px !important;
-    height: auto !important;
+	margin-top: 0px;
+	background: transparent;
+	border: 0px;
+	height: auto;
 }
