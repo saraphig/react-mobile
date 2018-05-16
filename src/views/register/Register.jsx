@@ -16,7 +16,7 @@ class Register extends React.Component {
 			open: false,
 			sended: false, //是否已经发送验证码
 			count: 60, //验证码倒计时间
-      isRefreshCaptcha: false,  //是否刷新验证码
+			isRefreshCaptcha: false //是否刷新验证码
 		};
 		const {
 			intl: { formatMessage }
@@ -59,13 +59,13 @@ class Register extends React.Component {
 					this.countDown();
 				},
 				fail: code => {
-				  this.fail(code);
-          this.setIsRefreshCaptcha();
-        },
+					this.fail(code);
+					this.setIsRefreshCaptcha();
+				},
 				error: err => {
-          this.error(err);
-          this.setIsRefreshCaptcha();
-        }
+					this.error(err);
+					this.setIsRefreshCaptcha();
+				}
 			}
 		});
 	};
@@ -153,11 +153,11 @@ class Register extends React.Component {
 
 	//设置是否刷新无感验证
 	setIsRefreshCaptcha = () => {
-	  const { isRefreshCaptcha } = this.state;
-	  this.setState({
-      isRefreshCaptcha: !isRefreshCaptcha
-    })
-  };
+		const { isRefreshCaptcha } = this.state;
+		this.setState({
+			isRefreshCaptcha: !isRefreshCaptcha
+		});
+	};
 
 	render() {
 		const { open, count, sended, isRefreshCaptcha } = this.state;
@@ -172,8 +172,8 @@ class Register extends React.Component {
 					_open={open}
 					count={count}
 					sended={sended}
-          isRefreshCaptcha={isRefreshCaptcha}
-          setIsRefreshCaptcha={this.setIsRefreshCaptcha}
+					isRefreshCaptcha={isRefreshCaptcha}
+					setIsRefreshCaptcha={this.setIsRefreshCaptcha}
 				/>
 			</div>
 		);
