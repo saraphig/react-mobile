@@ -107,7 +107,7 @@ export class ServerTips extends React.Component {
           </a>}
           {isShowAgreement && <div className="serverTipsModal">
             <div className="container">
-              <p className="content-title"><FormattedMessage id={'agreement.theme'}/></p>
+              <p className="content-title">TOP.ONE <FormattedMessage id={'agreement.theme'}/></p>
               <div className="container-wrapper">
                 <div className="item">
                   <div className="title"><FormattedMessage id="agreement.p1" /></div>
