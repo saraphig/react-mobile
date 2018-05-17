@@ -36,7 +36,14 @@ class ConfirmEmail extends React.Component {
 			email: this.state.email,
 			code
 		};
+    const {
+      intl: { formatMessage }
+    } = this.props;
 		// 验证参数
+    if(!code){
+      topToast(formatMessage({ id: 'code_126' }));
+      return;
+    }
 
 		this.props.dispatch({
 			type: registerSaga.emailValidate,
@@ -46,9 +53,6 @@ class ConfirmEmail extends React.Component {
 					// this.setState({
 					// 	phoneCode: data
 					// })
-					const {
-						intl: { formatMessage }
-					} = this.props;
 					topToast(formatMessage({ id: `code_${data.msg_code}` }));
 					this.props.history.push('/login');
 				},
