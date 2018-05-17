@@ -430,7 +430,7 @@ const enUS = {
   code_123: 'Area code does not exist',
   code_124: 'SMS sent, valid within the next 1 minutes',
   code_125: 'Please enter SMS authentication code',
-  code_126: 'SMS authentication code error',
+  code_126: 'Verification code error',
   code_127: 'Phone number verification failed,please try again later',
   code_128: 'Phone number disable failed,please try again later',
   code_129: 'modification failed',
