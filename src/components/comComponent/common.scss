@@ -397,7 +397,9 @@
 .sideBars .am-list-line:after {
     height: 0px !important;
 }
-
+.sideBars .am-list-line {
+    border: none !important;
+}
 .sideBars .am-list-body:after {
     height: 0px !important;
 }
@@ -483,6 +485,9 @@
 }
 .am-list .am-list-body:after{
     height:0px !important;
+}
+.am-list .am-list-body{
+    border:none !important;
 }
 .status-show .inform-item-middle {
     @extend .fz15;
