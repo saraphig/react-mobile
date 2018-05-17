@@ -101,6 +101,7 @@ class MyWalletComp extends React.Component {
                                             <img
                                                 src={'https://www.top.one/lib/coin/'+coin.coin+'.png'}
                                                 alt="btc"
+												onError={(e) => e.target.src='https://www.top.one/lib/coin/DEFAULT.png'}
                                             />
                                             <span>{coin.coin}</span>
                                         </div>
