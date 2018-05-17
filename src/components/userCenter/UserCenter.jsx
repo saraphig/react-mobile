@@ -126,7 +126,7 @@ class UserCenterComp extends React.Component {
 							aria-hidden="true"
 							className="item-line-G2F"
 						>
-							<use xlinkHref="#icon-mima" />
+							<use xlinkHref="#icon-mima1" />
 						</svg>
 					]}
 					title={
