@@ -3,17 +3,14 @@ import { connect } from 'react-redux';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { actionType as loginSaga } from 'models/sagas/login.js';
 import { actionType as tradeSaga } from 'models/sagas/trading';
-import wsRequest from 'utils/wsRequest';
+// import wsRequest from 'utils/wsRequest';
+import wsSocket from 'utils/webSocketUtil';
 import IndexComp from 'components/index/index';
 import { topToast } from 'utils/comFunction'
 
 class Index extends React.Component {
 	constructor(props) {
 		super(props);
-		// this.props.dispatch({
-		//     type: loginSaga.setToken,
-		//     payload: '3245353'
-		// })
 		this.state = {
 			open: false,
 			initData: [],
@@ -47,7 +44,13 @@ class Index extends React.Component {
 	}
 
 	componentWillUnmount() {
-		this.dataWs.close();
+		// this.dataWs.close();
+		if (this.dataWs){
+		  // 销毁前取消订阅
+		  this.dataWs.sendData(JSON.stringify({"method":"status.unsubscribe","params":[],"id":0}));
+		  this.dataWs.destroy();
+		}
+		this.dataWs = null;
 		if (this.interval) {
 	       clearInterval(this.interval)
 	    }
@@ -70,7 +73,8 @@ class Index extends React.Component {
 					const dataWs = [
 						{ method: 'server.ping', params: ['coinKind'], id: 1 }
 					];
-					this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
+					// this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
+					this.dataWs = wsSocket(dataWs, this.wsMessage, this.error);
 					// console.log('8888',this.dataWs)
 				},
 				fail: this.fail,
@@ -113,7 +117,8 @@ class Index extends React.Component {
 				params: arrName,
 				id: 3
 			};
-			this.dataWs.send(JSON.stringify(query));
+			// this.dataWs.send(JSON.stringify(query));
+			this.dataWs.sendData(JSON.stringify(query));
 		}
 
 		if (method === 'daystatus.update') {
