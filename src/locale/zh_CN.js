@@ -675,7 +675,7 @@ const zh_CN = {
   'home.personalCenter': '用户中心',
   'usercenter.notLog': '未登录',
   'usercenter.login.trade': '马上登录，体验极速交易',
-  'usercenter.lastLogin': '最后登陆时间',
+  'usercenter.lastLogin': '最后登录时间',
   'userter.active': '已开启',
   'usercenter.notVerified': '未认证',
   'usercenter.logout': '退出登录',
