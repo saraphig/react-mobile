@@ -18,7 +18,7 @@ const enUS = {
 	'login.loginName': 'Account',
 	'login.login': 'Login',
 	'login.email': 'Email',
-	'login.welcome': 'Welcome To Login',
+	'login.welcome': 'Welcome to Login',
 	'login.important': 'Please check that you are visiting {website}',
 	'login.password': 'Password',
 	'login.drag': 'Drag the left slider to verify',
@@ -627,7 +627,7 @@ const enUS = {
 		'6. TOP.ONE reserves the right to interpret the promotion within the limits of law.',
 
 	'tradeActionBoard.all': 'All',
-	'depositWithdraw.candy': 'candy',
+	'depositWithdraw.candy': 'Candy',
 
 	'c.dun.lang': 'en',
 	'statement.theme': 'Privacy Policy',
