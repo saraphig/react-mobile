@@ -708,19 +708,20 @@ const enUS = {
   'userter.active': 'Active',
   'usercenter.notVerified': 'Not Verified',
   'usercenter.logout': 'Logout',
-  'usercenter.visist.topone': 'Please visit TOP.ONE to verify',
+  'usercenter.visist.topone': 'please visit TOP.ONE desktop version to verify',
   'home.volume': 'Volume',
   'candyDetail.qrDode': 'QR code',
   'choiceLanguage': 'Language',
   'phoneConfirm': 'SMS Verification',
   'doubleConfirm': 'Two-step Verification',
-  'noValidate': 'SMS code not received',
+  'noValidate': 'Verification code not received',
   'recommendedCode': 'Referral code (Optional)',
   'myAssets': 'My Assets',
   'public.sure': 'Confirm',
   'goPC': 'Please visit our desktop version to turn on Google 2FA or SMS verification',
   code_117: 'Verification code is only valid for 5 minutes. Please try to login again.',
   'noAgreement': 'You have not accepted the agreement',
-  code_106: 'SMS sent, valid within the next 10 minutes'
+  code_106: 'Verification code sent, valid within the next 10 minutes',
+  'public.isee': 'Confirm',
 };
 export default enUS;

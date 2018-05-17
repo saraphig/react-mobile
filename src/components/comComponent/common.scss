@@ -356,13 +356,13 @@
             color: $gray;
             line-height: 24px;
             padding: 24px 14px;
-            text-align: center;
+            text-align: left;
         }
         .sure {
             text-align: center;
             a {
                 @extend .fz18;
-                padding: 10px 34px;
+                padding: 10px 32px;
                 color: #fff;
                 background-color: $golden;
                 border-radius: 2px;

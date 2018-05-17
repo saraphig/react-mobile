@@ -679,7 +679,7 @@ const zh_CN = {
   'userter.active': '已开启',
   'usercenter.notVerified': '未认证',
   'usercenter.logout': '退出登录',
-  'usercenter.visist.topone': '请前往TOP.ONE官网进行验证',
+  'usercenter.visist.topone': '请前往 TOP.ONE PC版官网进行验证',
   'home.volume': '交易量',
   'candyDetail.qrDode': '二维码',
   'choiceLanguage': '选择语言',
@@ -693,6 +693,7 @@ const zh_CN = {
   'goPC': '请前往pc端绑定谷歌或手机',
   code_117: '验证已超过5分钟时限，请重新登录',
   'noAgreement': '您并未同意协议',
-  code_106: '验证码已发送，10分钟内有效，请勿频繁请求'
+  code_106: '验证码已发送，10分钟内有效，请勿频繁请求',
+  'public.isee': '我知道了',
 };
 export default zh_CN;
