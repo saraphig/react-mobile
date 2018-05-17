@@ -29,6 +29,12 @@ class ConfirmEmail extends React.Component {
 		// console.log(this.props.token);
 	}
 
+  componentWillUnmount(){
+    if(this.timer){
+      clearTimeout(this.timer);
+    }
+  }
+
 	//按钮提交跳转事件
 	_onClickBTn = code => {
 		//TODO: for the featrue

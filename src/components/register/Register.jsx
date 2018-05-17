@@ -50,6 +50,18 @@ class RegisterComp extends React.Component {
 		document.body.className = '';
 	}
 
+  componentWillReceiveProps(props){
+    // 倒计时结束初始化发送验证码
+    if (props.count === 0) {
+      this.initNeCaptcha();
+    }
+    // 请求失败初始化发送验证码
+    if (props.isRefreshCaptcha) {
+      this.initNeCaptcha();
+      this.props.setIsRefreshCaptcha();
+    }
+  }
+
 	// _onClickBTn = e => {
 	// 	console.log(this.props);
 	// 	this.setState({
@@ -136,8 +148,7 @@ class RegisterComp extends React.Component {
 		const {
 			intl: { formatMessage },
 			count,
-			sended,
-			isRefreshCaptcha
+			sended
 		} = this.props;
 		const content = (
 			<div className="register-middleContent">
@@ -191,15 +202,6 @@ class RegisterComp extends React.Component {
 				/>
 			</div>
 		);
-		// 倒计时结束初始化发送验证码
-		if (count === 0) {
-			this.initNeCaptcha();
-		}
-		// 请求失败初始化发送验证码
-		if (isRefreshCaptcha) {
-			this.initNeCaptcha();
-			this.props.setIsRefreshCaptcha();
-		}
 		return (
 			<div className="register">
 				<Header _onClick={this.props._onOpenChange} currentPage={'register'}/>

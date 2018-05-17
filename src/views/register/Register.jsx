@@ -30,6 +30,12 @@ class Register extends React.Component {
 		// console.log(this);
 	}
 
+  componentWillUnmount(){
+    if(this.timer){
+      clearTimeout(this.timer);
+    }
+  }
+
 	//按钮提交跳转事件
 	_onClickBTn = () => {
 		// console.log(this.props);
