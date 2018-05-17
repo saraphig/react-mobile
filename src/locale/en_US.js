@@ -703,7 +703,7 @@ const enUS = {
   'home.assets': 'Assets',
   'home.personalCenter': 'User Center',
   'usercenter.notLog': 'not logged in',
-  'usercenter.login.trade': 'login now and trade instantly',
+  'usercenter.login.trade': 'login now',
   'usercenter.lastLogin': 'Last Login Time',
   'userter.active': 'Active',
   'usercenter.notVerified': 'Not Verified',

@@ -674,7 +674,7 @@ const zh_CN = {
   'home.assets': '资产',
   'home.personalCenter': '用户中心',
   'usercenter.notLog': '未登录',
-  'usercenter.login.trade': '马上登录，体验极速交易',
+  'usercenter.login.trade': '马上登录',
   'usercenter.lastLogin': '最后登录时间',
   'userter.active': '已开启',
   'usercenter.notVerified': '未认证',
