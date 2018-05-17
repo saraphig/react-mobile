@@ -27,6 +27,12 @@ class DoubleConfirm extends React.Component {
 		// console.log(this.props.token);
 	}
 
+  componentWillUnmount(){
+    if(this.timer){
+      clearTimeout(this.timer);
+    }
+  }
+
 	onClick = (googleCode, phoneCode, checked) => {
 		// console.log(googleCode, checked, this.state.info.google_auth_token)
 		let query = {}
