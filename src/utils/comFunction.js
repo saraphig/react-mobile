@@ -141,7 +141,7 @@ export const setCookie = function(name, value, expires) {
   //   cookieText += '; domain=' + domain;
   // }
   if (https) {
-    cookieText += '; secure; HttpOnly';
+    // cookieText += '; secure; HttpOnly';
   }
   document.cookie = cookieText;
 };
