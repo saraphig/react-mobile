@@ -59,6 +59,22 @@
     font-weight: 200 !important;
 }
 
+.btn-disabled {
+    background: #969696; // border: 1px solid #969696;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    line-height: 40px;
+    // align-items: center;
+    border-radius: 2px; // height: 30px;
+    // line-height: 30px;
+    font-size: 18px;
+    color: #000; // background: linear-gradient(to bottom, #fedf97, #cea366) !important;
+    font-weight: 300
+}
+
 .bottomTips-transform {
     margin-top: 58px;
 }

@@ -14,12 +14,22 @@ class LoginComp extends React.Component {
 		this.state = {
 			email: '',
 			pwd: '',
-			validate: ''
+			validate: '',
+			started: false
 		};
 	}
 
 	componentDidMount() {
-		this.initNeCaptcha();
+		// this.start();
+	}
+
+	start() {
+		if (this.state.email) {
+			this.initNeCaptcha();
+			this.setState({
+				started: true
+			});
+		}
 	}
 
 	initNeCaptcha = () => {
@@ -51,30 +61,6 @@ class LoginComp extends React.Component {
 					document.getElementsByClassName(
 						'yidun_intelli-text'
 					)[0].innerText = formatMessage({ id: 'login.login' });
-					// '确 定';
-
-					// if (
-					// 	document.getElementsByClassName('yidun_tips__text')[0]
-					// ) {
-					// 	document
-					// 		.getElementsByClassName('yidun_tips__text')[0]
-					// 		.setAttribute('style', 'display:none');
-					// }
-
-					// //验证码验证完成的logo去除这里可以更改完成的后的logo
-					// if (
-					// 	document.getElementsByClassName('yidun_tips__icon')[0]
-					// ) {
-					// 	document
-					// 		.getElementsByClassName('yidun_tips__icon')[0]
-					// 		.remove();
-					// }
-
-					// //验证码完成后的文字样式
-					// document.getElementsByClassName(
-					// 	'yidun_classic-tips'
-					// )[0].style.color =
-					// 	'#fff';
 				},
 				onVerify: (err, data) => {
 					// 验证邮箱
@@ -144,7 +130,16 @@ class LoginComp extends React.Component {
 						id: 'login.enterEmail'
 					})}
 					onChange={val => {
-						this.setState({ email: val });
+						this.setState({ email: val }, val => {
+							if (!this.state.started) {
+								this.start();
+							}
+							if (!this.state.email) {
+								this.setState({
+									started: false
+								});
+							}
+						});
 					}}
 				/>
 				<Input
@@ -164,13 +159,20 @@ class LoginComp extends React.Component {
 			buttonText="确定"
 			_onClick={this.props._onClickBTn}
 		/> */}
-				<div
-					ref={bar => {
-						this.slideBar = bar;
-					}}
-					id="yidun"
-					// ref="slideBar"
-				/>
+				{this.state.email ? (
+					<div
+						ref={bar => {
+							this.slideBar = bar;
+						}}
+						id="yidun"
+						// ref="slideBar"
+					/>
+				) : (
+					<div className="btn-disabled">
+						{formatMessage({ id: 'login.login' })}
+					</div>
+				)}
+
 				<BottomTips
 					BottomTips1={formatMessage({
 						id: 'login.notRegister'
@@ -183,6 +185,7 @@ class LoginComp extends React.Component {
 				/>
 			</div>
 		);
+		console.log(this.state);
 		return (
 			<div className="login">
 				<Header
