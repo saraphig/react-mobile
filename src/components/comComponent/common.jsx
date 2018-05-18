@@ -676,7 +676,7 @@ export const ListItem = props => {
 					) : null}
 					{props.phoneValidate &&
 					JSON.stringify(props.phoneValidate) != '{}' ? (
-						props.phoneValidate['user_info']['is_validate'] ? (
+						props.phoneValidate['user_info']['phone'] != '0' ? (
 							<span className="text-active">
 								<FormattedMessage id={'userter.active'} />
 							</span>
