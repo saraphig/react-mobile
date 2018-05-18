@@ -50,7 +50,7 @@ class LoginComp extends React.Component {
 					// //验证码文字的修改
 					document.getElementsByClassName(
 						'yidun_intelli-text'
-					)[0].innerText = formatMessage({ id: 'public.sure' });
+					)[0].innerText = formatMessage({ id: 'login.login' });
 					// '确 定';
 
 					// if (
@@ -185,7 +185,10 @@ class LoginComp extends React.Component {
 		);
 		return (
 			<div className="login">
-				<Header _onClick={this.props._onOpenChange} currentPage={'login'}/>
+				<Header
+					_onClick={this.props._onOpenChange}
+					currentPage={'login'}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
