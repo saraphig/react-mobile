@@ -99,9 +99,9 @@ class MyWalletComp extends React.Component {
                                     <div className="myWallet-card-title">
                                         <div>
                                             <img
-                                                src={'https://www.top.one/lib/coin/'+coin.coin+'.png'}
+                                                src={'https://top.one/lib/coin/'+coin.coin+'.png'}
                                                 alt="btc"
-												onError={(e) => e.target.src='https://www.top.one/lib/coin/DEFAULT.png'}
+												onError={(e) => e.target.src=require('assets/images/DEFAULT.png')}
                                             />
                                             <span>{coin.coin}</span>
                                         </div>
