@@ -31,6 +31,7 @@ class IndexComp extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		// console.log('updateData:', typeof nextProps.updateData)
 		// 如果初始值（交易对列表）没拿到，先调用接口拿初始值
 		if (this.state.initData.length == 0) {
 			let arr = [];
@@ -71,13 +72,13 @@ class IndexComp extends React.Component {
 				unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
 			}
 			obj.forEach(el => {
-				if (el.name == nextProps.updateData[0]) {
+				if (el.name === nextProps.updateData[0]) {
 					// console.log('===',nextProps.updateData[0])
 					el.volume = (nextProps.updateData[1][0][6] * 1).toFixed(2);
-					(el.last = nextProps.updateData[1][0][2]),
-						(el.price =
+					el.last = nextProps.updateData[1][0][2];
+					el.price =
 							unit +
-							(nextProps.updateData[1][0][2] * price).toFixed(8));
+							(nextProps.updateData[1][0][2] * price).toFixed(8);
 					el.change = (
 						(nextProps.updateData[1][0][2] -
 							nextProps.updateData[1][0][1]) /
