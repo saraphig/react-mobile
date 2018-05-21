@@ -1191,7 +1191,7 @@ export const StatusShow = props => {
 					return (
 						<div className="inform-items" key={index}>
 							<span className="inform-item one">
-								<p>
+								<p className="notranslate">
 									{items[0]}&nbsp;/<span
 										style={{ color: '#BEBEBE' }}
 									>
