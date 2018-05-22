@@ -7,6 +7,7 @@ import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import { topToast, phoneCheck } from 'utils/comFunction';
+import {getCookie} from "../../utils/comFunction";
 import {
 	MidText,
 	Input,
@@ -30,8 +31,13 @@ class RegisterComp extends React.Component {
 		};
 		// console.log('=====', props.formatmessage);
 	}
-
 	componentDidMount() {
+		// 登录状态，跳到首页
+        const token = getCookie('token');
+        if(token){
+            window.location.href='/index';
+            return;
+        }
 		document.body.className = 'body-no-scroll';
 		// console.log(this);
 		this.initNeCaptcha();
