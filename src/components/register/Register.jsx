@@ -7,7 +7,7 @@ import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import { topToast, phoneCheck } from 'utils/comFunction';
-import {getCookie} from "../../utils/comFunction";
+import { getCookie } from '../../utils/comFunction';
 import {
 	MidText,
 	Input,
@@ -27,21 +27,20 @@ class RegisterComp extends React.Component {
 			nationCode: '86', // 区号
 			validate: '', // 易盾验证码
 			verifyCode: '', // 手机验证码
-			inviterCode: location.search ? location.search.split('=')[1] : '' // 邀请码
+			inviterCode: location.search ? location.search.split('=')[1] : '', // 邀请码
+			started: false
 		};
 		// console.log('=====', props.formatmessage);
 	}
 	componentDidMount() {
 		// 登录状态，跳到首页
-        const token = getCookie('token');
-        if(token){
-            window.location.href='/index';
-            return;
-        }
+		const token = getCookie('token');
+		if (token) {
+			window.location.href = '/index';
+			return;
+		}
 		document.body.className = 'body-no-scroll';
-		// console.log(this);
 		this.initNeCaptcha();
-		// $(this.phone).intlTelInput({
 		$('#test').intlTelInput({
 			initialCountry: 'cn'
 		});
@@ -56,17 +55,17 @@ class RegisterComp extends React.Component {
 		document.body.className = '';
 	}
 
-  componentWillReceiveProps(props){
-    // 倒计时结束初始化发送验证码
-    if (props.count === 0) {
-      this.initNeCaptcha();
-    }
-    // 请求失败初始化发送验证码
-    if (props.isRefreshCaptcha) {
-      this.initNeCaptcha();
-      this.props.setIsRefreshCaptcha();
-    }
-  }
+	componentWillReceiveProps(props) {
+		// 倒计时结束初始化发送验证码
+		if (props.count === 0) {
+			this.initNeCaptcha();
+		}
+		// 请求失败初始化发送验证码
+		if (props.isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
+	}
 
 	// _onClickBTn = e => {
 	// 	console.log(this.props);
@@ -87,7 +86,7 @@ class RegisterComp extends React.Component {
 				captchaId: dun.captchaId,
 				element: '#dun',
 				//lang: 'zh-CN',
-        lang: formatMessage({ id: 'c.dun.lang' }),
+				lang: formatMessage({ id: 'c.dun.lang' }),
 				onReady: instance => {
 					this.captchaIns = instance;
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
@@ -150,7 +149,7 @@ class RegisterComp extends React.Component {
 	}
 
 	render() {
-		const { pathName } = this.state;
+		const { pathName, phone } = this.state;
 		const {
 			intl: { formatMessage },
 			count,
@@ -166,7 +165,11 @@ class RegisterComp extends React.Component {
 					placeholder={formatMessage({
 						id: 'register.phone'
 					})}
-					onChange={val => this.setState({ phone: val })}
+					// onChange={val => this.setState({ phone: val })}
+
+					onChange={val => {
+						this.setState({ phone: val });
+					}}
 					comId="test"
 				/>
 				<Input
@@ -190,12 +193,18 @@ class RegisterComp extends React.Component {
 					value={this.state.inviterCode}
 					onChange={val => this.setState({ inviterCode: val })}
 				/>
-				<Buttons
-					className="buttons-register-transfrom"
-					buttonText={formatMessage({ id: 'register.next' })}
-					// _onClick={this.props._onClickBTn}
-					_onClick={() => this.phoneNext()}
-				/>
+				{phone ? (
+					<Buttons
+						className="buttons-register-transfrom"
+						buttonText={formatMessage({ id: 'register.next' })}
+						// _onClick={this.props._onClickBTn}
+						_onClick={() => this.phoneNext()}
+					/>
+				) : (
+					<p className="disabled buttons-register-transfrom ">
+						{formatMessage({ id: 'register.next' })}
+					</p>
+				)}
 				<BottomTips
 					className="bottomTips-register-transfrom"
 					BottomTips1={formatMessage({
@@ -210,7 +219,10 @@ class RegisterComp extends React.Component {
 		);
 		return (
 			<div className="register">
-				<Header _onClick={this.props._onOpenChange} currentPage={'register'}/>
+				<Header
+					_onClick={this.props._onOpenChange}
+					currentPage={'register'}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
