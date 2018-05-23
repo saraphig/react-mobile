@@ -36,10 +36,10 @@ class RegisterEmailComp extends React.Component {
 				this.state.confirm_pwd
 			);
 		} else {
-      const {
-        intl: { formatMessage }
-      } = this.props;
-      topToast(formatMessage({id: 'noAgreement'}))
+			const {
+				intl: { formatMessage }
+			} = this.props;
+			topToast(formatMessage({ id: 'noAgreement' }));
 			// alert('您并未同意协议');
 		}
 	}
@@ -47,8 +47,8 @@ class RegisterEmailComp extends React.Component {
 		const { pathName } = this.state;
 		const {
 			intl: { formatMessage },
-      isShowAgreement,
-      showAgreement,
+			isShowAgreement,
+			showAgreement
 		} = this.props;
 		const content = (
 			<div className="registerEmail-middleContent">
@@ -80,17 +80,27 @@ class RegisterEmailComp extends React.Component {
 					type="password"
 					autoComplete="new-password"
 				/>
-				<ServerTips
+				{/* <ServerTips
 					className="ServerTips-registerEmail-transfrom"
 					ServerTips1={formatMessage({ id: 'register.hadRead' })}
 					ServerTips2={formatMessage({ id: 'register.agreement' })}
-          btnText={formatMessage({id: 'public.isee'})}
+					btnText={formatMessage({ id: 'public.isee' })}
 					//pathName="/login"
 					onChange={val => {
 						this.setState({ agree: val });
 					}}
-          showAgreement={showAgreement}
-          isShowAgreement={isShowAgreement}
+					showAgreement={showAgreement}
+					isShowAgreement={isShowAgreement}
+				/> */}
+				<ServerTips
+					className="ServerTips-registerEmail-transfrom"
+					ServerTips1={formatMessage({ id: 'register.hadRead' })}
+					ServerTips2={formatMessage({ id: 'register.agreement' })}
+					btnText={formatMessage({ id: 'public.isee' })}
+					pathName="/agreement"
+					onChange={val => {
+						this.setState({ agree: val });
+					}}
 				/>
 				<Buttons
 					className="Buttons-registerEmail-transfrom"
@@ -108,7 +118,10 @@ class RegisterEmailComp extends React.Component {
 		);
 		return (
 			<div className="registerEmail">
-				<Header _onClick={this.props._onOpenChange} currentPage={'register'}/>
+				<Header
+					_onClick={this.props._onOpenChange}
+					currentPage={'register'}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
