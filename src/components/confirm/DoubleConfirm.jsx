@@ -45,8 +45,8 @@ class ConfirmG2FComp extends React.Component {
 	render() {
 		const {
 			intl: { formatMessage },
-      count,
-      sended,
+			count,
+			sended
 		} = this.props;
 
 		const content = (
@@ -74,23 +74,27 @@ class ConfirmG2FComp extends React.Component {
 					}}
 					info={this.props.info}
 					sendPhoneCode={this.props.sendPhoneCode}
-          count={count}
-          sended={sended}
+					count={count}
+					sended={sended}
 				/>
-        <div className='tabs-content'>
-          <Buttons
-            className="buttons-doubleConfirm-transform"
-            buttonText={formatMessage({
-              id: 'depositWithdraw.submit'
-            })}
-            _onClick={() => this.onClick()}
-          />
-        </div>
+				<div className="tabs-content">
+					<Buttons
+						className="buttons-doubleConfirm-transform"
+						buttonText={formatMessage({
+							id: 'depositWithdraw.submit'
+						})}
+						_onClick={() => this.onClick()}
+					/>
+				</div>
 			</div>
 		);
 		return (
 			<div className="DoubleConfirm">
-				<Header _onClick={this.props._onOpenChange} currentPage={'login'}/>
+				<Header
+					_onClick={this.props._onOpenChange}
+					currentPage={'login'}
+					_open={this.props._open}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

@@ -18,7 +18,7 @@ class MyInviteComp extends React.Component {
 		super(props);
 	}
 
-  render() {
+	render() {
 		const {
 			intl: { formatMessage },
 			TGroup,
@@ -65,13 +65,13 @@ class MyInviteComp extends React.Component {
 				/>
 				<div className="myInvite-friend-content ">
 					<span className="myInvite-content-code">
-            {/*<img
+						{/*<img
               src={require('assets/images/code.png')}
               alt={formatMessage({
                 id: 'candyDetail.qrDode'
               })}
             />*/}
-            <img src={this.props.inviteSrc}/>
+						<img src={this.props.inviteSrc} />
 					</span>
 				</div>
 				<div className="myInvite-content-items">
@@ -141,6 +141,7 @@ class MyInviteComp extends React.Component {
 					<Header
 						className="myInvite-header"
 						_onClick={this.props._onOpenChange}
+						_open={this.props._open}
 					/>
 					{/* <Drawer
 						className="my-drawer"

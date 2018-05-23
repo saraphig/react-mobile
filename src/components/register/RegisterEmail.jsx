@@ -121,6 +121,7 @@ class RegisterEmailComp extends React.Component {
 				<Header
 					_onClick={this.props._onOpenChange}
 					currentPage={'register'}
+					_open={this.props._open}
 				/>
 				<Drawers
 					childrenNode={content}

@@ -172,6 +172,7 @@ class MyWalletComp extends React.Component {
 					<Header
 						className="myWallet-header"
 						_onClick={this.props._onOpenChange}
+						_open={this.props._open}
 					/>
 					<Drawers
 						childrenNode={content}

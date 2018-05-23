@@ -46,7 +46,10 @@ class ConfirmG2FComp extends React.Component {
 
 		return (
 			<div className="confirmG2f">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header
+					_onClick={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

@@ -26,13 +26,13 @@ class ConfirmEmailComp extends React.Component {
 		this.initNeCaptcha();
 	}
 
-  componentWillReceiveProps(props){
-    // 请求失败初始化发送验证码
-    if (props.isRefreshCaptcha) {
-      this.initNeCaptcha();
-      this.props.setIsRefreshCaptcha();
-    }
-  }
+	componentWillReceiveProps(props) {
+		// 请求失败初始化发送验证码
+		if (props.isRefreshCaptcha) {
+			this.initNeCaptcha();
+			this.props.setIsRefreshCaptcha();
+		}
+	}
 
 	_onClickBTn() {
 		// alert(this.state.validate);
@@ -141,7 +141,11 @@ class ConfirmEmailComp extends React.Component {
 		}
 		return (
 			<div className="confirmEmail">
-				<Header _onClick={this.props._onOpenChange} currentPage={'register'}/>
+				<Header
+					_onClick={this.props._onOpenChange}
+					currentPage={'register'}
+					_open={this.props._open}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}

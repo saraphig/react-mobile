@@ -155,6 +155,7 @@ class RegisterComp extends React.Component {
 			count,
 			sended
 		} = this.props;
+		console.log(this.props)
 		const content = (
 			<div className="register-middleContent">
 				<MidText
@@ -222,6 +223,7 @@ class RegisterComp extends React.Component {
 				<Header
 					_onClick={this.props._onOpenChange}
 					currentPage={'register'}
+					_open={this.props._open}
 				/>
 				<Drawers
 					childrenNode={content}

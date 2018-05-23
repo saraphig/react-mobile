@@ -77,7 +77,10 @@ class ChooseLanguageComp extends React.Component {
 		);
 		return (
 			<div className="chooseLanguage">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header
+					_onClick={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
