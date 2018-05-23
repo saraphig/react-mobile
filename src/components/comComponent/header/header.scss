@@ -36,9 +36,14 @@
         .header-menus {
             width: 18px;
             height: 18px;
+            display: flex;
+            align-items: center;
             .header-menu {
                 width: 18px;
                 height: 18px;
+            }
+            .icon-shouhui {
+                font-size: 22px;
             }
         }
     }

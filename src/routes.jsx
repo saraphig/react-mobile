@@ -24,17 +24,25 @@ const Login = asyncComponent(() => import('views/login/Login'));
 // import Register from 'views/register/Register';
 const Register = asyncComponent(() => import('views/register/Register'));
 // import RegisterEmail from 'views/register/RegisterEmail';
-const RegisterEmail = asyncComponent(() => import('views/register/RegisterEmail'));
+const RegisterEmail = asyncComponent(() =>
+	import('views/register/RegisterEmail')
+);
 // import ConfirmEmail from 'views/register/ConfirmEmail';
-const ConfirmEmail = asyncComponent(() => import('views/register/ConfirmEmail'));
+const ConfirmEmail = asyncComponent(() =>
+	import('views/register/ConfirmEmail')
+);
 // import ConfirmG2f from 'views/confirm/ConfirmG2f';
 const ConfirmG2f = asyncComponent(() => import('views/confirm/ConfirmG2f'));
 // import PhoneConfirm from 'views/confirm/PhoneConfirm';
 const PhoneConfirm = asyncComponent(() => import('views/confirm/PhoneConfirm'));
 // import DoubleConfirm from 'views/confirm/DoubleConfirm';
-const DoubleConfirm = asyncComponent(() => import('views/confirm/DoubleConfirm'));
+const DoubleConfirm = asyncComponent(() =>
+	import('views/confirm/DoubleConfirm')
+);
 // import ChooseLanguage from 'views/extra/ChooseLanguage';
-const ChooseLanguage = asyncComponent(() => import('views/extra/ChooseLanguage'));
+const ChooseLanguage = asyncComponent(() =>
+	import('views/extra/ChooseLanguage')
+);
 // import MyInvite from 'views/extra/MyInvite';
 const MyInvite = asyncComponent(() => import('views/extra/MyInvite'));
 // import Mywallet from 'views/userCenter/Mywallet';
@@ -43,6 +51,7 @@ const Mywallet = asyncComponent(() => import('views/userCenter/Mywallet'));
 const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // import Test from 'views/index/Test';
 const Test = asyncComponent(() => import('views/index/Test'));
+const Agreement = asyncComponent(() => import('views/extra/Agreement'));
 
 const routes = [
 	{
@@ -97,6 +106,10 @@ const routes = [
 	{
 		path: '/test',
 		component: Test
+	},
+	{
+		path: '/agreement',
+		component: Agreement
 	}
 ];
 

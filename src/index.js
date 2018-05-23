@@ -11,6 +11,7 @@ import 'src/styles/reset.css';
 import 'src/styles/globle.css';
 import 'amfe-flexible';
 import 'src/assets/js/iconfont';
+import 'src/assets/css/iconfont.css';
 
 const store = configureStore();
 

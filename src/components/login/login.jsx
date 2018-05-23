@@ -185,12 +185,13 @@ class LoginComp extends React.Component {
 				/>
 			</div>
 		);
-		console.log(this.state);
+		// console.log(this.state);
 		return (
 			<div className="login">
 				<Header
 					_onClick={this.props._onOpenChange}
 					currentPage={'login'}
+					_open={this.props._open}
 				/>
 				<Drawers
 					childrenNode={content}

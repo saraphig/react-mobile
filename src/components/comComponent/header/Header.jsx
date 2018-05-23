@@ -17,21 +17,35 @@ class Header extends React.Component {
 
 	render() {
 		const {
-			intl: { formatMessage }
+			intl: { formatMessage },
+			_open
 		} = this.props;
 		let box1,
 			box2 = null;
+
 		if (!this.state.token) {
 			box1 = (
 				<div>
-					<Link to="/login" className={`${this.props.currentPage=='login'?'active':null} header-login`}>
+					<Link
+						to="/login"
+						className={`${
+							this.props.currentPage == 'login' ? 'active' : null
+						} header-login`}
+					>
 						{formatMessage({ id: 'public.login' })}
 					</Link>
 				</div>
 			);
 			box2 = (
 				<div>
-					<Link to="/register" className={`${this.props.currentPage=='register'?'active':null} header-register`}>
+					<Link
+						to="/register"
+						className={`${
+							this.props.currentPage == 'register'
+								? 'active'
+								: null
+						} header-register`}
+					>
 						{formatMessage({ id: 'login.register' })}
 					</Link>
 				</div>
@@ -53,12 +67,28 @@ class Header extends React.Component {
 						{box1 || <span className="header-login" />}
 						{box2 || <span className="header-register" />}
 						<span className="header-menus">
-							<img
-								className="header-menu"
-								src={require('assets/images/menu@2x.png')}
-								alt="menu"
-								onClick={this.props._onClick}
-							/>
+							{_open ? (
+								// <svg
+								// 	className="header-menu"
+								// 	aria-hidden="true"
+								// 	onClick={this.props._onClick}
+								// 	filter='red'
+								// >
+								// 	<use xlinkHref="#icon-shouhui" />
+								// </svg>
+								<i
+									className="iconfont icon-shouhui"
+									style={{ color: '#dcb276' }}
+									onClick={this.props._onClick}
+								/>
+							) : (
+								<img
+									className="header-menu"
+									src={require('assets/images/menu@2x.png')}
+									alt="menu"
+									onClick={this.props._onClick}
+								/>
+							)}
 						</span>
 					</span>
 				</div>

@@ -25,7 +25,7 @@ class IndexComp extends React.Component {
 			isAsc: true, // 是否按照降序排列
 			orderStatus: false,
 			orderStatus2: false,
-			orderStatus3: false,
+			orderStatus3: false
 			// orderName: 'volume'
 		};
 	}
@@ -58,8 +58,11 @@ class IndexComp extends React.Component {
 
 		// 如果有初始值并且有更新数据(updateData)，那么更新显示数据（data）
 		if (
-			nextProps.updateData.length != 0 &&
-			this.state.initData.length != 0 || this.state.updateData.length != 0 && this.state.initData.length != 0 && nextProps.priceETH != null
+			(nextProps.updateData.length != 0 &&
+				this.state.initData.length != 0) ||
+			(this.state.updateData.length != 0 &&
+				this.state.initData.length != 0 &&
+				nextProps.priceETH != null)
 		) {
 			let obj = [...this.state.data];
 			let price = 0;
@@ -77,8 +80,8 @@ class IndexComp extends React.Component {
 					el.volume = (nextProps.updateData[1][0][6] * 1).toFixed(2);
 					el.last = nextProps.updateData[1][0][2];
 					el.price =
-							unit +
-							(nextProps.updateData[1][0][2] * price).toFixed(2);
+						unit +
+						(nextProps.updateData[1][0][2] * price).toFixed(8);
 					el.change = (
 						(nextProps.updateData[1][0][2] -
 							nextProps.updateData[1][0][1]) /
@@ -92,7 +95,7 @@ class IndexComp extends React.Component {
 				obj = obj.sort((b, a) =>
 					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
 				);
-	    	} else {
+			} else {
 				obj = obj.sort((a, b) =>
 					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
 				);
@@ -170,20 +173,16 @@ class IndexComp extends React.Component {
 		}
 		this.setState({
 			sortBy: val,
-			isAsc: status,
+			isAsc: status
 			// orderName: val
 		});
 
 		//数据处理
 		let obj = [...this.state.data];
 		if (status) {
-			obj = obj.sort((b, a) =>
-				this.sortDeal(a[val], b[val])
-			);
+			obj = obj.sort((b, a) => this.sortDeal(a[val], b[val]));
 		} else {
-			obj = obj.sort((a, b) =>
-				this.sortDeal(a[val], b[val])
-			);
+			obj = obj.sort((a, b) => this.sortDeal(a[val], b[val]));
 		}
 		this.setState({
 			data: obj
@@ -215,7 +214,10 @@ class IndexComp extends React.Component {
 		}
 		return (
 			<div className="indexPage">
-				<Header _onClick={this.props._onOpenChange} />
+				<Header
+					_onClick={this.props._onOpenChange}
+					_open={this.props._open}
+				/>
 				<Drawers
 					childrenNode={content}
 					_onOpenChange={this.props._onOpenChange}
