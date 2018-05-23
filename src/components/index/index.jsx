@@ -78,7 +78,7 @@ class IndexComp extends React.Component {
 					el.last = nextProps.updateData[1][0][2];
 					el.price =
 							unit +
-							(nextProps.updateData[1][0][2] * price).toFixed(8);
+							(nextProps.updateData[1][0][2] * price).toFixed(2);
 					el.change = (
 						(nextProps.updateData[1][0][2] -
 							nextProps.updateData[1][0][1]) /
