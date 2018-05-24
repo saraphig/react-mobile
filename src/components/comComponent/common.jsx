@@ -112,7 +112,7 @@ export class ServerTips extends React.Component {
 							</span>
 						</a>
 					)}
-					{/* {isShowAgreement && (
+					{isShowAgreement && (
 						<div className="serverTipsModal">
 							<div className="container">
 								<p className="content-title">
@@ -229,7 +229,7 @@ export class ServerTips extends React.Component {
 								/>
 							</div>
 						</div>
-					)} */}
+					)}
 				</div>
 			</div>
 		);

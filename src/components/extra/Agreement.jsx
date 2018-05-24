@@ -11,13 +11,13 @@ class Agreement extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<p className="content-title">
+				{/* <p className="content-title">
 					<Icon type="cross" className="icon icon-cross" size="lg" onClick={this.props._onClick}/>
 					<span className="title">
 						<FormattedMessage id={'agreement.theme'} />
 					</span>
 					<Icon className="icon icon-cross" size="lg" />
-				</p>
+				</p> */}
 				<div className="container-wrapper">
 					<div className="item">
 						<div className="title introduce">

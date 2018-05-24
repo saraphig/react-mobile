@@ -80,7 +80,7 @@ class RegisterEmailComp extends React.Component {
 					type="password"
 					autoComplete="new-password"
 				/>
-				{/* <ServerTips
+				<ServerTips
 					className="ServerTips-registerEmail-transfrom"
 					ServerTips1={formatMessage({ id: 'register.hadRead' })}
 					ServerTips2={formatMessage({ id: 'register.agreement' })}
@@ -91,8 +91,8 @@ class RegisterEmailComp extends React.Component {
 					}}
 					showAgreement={showAgreement}
 					isShowAgreement={isShowAgreement}
-				/> */}
-				<ServerTips
+				/>
+				{/* <ServerTips
 					className="ServerTips-registerEmail-transfrom"
 					ServerTips1={formatMessage({ id: 'register.hadRead' })}
 					ServerTips2={formatMessage({ id: 'register.agreement' })}
@@ -101,7 +101,7 @@ class RegisterEmailComp extends React.Component {
 					onChange={val => {
 						this.setState({ agree: val });
 					}}
-				/>
+				/> */}
 				<Buttons
 					className="Buttons-registerEmail-transfrom"
 					buttonText={formatMessage({ id: 'register.next' })}
