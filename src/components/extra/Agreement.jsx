@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Icon } from 'antd-mobile';
-
+import { localeList, setLang } from '../../config';
 import './agreement.scss';
 class Agreement extends React.Component {
 	constructor(props) {
