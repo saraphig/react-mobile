@@ -133,6 +133,7 @@ export default (
 					/>
 				);
 			})}
+			<Redirect from="*" to="/404" />
 		</Switch>
 	</BrowserRouter>
 );

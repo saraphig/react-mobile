@@ -8,6 +8,16 @@ class NotFound extends React.Component {
 		this.state = {};
 	}
 
+	componentDidMount() {
+		this.timer = setTimeout(() => {
+			this.props.history.push('/index');
+		}, 3000);
+	}
+
+	componentWillUnmount() {
+		this.timer && clearTimeout(this.timer);
+	}
+
 	_onClick = () => {
 		this.props.history.goBack();
 	};
