@@ -55,6 +55,7 @@ const Agreement = asyncComponent(() => import('views/extra/Agreement'));
 const NotFound = asyncComponent(() => import('views/extra/404'));
 const SuccessPage = asyncComponent(() => import('views/extra/SuccessPage'));
 const ErrorPage = asyncComponent(() => import('views/extra/ErrorPage'));
+const ResendEmail = asyncComponent(() => import('views/extra/ResendEmail'));
 
 const routes = [
 	{
@@ -125,6 +126,10 @@ const routes = [
 	{
 		path: '/errorPage',
 		component: ErrorPage
+	},
+	{
+		path: '/resendEmail',
+		component: ResendEmail
 	}
 ];
 

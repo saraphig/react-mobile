@@ -1,0 +1,50 @@
+.resendEmail-middleContent {
+    flex-direction: column;
+    margin: 0 30px 0 30px;
+    .middleContent-img-logo {
+        margin: 70px 63px 0 63px;
+        .middleContent-logo {
+            width: 190px;
+            height: 65px;
+        }
+    }
+}
+
+.midText-transfrom {
+    margin-top: 64px;
+    margin-bottom: 41px;
+}
+
+.buttons-transform {
+    margin-top: 30px;
+}
+
+#yidun .yidun_intelli-control {
+    background: #dcb276 !important;
+    border: 1px solid #dcb276 !important;
+    width: 100% !important;
+    height: 40px !important;
+    display: flex !important;
+    margin-top: 30px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 2px !important; // height: 30px;
+    // line-height: 30px;
+    font-size: 18px !important;
+    background: linear-gradient(to bottom, #fedf97, #cea366) !important;
+}
+
+#yidun .yidun_intelli-tips {
+    color: #000 !important;
+    font-weight: 200 !important;
+}
+
+#yidun .yidun_intelli-text {
+    color: #000 !important;
+    font-weight: 200 !important;
+}
+
+#yidun .yidun_tips__text {
+    color: #000 !important;
+    font-weight: 200 !important;
+}
