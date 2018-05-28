@@ -53,6 +53,8 @@ const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 const Test = asyncComponent(() => import('views/index/Test'));
 const Agreement = asyncComponent(() => import('views/extra/Agreement'));
 const NotFound = asyncComponent(() => import('views/extra/404'));
+const SuccessPage = asyncComponent(() => import('views/extra/SuccessPage'));
+const ErrorPage = asyncComponent(() => import('views/extra/ErrorPage'));
 
 const routes = [
 	{
@@ -115,6 +117,14 @@ const routes = [
 	{
 		path: '/404',
 		component: NotFound
+	},
+	{
+		path: '/successPage',
+		component: SuccessPage
+	},
+	{
+		path: '/errorPage',
+		component: ErrorPage
 	}
 ];
 

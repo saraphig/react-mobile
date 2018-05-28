@@ -698,7 +698,19 @@ const zh_CN = {
 	noAgreement: '您并未同意协议',
 	code_106: '验证码已发送，10分钟内有效，请勿频繁请求',
 	'public.isee': '我知道了',
+
+	/**
+	 * 404页面
+	 */
 	'404.tips1': '查看的页面不存在',
-	'404.tips2': '请联系中本聪'
+	'404.tips2': '请联系中本聪',
+
+	/**
+	 *  successPage和errorPage页面
+	 */
+	'errorPage.status': '注册失败',
+	'successPage.status': '注册成功',
+	'errorPage.tips': '很抱歉！如需重发邮件请点击下面按钮',
+	'successPage.tips': '恭喜您注册成功！如需重发邮件请点击下面按钮'
 };
 export default zh_CN;

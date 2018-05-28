@@ -730,7 +730,21 @@ const enUS = {
 	noAgreement: 'You have not accepted the agreement',
 	code_106: 'Verification code sent, valid within the next 10 minutes',
 	'public.isee': 'Confirm',
+
+	/**
+	 * 404页面
+	 */
 	'404.tips1': 'The page you want to visit has disappeared',
-	'404.tips2': 'please contact Satoshi Nakamoto.'
+	'404.tips2': 'please contact Satoshi Nakamoto.',
+
+	/**
+	 *  successPage和errorPage页面
+	 */
+	'errorPage.status': 'Registration Failed',
+	'successPage.status': 'Registration Succeed',
+	'errorPage.tips':
+		'Sorry to inform you！Click the button below to resend an email',
+	'successPage.tips':
+		'Congratulations on your registration！Click the button below to resend an email'
 };
 export default enUS;
