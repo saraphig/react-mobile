@@ -729,6 +729,8 @@ const enUS = {
 		'Verification code is only valid for 5 minutes. Please try to login again.',
 	noAgreement: 'You have not accepted the agreement',
 	code_106: 'Verification code sent, valid within the next 10 minutes',
-	'public.isee': 'Confirm'
+	'public.isee': 'Confirm',
+	'404.tips1': 'The page you want to visit has disappeared',
+	'404.tips2': 'please contact Satoshi Nakamoto.'
 };
 export default enUS;

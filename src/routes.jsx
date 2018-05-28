@@ -52,6 +52,7 @@ const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // import Test from 'views/index/Test';
 const Test = asyncComponent(() => import('views/index/Test'));
 const Agreement = asyncComponent(() => import('views/extra/Agreement'));
+const NotFound = asyncComponent(() => import('views/extra/404'));
 
 const routes = [
 	{
@@ -110,6 +111,10 @@ const routes = [
 	{
 		path: '/agreement',
 		component: Agreement
+	},
+	{
+		path: '/404',
+		component: NotFound
 	}
 ];
 
