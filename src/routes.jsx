@@ -148,7 +148,8 @@ export default (
 					/>
 				);
 			})}
-			<Redirect from="*" to="/404" />
+			<Route path="*" component={NotFound}/>
+			{/* <Redirect from="*" to="/404" /> */}
 		</Switch>
 	</BrowserRouter>
 );
