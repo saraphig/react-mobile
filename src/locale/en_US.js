@@ -729,6 +729,10 @@ const enUS = {
 		'Verification code is only valid for 5 minutes. Please try to login again.',
 	noAgreement: 'You have not accepted the agreement',
 	code_106: 'Verification code sent, valid within the next 10 minutes',
-	'public.isee': 'Confirm'
+	'public.isee': 'Confirm',
+	/**
+	 *  drawer新加的下载链接
+	 */
+	'drawer.download': 'APP 下载'
 };
 export default enUS;
