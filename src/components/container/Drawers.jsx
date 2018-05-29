@@ -28,7 +28,7 @@ class Drawers extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(window.location);
+		console.log(window.location.origin);
 		// console.log(this.props);
 		//设备识别
 		let u = navigator.userAgent;
@@ -36,7 +36,9 @@ class Drawers extends React.Component {
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		if (isAndroid) {
 			this.setState({
-				downLoadUrl: 'https://www.baidu.com'
+				downLoadUrl:
+					`${window.location.origin}` +
+					'/lib/opticaltransportnetwork/TOPONE.apk'
 			});
 		} else if (isiOS) {
 			this.setState({
@@ -136,7 +138,7 @@ class Drawers extends React.Component {
 						window.open(this.state.downLoadUrl, '_blank');
 					}}
 				>
-					<span className='download'>
+					<span className="download">
 						<FormattedMessage id={'drawer.download'} />
 					</span>
 				</List.Item>
