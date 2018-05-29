@@ -733,6 +733,6 @@ const enUS = {
 	/**
 	 *  drawer新加的下载链接
 	 */
-	'drawer.download': 'APP 下载'
+	'drawer.download': 'APP Download'
 };
 export default enUS;
