@@ -22,10 +22,30 @@ import { getCookie, delCookie, topToast } from 'utils/comFunction';
 class Drawers extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			downLoadUrl: ''
+		};
 	}
 
 	componentDidMount() {
+		console.log(window.location);
 		// console.log(this.props);
+		//设备识别
+		let u = navigator.userAgent;
+		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		if (isAndroid) {
+			this.setState({
+				downLoadUrl: 'https://www.baidu.com'
+			});
+		} else if (isiOS) {
+			this.setState({
+				downLoadUrl:
+					'itms-services://?action=download-manifest&url=' +
+					`${window.location.origin}` +
+					'/lib/opticaltransportnetwork/manifest.plist'
+			});
+		}
 	}
 	// 退出登陆
 	// 抽屉每个页面都引入，每个页面都写就很多，所以写在这边
@@ -67,6 +87,7 @@ class Drawers extends React.Component {
 	render() {
 		//侧栏内容框
 		const token = getCookie('token');
+		console.log(this.state.downLoadUrl);
 		const sidebars = (
 			<List className="sideBars">
 				<List.Item
@@ -74,7 +95,11 @@ class Drawers extends React.Component {
 					thumb={require('assets/images/iconman.png')}
 					className="siderbar-logo"
 				>
-					{ token?localStorage.getItem('email'):<FormattedMessage id={'usercenter.login.trade'} />}
+					{token ? (
+						localStorage.getItem('email')
+					) : (
+						<FormattedMessage id={'usercenter.login.trade'} />
+					)}
 				</List.Item>
 				<Link to="/index">
 					<List.Item key={2}>
@@ -103,6 +128,17 @@ class Drawers extends React.Component {
 					{localStorage.getItem('language') == 'zh'
 						? 'English'
 						: '中文'}
+				</List.Item>
+				{/*链接下载*/}
+				<List.Item
+					key={7}
+					onClick={() => {
+						window.open(this.state.downLoadUrl, '_blank');
+					}}
+				>
+					<span className='download'>
+						<FormattedMessage id={'drawer.download'} />
+					</span>
 				</List.Item>
 			</List>
 		);
