@@ -28,7 +28,6 @@ class Drawers extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(window.location.origin);
 		// console.log(this.props);
 		//设备识别
 		let u = navigator.userAgent;
@@ -89,7 +88,7 @@ class Drawers extends React.Component {
 	render() {
 		//侧栏内容框
 		const token = getCookie('token');
-		console.log(this.state.downLoadUrl);
+		// console.log(this.state.downLoadUrl);
 		const sidebars = (
 			<List className="sideBars">
 				<List.Item
@@ -132,7 +131,7 @@ class Drawers extends React.Component {
 						: '中文'}
 				</List.Item>
 				{/*链接下载*/}
-				<List.Item
+				{/* <List.Item
 					key={7}
 					onClick={() => {
 						window.open(this.state.downLoadUrl, '_blank');
@@ -141,7 +140,7 @@ class Drawers extends React.Component {
 					<span className="download">
 						<FormattedMessage id={'drawer.download'} />
 					</span>
-				</List.Item>
+				</List.Item> */}
 			</List>
 		);
 		return (

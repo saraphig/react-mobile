@@ -52,6 +52,7 @@ const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // import Test from 'views/index/Test';
 const Test = asyncComponent(() => import('views/index/Test'));
 const Agreement = asyncComponent(() => import('views/extra/Agreement'));
+const Opticaltransportnetwork =asyncComponent(() => import('views/test/Test'));
 
 const routes = [
 	{
@@ -110,6 +111,10 @@ const routes = [
 	{
 		path: '/agreement',
 		component: Agreement
+	},
+	{
+		path: '/opticaltransportnetwork',
+		component: Opticaltransportnetwork
 	}
 ];
 
