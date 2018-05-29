@@ -72,7 +72,7 @@ class Test extends React.Component {
 
 		const content = (
 			<div className="chooseLanguage-middleContent">
-				<MidText
+				{/* <MidText
 					text={formatMessage({ id: 'choiceLanguage' })}
 					className="chooseLanguage-midText-transfrom"
 				/>
@@ -91,7 +91,7 @@ class Test extends React.Component {
 							);
 						})}
 					</List>
-				</div>
+				</div> */}
 				<div
 					style={{
 						color: '#fff',
