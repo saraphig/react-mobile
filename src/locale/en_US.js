@@ -740,10 +740,10 @@ const enUS = {
 	/**
 	 *  successPage和errorPage页面
 	 */
-	'errorPage.status': 'Registration Failed',
-	'successPage.status': 'Registration Succeed',
+	'errorPage.status': 'Sorry to inform you！',
+	'successPage.status': 'Congratulations！',
 	'errorPage.tips':
-		'Sorry to inform you！Click the button below to resend an email',
+		'Click the button below to resend an email',
 	'successPage.tips':
 		'Congratulations on your registration！Click the button below to resend an email'
 };

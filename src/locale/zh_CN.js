@@ -708,9 +708,9 @@ const zh_CN = {
 	/**
 	 *  successPage和errorPage页面
 	 */
-	'errorPage.status': '注册失败',
-	'successPage.status': '注册成功',
-	'errorPage.tips': '很抱歉！如需重发邮件请点击下面按钮',
-	'successPage.tips': '恭喜您注册成功！如需重发邮件请点击下面按钮'
+	'errorPage.status': '很抱歉',
+	'successPage.status': '恭喜您',
+	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
+	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮'
 };
 export default zh_CN;
