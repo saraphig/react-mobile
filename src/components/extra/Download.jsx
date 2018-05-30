@@ -89,20 +89,20 @@ class DownloadComp extends React.Component {
 					</p>
 				</div>
 				{!this.state.msg ? (
-					// <Buttons
-					// 	buttonText={formatMessage({ id: 'download.install' })}
-					// 	_onClick={() => {
-					// 		window.open(this.state.downLoadUrl, '_blank');
-					// 	}}
-					// 	className="download-btn"
-					// />
-					<a
-						href={this.state.downLoadUrl}
-						download={true}
+					<Buttons
+						buttonText={formatMessage({ id: 'download.install' })}
+						_onClick={() => {
+							window.open(this.state.downLoadUrl);
+						}}
 						className="download-btn"
-					>
-						{formatMessage({ id: 'download.install' })}
-					</a>
+					/>
+					// <a
+					// 	href={this.state.downLoadUrl}
+					// 	download={true}
+					// 	className="download-btn"
+					// >
+					// 	{formatMessage({ id: 'download.install' })}
+					// </a>
 				) : (
 					<span className="download-btn-disabled">
 						{formatMessage({ id: 'download.install' })}
