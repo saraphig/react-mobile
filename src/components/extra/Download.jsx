@@ -12,7 +12,8 @@ class DownloadComp extends React.Component {
 			downLoadUrl: '',
 			msg: false, //是否为微信浏览器
 			msgTips: null,
-      isChrome: ''
+      isChrome: false,
+      isXiaoMi: false
 		};
 	}
 
@@ -25,9 +26,10 @@ class DownloadComp extends React.Component {
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg = /micromessenger/.test(u.toLowerCase());
 		let isChrome = u.toLowerCase().indexOf("chrome") !== -1;  //谷歌浏览器
+		let isXiaoMi = u.toLowerCase().indexOf("xiaomi") !== -1;  //小米浏览器
 		// let isqq = u.match(/\sQQ/i) == 'qq';
 		// let isqq = /qq/.test(u.toLowerCase());
-		this.setState({isChrome});
+		this.setState({isChrome, isXiaoMi});
 		switch (true) {
 			case isAndroid:
 				this.setState({
@@ -67,12 +69,12 @@ class DownloadComp extends React.Component {
     let box = (<Buttons
         buttonText={formatMessage({ id: 'download.install' })}
         _onClick={() => {
-          // window.open(this.state.downLoadUrl);
+        	// window.open(this.state.downLoadUrl);
           window.location.href = this.state.downLoadUrl
         }}
         className="download-btn"
       />);
-    if(this.state.isChrome){
+   /* if(this.state.isChrome && this.state.isXiaoMi){
     	box = (<a
         href={this.state.downLoadUrl}
         download={true}
@@ -80,7 +82,7 @@ class DownloadComp extends React.Component {
       >
         {formatMessage({ id: 'download.install' })}
       </a>);
-		}
+		}*/
 		return (
 			<div className="download-page">
 				<div className="download-middleContent">
