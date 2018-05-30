@@ -26,12 +26,17 @@ class DownloadComp extends React.Component {
 
 		switch (true) {
 			case isAndroid:
-				alert(23);
 				this.setState({
 					downLoadUrl:
 						`${window.location.origin}` +
 						'/lib/download/androidapp/TOPONE.apk'
 				});
+				if (isMsg) {
+					alert(23);
+					this.setState({
+						msg: true
+					});
+				}
 				break;
 			case isiOS:
 				alert(45);
@@ -41,12 +46,12 @@ class DownloadComp extends React.Component {
 						`${window.location.origin}` +
 						'/lib/download/iosapp/manifest.plist'
 				});
-				break;
-			case isMsg:
-				alert(67);
-				this.setState({
-					msg: true
-				});
+				if (isMsg) {
+					alert(67);
+					this.setState({
+						msg: true
+					});
+				}
 				break;
 			default:
 				break;
