@@ -31,7 +31,7 @@ class DownloadComp extends React.Component {
 				this.setState({
 					downLoadUrl:
 						`${window.location.origin}` +
-						'/lib/download/androidapp/TOPONE2.png'
+						'/lib/download/androidapp/topone.apk'
 				});
 				if (isMsg) {
 					this.setState({
@@ -89,13 +89,21 @@ class DownloadComp extends React.Component {
 					</p>
 				</div>
 				{!this.state.msg ? (
-					<Buttons
-						buttonText={formatMessage({ id: 'download.install' })}
-						_onClick={() => {
-							window.open(this.state.downLoadUrl, '_blank');
-						}}
+					// <Buttons
+					// 	buttonText={formatMessage({ id: 'download.install' })}
+					// 	_onClick={() => {
+					// 		window.open(this.state.downLoadUrl, '_blank');
+					// 	}}
+					// 	className="download-btn"
+					// />
+					<a
+						href={this.state.downLoadUrl}
+						download={true}
+						target="_blank"
 						className="download-btn"
-					/>
+					>
+						{formatMessage({ id: 'download.install' })}
+					</a>
 				) : (
 					<span className="download-btn-disabled">
 						{formatMessage({ id: 'download.install' })}

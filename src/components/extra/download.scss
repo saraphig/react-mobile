@@ -36,9 +36,17 @@
         }
     }
     .download-btn {
-		width: 135px;
+        width: 135px;
         height: 40px;
         border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+        margin: 0 auto;
+        background: linear-gradient(to bottom, #FEDF97, #CEA366);
+        font-size: 18px;
+        color: #000;
     }
     .download-btn-disabled {
         width: 135px;

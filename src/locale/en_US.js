@@ -738,6 +738,6 @@ const enUS = {
 	 *  download页面
 	 */
 	'download.update': 'Last Update',
-	'download.Install': 'Install'
+	'download.install': 'Install'
 };
 export default enUS;
