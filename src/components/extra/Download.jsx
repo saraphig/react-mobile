@@ -98,7 +98,7 @@ class DownloadComp extends React.Component {
 					/>
 				) : (
 					<span className="download-btn-disabled">
-						{formatMessage({ id: 'download.install' })}xs
+						{formatMessage({ id: 'download.install' })}
 					</span>
 				)}
 			</div>
