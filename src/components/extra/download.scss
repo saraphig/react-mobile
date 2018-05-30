@@ -2,14 +2,15 @@
     .download-middleContent {
         margin-top: 99px;
         display: flex;
-		justify-content: center;
+        justify-content: center;
         .download-phone {
             width: 225px;
             height: 277px;
         }
         .download-logo {
             position: absolute;
-            right: 30%;
+            left: 50%;
+            transform: translateX(-50%);
             top: 228px;
             width: 154px;
             height: 53px;
