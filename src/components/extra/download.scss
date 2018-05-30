@@ -1,6 +1,8 @@
 .download-page {
     .download-middleContent {
-        margin: 99px 76px 0 76px;
+        margin-top: 99px;
+        display: flex;
+		justify-content: center;
         .download-phone {
             width: 225px;
             height: 277px;
