@@ -10,7 +10,7 @@ class DownloadComp extends React.Component {
 		super(props);
 		this.state = {
 			downLoadUrl: '',
-			msg: false,
+			msg: false, //是否为微信浏览器
 			msgTips: null
 		};
 	}
@@ -23,6 +23,7 @@ class DownloadComp extends React.Component {
 		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg = /micromessenger/.test(navigator.userAgent.toLowerCase());
+		let isqq = u.match(/\sQQ/i) == 'qq';
 
 		switch (true) {
 			case isAndroid:
@@ -31,11 +32,12 @@ class DownloadComp extends React.Component {
 						`${window.location.origin}` +
 						'/lib/download/androidapp/TOPONE.apk'
 				});
-				if (isMsg) {
+				if (isMsg || isqq) {
 					this.setState({
 						msg: true
 					});
 				}
+
 				break;
 			case isiOS:
 				this.setState({
@@ -44,7 +46,7 @@ class DownloadComp extends React.Component {
 						`${window.location.origin}` +
 						'/lib/download/iosapp/manifest.plist'
 				});
-				if (isMsg) {
+				if (isMsg || isqq) {
 					this.setState({
 						msg: true
 					});
@@ -95,7 +97,7 @@ class DownloadComp extends React.Component {
 					/>
 				) : (
 					<span className="download-btn-disabled">
-						{formatMessage({ id: 'download.install' })}
+						{formatMessage({ id: 'download.install' })}xs
 					</span>
 				)}
 			</div>
