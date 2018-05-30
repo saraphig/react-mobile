@@ -32,7 +32,6 @@ class DownloadComp extends React.Component {
 						'/lib/download/androidapp/TOPONE.apk'
 				});
 				if (isMsg) {
-					alert(23);
 					this.setState({
 						msg: true
 					});
