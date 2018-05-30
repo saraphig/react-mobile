@@ -24,7 +24,7 @@ class DownloadComp extends React.Component {
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg = /micromessenger/.test(u.toLowerCase());
 		// let isqq = u.match(/\sQQ/i) == 'qq';
-		let isqq = /qq/.test(u.toLowerCase());
+		// let isqq = /qq/.test(u.toLowerCase());
 
 		switch (true) {
 			case isAndroid:
@@ -33,7 +33,7 @@ class DownloadComp extends React.Component {
 						`${window.location.origin}` +
 						'/lib/download/androidapp/TOPONE.apk'
 				});
-				if (isMsg || isqq) {
+				if (isMsg) {
 					this.setState({
 						msg: true
 					});
@@ -47,7 +47,7 @@ class DownloadComp extends React.Component {
 						`${window.location.origin}` +
 						'/lib/download/iosapp/manifest.plist'
 				});
-				if (isMsg || isqq) {
+				if (isMsg) {
 					this.setState({
 						msg: true
 					});
