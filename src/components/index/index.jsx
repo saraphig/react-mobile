@@ -199,19 +199,21 @@ class IndexComp extends React.Component {
 		} = this.state;
 		const appDownLoadBar = (
 			<div className="index-download-appbar">
-				<div>
+				<div className="download-content">
 					<img
 						src={require('assets/images/app.png')}
 						alt="top.one app"
 						className="download-icon"
 					/>
-
-					<p className='download-title'>TOP.ONE APP</p>
-					<p className='download-info'>全语种孵化型数字货币交易所</p>
+					<div style={{ flex: 1 }}>
+						<p className="download-title">TOP.ONE APP</p>
+						<p className="download-info">
+							全语种孵化型数字货币交易所afafaegaegagagagaeg
+						</p>
+					</div>
+					<Buttons buttonText='Download' className="download-btn" />
 				</div>
-				<div>
-					<Buttons buttonText="下载" className="download-btn" />
-				</div>
+				<span></span>
 			</div>
 		);
 		let content = <div />;

@@ -40,25 +40,41 @@
 
 .index-download-appbar {
     position: fixed;
-    bottom: 0;
-    display: flex;
-    flex: 1;
+    bottom: 0; // display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 13px 14px 10px;
+    padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
     background: #fff;
-    .download-title {
-        font-size: 15px;
-        color: #DCB276;
+    .download-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 200;
+        .download-title {
+            font-size: 15px;
+            color: #dcb276;
+        }
+        .download-info {
+            font-size: 12px;
+            color: #646464;
+            word-wrap: break-word;
+        }
+        .download-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .download-btn {
+            width: 100px;
+            height: 40px;
+            padding: 14px;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: #fff;
+        
+        }
     }
-    .download-info {
-        font-size: 12px;
-        color: #646464;
-    }
-    .download-icon {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-    }
-    .download-btn {}
 }
