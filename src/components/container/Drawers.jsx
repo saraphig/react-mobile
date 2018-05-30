@@ -47,6 +47,47 @@ class Drawers extends React.Component {
 		// 			'/lib/download/iosapp/manifest.plist'
 		// 	});
 		// }
+    //设备识别;
+    let u = navigator.userAgent;
+
+    let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    let isMsg = /micromessenger/.test(u.toLowerCase());
+    let isChrome = u.toLowerCase().indexOf("chrome") !== -1;  //谷歌浏览器
+    let isXiaoMi = u.toLowerCase().indexOf("xiaomi") !== -1;  //小米浏览器
+    // let isqq = u.match(/\sQQ/i) == 'qq';
+    // let isqq = /qq/.test(u.toLowerCase());
+    this.setState({isChrome, isXiaoMi});
+    switch (true) {
+      case isAndroid:
+        this.setState({
+          downLoadUrl:
+          `${window.location.origin}` +
+          '/lib/download/androidapp/TOPONE.apk'
+        });
+        if (isMsg) {
+          this.setState({
+            msg: true
+          });
+        }
+
+        break;
+      case isiOS:
+        this.setState({
+          downLoadUrl:
+          'itms-services://?action=download-manifest&url=' +
+          `${window.location.origin}` +
+          '/lib/download/iosapp/manifest.plist'
+        });
+        if (isMsg) {
+          this.setState({
+            msg: true
+          });
+        }
+        break;
+      default:
+        break;
+    }
 	}
 	// 退出登陆
 	// 抽屉每个页面都引入，每个页面都写就很多，所以写在这边
@@ -131,16 +172,17 @@ class Drawers extends React.Component {
 						: '中文'}
 				</List.Item>
 				{/*链接下载*/}
-				{/* <List.Item
+				 <List.Item
 					key={7}
 					onClick={() => {
-						window.open(this.state.downLoadUrl, '_blank');
+						// window.open(this.state.downLoadUrl, '_blank');
+            window.location.href = this.state.downLoadUrl
 					}}
 				>
 					<span className="download">
 						<FormattedMessage id={'drawer.download'} />
 					</span>
-				</List.Item> */}
+				</List.Item>
 			</List>
 		);
 		return (
