@@ -30,23 +30,23 @@ class Drawers extends React.Component {
 	componentDidMount() {
 		// console.log(this.props);
 		//设备识别
-		let u = navigator.userAgent;
-		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-		if (isAndroid) {
-			this.setState({
-				downLoadUrl:
-					`${window.location.origin}` +
-					'/lib/opticaltransportnetwork/TOPONE.apk'
-			});
-		} else if (isiOS) {
-			this.setState({
-				downLoadUrl:
-					'itms-services://?action=download-manifest&url=' +
-					`${window.location.origin}` +
-					'/lib/opticaltransportnetwork/manifest.plist'
-			});
-		}
+		// let u = navigator.userAgent;
+		// let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+		// let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		// if (isAndroid) {
+		// 	this.setState({
+		// 		downLoadUrl:
+		// 			`${window.location.origin}` +
+		// 			'/lib/download/androidapp/TOPONE.apk'
+		// 	});
+		// } else if (isiOS) {
+		// 	this.setState({
+		// 		downLoadUrl:
+		// 			'itms-services://?action=download-manifest&url=' +
+		// 			`${window.location.origin}` +
+		// 			'/lib/download/iosapp/manifest.plist'
+		// 	});
+		// }
 	}
 	// 退出登陆
 	// 抽屉每个页面都引入，每个页面都写就很多，所以写在这边
@@ -131,7 +131,7 @@ class Drawers extends React.Component {
 						: '中文'}
 				</List.Item>
 				{/*链接下载*/}
-				<List.Item
+				{/* <List.Item
 					key={7}
 					onClick={() => {
 						window.open(this.state.downLoadUrl, '_blank');
@@ -140,7 +140,7 @@ class Drawers extends React.Component {
 					<span className="download">
 						<FormattedMessage id={'drawer.download'} />
 					</span>
-				</List.Item>
+				</List.Item> */}
 			</List>
 		);
 		return (

@@ -226,7 +226,7 @@ class IndexComp extends React.Component {
 						orderStatus3={orderStatus3}
 						orderName={sortBy}
 					/>
-					{appDownLoadBar}
+					{/* {appDownLoadBar} */}
 				</div>
 			);
 		}

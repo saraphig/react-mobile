@@ -50,7 +50,7 @@ const Mywallet = asyncComponent(() => import('views/userCenter/Mywallet'));
 // import UserCenter from 'views/userCenter/UserCenter';
 const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // import Test from 'views/index/Test';
-const Test = asyncComponent(() => import('views/index/Test'));
+// const Test = asyncComponent(() => import('views/index/Test'));
 const Agreement = asyncComponent(() => import('views/extra/Agreement'));
 
 const routes = [
@@ -103,10 +103,10 @@ const routes = [
 		path: '/userCenter',
 		component: UserCenter
 	},
-	{
-		path: '/test',
-		component: Test
-	},
+	// {
+	// 	path: '/test',
+	// 	component: Test
+	// },
 	{
 		path: '/agreement',
 		component: Agreement
