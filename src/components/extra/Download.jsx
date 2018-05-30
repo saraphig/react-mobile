@@ -67,8 +67,8 @@ class DownloadComp extends React.Component {
     let box = (<Buttons
         buttonText={formatMessage({ id: 'download.install' })}
         _onClick={() => {
-          // window.open(this.state.downLoadUrl);
-          window.location.href = this.state.downLoadUrl
+        	window.open(this.state.downLoadUrl);
+          // window.location.href = this.state.downLoadUrl
         }}
         className="download-btn"
       />);
