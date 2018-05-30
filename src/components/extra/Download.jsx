@@ -31,7 +31,7 @@ class DownloadComp extends React.Component {
 				this.setState({
 					downLoadUrl:
 						`${window.location.origin}` +
-						'/lib/download/androidapp/TOPONE.apk'
+						'/lib/download/androidapp/TOPONE2.png'
 				});
 				if (isMsg) {
 					this.setState({
