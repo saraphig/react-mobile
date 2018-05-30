@@ -733,6 +733,11 @@ const enUS = {
 	/**
 	 *  drawer新加的下载链接
 	 */
-	'drawer.download': 'APP Download'
+	'drawer.download': 'APP Download',
+	/**
+	 *  download页面
+	 */
+	'download.update': 'Last Update',
+	'download.Install': 'Install'
 };
 export default enUS;

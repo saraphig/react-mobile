@@ -1,0 +1,36 @@
+.download-page {
+	.download-middleContent {
+		margin: 122px 76px 0 76px;
+		.download-phone {
+			width: 225px;
+			height: 277px;
+		}
+		.download-logo {
+			position: absolute;
+			right: 30%;
+			top: 250px;
+			width: 154px;
+			height: 53px;
+		}
+	}
+	.download-info {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		font-size: 14px;
+		color: #787878;
+		font-weight: 400;
+		margin-bottom: 30px;
+		.download-version {
+			margin-top: 14px;
+		}
+		.update-time {
+			margin-top: 14px;
+		}
+	}
+	.download-btn {
+		width: 135px;
+        height: 40px;
+        border-radius: 2px;
+	}
+}

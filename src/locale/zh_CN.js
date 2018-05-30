@@ -701,6 +701,11 @@ const zh_CN = {
 	/**
 	 *  drawer新加的下载链接
 	 */
-	'drawer.download': 'APP 下载'
+	'drawer.download': 'APP 下载',
+	/**
+	 *  download页面
+	 */
+	'download.update': '最后更新',
+	'download.install': '安装'
 };
 export default zh_CN;
