@@ -99,7 +99,6 @@ class DownloadComp extends React.Component {
 					<a
 						href={this.state.downLoadUrl}
 						download={true}
-						target="_blank"
 						className="download-btn"
 					>
 						{formatMessage({ id: 'download.install' })}
