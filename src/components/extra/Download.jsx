@@ -24,7 +24,7 @@ class DownloadComp extends React.Component {
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg =
 			u.indexOf('MicroMessenger') > -1 ||
-			u.match(/MicroMessenger/i) == 'micromessenger';
+			u.match(/micromessenger/i) == 'micromessenger';
 
 		switch (true) {
 			case isAndroid:
