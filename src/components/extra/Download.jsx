@@ -72,6 +72,8 @@ class DownloadComp extends React.Component {
         }}
         className="download-btn"
       />);
+    alert(navigator.userAgent);
+    alert(this.state.isChrome);
     if(this.state.isChrome){
     	box = (<a
         href={this.state.downLoadUrl}
