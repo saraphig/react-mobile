@@ -24,7 +24,7 @@ class DownloadComp extends React.Component {
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg =
 			u.indexOf('MicroMessenger') > -1 ||
-			u.match(/MicroMessenger/i) === 'MicroMessenger';
+			u.match(/MicroMessenger/i) == 'micromessenger';
 
 		switch (true) {
 			case isAndroid:
@@ -47,22 +47,13 @@ class DownloadComp extends React.Component {
 			case isMsg:
 				console.log(67);
 				this.setState({
-					msg: true,
-					msgTips: (
-						<div style={{ color: '#fff', fontSize: 15 }}>
-							请前往浏览器中打开
-						</div>
-					)
+					msg: true
 				});
 				break;
 			default:
 				break;
 		}
 	}
-
-	_onClick = () => {
-		console.log(32);
-	};
 
 	render() {
 		const {
@@ -80,6 +71,12 @@ class DownloadComp extends React.Component {
 						src={require('assets/images/TOP.ONE@2x.png')}
 						className="download-logo"
 					/>
+					{this.state.msg ? (
+						<img
+							className="download-tips"
+							src={require('assets/images/tips@2x.png')}
+						/>
+					) : null}
 				</div>
 				<div className="download-info">
 					<p className="download-version">Version：1.0.0</p>
@@ -88,13 +85,19 @@ class DownloadComp extends React.Component {
 						14:00
 					</p>
 				</div>
-				<Buttons
-					buttonText={formatMessage({ id: 'download.install' })}
-					_onClick={() => {
-						window.open(this.state.downLoadUrl, '_blank');
-					}}
-					className="download-btn"
-				/>
+				{!this.state.msg ? (
+					<Buttons
+						buttonText={formatMessage({ id: 'download.install' })}
+						_onClick={() => {
+							window.open(this.state.downLoadUrl, '_blank');
+						}}
+						className="download-btn"
+					/>
+				) : (
+					<span className="download-btn-disabled">
+						{formatMessage({ id: 'download.install' })}
+					</span>
+				)}
 			</div>
 		);
 	}
