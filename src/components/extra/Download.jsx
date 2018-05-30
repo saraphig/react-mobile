@@ -74,9 +74,7 @@ class DownloadComp extends React.Component {
         }}
         className="download-btn"
       />);
-    alert(navigator.userAgent);
-    alert(this.state.isChrome);
-    if(this.state.isChrome && this.state.isXiaoMi){
+   /* if(this.state.isChrome && this.state.isXiaoMi){
     	box = (<a
         href={this.state.downLoadUrl}
         download={true}
@@ -84,7 +82,7 @@ class DownloadComp extends React.Component {
       >
         {formatMessage({ id: 'download.install' })}
       </a>);
-		}
+		}*/
 		return (
 			<div className="download-page">
 				<div className="download-middleContent">
