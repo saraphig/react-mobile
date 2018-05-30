@@ -19,7 +19,7 @@ class DownloadComp extends React.Component {
 		// this.start();
 		//设备识别;
 		let u = navigator.userAgent;
-		console.log(u);
+		alert(u);
 		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg =
@@ -28,7 +28,7 @@ class DownloadComp extends React.Component {
 
 		switch (true) {
 			case isAndroid:
-				console.log(23);
+				alert(23);
 				this.setState({
 					downLoadUrl:
 						`${window.location.origin}` +
@@ -36,7 +36,7 @@ class DownloadComp extends React.Component {
 				});
 				break;
 			case isiOS:
-				console.log(45);
+				alert(45);
 				this.setState({
 					downLoadUrl:
 						'itms-services://?action=download-manifest&url=' +
@@ -45,7 +45,7 @@ class DownloadComp extends React.Component {
 				});
 				break;
 			case isMsg:
-				console.log(67);
+				alert(67);
 				this.setState({
 					msg: true
 				});
