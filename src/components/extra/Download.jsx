@@ -11,7 +11,8 @@ class DownloadComp extends React.Component {
 		this.state = {
 			downLoadUrl: '',
 			msg: false, //是否为微信浏览器
-			msgTips: null
+			msgTips: null,
+      isChrome: ''
 		};
 	}
 
@@ -23,9 +24,10 @@ class DownloadComp extends React.Component {
 		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg = /micromessenger/.test(u.toLowerCase());
+		let isChrome = u.toLowerCase().indexOf("chrome") !== -1;  //谷歌浏览器
 		// let isqq = u.match(/\sQQ/i) == 'qq';
 		// let isqq = /qq/.test(u.toLowerCase());
-
+		this.setState({isChrome});
 		switch (true) {
 			case isAndroid:
 				this.setState({
@@ -62,7 +64,23 @@ class DownloadComp extends React.Component {
 		const {
 			intl: { formatMessage }
 		} = this.props;
-
+    let box = (<Buttons
+        buttonText={formatMessage({ id: 'download.install' })}
+        _onClick={() => {
+          // window.open(this.state.downLoadUrl);
+          window.location.href = this.state.downLoadUrl
+        }}
+        className="download-btn"
+      />);
+    if(this.state.isChrome){
+    	box = (<a
+        href={this.state.downLoadUrl}
+        download={true}
+        className="download-btn"
+      >
+        {formatMessage({ id: 'download.install' })}
+      </a>);
+		}
 		return (
 			<div className="download-page">
 				<div className="download-middleContent">
@@ -88,23 +106,25 @@ class DownloadComp extends React.Component {
 						14:00
 					</p>
 				</div>
-				{!this.state.msg ? (
-					<Buttons
+				{!this.state.msg ?
+						box
+					/*!isChrome ?
+						(<Buttons
 						buttonText={formatMessage({ id: 'download.install' })}
 						_onClick={() => {
 							// window.open(this.state.downLoadUrl);
 							window.location.href = this.state.downLoadUrl
 						}}
 						className="download-btn"
-					/>
-					// <a
-					// 	href={this.state.downLoadUrl}
-					// 	download={true}
-					// 	className="download-btn"
-					// >
-					// 	{formatMessage({ id: 'download.install' })}
-					// </a>
-				) : (
+					/>) :
+						(<a
+						href={this.state.downLoadUrl}
+						download={true}
+						className="download-btn"
+					>
+						{formatMessage({ id: 'download.install' })}
+					</a>)
+				)*/ : (
 					<span className="download-btn-disabled">
 						{formatMessage({ id: 'download.install' })}
 					</span>
