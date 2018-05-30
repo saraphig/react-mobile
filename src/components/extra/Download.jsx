@@ -19,7 +19,7 @@ class DownloadComp extends React.Component {
 		// this.start();
 		//设备识别;
 		let u = navigator.userAgent;
-		alert(u);
+
 		let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 		let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		let isMsg = /micromessenger/.test(navigator.userAgent.toLowerCase());
@@ -39,7 +39,6 @@ class DownloadComp extends React.Component {
 				}
 				break;
 			case isiOS:
-				alert(45);
 				this.setState({
 					downLoadUrl:
 						'itms-services://?action=download-manifest&url=' +
@@ -47,7 +46,6 @@ class DownloadComp extends React.Component {
 						'/lib/download/iosapp/manifest.plist'
 				});
 				if (isMsg) {
-					alert(67);
 					this.setState({
 						msg: true
 					});
