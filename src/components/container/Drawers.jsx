@@ -131,7 +131,7 @@ class Drawers extends React.Component {
 						: '中文'}
 				</List.Item>
 				{/*链接下载*/}
-				{/* <List.Item
+				<List.Item
 					key={7}
 					onClick={() => {
 						window.open(this.state.downLoadUrl, '_blank');
@@ -140,7 +140,7 @@ class Drawers extends React.Component {
 					<span className="download">
 						<FormattedMessage id={'drawer.download'} />
 					</span>
-				</List.Item> */}
+				</List.Item>
 			</List>
 		);
 		return (
