@@ -706,6 +706,8 @@ const zh_CN = {
 	 *  download页面
 	 */
 	'download.update': '最后更新',
-	'download.install': '安装'
+	'download.install': '安装',
+	'download.android': '安卓下载教程',
+	'download.ios': 'ios下载教程'
 };
 export default zh_CN;

@@ -738,6 +738,8 @@ const enUS = {
 	 *  download页面
 	 */
 	'download.update': 'Last Update',
-	'download.install': 'Install'
+	'download.install': 'Install',
+	'download.android': 'Android Install Tutorial',
+	'download.ios': 'ios Install Tutorial'
 };
 export default enUS;
