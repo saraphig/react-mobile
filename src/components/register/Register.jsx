@@ -1,6 +1,9 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import $ from  'jquery';
+import '../../../lib/intl-tel-input/js/intlTelInput.min.js';
+import '../../../lib/intl-tel-input/css/intlTelInput.css';
 import './register.scss';
 import { List, NavBar, Icon } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import './common.scss';
+import $ from 'jquery';
 import {
 	Tabs,
 	WhiteSpace,
