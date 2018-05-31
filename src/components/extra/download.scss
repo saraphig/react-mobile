@@ -1,4 +1,5 @@
 .download-page {
+    font-weight: 400;
     .download-middleContent {
         margin-top: 99px;
         display: flex;
@@ -29,7 +30,6 @@
         flex-direction: column;
         font-size: 14px;
         color: #787878;
-        font-weight: 400;
         margin-bottom: 30px;
         .download-version {
             margin-top: 14px;
@@ -47,7 +47,7 @@
         align-items: center;
         border-radius: 2px;
         margin: 0 auto;
-        background: linear-gradient(to bottom, #FEDF97, #CEA366);
+        background: linear-gradient(to bottom, #fedf97, #cea366);
         font-size: 18px;
         color: #000;
     }
@@ -59,7 +59,20 @@
         align-items: center;
         border-radius: 2px;
         margin: 0 auto;
-        background: linear-gradient(to bottom, #FEDF97, #CEA366);
+        background: linear-gradient(to bottom, #fedf97, #cea366);
         font-size: 18px;
+    }
+    .download-tutorial {
+        text-align: center;
+        margin-top: 26px;
+        color: #dcb276;
+        font-size: 14px;
+        .icon-anzhuo,
+        .icon-pingguo {
+            color: #dcb276;
+            width: 13px;
+            height: 15px;
+            margin-right: 7px;
+        }
     }
 }
