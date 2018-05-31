@@ -22,7 +22,8 @@ class MyInviteComp extends React.Component {
 		const {
 			intl: { formatMessage },
 			TGroup,
-			info
+			info,
+            feeBackNum
 		} = this.props;
 
 		const content = (
@@ -95,6 +96,12 @@ class MyInviteComp extends React.Component {
 						<div className="myInvite-item-T">T5</div>
 						<div className="myInvite-item-num">{TGroup.m5}</div>
 					</div>
+                    <div className="myInvite-item">
+                        <div className="feeBack">
+                            <span>{feeBackNum}</span>
+                            <span>{formatMessage({id:'usercenter.feeback'})}&nbsp;&nbsp;/ETH</span>
+                        </div>
+                    </div>
 				</div>
 				<div className="myInvite-content-introduce">
 					<p className="myInvite-content-introduce-name">

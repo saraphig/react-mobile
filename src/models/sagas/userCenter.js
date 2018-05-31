@@ -11,6 +11,7 @@ export const actionType = {
     getUserInfo: 'userCenter/getUserInfo',
     topFeeUpdate: 'userCenter/topFeeUpdate',
     setMyCoinAccount: 'userCenter/coinAccount',
+    getFeeBack: 'userCenter/getFeeBack',
 }
 
 export function* getInviteInfo({ payload: { query, success, fail } }) {
@@ -67,11 +68,22 @@ export function* setMyCoinAccount({ payload: { query } }) {
     yield put({ type: userCenterReducer.setMyCoinAccount, query });
 }
 
+// 获得佣金
+export function* getFeeBack({ payload: { query, success, fail } }) {
+    const { data } = yield call(userCenterApi.getFeeBack, query);
+    if (data.error_code === 200) {
+        success(data.data);
+    } else {
+        fail(data.error_code);
+    }
+}
+
 export default function* root() {
     yield [
         takeLatest(actionType.getInviteInfo, getInviteInfo),
         takeLatest(actionType.getUserInfo, getUserInfo),
         takeLatest(actionType.topFeeUpdate, topFeeUpdate),
         takeLatest(actionType.setMyCoinAccount, setMyCoinAccount),
+        takeLatest(actionType.getFeeBack, getFeeBack),
     ];
 }

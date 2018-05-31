@@ -706,6 +706,7 @@ const zh_CN = {
 	 *  download页面
 	 */
 	'download.update': '最后更新',
-	'download.install': '安装'
+	'download.install': '安装',
+    'usercenter.feeback': '获得佣金 ≈',
 };
 export default zh_CN;

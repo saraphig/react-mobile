@@ -738,6 +738,7 @@ const enUS = {
 	 *  download页面
 	 */
 	'download.update': 'Last Update',
-	'download.install': 'Install'
+	'download.install': 'Install',
+    'usercenter.feeback': 'commission ≈',
 };
 export default enUS;

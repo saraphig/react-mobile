@@ -28,3 +28,12 @@ export function topFeeUpdate(query) {
     });
 }
 
+// 获得佣金
+export function getFeeBack(query) {
+    return request({
+        url: '/api/feeBackTotal',
+        method: 'post',
+        data: query
+    });
+}
+

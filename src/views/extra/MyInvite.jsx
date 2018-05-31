@@ -14,8 +14,9 @@ class MyInvite extends React.Component {
 			open: false,
 			TGroup: [],
 			info: [],
-      inviteUrl: '', //邀请链接
-      inviteSrc: '', //链接图片
+		  	inviteUrl: '', //邀请链接
+		  	inviteSrc: '', //链接图片
+            feeBackNum: 0,
 		};
 	}
 
@@ -55,6 +56,19 @@ class MyInvite extends React.Component {
 				error: this.error
 			}
 		});
+        this.props.dispatch({
+            type: userCenterSaga.getFeeBack,
+            payload: {
+                query,
+                success: data => {
+                    this.setState({
+                        feeBackNum: data.feeBackTotal,
+                    });
+                },
+                fail: this.fail,
+                error: this.error
+            }
+        });
 	}
 
 	fail = () => {
@@ -79,7 +93,7 @@ class MyInvite extends React.Component {
 	};
 
 	render() {
-		const { open, TGroup, info, inviteUrl, inviteSrc } = this.state;
+		const { open, TGroup, info, inviteUrl, inviteSrc, feeBackNum } = this.state;
 		return (
 			<div>
 				<MyInviteComp
@@ -90,6 +104,7 @@ class MyInvite extends React.Component {
 					_open={open}
 					TGroup={TGroup}
 					info={info}
+                    feeBackNum={feeBackNum}
 				/>
 			</div>
 		);
