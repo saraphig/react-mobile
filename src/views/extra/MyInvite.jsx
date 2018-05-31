@@ -14,8 +14,8 @@ class MyInvite extends React.Component {
 			open: false,
 			TGroup: [],
 			info: [],
-      inviteUrl: '', //邀请链接
-      inviteSrc: '', //链接图片
+			inviteUrl: '', //邀请链接
+			inviteSrc: '' //链接图片
 		};
 	}
 
@@ -47,8 +47,14 @@ class MyInvite extends React.Component {
 				success: data => {
 					this.setState({
 						info: data.info.user_info,
-            inviteUrl: `${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`,
-            inviteSrc: jrQrcode.getQrBase64(`${window.location.origin}/register?inviter=${data.info.user_info.invite_code}`)
+						inviteUrl: `${
+							window.location.origin
+						}/register?inviter=${data.info.user_info.invite_code}`,
+						inviteSrc: jrQrcode.getQrBase64(
+							`${window.location.origin}/register?inviter=${
+								data.info.user_info.invite_code
+							}`
+						)
 					});
 				},
 				fail: this.fail,
@@ -58,20 +64,20 @@ class MyInvite extends React.Component {
 	}
 
 	fail = () => {
-	  this.props.history.push('login')
-  };
+		this.props.history.push('login');
+	};
 
 	error = () => {
-    const {
-      intl: { formatMessage }
-    } = this.props;
-    topToast(formatMessage({ id: 'serverError' }));
-  };
+		const {
+			intl: { formatMessage }
+		} = this.props;
+		topToast(formatMessage({ id: 'serverError' }));
+	};
 
 	_onClick = () => {
-    let url = this.state.inviteUrl;
-    copy(url);
-    topToast(this.props.intl.formatMessage({id: 'code_08'}));
+		let url = this.state.inviteUrl;
+		copy(url);
+		topToast(this.props.intl.formatMessage({ id: 'code_08' }));
 	};
 
 	_onOpenChange = () => {
@@ -85,7 +91,7 @@ class MyInvite extends React.Component {
 				<MyInviteComp
 					_onClick={this._onClick}
 					inviteUrl={inviteUrl}
-          inviteSrc={inviteSrc}
+					inviteSrc={inviteSrc}
 					_onOpenChange={this._onOpenChange}
 					_open={open}
 					TGroup={TGroup}

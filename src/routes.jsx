@@ -54,6 +54,10 @@ const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // const Test = asyncComponent(() => import('views/index/Test'));
 const Agreement = asyncComponent(() => import('views/extra/Agreement'));
 const Download = asyncComponent(() => import('views/extra/Download'));
+const NotFound = asyncComponent(() => import('views/extra/404'));
+const SuccessPage = asyncComponent(() => import('views/extra/SuccessPage'));
+const ErrorPage = asyncComponent(() => import('views/extra/ErrorPage'));
+const ResendEmail = asyncComponent(() => import('views/extra/ResendEmail'));
 
 const routes = [
 	{
@@ -116,6 +120,22 @@ const routes = [
 	{
 		path: '/download',
 		component: Download
+	},
+	{
+		path: '/404',
+		component: NotFound
+	},
+	{
+		path: '/successPage',
+		component: SuccessPage
+	},
+	{
+		path: '/errorPage',
+		component: ErrorPage
+	},
+	{
+		path: '/resendEmail',
+		component: ResendEmail
 	}
 ];
 
@@ -134,6 +154,8 @@ export default (
 					/>
 				);
 			})}
+			<Route path="*" component={NotFound}/>
+			{/* <Redirect from="*" to="/404" /> */}
 		</Switch>
 	</BrowserRouter>
 );

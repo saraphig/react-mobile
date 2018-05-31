@@ -740,6 +740,22 @@ const enUS = {
 	'download.update': 'Last Update',
 	'download.install': 'Install',
 	'download.android': 'Android Install Tutorial',
-	'download.ios': 'ios Install Tutorial'
+	'download.ios': 'ios Install Tutorial',
+
+	/**
+	 * 404页面
+	 */
+	'404.tips1': 'The page you want to visit has disappeared',
+	'404.tips2': 'please contact Satoshi Nakamoto.',
+
+	/**
+	 *  successPage和errorPage页面
+	 */
+	'errorPage.status': 'Sorry to inform you！',
+	'successPage.status': 'Congratulations！',
+	'errorPage.tips':
+		'Click the button below to resend an email',
+	'successPage.tips':
+		'Congratulations on your registration！Click the button below to resend an email'
 };
 export default enUS;

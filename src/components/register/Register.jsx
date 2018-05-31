@@ -155,7 +155,7 @@ class RegisterComp extends React.Component {
 			count,
 			sended
 		} = this.props;
-		console.log(this.props)
+		// console.log(this.props)
 		const content = (
 			<div className="register-middleContent">
 				<MidText

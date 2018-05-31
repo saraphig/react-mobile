@@ -708,6 +708,20 @@ const zh_CN = {
 	'download.update': '最后更新',
 	'download.install': '安装',
 	'download.android': '安卓下载教程',
-	'download.ios': 'ios下载教程'
+	'download.ios': 'ios下载教程',
+
+	/**
+	 * 404页面
+	 */
+	'404.tips1': '查看的页面不存在',
+	'404.tips2': '请联系中本聪',
+
+	/**
+	 *  successPage和errorPage页面
+	 */
+	'errorPage.status': '很抱歉',
+	'successPage.status': '恭喜您',
+	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
+	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮'
 };
 export default zh_CN;
