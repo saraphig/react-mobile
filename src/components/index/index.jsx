@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './index.scss';
 import { List, NavBar, Icon } from 'antd-mobile';
-import ReactLoading from 'react-loading';
+// import ReactLoading from 'react-loading';
 import Drawers from 'components/container/Drawers';
 import Header from 'components/comComponent/header/Header';
 import {
@@ -26,7 +26,8 @@ class IndexComp extends React.Component {
 			isAsc: true, // 是否按照降序排列
 			orderStatus: false,
 			orderStatus2: false,
-			orderStatus3: false
+			orderStatus3: false,
+			finishdata: 'current-none'
 			// orderName: 'volume'
 		};
 	}
@@ -102,7 +103,8 @@ class IndexComp extends React.Component {
 				);
 			}
 			this.setState({
-				data: obj
+				data: obj,
+				finishdata: ''
 			});
 		}
 	}
@@ -232,20 +234,21 @@ class IndexComp extends React.Component {
 					{/* {appDownLoadBar} */}
 				</div>
 			);
-		} else {
-			content = (
-				<div className="index-middleContent loading">
-					<ReactLoading
-						type="cylon"
-						color="#dcb277"
-						height={100}
-						width={100}
-					/>
-				</div>
-			);
-		}
+		} 
+		// else {
+		// 	content = (
+		// 		<div className="index-middleContent loading">
+		// 			<ReactLoading
+		// 				type="cylon"
+		// 				color="#dcb277"
+		// 				height={100}
+		// 				width={100}
+		// 			/>
+		// 		</div>
+		// 	);
+		// }
 		return (
-			<div className="indexPage">
+			<div className={`indexPage ${this.state.finishdata}`}>
 				<Header
 					_onClick={this.props._onOpenChange}
 					_open={this.props._open}

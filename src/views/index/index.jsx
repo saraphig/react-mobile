@@ -7,6 +7,7 @@ import { actionType as tradeSaga } from 'models/sagas/trading';
 import wsSocket from 'utils/webSocketUtil';
 import IndexComp from 'components/index/index';
 import { topToast } from 'utils/comFunction'
+import Loading from 'components/comComponent/loading'
 
 class Index extends React.Component {
 	constructor(props) {
@@ -142,8 +143,13 @@ class Index extends React.Component {
 		} = this.props;
 		const { open } = this.state;
 
+		let box = <Loading/>
+		if (this.state.updateData.length > 0) {
+			box = null
+		}
 		return (
 			<div>
+				{box}
 				<IndexComp 
 				  _onOpenChange={this._onOpenChange} 
 				  _open={open}
