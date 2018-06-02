@@ -740,6 +740,8 @@ const enUS = {
 	'download.update': 'Last Update',
 	'download.install': 'Install',
     'usercenter.feeback': 'commission ≈',
+	'download.android': 'Android Install Tutorial',
+	'download.ios': 'ios Install Tutorial',
 
 	/**
 	 * 404页面

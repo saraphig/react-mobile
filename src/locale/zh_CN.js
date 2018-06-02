@@ -708,6 +708,8 @@ const zh_CN = {
 	'download.update': '最后更新',
 	'download.install': '安装',
     'usercenter.feeback': '获得佣金 ≈',
+	'download.android': '安卓下载教程',
+	'download.ios': 'ios下载教程',
 
 	/**
 	 * 404页面

@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import './index.scss';
 import { List, NavBar, Icon } from 'antd-mobile';
+import ReactLoading from 'react-loading';
 import Drawers from 'components/container/Drawers';
 import Header from 'components/comComponent/header/Header';
 import {
@@ -211,9 +212,9 @@ class IndexComp extends React.Component {
 							全语种孵化型数字货币交易所afafaegaegagagagaeg
 						</p>
 					</div>
-					<Buttons buttonText='Download' className="download-btn" />
+					<Buttons buttonText="Download" className="download-btn" />
 				</div>
-				<span></span>
+				<span />
 			</div>
 		);
 		let content = <div />;
@@ -229,6 +230,17 @@ class IndexComp extends React.Component {
 						orderName={sortBy}
 					/>
 					{/* {appDownLoadBar} */}
+				</div>
+			);
+		} else {
+			content = (
+				<div className="index-middleContent loading">
+					<ReactLoading
+						type="cylon"
+						color="#dcb277"
+						height={100}
+						width={100}
+					/>
 				</div>
 			);
 		}
