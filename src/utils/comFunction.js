@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Loading from '../components/comComponent/loading'
+import Loading from 'components/comComponent/loading'
 import { Toast } from "antd-mobile";
 import { key } from 'src/config.js'
 

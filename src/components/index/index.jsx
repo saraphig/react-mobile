@@ -26,7 +26,8 @@ class IndexComp extends React.Component {
 			isAsc: true, // 是否按照降序排列
 			orderStatus: false,
 			orderStatus2: false,
-			orderStatus3: false
+			orderStatus3: false,
+			finishdata: 'current-none'
 			// orderName: 'volume'
 		};
 	}
@@ -102,7 +103,8 @@ class IndexComp extends React.Component {
 				);
 			}
 			this.setState({
-				data: obj
+				data: obj,
+				finishdata: ''
 			});
 		}
 	}
@@ -245,7 +247,7 @@ class IndexComp extends React.Component {
 			);
 		}
 		return (
-			<div className="indexPage">
+			<div className={`indexPage ${this.state.finishdata}`}>
 				<Header
 					_onClick={this.props._onOpenChange}
 					_open={this.props._open}
