@@ -7,11 +7,16 @@ import enUS from './locale/en_US';
 // import zhTW from './locale/zh_TW';
 
 const url = {
-	baseUri: '//47.94.130.229:8888',
-	tradeUri: '//116.62.202.229',
-	klineUri: '//116.62.202.229/kline/',
-	historyUri: '//116.62.202.229/history/',
-	websocketUri: 'ws://116.62.202.229/ws/'
+	// baseUri: '//47.94.130.229:8888',
+	// tradeUri: '//116.62.202.229',
+	// klineUri: '//116.62.202.229/kline/',
+	// historyUri: '//116.62.202.229/history/',
+	// websocketUri: 'ws://116.62.202.229/ws/'
+	baseUri: '//13.115.246.35:8020',
+	tradeUri: '//13.114.31.55',
+	klineUri: '//13.114.31.55/kline/',
+	historyUri: '//13.114.31.55/history/',
+	websocketUri: 'ws://175.41.222.86/ws/',
 
 	// baseUri: '//54.199.111.182',
 	// tradeUri: '//52.197.202.202',
