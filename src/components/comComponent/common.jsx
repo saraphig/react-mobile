@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
-import './common.scss';
 import $ from 'jquery';
 import {
 	Tabs,
@@ -17,6 +16,7 @@ import {
 import defaultUserImg from 'assets/images/user_head_img@2x.png';
 import ListView from './ListView';
 import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';
+import './common.scss';
 
 //按钮
 export const Buttons = props => {

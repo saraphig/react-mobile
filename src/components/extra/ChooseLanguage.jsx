@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './chooseLanguage.scss';
 import { List, Item, Radio, Checkbox } from 'antd-mobile';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
@@ -12,6 +11,8 @@ import {
 	ServerTips,
 	Validate
 } from '../comComponent/common';
+import './chooseLanguage.scss';
+
 // const Item = List.Item;
 const RadioItem = Radio.RadioItem;
 

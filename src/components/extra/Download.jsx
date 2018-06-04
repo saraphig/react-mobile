@@ -1,9 +1,9 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './download.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import { Buttons } from '../comComponent/common';
+import './download.scss';
 
 class DownloadComp extends React.Component {
 	constructor(props) {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './phoneConfirm.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import {
@@ -12,6 +11,8 @@ import {
 	Validate
 } from '../comComponent/common';
 import { Drawer, List } from 'antd-mobile';
+import './phoneConfirm.scss';
+
 
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './registerEmail.scss';
 import Header from 'components/comComponent/header/Header';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import {
@@ -12,6 +11,7 @@ import {
 } from '../comComponent/common';
 import Drawers from 'components/container/Drawers';
 import { topToast } from 'utils/comFunction';
+import './registerEmail.scss';
 
 class RegisterEmailComp extends React.Component {
 	constructor(props) {

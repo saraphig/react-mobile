@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './login.scss';
 import Header from 'components/comComponent/header/Header';
 import { List, NavBar, Icon } from 'antd-mobile';
 import Drawers from 'components/container/Drawers';
 import { dun } from 'src/config';
 import { MidText, Input, Buttons, BottomTips } from '../comComponent/common';
 import { topToast, emailCheck } from 'utils/comFunction';
+import './login.scss';
 
 class LoginComp extends React.Component {
 	constructor(props) {

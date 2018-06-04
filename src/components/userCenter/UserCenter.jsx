@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './userCenter.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import { topToast } from 'utils/comFunction';
@@ -15,6 +14,8 @@ import {
 	SwitchItem,
 	AlertModal
 } from '../comComponent/common';
+import './userCenter.scss';
+
 function closest(el, selector) {
 	const matchesSelector =
 		el.matches ||

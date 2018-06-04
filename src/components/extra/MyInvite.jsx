@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './myInvite.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import {
@@ -12,6 +11,7 @@ import {
 	Validate,
 	Navbars
 } from '../comComponent/common';
+import './myInvite.scss';
 
 class MyInviteComp extends React.Component {
 	constructor(props) {

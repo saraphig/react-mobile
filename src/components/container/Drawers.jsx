@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import '../comComponent/common.scss';
 import { localeList } from '../../config';
 import {
 	Tabs,
@@ -13,6 +12,8 @@ import {
 	NavBar,
 	Drawer
 } from 'antd-mobile';
+import '../comComponent/common.scss';
+
 // import defaultUserImg from 'assets/images/user_head_img@2x.png';
 // import ListView from './ListView';
 // import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from 'constants';

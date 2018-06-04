@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './index.scss';
 import { List, NavBar, Icon } from 'antd-mobile';
 // import ReactLoading from 'react-loading';
 import Drawers from 'components/container/Drawers';
@@ -14,6 +13,7 @@ import {
 	Validate,
 	CoinTabs
 } from '../comComponent/common';
+import './index.scss';
 
 class IndexComp extends React.Component {
 	constructor(props) {

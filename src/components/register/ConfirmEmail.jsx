@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './confirmEmail.scss';
 import Header from 'components/comComponent/header/Header';
 import {
 	MidText,
@@ -12,6 +11,7 @@ import {
 } from '../comComponent/common';
 import Drawers from 'components/container/Drawers';
 import { dun } from 'src/config';
+import './confirmEmail.scss';
 
 class ConfirmEmailComp extends React.Component {
 	constructor(props) {

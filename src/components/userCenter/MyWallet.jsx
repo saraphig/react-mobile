@@ -1,13 +1,13 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
-import './myWallet.scss';
-import Header from 'components/comComponent/header/Header';
 import {
 	Navbars
 } from '../comComponent/common';
 import { Checkbox } from 'antd-mobile';
 import Drawers from 'components/container/Drawers';
+import Header from 'components/comComponent/header/Header';
 import { connect } from 'react-redux';
+import './myWallet.scss';
 
 class MyWalletComp extends React.Component {
 	constructor(props) {

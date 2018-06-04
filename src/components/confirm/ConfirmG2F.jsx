@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import './confirmG2f.scss';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import {
@@ -12,6 +11,8 @@ import {
 	Validate
 } from '../comComponent/common';
 import { List, NavBar, Icon } from 'antd-mobile';
+import './confirmG2f.scss';
+
 
 class ConfirmG2FComp extends React.Component {
 	constructor(props) {

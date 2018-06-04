@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Drawer, List, NavBar, Icon } from 'antd-mobile';
-import './header.scss';
 import { getCookie } from 'utils/comFunction';
+import './header.scss';
 
 class Header extends React.Component {
 	constructor(props) {
