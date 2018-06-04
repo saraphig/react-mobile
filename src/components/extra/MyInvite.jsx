@@ -75,6 +75,14 @@ class MyInviteComp extends React.Component {
 						<img src={this.props.inviteSrc} />
 					</span>
 				</div>
+				<div className="myInvite-tip">
+					<span>
+						<svg className="notice-icon" aria-hidden="true">
+							<use xlinkHref="#icon-svg45-copy" />
+						</svg>
+					</span>
+					<span>{formatMessage({id:'myInvite.tip'})}</span>
+				</div>
 				<div className="myInvite-content-items">
 					<div className="myInvite-item">
 						<div className="myInvite-item-T">T1</div>

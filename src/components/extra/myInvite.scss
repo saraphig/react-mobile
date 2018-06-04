@@ -151,3 +151,21 @@
     color: #969696;
     line-height: 20px;
 }
+.myInvite-tip {
+    padding: 20px 20px 0;
+    display: flex;
+    span:nth-child(1) {
+        .notice-icon {
+            width: 14px;
+            height: 12px;
+        }
+        margin-right: 5px;
+        margin-top: -8px;
+    }
+    span:nth-child(2) {
+        color: #000000;
+        font-size: 12px;
+        font-weight: 350;
+        line-height: 18px;
+    }
+}

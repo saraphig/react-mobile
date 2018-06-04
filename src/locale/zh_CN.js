@@ -723,6 +723,7 @@ const zh_CN = {
 	'errorPage.status': '很抱歉',
 	'successPage.status': '恭喜您',
 	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
-	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮'
+	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮',
+	'myInvite.tip': '每日上午9点开始返还手续费（北京时间）',
 };
 export default zh_CN;
