@@ -756,6 +756,6 @@ const enUS = {
 	'successPage.status': 'Congratulations！',
 	'errorPage.tips': 'Click the button below to resend an email',
 	'successPage.tips': 'Congratulations on your registration！Click the button below to resend an email',
-	'myInvite.tip': 'The fee commission will be sent to your account at 9:00 AM (UTC-8) everyday.',
+	'myInvite.tip': 'The fee commission will be sent to your account at 10:00 AM (UTC+8) everyday.',
 };
 export default enUS;
