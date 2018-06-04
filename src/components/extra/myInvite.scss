@@ -9,7 +9,7 @@
 }
 
 .myInvite-title {
-    background: #dcb276;
+    background: #dcb276 !important;
     font-weight: 200;
 }
 
@@ -45,7 +45,7 @@
     height: 85px;
 }
 
-.myInvite-content-code canvas{
+.myInvite-content-code canvas {
     width: 86px !important;
     height: 86px !important;
 }
@@ -57,7 +57,7 @@
     user-select: text;
 }
 
-.myInvite-btn-copy {
+.myInvite-content .myInvite-btn-copy {
     width: 84px;
     height: 30px;
     border-radius: 3pt;
@@ -66,7 +66,7 @@
     color: #dab272;
     border: 1px solid #dab272;
     margin-top: 20px;
-    &:active{
+    &:active {
         background-color: #f5f5f5;
     }
 }
@@ -129,6 +129,7 @@
     line-height: 45px;
     text-align: center;
     background: #dcb276;
+    color: #fff;
 }
 
 .myInvite-item-num {
@@ -136,6 +137,7 @@
     height: 45px;
     line-height: 45px;
     text-align: center;
+    color: #969696;
 }
 
 .myInvite-content-introduce {
@@ -146,4 +148,6 @@
 
 .myInvite-content-introduce-detail-item {
     margin-top: 20px;
+    color: #969696;
+    line-height: 20px;
 }
