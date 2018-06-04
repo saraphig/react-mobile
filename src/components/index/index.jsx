@@ -92,6 +92,7 @@ class IndexComp extends React.Component {
 					).toFixed(2);
 				}
 			});
+			
 			//判断升降序来给数据排序
 			if (this.state.isAsc) {
 				obj = obj.sort((b, a) =>

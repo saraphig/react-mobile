@@ -1256,12 +1256,12 @@ export const StatusShow = props => {
 				{props.data.map((item, index) => {
 					let color = '',
 						bizhi = '',
-						reg = /[a-zA-Z]+/gi,
-						items = item.name.match(reg);
+						// reg = /[a-zA-Z]+/gi,
+						//items = item.name.match(reg);
+						items = item.name.split('/');
 					item.change >= 0
 						? ((color = '#5FC555'), (bizhi = '+'))
 						: ((color = '#FF5255'), (bizhi = ''));
-
 					return (
 						<div className="inform-items" key={index}>
 							<span className="inform-item one">
