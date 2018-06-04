@@ -154,13 +154,16 @@
 .myInvite-tip {
     padding: 20px 20px 0;
     display: flex;
+    align-items: baseline;
     span:nth-child(1) {
         .notice-icon {
             width: 14px;
             height: 12px;
         }
         margin-right: 5px;
-        margin-top: -8px;
+        display: flex;
+        position: relative;
+        top: 1px;
     }
     span:nth-child(2) {
         color: #000000;
