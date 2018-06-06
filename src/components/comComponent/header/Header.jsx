@@ -55,11 +55,14 @@ class Header extends React.Component {
 			<div>
 				<div className={`header ${this.props.className}`}>
 					<span className="header-left">
-						<img
+						{/* <img
 							className="header-topone"
 							src={require('assets/images/TOP.ONE@2x.png')}
 							alt="top.one"
-						/>
+						/> */}
+						<object data={require('assets/images/logo.svg')} className="header-topone" 
+						type="image/svg+xml"
+				    	/>
 					</span>
 					<span className="header-right">
 						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>

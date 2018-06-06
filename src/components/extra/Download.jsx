@@ -150,10 +150,13 @@ class DownloadComp extends React.Component {
 			<div className="download-page">
 				<div className="download-middleContent">
 					<img className="download-phone" src={bgImg} />
-					<img
+					{/* <img
 						src={require('assets/images/TOP.ONE@2x.png')}
 						className="download-logo"
-					/>
+					/> */}
+					<object data={require('assets/images/logo.svg')} className="download-logo" 
+						type="image/svg+xml"
+				    />
 					{this.state.msg ? (
 						<img
 							className="download-tips"

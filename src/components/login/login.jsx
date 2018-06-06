@@ -115,10 +115,13 @@ class LoginComp extends React.Component {
 		const content = (
 			<div className="login-middleContent">
 				<p className="middleContent-img-logo">
-					<img
+					{/* <img
 						className="middleContent-logo"
 						src={require('assets/images/TOP.ONE@logo.png')}
 						alt="top.one"
+					/> */}
+					<object data={require('assets/images/logo.svg')} className="middleContent-logo" 
+						type="image/svg+xml"
 					/>
 				</p>
 				<MidText
