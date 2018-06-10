@@ -13,10 +13,10 @@ const url = {
 	historyUri: '//116.62.202.229/history/',
 	websocketUri: 'ws://116.62.202.229/ws/'
 	
-	// baseUri: '//qaapie33e690ab2de05dc.top.one',
-	// tradeUri: '//qatradee33e690ab2de05dc.top.one',
-	// klineUri: '//qatradee33e690ab2de05dc.top.one/kline/',
-	// historyUri: '//qatradee33e690ab2de05dc.top.one/history/',
+	// baseUri: 'https://qaapie33e690ab2de05dc.top.one',
+	// tradeUri: 'https://qatradee33e690ab2de05dc.top.one',
+	// klineUri: 'https://qatradee33e690ab2de05dc.top.one/kline/',
+	// historyUri: 'https://qatradee33e690ab2de05dc.top.one/history/',
 	// websocketUri: 'wss://qasube33e690ab2de05dc.top.one/ws/',
 
 	// baseUri: '//54.199.111.182',

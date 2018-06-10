@@ -24,10 +24,10 @@ class Index extends React.Component {
 	}
 
 	componentWillMount(){
-		this.props.dispatch({type: tradeSaga.setPrice})
-		this.interval = setInterval(() => {
-			this.props.dispatch({type: tradeSaga.setPrice})
-		}, 10000)
+		// this.props.dispatch({type: tradeSaga.setPrice})
+		// this.interval = setInterval(() => {
+		// 	this.props.dispatch({type: tradeSaga.setPrice})
+		// }, 10000)
 	}
 
 	componentDidMount() {
@@ -48,13 +48,14 @@ class Index extends React.Component {
 		// this.dataWs.close();
 		if (this.dataWs){
 		  // 销毁前取消订阅
-		  this.dataWs.sendData(JSON.stringify({"method":"status.unsubscribe","params":[],"id":0}));
+		  this.dataWs.sendData(JSON.stringify({method:"status.unsubscribe",params:[],"id":0}));
+		  this.dataWs.sendData(JSON.stringify({method:"prices.unsubscribe",params:[],"id":0}));
 		  this.dataWs.destroy();
 		}
 		this.dataWs = null;
-		if (this.interval) {
-	       clearInterval(this.interval)
-	    }
+		// if (this.interval) {
+	    //    clearInterval(this.interval)
+	    // }
 	}
 
 	openSocket = () => {
@@ -113,6 +114,13 @@ class Index extends React.Component {
 			arrName.push(el.name)
 		})
 		if (id === 1) {
+			// 订阅法币价格
+			let query2 = {
+				method: 'prices.subscribe',
+				params: [],
+				id: 0
+			};
+			this.dataWs.sendData(JSON.stringify(query2));
 			let query = {
 				method: 'status.subscribe',
 				params: arrName,
@@ -120,6 +128,10 @@ class Index extends React.Component {
 			};
 			// this.dataWs.send(JSON.stringify(query));
 			this.dataWs.sendData(JSON.stringify(query));
+		}
+
+		if (method === 'prices.update') {
+			this.props.dispatch({type: tradeSaga.setPrice, payload: params[0]})
 		}
 
 		if (method === 'daystatus.update') {

@@ -5,22 +5,25 @@ import { actionType as tradingSaga } from 'models/sagas/trading';
 import { actionType as userCenterSaga } from 'models/sagas/userCenter';
 import { actionType as tradeSaga } from 'models/sagas/trading';
 import MyWalletComp from 'components/userCenter/MyWallet';
-import { getCookie} from "../../utils/comFunction";
+import { getCookie, topToast} from "utils/comFunction";
+import wsSocket from 'utils/webSocketUtil';
 
 class MyWallet extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			open: false,
-		};
+        };
+        this.dataWs = null;
 	}
 	componentWillMount() {
 		const token = getCookie('token');
 		if(token){
-            this.props.dispatch({type: tradeSaga.setPrice})
-            this.interval = setInterval(() => {
-                this.props.dispatch({type: tradeSaga.setPrice})
-            }, 10000);
+            // this.props.dispatch({type: tradeSaga.setPrice})
+            // this.interval = setInterval(() => {
+            //     this.props.dispatch({type: tradeSaga.setPrice})
+            // }, 10000);
+            this.openSocket()
             this.props.dispatch({
                 type: tradingSaga.tradeAssets,
                 payload: {
@@ -55,8 +58,53 @@ class MyWallet extends React.Component {
 		}
 	}
     componentWillUnmount() {
-        if (this.interval) {
-            clearInterval(this.interval)
+        // if (this.interval) {
+        //     clearInterval(this.interval)
+        // }
+		if (this.dataWs){
+            // 销毁前取消订阅
+            this.dataWs.sendData(JSON.stringify({method:"prices.unsubscribe",params:[],"id":0}));
+            this.dataWs.destroy();
+          }
+          this.dataWs = null;
+    }
+
+    // 连接ws
+    openSocket = () => {
+        const dataWs = [
+            { method: 'server.ping', params: ['coinKind'], id: 1 }
+        ];
+        // this.dataWs = wsRequest(dataWs, this.wsMessage, this.error);
+        this.dataWs = wsSocket(dataWs, this.wsMessage, this.error);
+    }
+
+    // 请求失败
+    error = (err) => {
+		// alert('网络异常，请求失败',err)
+		// console.log(err)
+	const {
+		intl: { formatMessage }
+	} = this.props;
+	topToast(formatMessage({ id: 'serverError' }));
+	// this.setIsRefreshCaptcha();
+    };
+    
+    // 获取ws推送数据
+    wsMessage = data => {
+		// console.log(data, this.dataWs);
+		const { method, params, id, result, error } = data;
+		if (id === 1) {
+			// 订阅法币价格
+			let query2 = {
+				method: 'prices.subscribe',
+				params: [],
+				id: 0
+			};
+			this.dataWs.sendData(JSON.stringify(query2));
+		}
+
+		if (method === 'prices.update') {
+			this.props.dispatch({type: tradeSaga.setPrice, payload: params[0]})
         }
     }
 

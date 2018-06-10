@@ -38,10 +38,11 @@ export function* setMarketData({ payload }) {
 
 // 设置更新的数据
 export function* setPrice({ payload }) {
-    const { data } = yield call(trading.coinPrice)
-    if (data.error_code === 200) {
-       yield put({ type: tradeReducer.setPrice, payload: data.data.data });
-    }
+    // const { data } = yield call(trading.coinPrice)
+    // if (data.error_code === 200) {
+    //    yield put({ type: tradeReducer.setPrice, payload: data.data.data });
+    // }
+    yield put({ type: tradeReducer.setPrice, payload});
 }
 
 // 获取个人资产
