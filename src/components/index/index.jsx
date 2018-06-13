@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { List, NavBar, Icon } from 'antd-mobile';
-// import ReactLoading from 'react-loading';
+import ReactLoading from 'react-loading';
 import Drawers from 'components/container/Drawers';
 import Header from 'components/comComponent/header/Header';
 import {
@@ -221,7 +221,7 @@ class IndexComp extends React.Component {
 			</div>
 		);
 		let content = <div />;
-		if (this.state.data.length > 0) {
+		if (this.state.data.length > 0 && this.state.finishdata === '') {
 			content = (
 				<div className="index-middleContent">
 					<CoinTabs
@@ -235,21 +235,21 @@ class IndexComp extends React.Component {
 					{/* {appDownLoadBar} */}
 				</div>
 			);
-		} 
-		// else {
-		// 	content = (
-		// 		<div className="index-middleContent loading">
-		// 			<ReactLoading
-		// 				type="cylon"
-		// 				color="#dcb277"
-		// 				height={100}
-		// 				width={100}
-		// 			/>
-		// 		</div>
-		// 	);
-		// }
+		} else {
+			content = (
+				<div className="index-middleContent loading">
+					<ReactLoading
+						type="cylon"
+						color="#dcb277"
+						height={100}
+						width={100}
+					/>
+				</div>
+			);
+		}
 		return (
-			<div className={`indexPage ${this.state.finishdata}`}>
+			// ${this.state.finishdata}
+			<div className={`indexPage`}>
 				<Header
 					_onClick={this.props._onOpenChange}
 					_open={this.props._open}

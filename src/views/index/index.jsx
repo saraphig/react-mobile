@@ -155,13 +155,13 @@ class Index extends React.Component {
 		} = this.props;
 		const { open } = this.state;
 
-		let box = <Loading/>
-		if (this.state.updateData.length > 0) {
-			box = null
-		}
+		// let box = <Loading/>
+		// if (this.state.updateData.length > 0) {
+		// 	box = null
+		// }
 		return (
 			<div>
-				{box}
+				{/* {box} */}
 				<IndexComp 
 				  _onOpenChange={this._onOpenChange} 
 				  _open={open}
