@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
-import $ from 'jquery';
+// import $ from 'jquery';
 import {
 	Tabs,
 	WhiteSpace,

@@ -13,51 +13,63 @@ import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
 // import MyInvite from 'views/extra/MyInvite';
 // import Mywallet from 'views/userCenter/Mywallet';
 // import UserCenter from 'views/userCenter/UserCenter';
-import { asyncComponent } from 'utils/comFunction.js';
 // import Test from 'views/index/Test';
+// import { asyncComponent } from 'utils/comFunction.js';
 
 // 加载组件
-const Index = asyncComponent(() => import('views/index/index'));
-// import Index from 'views/index/index';
-const Login = asyncComponent(() => import('views/login/Login'));
-// import Login from 'views/login/index';
+// const Index = asyncComponent(() => import('views/index/index'));
+// const Login = asyncComponent(() => import('views/login/Login'));
+// const Register = asyncComponent(() => import('views/register/Register'));
+// const RegisterEmail = asyncComponent(() =>
+// 	import('views/register/RegisterEmail')
+// );
+// const ConfirmEmail = asyncComponent(() =>
+// 	import('views/register/ConfirmEmail')
+// );
+// const ConfirmG2f = asyncComponent(() => import('views/confirm/ConfirmG2f'));
+// const PhoneConfirm = asyncComponent(() => import('views/confirm/PhoneConfirm'));
+// const DoubleConfirm = asyncComponent(() =>
+// 	import('views/confirm/DoubleConfirm')
+// );
+// const ChooseLanguage = asyncComponent(() =>
+// 	import('views/extra/ChooseLanguage')
+// );
+// const MyInvite = asyncComponent(() => import('views/extra/MyInvite'));
+// const Mywallet = asyncComponent(() => import('views/userCenter/Mywallet'));
+// const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
+// const Agreement = asyncComponent(() => import('views/extra/Agreement'));
+// const Download = asyncComponent(() => import('views/extra/Download'));
+// const NotFound = asyncComponent(() => import('views/extra/404'));
+// const SuccessPage = asyncComponent(() => import('views/extra/SuccessPage'));
+// const ErrorPage = asyncComponent(() => import('views/extra/ErrorPage'));
+// const ResendEmail = asyncComponent(() => import('views/extra/ResendEmail'));
 
-// import Register from 'views/register/Register';
-const Register = asyncComponent(() => import('views/register/Register'));
-// import RegisterEmail from 'views/register/RegisterEmail';
-const RegisterEmail = asyncComponent(() =>
-	import('views/register/RegisterEmail')
-);
-// import ConfirmEmail from 'views/register/ConfirmEmail';
-const ConfirmEmail = asyncComponent(() =>
-	import('views/register/ConfirmEmail')
-);
-// import ConfirmG2f from 'views/confirm/ConfirmG2f';
-const ConfirmG2f = asyncComponent(() => import('views/confirm/ConfirmG2f'));
-// import PhoneConfirm from 'views/confirm/PhoneConfirm';
-const PhoneConfirm = asyncComponent(() => import('views/confirm/PhoneConfirm'));
-// import DoubleConfirm from 'views/confirm/DoubleConfirm';
-const DoubleConfirm = asyncComponent(() =>
-	import('views/confirm/DoubleConfirm')
-);
-// import ChooseLanguage from 'views/extra/ChooseLanguage';
-const ChooseLanguage = asyncComponent(() =>
-	import('views/extra/ChooseLanguage')
-);
-// import MyInvite from 'views/extra/MyInvite';
-const MyInvite = asyncComponent(() => import('views/extra/MyInvite'));
-// import Mywallet from 'views/userCenter/Mywallet';
-const Mywallet = asyncComponent(() => import('views/userCenter/Mywallet'));
-// import UserCenter from 'views/userCenter/UserCenter';
-const UserCenter = asyncComponent(() => import('views/userCenter/UserCenter'));
 // import Test from 'views/index/Test';
 // const Test = asyncComponent(() => import('views/index/Test'));
-const Agreement = asyncComponent(() => import('views/extra/Agreement'));
-const Download = asyncComponent(() => import('views/extra/Download'));
-const NotFound = asyncComponent(() => import('views/extra/404'));
-const SuccessPage = asyncComponent(() => import('views/extra/SuccessPage'));
-const ErrorPage = asyncComponent(() => import('views/extra/ErrorPage'));
-const ResendEmail = asyncComponent(() => import('views/extra/ResendEmail'));
+
+
+
+
+
+import Index from 'views/index/index';
+import Login from 'views/login/Login';
+import Register from 'views/register/Register';
+import RegisterEmail from 'views/register/RegisterEmail';
+import ConfirmEmail from 'views/register/ConfirmEmail';
+import ConfirmG2f from 'views/confirm/ConfirmG2f';
+import PhoneConfirm from 'views/confirm/PhoneConfirm';
+import DoubleConfirm from 'views/confirm/DoubleConfirm';
+import ChooseLanguage from 'views/extra/ChooseLanguage';
+import MyInvite from 'views/extra/MyInvite';
+import Mywallet from 'views/userCenter/Mywallet';
+import UserCenter from 'views/userCenter/UserCenter';
+import Agreement from 'views/extra/Agreement'
+import Download from 'views/extra/Download';
+import NotFound from 'views/extra/404';
+import SuccessPage from 'views/extra/SuccessPage';
+import ErrorPage from 'views/extra/ErrorPage';
+import ResendEmail from 'views/extra/ResendEmail';
+
 
 const routes = [
 	{
