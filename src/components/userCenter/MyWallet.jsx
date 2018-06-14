@@ -47,7 +47,8 @@ class MyWalletComp extends React.Component {
 		const {
 			intl: { formatMessage },
             myAssets,
-            priceETH
+            priceETH,
+            iconList,
 		} = this.props;
 		const {
             isSee,
@@ -93,15 +94,17 @@ class MyWalletComp extends React.Component {
 				<div className="myWallet-money-card-all">
 					{
                         myAssets.coinList.map((coin,index) => {
-
+                            let icon = iconList[coin.coin];
+                            if(icon === '' || icon === undefined) {
+                                icon = 'https://top.one/lib/coin/DEFAULT.png';
+                            }
                         	return (isHideSmall&&coin.total==0)?null:(<div className="myWallet-money-card" key={index}>
                                 <div className="myWallet-card">
                                     <div className="myWallet-card-title">
                                         <div>
                                             <img
-                                                src={'https://top.one/lib/coin/'+coin.coin+'.png'}
-                                                alt="btc"
-												onError={(e) => e.target.src=require('assets/images/DEFAULT.png')}
+                                                src={icon}
+                                                alt={coin.coin}
                                             />
                                             <span>{coin.coin}</span>
                                         </div>

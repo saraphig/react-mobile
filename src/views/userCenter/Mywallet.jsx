@@ -13,6 +13,7 @@ class MyWallet extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
+            iconList: {},
         };
         this.dataWs = null;
 	}
@@ -46,6 +47,26 @@ class MyWallet extends React.Component {
                     },
                     fail: err => {
                         // console.log(err);
+                        //token 失效
+                        if(Number(err.code) == 10003) {
+                            this.props.history.push('/login');
+                        }
+                    }
+                }
+            });
+
+            // 获取资产币种图标
+            this.props.dispatch({
+                type: userCenterSaga.iconList,
+                payload: {
+                    query: {
+                    },
+                    success: data => {
+                        this.setState({
+                            iconList: eval('('+data.list+')'),
+                        });
+                    },
+                    fail: err => {
                         //token 失效
                         if(Number(err.code) == 10003) {
                             this.props.history.push('/login');
@@ -114,12 +135,13 @@ class MyWallet extends React.Component {
 	};
 
 	render() {
-		const { open } = this.state;
+		const { open,iconList } = this.state;
 		return (
 			<div>
 				<MyWalletComp
 					_onOpenChange={this._onOpenChange}
 					_open={open}
+                    iconList={iconList}
 				/>
 			</div>
 		);

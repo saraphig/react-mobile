@@ -37,3 +37,11 @@ export function getFeeBack(query) {
     });
 }
 
+// 获取资产币种图标
+export function iconList(query) {
+    return request({
+        url: '/api/coinIconList',
+        method: 'get',
+        data: query
+    });
+}

@@ -12,6 +12,7 @@ export const actionType = {
     topFeeUpdate: 'userCenter/topFeeUpdate',
     setMyCoinAccount: 'userCenter/coinAccount',
     getFeeBack: 'userCenter/getFeeBack',
+    iconList: 'userCenter/iconList',
 }
 
 export function* getInviteInfo({ payload: { query, success, fail } }) {
@@ -78,6 +79,17 @@ export function* getFeeBack({ payload: { query, success, fail } }) {
     }
 }
 
+// 获取资产币种图标
+export function* iconList({ payload: { query, success, fail } }) {
+    const { data } = yield call(userCenterApi.iconList, query);
+    if (data.error_code === 200) {
+        success(data.data);
+    } else {
+        fail(data.error_code);
+    }
+}
+
+
 export default function* root() {
     yield [
         takeLatest(actionType.getInviteInfo, getInviteInfo),
@@ -85,5 +97,6 @@ export default function* root() {
         takeLatest(actionType.topFeeUpdate, topFeeUpdate),
         takeLatest(actionType.setMyCoinAccount, setMyCoinAccount),
         takeLatest(actionType.getFeeBack, getFeeBack),
+        takeLatest(actionType.iconList, iconList),
     ];
 }
