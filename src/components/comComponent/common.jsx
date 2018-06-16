@@ -826,7 +826,9 @@ export class CoinTabs extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tabs: [{ title: 'ETH' }]
+			tabs: [{ title: 'ETH' },
+			       { title: 'USDT' }
+	    	]
 		};
 	}
 
@@ -845,6 +847,11 @@ export class CoinTabs extends React.Component {
 	// 	{ title: 'BTC' }
 	// ];
 
+	tabChange(e){
+		// console.log(e.title)
+		this.props.handleChange(e.title)
+	}
+
 	render() {
 		return (
 			<div>
@@ -859,6 +866,7 @@ export class CoinTabs extends React.Component {
 						borderColor: '#DCB276'
 					}}
 					tabBarTextStyle={{ fontWeight: 300 }}
+					onChange={(e) => this.tabChange(e)}
 				>
 					<div className="inform-height">
 						{/* <InformItem /> */}
@@ -1128,7 +1136,18 @@ export class CoinTabs extends React.Component {
 							orderName={this.props.orderName}
 						/>
 					</div>
-					<div>{/* <InformItem /> */}</div>
+					<div>{/* <InformItem /> */}
+					    <StatusShow
+							data={this.props.data}
+							sortData={(val, status) =>
+								this.sortData(val, status)
+							}
+							orderStatus={this.props.orderStatus}
+							orderStatus2={this.props.orderStatus2}
+							orderStatus3={this.props.orderStatus3}
+							orderName={this.props.orderName}
+						/>
+					</div>
 				</Tabs>
 			</div>
 		);

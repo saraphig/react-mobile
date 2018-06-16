@@ -11,6 +11,7 @@ export const actionType = {
     tradeApi: 'trade/tradeApi',
     setMarketData: 'trade/setMarketData',
     setPrice: 'trade/setPrice',
+    setPriceAll: 'trade/setPriceAll',
     tradeAssets: 'trade/tradeAssets',
 }
 
@@ -45,6 +46,15 @@ export function* setPrice({ payload }) {
     yield put({ type: tradeReducer.setPrice, payload});
 }
 
+// 设置全部法币
+export function* setPriceAll({ payload }) {
+    // const { data } = yield call(trading.coinPrice)
+    // if (data.error_code === 200) {
+    //    yield put({ type: tradeReducer.setPrice, payload: data.data.data });
+    // }
+    yield put({ type: tradeReducer.setPriceAll, payload});
+}
+
 // 获取个人资产
 export function* tradeAssets({ payload: { query, success, fail } }) {
     const { data } = yield call(trading.Api, query);
@@ -60,6 +70,7 @@ export default function* root() {
       takeLatest(actionType.tradeApi, tradeApi),
       takeLatest(actionType.setMarketData, setMarketData),
       takeLatest(actionType.setPrice, setPrice),
+      takeLatest(actionType.setPriceAll, setPriceAll),
       takeLatest(actionType.tradeAssets, tradeAssets)
     ]
 }

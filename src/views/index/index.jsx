@@ -131,7 +131,8 @@ class Index extends React.Component {
 		}
 
 		if (method === 'prices.update') {
-			this.props.dispatch({type: tradeSaga.setPrice, payload: params[0]})
+			// console.log('prices.update', params[0])
+			this.props.dispatch({type: tradeSaga.setPriceAll, payload: params})
 		}
 
 		if (method === 'daystatus.update') {
