@@ -80,28 +80,40 @@ class IndexComp extends React.Component {
 				this.state.initData.length != 0) ||
 			(this.state.updateData.length != 0 &&
 				this.state.initData.length != 0 &&
-				nextProps.priceAll.length > 0)
+				nextProps.price != null)
 		) {
 			let obj = [...this.state.data];
 			let objAll = [...this.state.dataAll];
 			let price = 0;
 			let unit = '';
 			let basicsToken = this.state.basicsToken
-			if (nextProps.priceAll.length > 0) {
-				let priceObj = null
-				nextProps.priceAll.forEach(el => {
-					if (basicsToken.toLowerCase() === Object.keys(el)[0]) {
-						// console.log('Object.values(el)[0]',Object.values(el)[0])
-						priceObj = Object.values(el)[0]
-					}
-				})
-				price =
-					localStorage.getItem('language') == 'zh'
-						? priceObj.cny
-						: priceObj.usd;
+			// if (nextProps.price) {
+			// 	let priceObj = null
+			// 	nextProps.priceAll.forEach(el => {
+			// 		if (basicsToken.toLowerCase() === Object.keys(el)[0]) {
+			// 			// console.log('Object.values(el)[0]',Object.values(el)[0])
+			// 			priceObj = Object.values(el)[0]
+			// 		}
+			// 	})
+			// 	price =
+			// 		localStorage.getItem('language') == 'zh'
+			// 			? priceObj.cny
+			// 			: priceObj.usd;
 				unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
-			}
+			// }
 			obj.forEach(el => {
+				// console.log('哈哈', nextProps.price)
+				
+				if (nextProps.price) {
+					// console.log('哈哈',this.state.ethPrice[el.money.toLowerCase()])
+					let priceObj = nextProps.price[el.money.toLowerCase()]
+					price =
+					localStorage.getItem('language') == 'zh'
+					  ? priceObj.cny
+					  : priceObj.usd;
+					// unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
+				}
+
 				if (el.name === nextProps.updateData[0]) {
 					// console.log('===',nextProps.updateData[0])
 					el.volume = (nextProps.updateData[1][0][6] * 1).toFixed(2);
@@ -118,6 +130,16 @@ class IndexComp extends React.Component {
 				}
 			});
 			objAll.forEach(el => {
+
+				if (nextProps.price) {
+					// console.log('哈哈',this.state.ethPrice[el.money.toLowerCase()])
+					let priceObj = nextProps.price[el.money.toLowerCase()]
+					price =
+					localStorage.getItem('language') == 'zh'
+					  ? priceObj.cny
+					  : priceObj.usd;
+					// unit = localStorage.getItem('language') == 'zh' ? '￥' : '$';
+				}
 				if (el.name === nextProps.updateData[0]) {
 					// console.log('===',nextProps.updateData[0])
 					el.volume = (nextProps.updateData[1][0][6] * 1).toFixed(2);
@@ -139,8 +161,14 @@ class IndexComp extends React.Component {
 				obj = obj.sort((b, a) =>
 					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
 				);
+				objAll = objAll.sort((b, a) =>
+					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
+				);
 			} else {
 				obj = obj.sort((a, b) =>
+					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
+				);
+				objAll = objAll.sort((a, b) =>
 					this.sortDeal(a[this.state.sortBy], b[this.state.sortBy])
 				);
 			}
@@ -328,6 +356,7 @@ const mapStateToProps = state => ({
 	// token: state.login.token,
 	// market: state.trade.market,
 	// marketData: state.trade.marketData,
+	price: state.trade.price,
 	priceAll: state.trade.priceAll
 });
 
