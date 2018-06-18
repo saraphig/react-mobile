@@ -125,13 +125,13 @@ class MyWallet extends React.Component {
 		}
 
 		if (method === 'prices.update') {
-            let eth = null
-            params.forEach(el => {
-                if (Object.keys(el)[0] === 'eth') {
-                    eth = el
-                }
-            })
-			this.props.dispatch({type: tradeSaga.setPrice, payload: eth})
+            // let eth = null
+            // params.forEach(el => {
+            //     if (Object.keys(el)[0] === 'eth') {
+            //         eth = el
+            //     }
+            // })
+			this.props.dispatch({type: tradeSaga.setPrice, payload: params[0]})
         }
     }
 
