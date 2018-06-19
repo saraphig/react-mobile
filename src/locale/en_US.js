@@ -510,7 +510,7 @@ const enUS = {
 	'changeLoginPassword.changePassword': 'Password Modification',
 	'candyDetail.copy': 'Copy',
 	//=====
-	'candyDetail.poster': '生成专属海报',
+	'candyDetail.poster': 'Create your own posters',
 	//===
 	'candyDetail.inviteFriends': 'Invite Friends',
 	'candyDetail.copySuccess': 'Copied the link successfully. Please paste it.',
