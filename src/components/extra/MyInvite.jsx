@@ -19,7 +19,8 @@ class MyInviteComp extends React.Component {
 	}
 
 	makingPoster = () => {
-		window.location.href = "https://fortop.one/share/?inviteCode=" + this.props.info.invite_code
+		window.open(`https://fortop.one/share/?inviteCode=${this.props.info.invite_code}`);      
+		// window.location.href = "https://fortop.one/share/?inviteCode=" + this.props.info.invite_code
 	}
 
 	render() {
