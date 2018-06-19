@@ -79,9 +79,9 @@ class MyInviteComp extends React.Component {
             />*/}
 						{/* <img src={this.props.inviteSrc} />
 					</span> */}
+					
 					<Buttons
-						className="myInvite-btn-copy"
-						style={{minWidth: 120, marginBottom: 20}}
+						className="myInvite-btn-copy make-post"
 						buttonText={formatMessage({
 							id: 'candyDetail.poster'
 						})}
