@@ -3,13 +3,22 @@ import { injectIntl } from 'react-intl';
 import Header from 'components/comComponent/header/Header';
 import Drawers from 'components/container/Drawers';
 import copy from 'copy-to-clipboard';
-import { topToast } from 'utils/comFunction';
+import { topToast, getCookie } from 'utils/comFunction';
 import './myInvite.scss';
 
 class MyInviteComp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+		  fromApp: getCookie('fromApp') || false, //是否APP打开的
+    }
 	}
+
+  componentWillMount(){
+	  if(this.state.fromApp){
+	    document.body.style.backgroundColor = '#f5f5f5';
+    }
+  }
 
   copyInviteUrl = () => {
     copy(this.props.inviteUrl);
@@ -23,6 +32,8 @@ class MyInviteComp extends React.Component {
       myPosterLink,
       inviteInfo
 		} = this.props;
+
+		const { fromApp } = this.state;
 
 		const content = (
 			<div className="inviteCard-wrapper">
@@ -51,18 +62,18 @@ class MyInviteComp extends React.Component {
 		);
 		return (
 			<div className="myInvite">
-				<div className="myInvite-bg">
-					<Header
-						className="myInvite-header"
-						_onClick={this.props._onOpenChange}
-						_open={this.props._open}
-					/>
-					<Drawers
-						childrenNode={content}
-						_onOpenChange={this.props._onOpenChange}
-						_open={this.props._open}
-					/>
-				</div>
+        {fromApp ? <div className="myInvite-bg">{content}</div> : <div className="myInvite-bg">
+          <Header
+            className="myInvite-header"
+            _onClick={this.props._onOpenChange}
+            _open={this.props._open}
+          />
+          <Drawers
+            childrenNode={content}
+            _onOpenChange={this.props._onOpenChange}
+            _open={this.props._open}
+          />
+        </div>}
 			</div>
 		);
 	}
