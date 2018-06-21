@@ -494,7 +494,7 @@ const zh_CN = {
 	'changeLoginPassword.changePassword': '修改密码',
 	'candyDetail.copy': '复制',
 	//=====
-	'candyDetail.poster': '生成专属海报',
+	//'candyDetail.poster': '生成专属海报',
 	//===
 	'candyDetail.inviteFriends': '邀请好友',
 	'candyDetail.copySuccess': '复制网址成功，请粘贴！',
@@ -728,5 +728,10 @@ const zh_CN = {
 	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
 	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮',
 	'myInvite.tip': '每日上午10点开始返还手续费（北京时间）',
+  'candyDetail.poster': '专属海报',
+  'candyDetail.inviteTotal': '总邀请人数:',
+  'candyDetail.ruleLink': 'https://toponehelp.zendesk.com/hc/zh-cn/articles/360004917611',
+  'candyDetail.getScore': '获取积分数',
+  'candyDetail.scoreForMan': '分/人'
 };
 export default zh_CN;

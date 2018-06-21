@@ -60,7 +60,7 @@ import ConfirmG2f from 'views/confirm/ConfirmG2f';
 import PhoneConfirm from 'views/confirm/PhoneConfirm';
 import DoubleConfirm from 'views/confirm/DoubleConfirm';
 import ChooseLanguage from 'views/extra/ChooseLanguage';
-import MyInvite from 'views/extra/MyInvite';
+import MyInvite from 'views/userCenter/MyInvite';
 import Mywallet from 'views/userCenter/Mywallet';
 import UserCenter from 'views/userCenter/UserCenter';
 import Agreement from 'views/extra/Agreement'
