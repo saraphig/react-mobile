@@ -728,5 +728,6 @@ const zh_CN = {
 	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
 	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮',
 	'myInvite.tip': '每日上午10点开始返还手续费（北京时间）',
+  'withPcOpen.fromPc': '您的邮箱链接只能在电脑上点开哦',
 };
 export default zh_CN;
