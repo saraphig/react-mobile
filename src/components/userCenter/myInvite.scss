@@ -48,7 +48,6 @@
         display: flex;
         justify-content: center;
         .copy-link, .my-poster {
-          padding: 9px 30px;
           border-radius: 3px;
           font-size: 14px;
         }
@@ -56,12 +55,14 @@
           margin-right: 40px;
           color: #DCB277;
           border: 1px solid #DCB277;
+          padding: 9px 30px;
           &:active {
             background-color: #DCB277;
             color: #fff;
           }
         }
         .my-poster {
+          padding: 9px 17px;
           background-color: #DCB277;
           color: #fff;
           &:active {
