@@ -18,6 +18,11 @@ class MyInviteComp extends React.Component {
 		super(props);
 	}
 
+	makingPoster = () => {
+		window.open(`https://fortop.one/share/?inviteCode=${this.props.info.invite_code}`);      
+		// window.location.href = "https://fortop.one/share/?inviteCode=" + this.props.info.invite_code
+	}
+
 	render() {
 		const {
 			intl: { formatMessage },
@@ -64,16 +69,26 @@ class MyInviteComp extends React.Component {
 						<img key="1" src={require('assets/images/erwei.png')} />
 					]}
 				/>
-				<div className="myInvite-friend-content ">
-					<span className="myInvite-content-code">
+				<div className="myInvite-content">
+				{/* <div className="myInvite-friend-content "> */}
+					{/* <span className="myInvite-content-code"> */}
 						{/*<img
               src={require('assets/images/code.png')}
               alt={formatMessage({
                 id: 'candyDetail.qrDode'
               })}
             />*/}
-						<img src={this.props.inviteSrc} />
-					</span>
+						{/* <img src={this.props.inviteSrc} />
+					</span> */}
+					
+					<Buttons
+						className="myInvite-btn-copy make-post"
+						buttonText={formatMessage({
+							id: 'candyDetail.poster'
+						})}
+						_onClick={this.makingPoster}
+						data-clipboard-target="#foo"
+					/>
 				</div>
 				<div className="myInvite-tip">
 					<span>

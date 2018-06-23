@@ -493,6 +493,9 @@ const zh_CN = {
 	'changeLoginPassword.confirmNewPassword': '确认新密码',
 	'changeLoginPassword.changePassword': '修改密码',
 	'candyDetail.copy': '复制',
+	//=====
+	'candyDetail.poster': '生成专属海报',
+	//===
 	'candyDetail.inviteFriends': '邀请好友',
 	'candyDetail.copySuccess': '复制网址成功，请粘贴！',
 	'contactUs.biwen': '币问',

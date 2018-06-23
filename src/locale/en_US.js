@@ -509,6 +509,9 @@ const enUS = {
 	'changeLoginPassword.confirmNewPassword': 'Confirm Password',
 	'changeLoginPassword.changePassword': 'Password Modification',
 	'candyDetail.copy': 'Copy',
+	//=====
+	'candyDetail.poster': 'Create your own posters',
+	//===
 	'candyDetail.inviteFriends': 'Invite Friends',
 	'candyDetail.copySuccess': 'Copied the link successfully. Please paste it.',
 	'webBottom.content':
