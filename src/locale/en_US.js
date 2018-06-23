@@ -510,7 +510,7 @@ const enUS = {
 	'changeLoginPassword.changePassword': 'Password Modification',
 	'candyDetail.copy': 'Copy',
 	//=====
-	'candyDetail.poster': 'Create your own posters',
+	// 'candyDetail.poster': 'Create your own posters',
 	//===
 	'candyDetail.inviteFriends': 'Invite Friends',
 	'candyDetail.copySuccess': 'Copied the link successfully. Please paste it.',
@@ -760,5 +760,10 @@ const enUS = {
 	'errorPage.tips': 'Click the button below to resend an email',
 	'successPage.tips': 'Congratulations on your registration！Click the button below to resend an email',
 	'myInvite.tip': 'The fee commission will be sent to your account at 10:00 AM (UTC+8) everyday.',
+  'candyDetail.poster': 'Your own posters',
+  'candyDetail.inviteTotal': 'Invitees:',
+  'candyDetail.ruleLink': 'https://toponehelp.zendesk.com/hc/en-us/articles/360004917611',
+  'candyDetail.getScore': 'Loyalty Points',
+  'candyDetail.scoreForMan': 'point per referral'
 };
 export default enUS;
