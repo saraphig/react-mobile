@@ -28,7 +28,7 @@ class RegisterComp extends React.Component {
 			inviterCode: '', // 邀请码
 			started: false
 		};
-		// console.log('=====', props.formatmessage);
+		// console.log('=====', props.location);
 	}
 	componentDidMount() {
 		// 登录状态，跳到首页
@@ -49,11 +49,13 @@ class RegisterComp extends React.Component {
 			});
 		});
 
-		if (this.props.location.search.split('=')[1].split('%20')) {
-			inviterCodes = this.props.location.search.split('=')[1].split('%20')[0];
-		} else {
-			inviterCodes = location.search.split('=')[1];
-		}
+        if (this.props.location.search != '') {
+			if (this.props.location.search.split('=')[1].split('%20')) {
+				inviterCodes = this.props.location.search.split('=')[1].split('%20')[0];
+			} else {
+				inviterCodes = location.search.split('=')[1];
+			}
+	    }
 
 		this.setState({
 			inviterCode: inviterCodes

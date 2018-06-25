@@ -24,6 +24,7 @@ class Register extends React.Component {
 		this.formatmessage = {
 			register: formatMessage({ id: 'register.register' })
 		};
+		// console.log('=====', props);
 	}
 
 	componentDidMount() {
@@ -179,6 +180,7 @@ class Register extends React.Component {
 					sended={sended}
 					isRefreshCaptcha={isRefreshCaptcha}
 					setIsRefreshCaptcha={this.setIsRefreshCaptcha}
+					location={this.props.location}
 				/>
 			</div>
 		);
