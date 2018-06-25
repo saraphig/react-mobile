@@ -22,7 +22,7 @@ class MyInviteComp extends React.Component {
 
 	copyInviteUrl = () => {
 		copy(
-			this.props.inviteUrl + this.props.intl.formatMessage({ id: 'candyDetail.specialLink' })
+			this.props.intl.formatMessage({ id: 'candyDetail.specialLink' }) + this.props.inviteUrl
 		);
 		topToast(this.props.intl.formatMessage({ id: 'code_08' }));
 	};
