@@ -13,6 +13,7 @@ export const actionType = {
     setMyCoinAccount: 'userCenter/coinAccount',
     getFeeBack: 'userCenter/getFeeBack',
     iconList: 'userCenter/iconList',
+    inviteDetail: 'userCenter/inviteDetail'
 }
 
 export function* getInviteInfo({ payload: { query, success, fail } }) {
@@ -89,6 +90,19 @@ export function* iconList({ payload: { query, success, fail } }) {
     }
 }
 
+/**
+ * 邀请明细
+ * @param {*} param
+ */
+export function* inviteDetail({ payload: { query, success, fail } }) {
+    const { data } = yield call(userCenterApi.inviteDetail, query);
+    if (data.error_code === 200) {
+      success(data.data);
+    } else {
+      fail(data.error_code);
+    }
+  }
+
 
 export default function* root() {
     yield [
@@ -98,5 +112,6 @@ export default function* root() {
         takeLatest(actionType.setMyCoinAccount, setMyCoinAccount),
         takeLatest(actionType.getFeeBack, getFeeBack),
         takeLatest(actionType.iconList, iconList),
+        takeLatest(actionType.inviteDetail, inviteDetail)
     ];
 }

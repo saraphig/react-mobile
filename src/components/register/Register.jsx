@@ -10,28 +10,22 @@ import Drawers from 'components/container/Drawers';
 import MiddleContent from 'components/comComponent/middleContent/MiddleContent';
 import { topToast, phoneCheck } from 'utils/comFunction';
 import { getCookie } from '../../utils/comFunction';
-import {
-	MidText,
-	Input,
-	Input2,
-	Buttons,
-	BottomTips
-} from '../comComponent/common';
+import { MidText, Input, Input2, Buttons, BottomTips } from '../comComponent/common';
 import { dun } from 'src/config';
 import { relativeTimeThreshold } from 'moment';
 import './register.scss';
 
-
 class RegisterComp extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			pathName: '',
 			phone: '', // 手机号
 			nationCode: '86', // 区号
 			validate: '', // 易盾验证码
 			verifyCode: '', // 手机验证码
-			inviterCode: location.search ? location.search.split('=')[1] : '', // 邀请码
+			inviterCode: '', // 邀请码
 			started: false
 		};
 		// console.log('=====', props.formatmessage);
@@ -39,6 +33,7 @@ class RegisterComp extends React.Component {
 	componentDidMount() {
 		// 登录状态，跳到首页
 		const token = getCookie('token');
+		let inviterCodes = '';
 		if (token) {
 			window.location.href = '/index';
 			return;
@@ -52,6 +47,16 @@ class RegisterComp extends React.Component {
 			this.setState({
 				nationCode: countryData.dialCode
 			});
+		});
+
+		if (this.props.location.search.split('=')[1].split('%20')) {
+			inviterCodes = this.props.location.search.split('=')[1].split('%20')[0];
+		} else {
+			inviterCodes = location.search.split('=')[1];
+		}
+
+		this.setState({
+			inviterCode: inviterCodes
 		});
 	}
 
@@ -95,12 +100,8 @@ class RegisterComp extends React.Component {
 					this.captchaIns = instance;
 					// 验证码一切准备就绪，此时可正常使用验证码的相关功能
 					//验证码logo的去除
-					if (
-						document.getElementsByClassName('yidun_intelli-icon')[0]
-					) {
-						document
-							.getElementsByClassName('yidun_intelli-icon')[0]
-							.remove();
+					if (document.getElementsByClassName('yidun_intelli-icon')[0]) {
+						document.getElementsByClassName('yidun_intelli-icon')[0].remove();
 					}
 					// document.getElementsByClassName('yidun_intelli-text')[0].setAttribute('style','font-size:14px;height:35px')
 					// //验证码文字的修改

@@ -59,15 +59,13 @@ const zh_CN = {
 		'已向您的注册邮箱发送了一封重置密码的邮件，请点击邮件中的链接以重置登录密码。如果长时间未收到邮件，请尝试在垃圾邮件中查找。',
 
 	'resetPassword.setNewPsw': '设置新密码',
-	'resetPassword.attention':
-		'*为了您的资产安全，密码修改后的 24 小时内无法提现。',
+	'resetPassword.attention': '*为了您的资产安全，密码修改后的 24 小时内无法提现。',
 	'resetPassword.newPsw': '输入新密码',
 	'resetPassword.confirmNewPsw': '再次输入新密码',
 	'resetPassword.confirm': '确定',
 
 	'secret.googleSecret': '谷歌验证16位验证码',
-	'secret.rememberSecret':
-		'请在 Google Authenticator 中扫描二维码或输入16位验证码绑定谷歌验证',
+	'secret.rememberSecret': '请在 Google Authenticator 中扫描二维码或输入16位验证码绑定谷歌验证',
 	'secret.nextStep': '下一步',
 	'secret.pass': '跳过',
 
@@ -144,8 +142,7 @@ const zh_CN = {
 	'tradeActionBoard.money': '金额',
 
 	'tradeCenter.confirmPrice': '价格确认',
-	'tradeCenter.priceOverLimit':
-		'您当前的出价与最新市价差超过10%，请问是否仍使用当前价格下单？',
+	'tradeCenter.priceOverLimit': '您当前的出价与最新市价差超过10%，请问是否仍使用当前价格下单？',
 
 	'tradeCenterTop.last': '最新价',
 	'tradeCenterTop.change': '24h 涨跌',
@@ -158,11 +155,9 @@ const zh_CN = {
 	'tradeCenterTop.login': '登录',
 	'tradeCenterTop.register': '注册',
 
-	'depositWithdraw.bind':
-		'您目前还没有绑定谷歌验证。如需提现，请先绑定谷歌验证。',
+	'depositWithdraw.bind': '您目前还没有绑定谷歌验证。如需提现，请先绑定谷歌验证。',
 	'depositWithdraw.bindGoogle': '绑定谷歌验证',
-	'depositWithdraw.bindPhone':
-		'您目前还没有绑定手机。如需提现，请先绑定手机。',
+	'depositWithdraw.bindPhone': '您目前还没有绑定手机。如需提现，请先绑定手机。',
 	'depositWithdraw.bindPhoneValidate': '绑定手机验证',
 	'depositWithdraw.goBind': '去绑定',
 	'depositWithdraw.deposit': '充值',
@@ -180,8 +175,7 @@ const zh_CN = {
 	'depositWithdraw.depositAddress': '充值地址：',
 	'depositWithdraw.attention':
 		'禁止向 {coin} 地址充值除 {coin} 之外的资产，任何充入 {coin} 地址的非 {coin} 资产将不可找回。',
-	'depositWithdraw.netConfirm':
-		'使用 {coin} 地址充值需要 30 个网络确认才能到账。',
+	'depositWithdraw.netConfirm': '使用 {coin} 地址充值需要 30 个网络确认才能到账。',
 	'depositWithdraw.depositOk': '充值完成后，您可以进入',
 	'depositWithdraw.withrawOk': '提现完成后，您可以进入',
 	'depositWithdraw.history': '充提记录页面',
@@ -197,10 +191,8 @@ const zh_CN = {
 	'depositWithdraw.realGet': '实际到账',
 	'depositWithdraw.submit': '提交',
 	'depositWithdraw.min': '最小提现数量为',
-	'depositWithdraw.notDo':
-		'请勿直接提现至众筹或 ICO 地址。我们不会处理未来代币的发放。',
-	'depositWithdraw.ifSuccess':
-		'提现请求申请成功后，请去邮箱点击链接确认本次提现请求。',
+	'depositWithdraw.notDo': '请勿直接提现至众筹或 ICO 地址。我们不会处理未来代币的发放。',
+	'depositWithdraw.ifSuccess': '提现请求申请成功后，请去邮箱点击链接确认本次提现请求。',
 	'depositWithdraw.amountLessMin': '提现数量不能小于最小提现数量。',
 
 	'depositWithdrawHistory.deposit': '充值记录',
@@ -262,8 +254,7 @@ const zh_CN = {
 	'userCenter.hasIdentify': '已认证',
 	'userCenter.completeIdentify': '完成身份验证',
 	'userCenter.contactUs': '联系我们',
-	'userCenter.keepSecret':
-		'请不要向任何人透露您的登录密码或谷歌验证码，包括网站的工作人员。',
+	'userCenter.keepSecret': '请不要向任何人透露您的登录密码或谷歌验证码，包括网站的工作人员。',
 	'userCenter.loginPassword': '登录密码',
 	'userCenter.useInLogin':
 		'登录密码至少8个字符，必须包含大小写字母和数字。为了您的资产安全，请您在设置后妥善保管。',
@@ -301,8 +292,7 @@ const zh_CN = {
 	'webBottom.help.url': 'https://toponehelp.zendesk.com/hc/zh-cn',
 
 	'withdrawInvalid.invalid': '验证失效',
-	'withdrawInvalid.invalidText':
-		'当前用于提现申请的邮箱链接已失效，请重新操作提现流程',
+	'withdrawInvalid.invalidText': '当前用于提现申请的邮箱链接已失效，请重新操作提现流程',
 
 	'withdrawVerify.validate': '邮箱验证',
 	'withdrawVerify.confirm': '您的提现请求已经被确认，可前往',
@@ -527,8 +517,7 @@ const zh_CN = {
 	'rate.note1': '0.2% 交易手续费。（扣除收取到的资产）',
 	'rate.note2_1':
 		'若持有 TOP，TOP抵扣手续费功能会默认开启。交易费用直接扣除TOP,交易任何币种均享有50%折扣（暂行），即0.1%。详见',
-	'rate.note2.url':
-		'https://toponehelp.zendesk.com/hc/zh-cn/articles/360003081832',
+	'rate.note2.url': 'https://toponehelp.zendesk.com/hc/zh-cn/articles/360003081832',
 	'rate.note2_2': 'TOP抵扣手续费说明',
 	'rate.deposits': '充值费率',
 	'rate.deposits.note': '免费',
@@ -547,8 +536,7 @@ const zh_CN = {
 
 	'agreement.introduce1':
 		'TOP.ONE 尊重并保护所有使用 TOP.ONE平台服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，TOP.ONE会按照本隐私权政策的规定使用和披露您的个人信息。但 TOP.ONE将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，TOP.ONE不会将这些信息对外披露或向第三方提供。TOP.ONE会不时更新本隐私权政策。您在同意 TOP.ONE服务协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于TOP.ONE 服务协议不可分割的一部分。',
-	'agreement.introduce2':
-		'本协议由您与 TOP.ONE 的经营者共同缔结，本协议具有合同效力。',
+	'agreement.introduce2': '本协议由您与 TOP.ONE 的经营者共同缔结，本协议具有合同效力。',
 	'agreement.introduce3':
 		'TOP.ONE的经营者是指法律认可的经营该平台网站的责任主体。本协议中TOP.ONE 的经营者可单称或统称为“TOP.ONE Limited”。“TOP.ONE”指由TOP.ONE 运营的网络平台，包括但不限于 TOP.ONE 网站，域名为https://www.top.one 该网站属于加密网站。',
 	'agreement.p1': '1.协议内容及签署',
@@ -602,18 +590,15 @@ const zh_CN = {
 	'candy.detail.first':
 		'1. 被邀请人及其邀请的用戶成功完成的每笔交易，您均可获得其交易手续费的15%作为奖励。',
 	'candy.detail.second': '2. 好友通过邀请链接完成注册计入邀请数。',
-	'candy.detail.third':
-		'3. 预注册及返利活动的时间及奖励比例未來將会根据实际情况进行调整。',
+	'candy.detail.third': '3. 预注册及返利活动的时间及奖励比例未來將会根据实际情况进行调整。',
 	'candy.detail.fourth': '4. 同一用户仅能被邀请一次。',
-	'candy.detail.fifth':
-		'5. 重复或虚假账户，以及共享自己的行为，一经发现，将不会支付返佣。',
+	'candy.detail.fifth': '5. 重复或虚假账户，以及共享自己的行为，一经发现，将不会支付返佣。',
 	'candy.detail.sixth': '6. TOP.ONE 保留法律范围内允许的对活动的解释权。',
 
 	'tradeActionBoard.all': '全部',
 	'depositWithdraw.candy': '糖果',
 	'depositWithdraw.notActive': '未激活',
-	'depositWithdraw.candyTip':
-		'在平台至少有一笔买入，才可激活此糖果，糖果仅用于抵扣手续费',
+	'depositWithdraw.candyTip': '在平台至少有一笔买入，才可激活此糖果，糖果仅用于抵扣手续费',
 
 	'c.dun.lang': 'zh-CN',
 	'statement.theme': '隐私声明',
@@ -643,8 +628,7 @@ const zh_CN = {
 	'joinUs.submitDoc': '提交币种资料',
 	'joinUs.projectReview': '资料审核',
 	'joinUs.exchangeListing': '上线交易所',
-	'joinUs.tip':
-		'如果您想在 TOP.ONE 上币，请点击链接，在表单中提供相关的上币信息：',
+	'joinUs.tip': '如果您想在 TOP.ONE 上币，请点击链接，在表单中提供相关的上币信息：',
 	'joinUs.now': '立即申请',
 	code_131: '账号或密码错误，今日还可以尝试4次',
 	code_132: '账号或密码错误，今日还可以尝试3次',
@@ -660,8 +644,7 @@ const zh_CN = {
 	'register.goLogin': '登录',
 
 	// ================
-	'IEPrompt.prompt':
-		'您当前使用的是IE浏览器，请切换浏览器获得更安全的网络环境，可参考以下浏览器',
+	'IEPrompt.prompt': '您当前使用的是IE浏览器，请切换浏览器获得更安全的网络环境，可参考以下浏览器',
 	'IEPrompt.360': '360安全浏览器',
 	'IEPrompt.Chrome': 'Chrome浏览器',
 	'IEPrompt.360fast': '360极速浏览器',
@@ -710,7 +693,7 @@ const zh_CN = {
 	 */
 	'download.update': '最后更新',
 	'download.install': '安装',
-    'usercenter.feeback': '获得佣金 ≈',
+	'usercenter.feeback': '获得佣金 ≈',
 	'download.android': '安卓下载教程',
 	'download.ios': 'ios下载教程',
 
@@ -728,10 +711,18 @@ const zh_CN = {
 	'errorPage.tips': '注册失败！如需重发邮件请点击下面按钮',
 	'successPage.tips': '注册成功！如需重发邮件请点击下面按钮',
 	'myInvite.tip': '每日上午10点开始返还手续费（北京时间）',
-  'candyDetail.poster': '专属海报',
-  'candyDetail.inviteTotal': '总邀请人数:',
-  'candyDetail.ruleLink': 'https://toponehelp.zendesk.com/hc/zh-cn/articles/360004917611',
-  'candyDetail.getScore': '获取积分数',
-  'candyDetail.scoreForMan': '分/人'
+
+	'candyDetail.poster': '专属海报',
+	'candyDetail.inviteTotal': '总邀请人数:',
+	'candyDetail.ruleLink': 'https://toponehelp.zendesk.com/hc/zh-cn/articles/360004917611',
+	'candyDetail.getScore': '获取积分数',
+	'candyDetail.scoreForMan': '分/人',
+	'candyDetail.NotBound': '未绑定',
+	'candyDetail.cellphone': '手机',
+	'candyDetail.inviteDetail': '邀请明细',
+	'candyDetail.times': '时间',
+	'candyDetail.nodata': '暂无数据',
+	'candyDetail.specialLink':
+		'\n重大利好：TOP.ONE 6 月 29 日 15:00 正式启动挖矿\n1、60% 的 ONE 由矿工挖出\n2、25% 的 ONE 的锁仓分红\n3、早鸟邀请挖矿 50% 奖励\n4、邀请注册送 8000 积分\n'
 };
 export default zh_CN;
