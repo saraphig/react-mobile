@@ -723,6 +723,6 @@ const zh_CN = {
 	'candyDetail.times': '时间',
 	'candyDetail.nodata': '暂无数据',
 	'candyDetail.specialLink':
-		'\n重大利好：TOP.ONE 6 月 29 日 15:00 正式启动挖矿\n1、60% 的 ONE 由矿工挖出\n2、25% 的 ONE 的锁仓分红\n3、早鸟邀请挖矿 50% 奖励\n4、邀请注册送 8000 积分\n'
+		'\nTOP.ONE 6 月 29 日 15:00 开始交易即挖矿，条件优厚：\n1、60% ONE 由矿工挖出，比 Fcoin 更多\n2、25% ONE 锁仓四年，砸盘风险小\n3、ONE 初始价格 0.03USDT\n4、邀请注册送 8000 积分，兑换更多福利\n5、早鸟邀请挖矿 50% 奖励，越早挖越划算\n'
 };
 export default zh_CN;

@@ -746,6 +746,6 @@ const enUS = {
 	'candyDetail.nodata': 'No Data',
 	'candyDetail.inviteDetail': 'Inviting details',
 	'candyDetail.specialLink':
-		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. 50% award for early birds.\n4. 8000 Points as award for single invitation.'
+		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. The issue price of ONE is 0.03 USDT.\n4. 50% award for early birds.\n5. 8000 Points as award for single\n'
 };
 export default enUS;
