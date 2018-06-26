@@ -7,17 +7,17 @@ import enUS from './locale/en_US';
 // import zhTW from './locale/zh_TW';
 
 const url = {
-	// baseUri: '//47.94.130.229:8888',
-	// tradeUri: '//116.62.202.229',
-	// klineUri: '//116.62.202.229/kline/',
-	// historyUri: '//116.62.202.229/history/',
-	// websocketUri: 'ws://116.62.202.229/ws/'
+	baseUri: '//47.94.130.229:8888',
+	tradeUri: '//116.62.202.229',
+	klineUri: '//116.62.202.229/kline/',
+	historyUri: '//116.62.202.229/history/',
+	websocketUri: 'ws://116.62.202.229/ws/'
 	
-	baseUri: 'https://qaapie33e690ab2de05dc.top.one',
-	tradeUri: 'https://qatradee33e690ab2de05dc.top.one',
-	klineUri: 'https://qatradee33e690ab2de05dc.top.one/kline/',
-	historyUri: 'https://qatradee33e690ab2de05dc.top.one/history/',
-	websocketUri: 'wss://qasube33e690ab2de05dc.top.one/ws/',
+	// baseUri: 'https://qaapie33e690ab2de05dc.top.one',
+	// tradeUri: 'https://qatradee33e690ab2de05dc.top.one',
+	// klineUri: 'https://qatradee33e690ab2de05dc.top.one/kline/',
+	// historyUri: 'https://qatradee33e690ab2de05dc.top.one/history/',
+	// websocketUri: 'wss://qasube33e690ab2de05dc.top.one/ws/',
 
 	// baseUri: '//54.199.111.182',
 	// tradeUri: '//52.197.202.202',
