@@ -45,8 +45,8 @@ const enUS = {
 	'register.validateInfo.pswTooLong':
 		'Password must be at least 8 characters with uppercase letters and numbers.',
 	'register.validateInfo.confirmPsw': 'Passwords do not match.Please try again.',
-	'register.phone': 'Phone number',
-	'register.phoneValidate': 'Please enter SMS code',
+	'register.phone': 'Please enter Phone number',
+	'register.phoneValidate': 'SMS code',
 	'register.postPhoneValidate': 'Send',
 	'register.next': 'Next',
 	'register.sended': 'Sent',
@@ -746,6 +746,6 @@ const enUS = {
 	'candyDetail.nodata': 'No Data',
 	'candyDetail.inviteDetail': 'Inviting details',
 	'candyDetail.specialLink':
-		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. The issue price of ONE is 0.03 USDT.\n4. 50% award for early birds.\n5. 8000 Points as award for single\n'
+		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. The issue price of ONE is 0.03 USDT.\n4. 20% award for early birds.\n5. 8000 Points as award for single\n'
 };
 export default enUS;

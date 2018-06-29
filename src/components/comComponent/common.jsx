@@ -273,6 +273,13 @@ export class Input extends React.Component {
 			value: props.value
 		};
 	}
+
+	componentDidMount(){
+		// if (this.props.isFocus) {
+		// 	// alert(this.props.isFocus)
+		// 	$(this.refs.inputref).focus()
+		// }
+	}
 	onChange(e) {
 		// input不可点击就没有change事件
 		if (!this.props.disabled) {
@@ -299,6 +306,8 @@ export class Input extends React.Component {
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}
+					// ref="inputref"
+					autoFocus={this.props.isFocus}
 				/>
 				{this.props.types === 1 && (
 					<div

@@ -179,6 +179,7 @@ class RegisterComp extends React.Component {
 						this.setState({ phone: val });
 					}}
 					comId="test"
+					isFocus={true}
 				/>
 				<Input
 					placeholder={formatMessage({
