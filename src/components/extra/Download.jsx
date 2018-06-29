@@ -39,8 +39,9 @@ class DownloadComp extends React.Component {
 			case isAndroid:
 				this.setState({
 					downLoadUrl:
-						`${window.location.origin}` +
-						'/lib/download/androidapp/TOPONE.apk',
+						// `${window.location.origin}` +
+						// '/lib/download/androidapp/TOPONE.apk',
+						'https://static.fortop.site/app/TOPONE2.apk',
 					bgImg: require('assets/images/android@2x.png'),
 					iconfont: 'icon-anzhuo',
 					isIos: false
