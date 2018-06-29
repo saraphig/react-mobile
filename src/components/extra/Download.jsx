@@ -165,9 +165,9 @@ class DownloadComp extends React.Component {
 					) : null}
 				</div>
 				<div className="download-info">
-					<p className="download-version">Version：1.0.0</p>
+					<p className="download-version">Version：2.0.0</p>
 					<p className="update-time">
-						{formatMessage({ id: 'download.update' })}：2018-05-30
+						{formatMessage({ id: 'download.update' })}：2018-06-29
 						14:00
 					</p>
 				</div>
