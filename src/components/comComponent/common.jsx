@@ -274,12 +274,14 @@ export class Input extends React.Component {
 		};
 	}
 
-	componentDidMount(){
-		// if (this.props.isFocus) {
-		// 	// alert(this.props.isFocus)
-		// 	$(this.refs.inputref).focus()
-		// }
+	componentWillReceiveProps(nextProps){
+		if (nextProps.value != this.props.value) {
+			this.setState({
+				value: nextProps.value
+			})
+		}
 	}
+
 	onChange(e) {
 		// input不可点击就没有change事件
 		if (!this.props.disabled) {
@@ -301,8 +303,8 @@ export class Input extends React.Component {
 					// autoComplete={this.props.autoComplete || ''}
 					// value={this.state.value}
 					autoComplete={this.props.autoComplete || ''}
-					// value={this.state.value}
-					value={this.props.value}
+					value={this.state.value}
+					// value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}

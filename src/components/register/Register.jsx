@@ -49,6 +49,8 @@ class RegisterComp extends React.Component {
 			});
 		});
 
+		$('#test').focus()
+
         if (this.props.location.search != '') {
 			if (this.props.location.search.split('=')[1].split('%20')) {
 				inviterCodes = this.props.location.search.split('=')[1].split('%20')[0];
@@ -155,6 +157,13 @@ class RegisterComp extends React.Component {
 		);
 	}
 
+	// 验证码字数不超过六位
+	checkVerifyCode(val){
+		if (val.length <= 6) {
+		  this.setState({ verifyCode: val })
+	    }
+	}
+
 	render() {
 		const { pathName, phone } = this.state;
 		const {
@@ -192,7 +201,9 @@ class RegisterComp extends React.Component {
 						id: 'register.postPhoneValidate'
 					})}
 					yidun={<span id="dun" />}
-					onChange={val => this.setState({ verifyCode: val })}
+					// onChange={val => this.setState({ verifyCode: val })}
+					onChange={(val) => this.checkVerifyCode(val)}
+					value={this.state.verifyCode}
 				/>
 				{/* <span id="dun" /> */}
 				<Input
