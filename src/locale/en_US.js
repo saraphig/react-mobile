@@ -44,18 +44,16 @@ const enUS = {
 	'register.validateInfo.emailError': 'Invalid email address.',
 	'register.validateInfo.pswTooLong':
 		'Password must be at least 8 characters with uppercase letters and numbers.',
-	'register.validateInfo.confirmPsw':
-		'Passwords do not match.Please try again.',
-	'register.phone': 'Phone number',
-	'register.phoneValidate': 'Please enter SMS code',
+	'register.validateInfo.confirmPsw': 'Passwords do not match.Please try again.',
+	'register.phone': 'Please enter Phone number',
+	'register.phoneValidate': 'SMS code',
 	'register.postPhoneValidate': 'Send',
 	'register.next': 'Next',
 	'register.sended': 'Sent',
 
 	'resendEmail.resend': 'Resend',
 	'resendEmail.email': 'Email',
-	'resendEmail.overdue':
-		'The link has expired. Please resend a new mail for verification.',
+	'resendEmail.overdue': 'The link has expired. Please resend a new mail for verification.',
 
 	'resetConfirm.resetConfirm': 'Reset Login Password',
 	'resetConfirm.resetConfirmText':
@@ -69,8 +67,7 @@ const enUS = {
 	'resetPassword.confirm': 'Submit',
 
 	'secret.googleSecret': 'Recovery key for Google Authenticator',
-	'secret.rememberSecret':
-		'Scan the QR code or enter the recovery key to enable Google 2FA',
+	'secret.rememberSecret': 'Scan the QR code or enter the recovery key to enable Google 2FA',
 	'secret.nextStep': 'Next',
 	'secret.pass': 'Skip',
 
@@ -185,15 +182,12 @@ const enUS = {
 		'Send only {coin} to this deposit address. Sending any other currency to this address may result in the loss of your deposit.',
 	'depositWithdraw.netConfirm':
 		'{coin} will be deposited immediately after 30 block confirmation.',
-	'depositWithdraw.depositOk':
-		'After making a deposit, you can track its progress on ',
-	'depositWithdraw.withrawOk':
-		'After making a withdrawal, you can track its progress on ',
+	'depositWithdraw.depositOk': 'After making a deposit, you can track its progress on ',
+	'depositWithdraw.withrawOk': 'After making a withdrawal, you can track its progress on ',
 	'depositWithdraw.history': 'the history page',
 	'depositWithdraw.follow': '.',
 	'depositWithdraw.withdraWAddress': 'Withdrawal Address:',
-	'depositWithdraw.defaultValue':
-		'Plese select an address or input your new address below.',
+	'depositWithdraw.defaultValue': 'Plese select an address or input your new address below.',
 	'depositWithdraw.label': 'Label',
 	'depositWithdraw.address': 'Address',
 	'depositWithdraw.allDeposit': 'Withdraw all',
@@ -206,8 +200,7 @@ const enUS = {
 		'Do not withdraw directly to a crowdfund or ICO. We will not credit your account with tokens from that sale.',
 	'depositWithdraw.ifSuccess':
 		'Once you have submitted your withdrawal request, we will send a confirmation email. Please then click on the confirmation link in your email.',
-	'depositWithdraw.amountLessMin':
-		'Withdrawal must be at least minimum amount.',
+	'depositWithdraw.amountLessMin': 'Withdrawal must be at least minimum amount.',
 
 	'depositWithdrawHistory.deposit': 'Deposit History',
 	'depositWithdrawHistory.depositOut': 'Export Complete Deposit History',
@@ -283,8 +276,7 @@ const enUS = {
 	'userCenter.loginTime': 'Date',
 	'userCenter.address': 'IP Address',
 	'userCenter.smsAuth': 'SMS Authentication',
-	'userCenter.useSms':
-		'Associated with your referral rewards and security modifications.',
+	'userCenter.useSms': 'Associated with your referral rewards and security modifications.',
 	'userCenter.useGoogle':
 		'Used for login and withdrawals. Do not disclose your QR code or private key. Download Google Authenticator from official channels.',
 	'userCenter.GoingOpen': 'Coming Soon',
@@ -330,8 +322,7 @@ const enUS = {
 	'agreement.title': 'Terms Of Use',
 	'agreement.title': 'Terms Of Use',
 
-	code_01:
-		'Please enter a valid number for the amount and price of the limit order.',
+	code_01: 'Please enter a valid number for the amount and price of the limit order.',
 	code_02: 'Please enter a valid number for the amount of the market order.',
 	code_03: 'Order submitted',
 	code_04: 'Order cancelled',
@@ -344,8 +335,7 @@ const enUS = {
 	code_12: 'Email format is incorrect',
 	code_13: 'Email is registered',
 	code_14: 'Please enter your password',
-	code_15:
-		'Password must be at least 8 characters with uppercase letters and numbers.',
+	code_15: 'Password must be at least 8 characters with uppercase letters and numbers.',
 	code_16: 'Passwords do not match',
 	code_17: 'Registration Failed',
 	code_20018:
@@ -353,8 +343,7 @@ const enUS = {
 
 	code_21: 'Please enter your email or phone number',
 	code_22: 'Email or password incorrect',
-	code_24:
-		'Please look for an email in your inbox to activate your account and login',
+	code_24: 'Please look for an email in your inbox to activate your account and login',
 	code_25: 'Please enter Google authentication code',
 	code_26: 'Your account is locked, please contact customer service',
 	code_27: 'Phone number incorrect',
@@ -398,8 +387,7 @@ const enUS = {
 	code_85: 'Coin does not exist',
 	code_86: 'The withdrawal amount is incorrect',
 	code_87: 'The coin is not allowed to withdraw now',
-	code_88:
-		'The withdrawl is higher than 24 hour limit, please contact customer service',
+	code_88: 'The withdrawl is higher than 24 hour limit, please contact customer service',
 	code_89: 'The withdrawl confirmation failed',
 	code_20084: 'Email has been sent,please look for it in your inbox',
 	code_20085: 'Withdrawal Completed',
@@ -454,10 +442,8 @@ const enUS = {
 
 	code_11001:
 		'Risk control system detected some abnormal behaviors of your withdrawl history. Please try again later',
-	code_11002:
-		'On-chain request failed. Please try again later or contact with customer service',
-	code_11003:
-		'The email verification link hase been invalid. Please withdrawl again later',
+	code_11002: 'On-chain request failed. Please try again later or contact with customer service',
+	code_11003: 'The email verification link hase been invalid. Please withdrawl again later',
 	code_11004: 'Not allowed for withdrawals',
 
 	code_12007: 'Coin not supported',
@@ -502,15 +488,14 @@ const enUS = {
 	code_30108: 'The verification email has sent,please check and verify it',
 	code_100: 'You are not a tester. Please wait for our launch',
 	'depositWithdraw.amountThanMin': 'Not enough',
-	'depositWithdraw.special':
-		'Do not support deposit and withdrawal in the testing phase.',
+	'depositWithdraw.special': 'Do not support deposit and withdrawal in the testing phase.',
 	'changeLoginPassword.nowPassword': 'Old Password',
 	'changeLoginPassword.newPassword': 'New Password',
 	'changeLoginPassword.confirmNewPassword': 'Confirm Password',
 	'changeLoginPassword.changePassword': 'Password Modification',
 	'candyDetail.copy': 'Copy',
 	//=====
-	'candyDetail.poster': 'Create your own posters',
+	// 'candyDetail.poster': 'Create your own posters',
 	//===
 	'candyDetail.inviteFriends': 'Invite Friends',
 	'candyDetail.copySuccess': 'Copied the link successfully. Please paste it.',
@@ -529,8 +514,7 @@ const enUS = {
 		'The TOP.ONE Exchange operates on advanced distributed cluster architecture. With a built-in deal-making system that can process millions of transactions per second as repeatedly tested in the traditional financial industry. The TOP.ONE Exchange supports the simultaneous usage by tens of millions of users and has an ultra-high fault and disaster tolerance capacity.',
 	'aboutUs.advance01': 'More than 20 Languages',
 	'aboutUs.advance02': 'Complete Incubation Service',
-	'aboutUs.advance03':
-		'Currency Coverage Comparable to That of Decentralized Exchange',
+	'aboutUs.advance03': 'Currency Coverage Comparable to That of Decentralized Exchange',
 	'aboutUs.advance04': 'Fully Manned Customer Service',
 	'aboutUs.advance05': 'Modern and Friendly Product Experience',
 	'aboutUs.advance06': 'Modern and Friendly Product Experience',
@@ -542,8 +526,7 @@ const enUS = {
 	'rate.note1': '0.2% trading fee (Deducted assets received)',
 	'rate.note2_1':
 		'If you have any TOP COIN, we will use TOP to pay for transaction fees as default. A 50% discount will be applied, if you use TOP for transaction fees, which is 0.1% (temporary).Details please see',
-	'rate.note2.url':
-		'https://toponehelp.zendesk.com/hc/en-us/articles/360003081832',
+	'rate.note2.url': 'https://toponehelp.zendesk.com/hc/en-us/articles/360003081832',
 	'rate.note2_2': 'What deductible fees does TOP charge?',
 	'rate.deposits': 'Fee for deposit',
 	'rate.deposits.note': 'Free',
@@ -667,16 +650,11 @@ const enUS = {
 	'depositWithdraw.candyTip':
 		'Please complete a buy order to activate your candies. You can use them to pay for fees.',
 
-	code_131:
-		'Account or password incorrect. you will be locked after 4 attempts.',
-	code_132:
-		'Account or password incorrect. It will be locked after 3 attempts.',
-	code_133:
-		'Account or password incorrect. It will be locked after 2 attempts.',
-	code_134:
-		'Account or password incorrect. It will be locked after 1 attempts.',
-	code_135:
-		'Login attempt exceeded limit today. Your account will be locked for 24 hours ',
+	code_131: 'Account or password incorrect. you will be locked after 4 attempts.',
+	code_132: 'Account or password incorrect. It will be locked after 3 attempts.',
+	code_133: 'Account or password incorrect. It will be locked after 2 attempts.',
+	code_134: 'Account or password incorrect. It will be locked after 1 attempts.',
+	code_135: 'Login attempt exceeded limit today. Your account will be locked for 24 hours ',
 	code_136: 'Wrong choice of language',
 
 	'register.sorry': 'We are sorry to inform you',
@@ -699,8 +677,7 @@ const enUS = {
 	code_10025: 'The pair is not open.',
 	'code_-1':
 		"Sorry, the server went wrong. We're working on getting this fixed as soon as we can.",
-	code_10030:
-		'The pair has been modified. Data is reloading. Please wait for a minute.',
+	code_10030: 'The pair has been modified. Data is reloading. Please wait for a minute.',
 	code_137: 'You have enabled Google 2FA. Please do not try again.',
 	code_105: 'Google 2FA or mobile phone,you must enable one of them.',
 	code_80: 'The coin is not allowed to create address for deposit now',
@@ -715,8 +692,7 @@ const enUS = {
 	'userter.active': 'Active',
 	'usercenter.notVerified': 'Not Verified',
 	'usercenter.logout': 'Logout',
-	'usercenter.visist.topone':
-		'please visit TOP.ONE desktop version to verify',
+	'usercenter.visist.topone': 'please visit TOP.ONE desktop version to verify',
 	'home.volume': 'Volume',
 	'candyDetail.qrDode': 'QR code',
 	choiceLanguage: 'Language',
@@ -726,10 +702,8 @@ const enUS = {
 	recommendedCode: 'Referral code (Optional)',
 	myAssets: 'My Assets',
 	'public.sure': 'Confirm',
-	goPC:
-		'Please visit our desktop version to turn on Google 2FA or SMS verification',
-	code_117:
-		'Verification code is only valid for 5 minutes. Please try to login again.',
+	goPC: 'Please visit our desktop version to turn on Google 2FA or SMS verification',
+	code_117: 'Verification code is only valid for 5 minutes. Please try to login again.',
 	noAgreement: 'You have not accepted the agreement',
 	code_106: 'Verification code sent, valid within the next 10 minutes',
 	'public.isee': 'Confirm',
@@ -742,7 +716,7 @@ const enUS = {
 	 */
 	'download.update': 'Last Update',
 	'download.install': 'Install',
-    'usercenter.feeback': 'commission ≈',
+	'usercenter.feeback': 'commission ≈',
 	'download.android': 'Android Install Tutorial',
 	'download.ios': 'ios Install Tutorial',
 
@@ -758,8 +732,22 @@ const enUS = {
 	'errorPage.status': 'Sorry to inform you！',
 	'successPage.status': 'Congratulations！',
 	'errorPage.tips': 'Click the button below to resend an email',
-	'successPage.tips': 'Congratulations on your registration！Click the button below to resend an email',
+	'successPage.tips':
+		'Congratulations on your registration！Click the button below to resend an email',
 	'myInvite.tip': 'The fee commission will be sent to your account at 10:00 AM (UTC+8) everyday.',
   'withPcOpen.fromPc': 'Please click the mail link on a desktop browser',
+	'candyDetail.poster': 'Your own posters',
+	'candyDetail.inviteTotal': 'Invitees:',
+	'candyDetail.ruleLink': 'https://toponehelp.zendesk.com/hc/en-us/articles/360004917611',
+	'candyDetail.getScore': 'Loyalty Points',
+	'candyDetail.scoreForMan': 'point per referral',
+	'candyDetail.NotBound': 'Not Bound',
+	'candyDetail.cellphone': 'Cellphone',
+	'candyDetail.times': 'Time',
+	'candyDetail.nodata': 'No Data',
+	'candyDetail.inviteDetail': 'Inviting details',
+	'candyDetail.specialLink':
+		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. The issue price of ONE is 0.03 USDT.\n4. 20% award for early birds.\n5. 8000 Points as award for single\n',
+	code_13008: 'The phone number has been pre registered, can not repeat invitation twice, please delete the invite code.',
 };
 export default enUS;

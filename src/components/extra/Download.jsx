@@ -39,8 +39,9 @@ class DownloadComp extends React.Component {
 			case isAndroid:
 				this.setState({
 					downLoadUrl:
-						`${window.location.origin}` +
-						'/lib/download/androidapp/TOPONE.apk',
+						// `${window.location.origin}` +
+						// '/lib/download/androidapp/TOPONE.apk',
+						'https://static.fortop.site/app/TOPONE2.apk',
 					bgImg: require('assets/images/android@2x.png'),
 					iconfont: 'icon-anzhuo',
 					isIos: false
@@ -165,10 +166,9 @@ class DownloadComp extends React.Component {
 					) : null}
 				</div>
 				<div className="download-info">
-					<p className="download-version">Version：1.0.0</p>
+					<p className="download-version">Version：2.0.0</p>
 					<p className="update-time">
-						{formatMessage({ id: 'download.update' })}：2018-05-30
-						14:00
+						{formatMessage({ id: 'download.update' })}：2018-06-29
 					</p>
 				</div>
 				{!this.state.msg ? (

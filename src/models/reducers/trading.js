@@ -3,13 +3,15 @@ import createReducer from './createReducer';
 const initState = {
     market: [],
     marketData: [],
-    price: null
+    price: null,
+    priceAll: []
 };
 
 export const actionType = {
     setMarket: 'trading/market',
     setMarketData: 'trading/marketData',
     setPrice: 'trading/price',
+    setPriceAll: 'trading/priceAll',
 };
 
 const reducer = {
@@ -21,6 +23,9 @@ const reducer = {
     },
     [actionType.setPrice]: (state, { payload }) => {
         return {...state, price: payload}
+    },
+    [actionType.setPriceAll]: (state, { payload }) => {
+        return {...state, priceAll: payload}
     },
 }
 
