@@ -154,10 +154,6 @@ const routes = [
     path: '/resetPassword',
     component: WithPcOpen
   },
-  {
-    path: '/errorPage',
-    component: WithPcOpen
-  },
 ];
 
 export default (
