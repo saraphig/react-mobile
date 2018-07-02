@@ -273,6 +273,15 @@ export class Input extends React.Component {
 			value: props.value
 		};
 	}
+
+	componentWillReceiveProps(nextProps){
+		if (nextProps.value != this.props.value) {
+			this.setState({
+				value: nextProps.value
+			})
+		}
+	}
+
 	onChange(e) {
 		// input不可点击就没有change事件
 		if (!this.props.disabled) {
@@ -294,11 +303,13 @@ export class Input extends React.Component {
 					// autoComplete={this.props.autoComplete || ''}
 					// value={this.state.value}
 					autoComplete={this.props.autoComplete || ''}
-					// value={this.state.value}
-					value={this.props.value}
+					value={this.state.value}
+					// value={this.props.value}
 					onChange={this.onChange.bind(this)}
 					id={this.props.comId}
 					type={this.props.type || 'text'}
+					// ref="inputref"
+					autoFocus={this.props.isFocus}
 				/>
 				{this.props.types === 1 && (
 					<div
@@ -826,7 +837,9 @@ export class CoinTabs extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			tabs: [{ title: 'ETH' }]
+			tabs: [{ title: 'ETH' },
+			       { title: 'USDT' }
+	    	]
 		};
 	}
 
@@ -845,6 +858,11 @@ export class CoinTabs extends React.Component {
 	// 	{ title: 'BTC' }
 	// ];
 
+	tabChange(e){
+		// console.log(e.title)
+		this.props.handleChange(e.title)
+	}
+
 	render() {
 		return (
 			<div>
@@ -859,6 +877,7 @@ export class CoinTabs extends React.Component {
 						borderColor: '#DCB276'
 					}}
 					tabBarTextStyle={{ fontWeight: 300 }}
+					onChange={(e) => this.tabChange(e)}
 				>
 					<div className="inform-height">
 						{/* <InformItem /> */}
@@ -1128,7 +1147,18 @@ export class CoinTabs extends React.Component {
 							orderName={this.props.orderName}
 						/>
 					</div>
-					<div>{/* <InformItem /> */}</div>
+					<div>{/* <InformItem /> */}
+					    <StatusShow
+							data={this.props.data}
+							sortData={(val, status) =>
+								this.sortData(val, status)
+							}
+							orderStatus={this.props.orderStatus}
+							orderStatus2={this.props.orderStatus2}
+							orderStatus3={this.props.orderStatus3}
+							orderName={this.props.orderName}
+						/>
+					</div>
 				</Tabs>
 			</div>
 		);

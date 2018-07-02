@@ -45,3 +45,16 @@ export function iconList(query) {
         data: query
     });
 }
+
+
+/**
+ * 邀请历史明细
+ * @param {token,page} query
+ */
+export function inviteDetail(query) {
+    return request({
+      url: '/api/inviteDetail',
+      method: 'post',
+      data: query
+    });
+  }
