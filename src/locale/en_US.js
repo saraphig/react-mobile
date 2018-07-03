@@ -718,7 +718,7 @@ const enUS = {
 	'download.install': 'Install',
 	'usercenter.feeback': 'commission ≈',
 	'download.android': 'Android Install Tutorial',
-	'download.ios': 'ios Install Tutorial',
+	'download.ios': 'iOS Install Tutorial',
 
 	/**
 	 * 404页面
@@ -748,5 +748,6 @@ const enUS = {
 	'candyDetail.specialLink':
 		'\nGood News! TOP.ONE will start Trans-Fee Mining on June.29.\n1. 60% of ONE will be produced by Trans-Fee Mining.\n2. 25% of ONE will be locked for distribution.\n3. The issue price of ONE is 0.03 USDT.\n4. 20% award for early birds.\n5. 8000 Points as award for single\n',
 	code_13008: 'The phone number has been pre registered, can not repeat invitation twice, please delete the invite code.',
+  'download.wait': 'Click Install, then return to desktop and wait a minute~',
 };
 export default enUS;

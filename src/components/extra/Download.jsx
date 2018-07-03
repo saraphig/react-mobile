@@ -194,6 +194,7 @@ class DownloadComp extends React.Component {
 						{formatMessage({ id: 'download.install' })}
 					</span>
 				)}
+        <p className="download-wait">{formatMessage({id: 'download.wait'})}</p>
 				<p
 					className="download-tutorial"
 					onClick={() => this._onClick()}
