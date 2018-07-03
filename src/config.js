@@ -42,7 +42,8 @@ const setLang = () => {
 	let messages;
 
   //提供url给app使用作为webview使用
-	if (window.location.pathname === '/agreement') {
+  const {pathname} = window.location;
+	if (pathname === '/agreement' || pathname === '/download') {
 		console.log(
 			'if the page is not the agreement and show this log error that is big error'
 		);
