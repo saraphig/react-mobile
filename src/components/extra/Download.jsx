@@ -168,7 +168,7 @@ class DownloadComp extends React.Component {
 				<div className="download-info">
 					<p className="download-version">Version：2.0.1</p>
 					<p className="update-time">
-						{formatMessage({ id: 'download.update' })}：2018-07-03
+						{formatMessage({ id: 'download.update' })}：2018-07-04
 					</p>
 				</div>
 				{!this.state.msg ? (
