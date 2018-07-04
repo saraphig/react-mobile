@@ -69,7 +69,7 @@ import NotFound from 'views/extra/404';
 import SuccessPage from 'views/extra/SuccessPage';
 import ErrorPage from 'views/extra/ErrorPage';
 import ResendEmail from 'views/extra/ResendEmail';
-
+import WithPcOpen from 'views/extra/WithPcOpen';
 
 const routes = [
 	{
@@ -148,7 +148,12 @@ const routes = [
 	{
 		path: '/resendEmail',
 		component: ResendEmail
-	}
+	},
+  // 从pc端进入提醒在pc打开
+  {
+    path: '/resetPassword',
+    component: WithPcOpen
+  },
 ];
 
 export default (
