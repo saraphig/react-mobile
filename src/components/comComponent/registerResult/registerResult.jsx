@@ -38,12 +38,12 @@ class RegisterResultComp extends React.Component {
 
 		switch (_displayType) {
 			case 'error':
-				showImg = require('assets/images/fail@2x.png');
+				showImg = require('assets/images/fail@2x.jpg');
 				registerStatus = formatMessage({ id: 'errorPage.status' });
 				showtips = formatMessage({ id: _code });
 				break;
 			case 'success':
-				showImg = require('assets/images/success@2x.png');
+				showImg = require('assets/images/success@2x.jpg');
 				registerStatus = formatMessage({ id: 'successPage.status' });
 				showtips = formatMessage({ id: _code });
 				break;
