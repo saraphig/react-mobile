@@ -65,7 +65,7 @@ class Drawers extends React.Component {
           downLoadUrl:
         //   `${window.location.origin}` +
 		//   'https://static.fortop.site/app/TOPONE2.apk'
-		'http://static.oureth.com/app/TOPONE201.apk'
+		'http://static.oureth.com/app/TOPONE202.apk'
         });
         if (isMsg) {
           this.setState({
