@@ -838,7 +838,8 @@ export class CoinTabs extends React.Component {
 		super(props);
 		this.state = {
 			tabs: [{ title: 'ETH' },
-			       { title: 'USDT' }
+			       { title: 'USDT' },
+			       { title: 'BTC' }
 	    	]
 		};
 	}
@@ -1137,6 +1138,18 @@ export class CoinTabs extends React.Component {
 						</div> */}
 						{/* <ListView data={props.data}/> */}
 						<StatusShow
+							data={this.props.data}
+							sortData={(val, status) =>
+								this.sortData(val, status)
+							}
+							orderStatus={this.props.orderStatus}
+							orderStatus2={this.props.orderStatus2}
+							orderStatus3={this.props.orderStatus3}
+							orderName={this.props.orderName}
+						/>
+					</div>
+					<div>{/* <InformItem /> */}
+					    <StatusShow
 							data={this.props.data}
 							sortData={(val, status) =>
 								this.sortData(val, status)

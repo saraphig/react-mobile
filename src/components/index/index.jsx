@@ -270,11 +270,11 @@ class IndexComp extends React.Component {
 		})
 		let arr = []
 		this.state.dataAll.forEach(el => {
-			// console.log(el.money,'--==--',val)
 			if (el.money === val) {
 				arr.push(el)
 			}
 		})
+		// console.log(arr,'--==--',val)
 		this.setState({
 			data: arr
 		})
