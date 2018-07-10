@@ -299,7 +299,7 @@ class IndexComp extends React.Component {
 					<div style={{ flex: 1 }}>
 						<p className="download-title">TOP.ONE APP</p>
 						<p className="download-info">
-							全语种孵化型数字货币交易所afafaegaegagagagaeg
+							全语种孵化型数字货币交易所
 						</p>
 					</div>
 					<Buttons buttonText="Download" className="download-btn" />
