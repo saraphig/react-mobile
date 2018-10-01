@@ -1,0 +1,196 @@
+@import '../../../styles/base';
+// .home-swiper{
+// margin-top:30px;
+// .center{
+//      height: 191px;
+//      .slick-list{
+//          overflow: inherit;
+//      }
+//      .slick-slide{
+//          margin-top:20px;
+//          height: 150px;
+//          box-shadow:4px 0px 10px rgba(0,78,162,0.13);
+//      }
+//      .slick-slide>div{
+//         height: 150px;
+//         .slider-model{
+//             .slider-model-img{
+//                 float: left;
+//                 width: 50%;
+//                 line-height: 100%;
+//                 text-align: center;
+//                 .icon{
+//                     display: inline-block;
+//                     width: 100%;
+//                 }
+//             }
+//             .slider-model-title{
+//                 float: right;
+//                 width: 50%;
+//                 h6{
+//                     margin: 0px;
+//                     font-weight: 400;
+//                     font-size: 16px;
+//                     color: #004EA2;
+//                 }
+//                 p{
+//                     margin: 0px;
+//                     font-size: 14px;
+//                     color: #898989;
+//                 }
+//             }
+//         }
+//     }
+//     .slick-active{
+//         margin: 0px;
+//         height: 190px;
+//         transition: all 0.3s;
+//         box-shadow:8px 0px 51px rgba(0,78,162,0.13);
+//     }
+//     .slick-active>div{
+//         height: 190px;
+//     }
+//      .a1{
+//          height: 100%;
+//         background:red;
+//     }
+//     .a2{
+//         height: 100%;
+//         background:yellow;
+//     }
+//     .a3{
+//         height: 100%;
+//         background:green;
+//     }
+//     .a4{
+//         height: 100%;
+//         background:blue;
+//     }
+//     .a5{
+//         height: 100%;
+//         background:black;
+//     }
+//  }
+// }
+// .swiper-box{
+//     width: 100%;
+//     background: #fff;
+//     div{
+//         background: red;
+//         text-align: center
+//     }
+// }
+.home-swiper {
+    position: relative;
+    margin-top: 30px;
+    height: 191px;
+    li {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        margin-left: -140px;
+        display: inline-block;
+        width: 280px;
+        height: 191px;
+        box-shadow: 8px 0px 51px rgba(0, 78, 162, 0.13);
+        background: #fff;
+        transition: all 0.8s;
+        .slider-model-img {
+            float: left;
+            margin-top: 20px;
+            width: 50%;
+            line-height: 100%;
+            text-align: center;
+            .icon {
+                display: inline-block;
+                width: 85%;
+            }
+        }
+        .slider-model-title {
+            float: right;
+            width: 50%;
+            margin-top: 20px;
+            text-align: center;
+            h6 {
+                margin: 0px;
+                margin-top: 40px;
+                font-weight: 400;
+                font-size: 16px;
+                color: #004EA2;
+            }
+            p {
+                margin: 0px;
+                margin-top: 10px;
+                font-size: 14px;
+                line-height: 20px;
+                color: #898989;
+            }
+        }
+    }
+    .left-model {
+        top: 20px;
+        margin-left: -170px;
+        height: 150px;
+        z-index: 888;
+        .slider-model-img {
+            .icon {
+                width: 50%;
+            }
+        }
+        .slider-model-title {
+            h6 {
+                font-size: 14px;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+    .right-model {
+        top: 20px;
+        margin-left: -110px;
+        height: 151px;
+        z-index: 888;
+        .slider-model-img {
+            margin-top: 10px;
+            .icon {
+                width: 50%;
+            }
+        }
+        .slider-model-title {
+            margin-top: 10px;
+            h6 {
+                font-size: 14px;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+    .middle-model {
+        left: 50%;
+        top: 0px;
+        left: 50%;
+        margin-left: -140px;
+        z-index: 999;
+    }
+}
+
+.slide-doc {
+    margin-top: 20px;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    span {
+        display: inline-block;
+        height: 6px;
+        width: 6px;
+        margin: 3px;
+        background: #004EA2;
+        border-radius: 3px;
+        opacity: 0.25;
+    }
+    .art {
+        opacity: 1;
+    }
+}

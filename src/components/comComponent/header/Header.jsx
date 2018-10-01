@@ -2,101 +2,75 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Drawer, List, NavBar, Icon } from 'antd-mobile';
-import { getCookie } from 'utils/comFunction';
+import { Popover, NavBar, Icon} from 'antd-mobile';
 import './header.scss';
-
+import logo from 'assets/images/logo.png';
+const Item = Popover.Item;
 class Header extends React.Component {
 	constructor(props) {
 		super();
-		const token = getCookie('token');
 		this.state = {
-			token: token
+			visible: false,
+    		selected: '',
 		};
 	}
-
+	onSelect = (opt) => {
+		// console.log(opt.props.value);
+		this.setState({
+		  visible: false,
+		  selected: opt.props.value,
+		});
+	  };
+	  handleVisibleChange = (visible) => {
+		this.setState({
+		  visible,
+		});
+	  };
 	render() {
-		const {
-			intl: { formatMessage },
-			_open
-		} = this.props;
-		let box1,
-			box2 = null;
+		
 
-		if (!this.state.token) {
-			box1 = (
-				<div>
-					<Link
-						to="/login"
-						className={`${
-							this.props.currentPage == 'login' ? 'active' : null
-						} header-login`}
-					>
-						{formatMessage({ id: 'public.login' })}
-					</Link>
-				</div>
-			);
-			box2 = (
-				<div>
-					<Link
-						to="/register"
-						className={`${
-							this.props.currentPage == 'register'
-								? 'active'
-								: null
-						} header-register`}
-					>
-						{formatMessage({ id: 'login.register' })}
-					</Link>
-				</div>
-			);
-		}
 		return (
-			<div>
-				<div className={`header ${this.props.className}`}>
-					<span className="header-left">
-						{/* <img
-							className="header-topone"
-							src={require('assets/images/TOP.ONE@2x.png')}
-							alt="top.one"
-						/> */}
-						<object data={require('assets/images/logo.svg')} className="header-topone" 
-						type="image/svg+xml"
-				    	/>
-					</span>
-					<span className="header-right">
-						{/* <Link to="/login" className="header-login">{formatMessage({id: 'public.login'})}</Link>
-						<Link to="/register" className="header-register">{formatMessage({id: 'login.register'})}</Link> */}
-						{box1 || <span className="header-login" />}
-						{box2 || <span className="header-register" />}
-						<span className="header-menus">
-							{_open ? (
-								// <svg
-								// 	className="header-menu"
-								// 	aria-hidden="true"
-								// 	onClick={this.props._onClick}
-								// 	filter='red'
-								// >
-								// 	<use xlinkHref="#icon-shouhui" />
-								// </svg>
-								<i
-									className="iconfont icon-shouhui"
-									style={{ color: '#dcb276' }}
-									onClick={this.props._onClick}
-								/>
-							) : (
-								<img
-									className="header-menu"
-									src={require('assets/images/menu@2x.png')}
-									alt="menu"
-									onClick={this.props._onClick}
-								/>
-							)}
-						</span>
-					</span>
-				</div>
-			</div>
-		);
+		<div>
+		<NavBar
+       className='header'
+        mode="light"
+       leftContent={
+          <Popover mask='false'
+            overlayClassName="fortest"
+            overlayStyle={{ color: 'currentColor' }}
+            visible={this.state.visible}
+            overlay={[
+              (<Item key="1" value="home" data-seed="logId" ><a onClick={() => this.props.clickNav('indexTop')}>首页</a></Item>),
+              (<Item key="2" value="product" data-seed="logId"><Link to="/project">产品与服务</Link></Item>),
+              (<Item key="3" value="advantage" data-seed="logId"><Link to="/advantage">竞争优势</Link> </Item>),
+              (<Item key="4" value="cooperation" data-seed="logId" ><a onClick={() => this.props.clickNav('preocess')}>合作流程</a></Item>),
+              (<Item key="5" value="chat" data-seed="logId" ><a onClick={() => this.props.clickNav('contact')}>联系方式</a></Item>)
+			]}	
+			placement={'bottomLeft'}
+            align={{
+              overflow: { adjustY: 0, adjustX: 0 },
+              offset: [0, 0],
+			}}
+			
+            onVisibleChange={this.handleVisibleChange}
+            onSelect={this.onSelect}
+          >
+            <div style={{
+              height: '100%',
+              padding: '0 5px',
+              marginLeft: '0px',
+              display: 'flex',
+			  alignItems: 'center',
+            }}
+            >
+            <i className='iconfont icon-liebiao2'></i>
+            </div>
+          </Popover>
+        }
+      >
+       <img  src={logo}  alt=""/>
+      </NavBar>
+    </div>);
 	}
 }
 export default injectIntl(Header);

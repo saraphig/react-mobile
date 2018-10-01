@@ -1,0 +1,19 @@
+.wave-content{
+    position: relative;
+    background: #5DCFEF url("../../assets/images/banner-bg.png") no-repeat  top center;
+    background-size: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+.title{
+    position: absolute;
+    top:50%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top:-43px;
+    font-size: 30px;
+    font-weight: 400;
+    z-index: 999;
+    letter-spacing: 6px
+}
